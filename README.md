@@ -4,7 +4,7 @@ Standalone documentation repository for the RUNE platform.
 
 ## Purpose
 
-This repository isolates RUNE documentation from application and operator source code so it can be:
+This repository isolates RUNE documentation from application source code so it can be:
 
 - versioned independently
 - published as a MkDocs static site
@@ -14,7 +14,7 @@ Standalone documentation repository for the RUNE platform.
 
 ## Purpose
 
-This repository isolates documentation from application, operator, and chart source code so it can be:
+This repository isolates documentation from application and chart source code so it can be:
 
 - versioned independently
 - published as a MkDocs site

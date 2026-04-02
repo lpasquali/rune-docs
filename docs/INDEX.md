@@ -6,7 +6,7 @@ Standalone documentation site for the RUNE platform.
 
 - product and architecture documentation
 - API compatibility and integration guidance
-- operator and deployment documentation
+- deployment documentation
 - compliance and security posture documents
 - a containerized MkDocs site with CI and quality gates
 
