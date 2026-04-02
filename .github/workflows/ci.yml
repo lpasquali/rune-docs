@@ -21,11 +21,9 @@ jobs:
           python-version: '3.14'
           cache: 'pip'
       - run: |
-          python -m venv .venv
-          . .venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt
-          .venv/bin/mkdocs build --strict
+          mkdocs build --strict
       - uses: actions/upload-artifact@v7
         if: always()
         with:
