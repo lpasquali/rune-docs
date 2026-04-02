@@ -1,30 +1,4 @@
-# rune-docs
-
-Standalone documentation site for the RUNE platform.
-
-## What this repository contains
-
-- product and architecture documentation
-- API compatibility and integration guidance
-- deployment documentation
-- compliance and security posture documents
-- a containerized MkDocs site with CI and quality gates
-
-## Start here
-
-- [Documentation index](INDEX.md)
-- [Architecture](architecture.md)
-- [API compatibility plan](API_COMPATIBILITY_PLAN.md)
-- [Compliance targets](compliance-targets.md)
-
-## Local preview
-
-```bash
-python -m venv .venv
-. .venv/bin/activate
-pip install -r requirements.txt
-mkdocs serve
-```# Ollama Module Refactoring - Complete Documentation Index
+# Ollama Module Refactoring - Complete Documentation Index
 
 ## Quick Navigation
 
