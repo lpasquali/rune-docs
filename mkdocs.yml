@@ -1,0 +1,22 @@
+site_name: rune-docs
+site_description: Documentation for the RUNE platform, operator, APIs, and compliance posture
+site_url: https://github.com/lpasquali/rune-docs
+repo_name: lpasquali/rune-docs
+repo_url: https://github.com/lpasquali/rune-docs
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+nav:
+  - Home: index.md
+  - Docs Index: INDEX.md
+  - Architecture: architecture.md
+  - API Compatibility Plan: API_COMPATIBILITY_PLAN.md
+  - Ollama Quick Reference: OLLAMA_QUICK_REFERENCE.md
+  - Compliance Targets: compliance-targets.md

@@ -1,0 +1,8 @@
+.git
+.github
+.venv
+site
+__pycache__
+.pytest_cache
+.mypy_cache
+sbom
