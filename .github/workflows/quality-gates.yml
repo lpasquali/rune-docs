@@ -129,14 +129,19 @@ jobs:
                               score = max(score, float((((v.get('CVSS') or {}).get(vendor) or {}).get('V3Score')) or 0.0))
                           if score > 0:  # Only report vulnerabilities with scores
                               findings.append((v.get('VulnerabilityID', 'UNKNOWN'), score, bool((v.get('FixedVersion') or '').strip())))
-          blocked = [f for f in findings if f[1] > threshold and f[2]]
+          above_threshold = [f for f in findings if f[1] > threshold]
+          blocked = [f for f in above_threshold if f[2]]
           if blocked:
               print(f"CVE policy violation: {len(blocked)} high-risk fixable vulnerabilities found (threshold: {threshold})")
               for cve, score, _ in blocked[:5]:
                   print(f"  - {cve}: {score}")
               raise SystemExit(1)
           else:
-              print(f"✓ CVE policy passed: {len(findings)} vulnerabilities total, {len(blocked)} above threshold")
+              print(
+                  f"✓ CVE policy passed: {len(findings)} vulnerabilities total, "
+                  f"{len(above_threshold)} above threshold, "
+                  f"{len(blocked)} fixable above threshold"
+              )
           PY
       - name: Attest SBOM provenance — SLSA L3
         uses: actions/attest-build-provenance@v2
@@ -177,11 +182,48 @@ jobs:
           pip-licenses --format=json --with-urls --with-description > licenses-python.json
           python3 - <<'PY'
           import json
-          bad_tokens = ('agpl', 'gplv3', 'gpl-3', 'gpl v3')
+          import re
+
+          blocked_ids = {
+              'AGPL-3.0-ONLY',
+              'AGPL-3.0-OR-LATER',
+              'GPL-3.0-ONLY',
+              'GPL-3.0-OR-LATER',
+          }
+
+          alias_map = {
+              'AGPLV3': 'AGPL-3.0-ONLY',
+              'AGPL V3': 'AGPL-3.0-ONLY',
+              'AGPL-3': 'AGPL-3.0-ONLY',
+              'AGPL-3.0': 'AGPL-3.0-ONLY',
+              'GNU AFFERO GENERAL PUBLIC LICENSE V3': 'AGPL-3.0-ONLY',
+              'GNU AFFERO GENERAL PUBLIC LICENSE VERSION 3': 'AGPL-3.0-ONLY',
+              'GPLV3': 'GPL-3.0-ONLY',
+              'GPL V3': 'GPL-3.0-ONLY',
+              'GPL-3': 'GPL-3.0-ONLY',
+              'GPL-3.0': 'GPL-3.0-ONLY',
+              'GNU GENERAL PUBLIC LICENSE V3': 'GPL-3.0-ONLY',
+              'GNU GENERAL PUBLIC LICENSE VERSION 3': 'GPL-3.0-ONLY',
+          }
+
+          def normalize_license_id(value):
+              text = (value or '').strip().upper()
+              if not text:
+                  return ''
+              text = re.sub(r'\s+', ' ', text)
+              return alias_map.get(text, text)
+
+          def extract_license_ids(value):
+              text = (value or '').strip()
+              if not text:
+                  return set()
+              parts = re.split(r'\s+(?:OR|AND)\s+|[(),;|/]+', text, flags=re.IGNORECASE)
+              return {normalize_license_id(part) for part in parts if normalize_license_id(part)}
+
           blocked = []
           for row in json.load(open('licenses-python.json', encoding='utf-8')):
-              license_text = (row.get('License') or '').lower()
-              if any(token in license_text for token in bad_tokens):
+              license_text = row.get('License') or ''
+              if extract_license_ids(license_text) & blocked_ids:
                   blocked.append((row.get('Name'), row.get('License')))
           if blocked:
               for name, lic in blocked:
