@@ -1,0 +1,250 @@
+name: Quality Gates (Rune Docs)
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+
+jobs:
+  feature-docs:
+    name: RuneGate/Feature/Docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.14'
+          cache: 'pip'
+      - run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          mkdocs build --strict
+
+  linting-docs:
+    name: RuneGate/Linting/Docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.14'
+          cache: 'pip'
+      - run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pymarkdown scan README.md docs
+
+  smoke-docs-container:
+    name: RuneGate/CLI-and-API-Smoke/Docs-Container
+    needs: [feature-docs]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: docker/setup-qemu-action@v4
+      - uses: docker/setup-buildx-action@v4
+      - name: Build multi-arch (amd64 + arm64)
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: false
+          tags: rune-docs:rune-ci-local
+      - name: Load amd64 image and smoke test
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64
+          load: true
+          push: false
+          tags: rune-docs:rune-ci-local
+      - run: |
+          set -euo pipefail
+          docker run -d --rm --name rune-docs-smoke -p 18080:80 rune-docs:rune-ci-local
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:18080/ >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:18080/ >/dev/null
+          docker stop rune-docs-smoke
+
+  security-sbom:
+    name: RuneGate/Security/SBOM-and-CVE-Policy
+    needs: [feature-docs, linting-docs]
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      attestations: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+      - uses: docker/setup-qemu-action@v4
+      - uses: docker/setup-buildx-action@v4
+      - run: docker build -t rune-docs:rune-ci-local -f Dockerfile .
+      - name: Generate SBOM — CycloneDX via Syft
+        run: |
+          set -euo pipefail
+          mkdir -p sbom
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "${PWD}:/work" anchore/syft:v1.17.0 rune-docs:rune-ci-local -o cyclonedx-json=/work/sbom/rune-docs-image.cdx.json
+      - name: Scan SBOM — Grype
+        run: |
+          set -euo pipefail
+          docker run --rm -v "${PWD}:/work" anchore/grype:v0.82.0 sbom:/work/sbom/rune-docs-image.cdx.json -o json > sbom/rune-docs-grype.json || true
+      - name: Scan SBOM — Trivy
+        run: |
+          set -euo pipefail
+          docker run --rm -v "${PWD}:/work" aquasec/trivy:0.65.0 sbom /work/sbom/rune-docs-image.cdx.json --format json --output /work/sbom/rune-docs-trivy.json --severity UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL || true
+      - name: Enforce CVE policy
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          threshold = 8.8
+          findings = []
+          for f in sorted(Path('sbom').glob('*.json')):
+              if not f.exists():
+                  continue
+              data = json.loads(f.read_text(encoding='utf-8'))
+              if 'matches' in data:
+                  for m in data.get('matches', []):
+                      vuln = m.get('vulnerability', {})
+                      fixable = ((vuln.get('fix') or {}).get('state', 'unknown') == 'fixed')
+                      score = 0.0
+                      for c in vuln.get('cvss', []) or []:
+                          score = max(score, float((c.get('metrics') or {}).get('baseScore') or 0.0))
+                      if score > 0:  # Only report vulnerabilities with scores
+                          findings.append((vuln.get('id', 'UNKNOWN'), score, fixable))
+              elif 'Results' in data:
+                  for r in data.get('Results', []) or []:
+                      for v in r.get('Vulnerabilities', []) or []:
+                          score = 0.0
+                          for vendor in ('nvd', 'redhat', 'ghsa'):
+                              score = max(score, float((((v.get('CVSS') or {}).get(vendor) or {}).get('V3Score')) or 0.0))
+                          if score > 0:  # Only report vulnerabilities with scores
+                              findings.append((v.get('VulnerabilityID', 'UNKNOWN'), score, bool((v.get('FixedVersion') or '').strip())))
+          above_threshold = [f for f in findings if f[1] > threshold]
+          blocked = [f for f in above_threshold if f[2]]
+          if blocked:
+              print(f"CVE policy violation: {len(blocked)} high-risk fixable vulnerabilities found (threshold: {threshold})")
+              for cve, score, _ in blocked[:5]:
+                  print(f"  - {cve}: {score}")
+              raise SystemExit(1)
+          else:
+              print(
+                  f"✓ CVE policy passed: {len(findings)} vulnerabilities total, "
+                  f"{len(above_threshold)} above threshold, "
+                  f"{len(blocked)} fixable above threshold"
+              )
+          PY
+      - name: Attest SBOM provenance — SLSA L3
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: sbom/rune-docs-image.cdx.json
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: sbom-security-outputs
+          path: sbom/
+          retention-days: 14
+
+  security-sast:
+    name: RuneGate/Security/SAST
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: aquasecurity/trivy-action@0.35.0
+        with:
+          scan-type: 'fs'
+          format: 'table'
+          exit-code: '1'
+          severity: 'HIGH,CRITICAL'
+          ignore-unfixed: true
+
+  security-licenses:
+    name: RuneGate/Security/LicenseCompliance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.14'
+          cache: 'pip'
+      - run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip-licenses --format=json --with-urls --with-description > licenses-python.json
+          python3 - <<'PY'
+          import json
+          import re
+
+          blocked_ids = {
+              'AGPL-3.0-ONLY',
+              'AGPL-3.0-OR-LATER',
+              'GPL-3.0-ONLY',
+              'GPL-3.0-OR-LATER',
+          }
+
+          alias_map = {
+              'AGPLV3': 'AGPL-3.0-ONLY',
+              'AGPL V3': 'AGPL-3.0-ONLY',
+              'AGPL-3': 'AGPL-3.0-ONLY',
+              'AGPL-3.0': 'AGPL-3.0-ONLY',
+              'GNU AFFERO GENERAL PUBLIC LICENSE V3': 'AGPL-3.0-ONLY',
+              'GNU AFFERO GENERAL PUBLIC LICENSE VERSION 3': 'AGPL-3.0-ONLY',
+              'GPLV3': 'GPL-3.0-ONLY',
+              'GPL V3': 'GPL-3.0-ONLY',
+              'GPL-3': 'GPL-3.0-ONLY',
+              'GPL-3.0': 'GPL-3.0-ONLY',
+              'GNU GENERAL PUBLIC LICENSE V3': 'GPL-3.0-ONLY',
+              'GNU GENERAL PUBLIC LICENSE VERSION 3': 'GPL-3.0-ONLY',
+          }
+
+          def normalize_license_id(value):
+              text = (value or '').strip().upper()
+              if not text:
+                  return ''
+              text = re.sub(r'\s+', ' ', text)
+              return alias_map.get(text, text)
+
+          def extract_license_ids(value):
+              text = (value or '').strip()
+              if not text:
+                  return set()
+              parts = re.split(r'\s+(?:OR|AND)\s+|[(),;|/]+', text, flags=re.IGNORECASE)
+              return {normalize_license_id(part) for part in parts if normalize_license_id(part)}
+
+          blocked = []
+          for row in json.load(open('licenses-python.json', encoding='utf-8')):
+              license_text = row.get('License') or ''
+              if extract_license_ids(license_text) & blocked_ids:
+                  blocked.append((row.get('Name'), row.get('License')))
+          if blocked:
+              for name, lic in blocked:
+                  print(f'BLOCK {name}: {lic}')
+              raise SystemExit(1)
+          PY
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: license-outputs
+          path: licenses-python.json
+          retention-days: 14
+
+  merge-gate:
+    name: Merge Gate
+    if: always()
+    needs: [feature-docs, linting-docs, smoke-docs-container, security-sbom, security-sast, security-licenses]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enforce all required gates
+        run: |
+          for result in "${{ needs.feature-docs.result }}" "${{ needs.linting-docs.result }}" "${{ needs.smoke-docs-container.result }}" "${{ needs.security-sbom.result }}" "${{ needs.security-sast.result }}" "${{ needs.security-licenses.result }}"; do
+            test "$result" = success
+          done

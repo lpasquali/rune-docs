@@ -1,0 +1,27 @@
+site_name: rune-docs
+site_description: Documentation for the RUNE platform, APIs, and compliance posture
+site_url: https://github.com/lpasquali/rune-docs
+repo_name: lpasquali/rune-docs
+repo_url: https://github.com/lpasquali/rune-docs
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+nav:
+  - Home: INDEX.md
+  - Architecture: architecture.md
+  - Deployment Modes: deployment-modes.md
+  - API Compatibility Plan: API_COMPATIBILITY_PLAN.md
+  - Ollama Quick Reference: OLLAMA_QUICK_REFERENCE.md
+  - Compliance Targets: compliance-targets.md
