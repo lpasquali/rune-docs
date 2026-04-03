@@ -177,13 +177,6 @@ persisted to a SQLite volume **and** pushed to
 [SeaweedFS](https://github.com/seaweedfs/seaweedfs) — an Apache 2.0-licensed,
 S3-compatible object store used in production by Kubeflow.
 
-!!! note "Why SeaweedFS instead of MinIO?"
-    MinIO relicensed from Apache 2.0 to **AGPL-3.0** in 2021. Under AGPL, any
-    company distributing or running MinIO as part of a product must either
-    publish the entire product under AGPL-3.0 or purchase MinIO's commercial
-    license (starting at ~$96,000/year). MinIO's GitHub repository was also
-    **archived in February 2026** — no further development.
-    SeaweedFS carries the **Apache 2.0** license with no commercial restrictions.
 
 ```mermaid
 flowchart LR
