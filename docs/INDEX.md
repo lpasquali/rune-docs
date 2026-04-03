@@ -1,25 +1,41 @@
-# Ollama Module Refactoring - Complete Documentation Index
+# RUNE — Reliability Use-case Numeric Evaluator
+
+RUNE is an AI model benchmarking and provisioning platform that runs HolmesGPT
+against Kubernetes clusters, optionally provisioning GPU instances on Vast.ai.
+
+## Installation
+
+The core package (CLI + API server) has no HolmesGPT dependency:
+
+```bash
+pip install rune-bench                  # core only
+pip install rune-bench[holmes]          # + holmesgpt + supabase
+pip install rune-bench[all]             # + all optional extras (holmesgpt, vastai-sdk)
+```
+
+The `[holmes]` extra is only required on the machine that *runs* the holmes
+driver process. The core API server does not need it — HolmesGPT is invoked
+via the [driver layer](drivers.md) as a subprocess.
 
 ## Quick Navigation
 
 ### For Users
 
 - **[Quick Reference Guide](OLLAMA_QUICK_REFERENCE.md)** - Copy-paste examples and common patterns
-- **RUNE README** - Main project documentation
+- **[Deployment Modes](deployment-modes.md)** - CLI-only, Kubernetes, Docker Compose
+- **[Drivers](drivers.md)** - Pluggable agent driver architecture
 
 ### For Developers
 
 - **[Architecture Documentation](architecture.md)** - Design patterns and module reference
 - **[Compliance Targets](compliance-targets.md)** - Explicit security and compliance objectives for the repo
-- **Refactoring Summary** - What changed and why
-- **Before/After Comparison** - Visual comparison of old vs new design
-- **Detailed Refactoring Report** - Complete technical breakdown
+- **[API Compatibility Plan](API_COMPATIBILITY_PLAN.md)** - Versioning and compatibility guarantees
 
 ### Implementation Files
 
-- rune_bench/ollama/client.py - OllamaClient class
-- rune_bench/ollama/models.py - OllamaModelManager class
-- rune_bench/workflows.py - Updated to use new classes
+- rune_bench/backends/ollama.py - OllamaClient and OllamaModelManager classes
+- rune_bench/drivers/ - Pluggable driver transport layer
+- rune_bench/workflows.py - Orchestration logic
 
 ---
 
@@ -79,7 +95,7 @@ normalized = manager.normalize_model_name("ollama/mistral:latest")
 
 ## Getting Started
 
-### Installation
+### Getting started: installation
 
 No additional packages needed - uses Python standard library only.
 

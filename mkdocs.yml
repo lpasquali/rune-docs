@@ -22,6 +22,7 @@ nav:
   - Home: INDEX.md
   - Architecture: architecture.md
   - Deployment Modes: deployment-modes.md
+  - Drivers: drivers.md
   - API Compatibility Plan: API_COMPATIBILITY_PLAN.md
   - Ollama Quick Reference: OLLAMA_QUICK_REFERENCE.md
   - Compliance Targets: compliance-targets.md

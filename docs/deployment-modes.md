@@ -203,3 +203,32 @@ flowchart LR
 
 The `docker-compose.yml` is at the root of the `rune` repository. See its inline
 comments for GPU and production-S3 override instructions.
+
+---
+
+## Driver configuration
+
+All three modes use the driver layer to invoke HolmesGPT. The transport is
+selected per-driver via environment variables.
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `RUNE_HOLMES_DRIVER_MODE` | `stdio` | Transport mode: `stdio` or `http` |
+| `RUNE_HOLMES_DRIVER_CMD` | `python -m rune_bench.drivers.holmes` | Stdio command to spawn (parsed with `shlex.split`) |
+| `RUNE_HOLMES_DRIVER_URL` | — | Base URL for HTTP mode (required when mode is `http`) |
+| `RUNE_HOLMES_DRIVER_TOKEN` | — | Bearer token sent to the HTTP driver server |
+| `RUNE_HOLMES_DRIVER_TENANT` | `default` | Tenant header sent to the HTTP driver server |
+
+In stdio mode (default) the driver subprocess must have `holmesgpt` installed.
+The core rune process does **not** require it.
+
+```bash
+# Override with a custom installed binary
+export RUNE_HOLMES_DRIVER_CMD=rune-holmes-driver
+
+# Use a remote HTTP driver instead of a local subprocess
+export RUNE_HOLMES_DRIVER_MODE=http
+export RUNE_HOLMES_DRIVER_URL=http://holmes-sidecar:8080
+```
+
+See [Drivers](drivers.md) for the full wire protocol and custom driver guide.
