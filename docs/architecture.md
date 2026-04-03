@@ -4,23 +4,23 @@
 
 RUNE is organized in layers:
 
-- CLI layer: [rune/__init__.py](../rune/__init__.py)
+- CLI layer: rune/__init__.py
   - Typer commands
   - Rich rendering
   - interactive confirmation prompt
-- Workflow layer: [rune_bench/workflows.py](../rune_bench/workflows.py)
+- Workflow layer: rune_bench/workflows.py
   - reusable orchestration logic
   - URL normalization and mode selection
   - Vast.ai provisioning workflow
   - Ollama model discovery/warmup orchestration
 - Provider/Domain layer:
-  - [rune_bench/ollama/client.py](../rune_bench/ollama/client.py)
-  - [rune_bench/ollama/models.py](../rune_bench/ollama/models.py)
-  - [rune_bench/vastai/offer.py](../rune_bench/vastai/offer.py)
-  - [rune_bench/vastai/template.py](../rune_bench/vastai/template.py)
-  - [rune_bench/vastai/instance.py](../rune_bench/vastai/instance.py)
-  - [rune_bench/common/models.py](../rune_bench/common/models.py)
-  - [rune_bench/agents/holmes.py](../rune_bench/agents/holmes.py)
+  - rune_bench/ollama/client.py
+  - rune_bench/ollama/models.py
+  - rune_bench/vastai/offer.py
+  - rune_bench/vastai/template.py
+  - rune_bench/vastai/instance.py
+  - rune_bench/common/models.py
+  - rune_bench/agents/holmes.py
 
 This follows a thin-entrypoint pattern used by popular Python CLIs: commands are lightweight and orchestration is importable/testable.
 

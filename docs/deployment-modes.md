@@ -39,7 +39,7 @@ flowchart LR
     CLI -->|"print result to stdout"| U
 ```
 
-**Quick start**
+### Quick start
 
 ```bash
 pip install rune
@@ -111,7 +111,7 @@ flowchart TD
     SA -->|"pods / events / logs"| K8SAPI
 ```
 
-**Quick start**
+### Quick start (Mode 2)
 
 ```bash
 # Install the Helm chart
@@ -176,7 +176,6 @@ rune API server runs in a container; the CLI talks to it over HTTP. Results are
 persisted to a SQLite volume **and** pushed to
 [SeaweedFS](https://github.com/seaweedfs/seaweedfs) — an Apache 2.0-licensed,
 S3-compatible object store used in production by Kubeflow.
-
 
 ```mermaid
 flowchart LR

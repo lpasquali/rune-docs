@@ -16,8 +16,8 @@ It distinguishes between:
 
 Current evidence in the repo:
 
-- provenance attestation permissions in [.github/workflows/quality-gates.yml](../.github/workflows/quality-gates.yml)
-- SBOM provenance attestation step labeled **SLSA L3** in [.github/workflows/quality-gates.yml](../.github/workflows/quality-gates.yml)
+- provenance attestation permissions in .github/workflows/quality-gates.yml
+- SBOM provenance attestation step labeled **SLSA L3** in .github/workflows/quality-gates.yml
 
 Practical meaning for this project:
 
@@ -31,8 +31,8 @@ Practical meaning for this project:
 
 Current evidence in the repo:
 
-- SBOM provenance step labeled **IEC 62443 4-1 ML4 SM-9** in [.github/workflows/quality-gates.yml](../.github/workflows/quality-gates.yml)
-- SAST gate labeled **IEC 62443 4-1 ML4 SI-1 / SVV-1** in [.github/workflows/quality-gates.yml](../.github/workflows/quality-gates.yml)
+- SBOM provenance step labeled **IEC 62443 4-1 ML4 SM-9** in .github/workflows/quality-gates.yml
+- SAST gate labeled **IEC 62443 4-1 ML4 SI-1 / SVV-1** in .github/workflows/quality-gates.yml
 
 Practical meaning for this project:
 
@@ -42,7 +42,7 @@ Practical meaning for this project:
 
 ### Enforced Repository Security Policy
 
-In addition to named frameworks, `rune` explicitly enforces repository-level security controls documented in [SECURITY.md](../SECURITY.md).
+In addition to named frameworks, `rune` explicitly enforces repository-level security controls documented in SECURITY.md.
 
 Current required controls include:
 

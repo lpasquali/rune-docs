@@ -2,21 +2,24 @@
 
 ## Quick Navigation
 
-### 📚 For Users
-- **[Quick Reference Guide](OLLAMA_QUICK_REFERENCE.md)** - Copy-paste examples and common patterns
-- **[RUNE README](../README.md)** - Main project documentation
+### For Users
 
-### 🏗️ For Developers  
+- **[Quick Reference Guide](OLLAMA_QUICK_REFERENCE.md)** - Copy-paste examples and common patterns
+- **RUNE README** - Main project documentation
+
+### For Developers
+
 - **[Architecture Documentation](architecture.md)** - Design patterns and module reference
 - **[Compliance Targets](compliance-targets.md)** - Explicit security and compliance objectives for the repo
-- **[Refactoring Summary](REFACTORING_SUMMARY.md)** - What changed and why
-- **[Before/After Comparison](ARCHITECTURE_COMPARISON.md)** - Visual comparison of old vs new design
-- **[Detailed Refactoring Report](OLLAMA_REFACTORING.md)** - Complete technical breakdown
+- **Refactoring Summary** - What changed and why
+- **Before/After Comparison** - Visual comparison of old vs new design
+- **Detailed Refactoring Report** - Complete technical breakdown
 
-### 🔧 Implementation Files
-- [rune_bench/ollama/client.py](../rune_bench/ollama/client.py) - OllamaClient class
-- [rune_bench/ollama/models.py](../rune_bench/ollama/models.py) - OllamaModelManager class
-- [rune_bench/workflows.py](../rune_bench/workflows.py) - Updated to use new classes
+### Implementation Files
+
+- rune_bench/ollama/client.py - OllamaClient class
+- rune_bench/ollama/models.py - OllamaModelManager class
+- rune_bench/workflows.py - Updated to use new classes
 
 ---
 
@@ -32,8 +35,9 @@ The `rune_bench.ollama` package provides a clean, modular abstraction for intera
 ## Two-Class Architecture
 
 ### OllamaClient
-**Purpose**: Low-level HTTP transport layer  
-**Responsibility**: Communicate with Ollama API endpoints  
+
+**Purpose**: Low-level HTTP transport layer
+**Responsibility**: Communicate with Ollama API endpoints
 **Location**: `rune_bench/ollama/client.py`
 
 ```python
@@ -47,8 +51,9 @@ client.unload_model("llama2:latest")        # Call /api/generate (keep_alive=0)
 ```
 
 ### OllamaModelManager
-**Purpose**: High-level model operations  
-**Responsibility**: Manage model lifecycle with smart defaults  
+
+**Purpose**: High-level model operations
+**Responsibility**: Manage model lifecycle with smart defaults
 **Location**: `rune_bench/ollama/models.py`
 
 ```python
@@ -75,6 +80,7 @@ normalized = manager.normalize_model_name("ollama/mistral:latest")
 ## Getting Started
 
 ### Installation
+
 No additional packages needed - uses Python standard library only.
 
 ```python
@@ -82,6 +88,7 @@ from rune_bench.ollama import OllamaClient, OllamaModelManager
 ```
 
 ### Basic Example
+
 ```python
 # Create a manager for your Ollama server
 manager = OllamaModelManager.create("http://localhost:11434")
@@ -103,6 +110,7 @@ except RuntimeError as e:
 ```
 
 ### CLI Usage
+
 ```bash
 # List available models
 python -m rune ollama-list-models --ollama-url http://localhost:11434
@@ -117,23 +125,27 @@ python -m rune run-benchmark \
 
 ## Documentation Map
 
-### 📖 Main Documentation
+### Main Documentation
+
 1. **[Quick Reference](OLLAMA_QUICK_REFERENCE.md)** - Start here for examples
 2. **[Architecture Design](architecture.md)** - Understanding the design
-3. **[Refactoring Summary](REFACTORING_SUMMARY.md)** - High-level overview of changes
+3. **Refactoring Summary** - High-level overview of changes
 
-### 📊 Detailed Analysis
-4. **[Before/After Comparison](ARCHITECTURE_COMPARISON.md)** - Visual side-by-side
-5. **[Technical Refactoring Report](OLLAMA_REFACTORING.md)** - Complete technical details
+### Detailed Analysis
 
-### 🔍 Reference
-- [OllamaClient API Reference](../rune_bench/ollama/client.py)
-- [OllamaModelManager API Reference](../rune_bench/ollama/models.py)
-- [Updated workflows.py](../rune_bench/workflows.py)
+1. **Before/After Comparison** - Visual side-by-side
+2. **Technical Refactoring Report** - Complete technical details
+
+### Reference
+
+- OllamaClient API Reference - rune_bench/ollama/client.py
+- OllamaModelManager API Reference - rune_bench/ollama/models.py
+- Updated workflows.py - rune_bench/workflows.py
 
 ## Common Use Cases
 
 ### Use Case 1: Check if Model is Available
+
 ```python
 manager = OllamaModelManager.create("http://localhost:11434")
 available = manager.list_available_models()
@@ -142,6 +154,7 @@ if "mistral:latest" in available:
 ```
 
 ### Use Case 2: Pre-load Model Before Use
+
 ```python
 manager = OllamaModelManager.create("http://localhost:11434")
 manager.warmup_model("mistral:latest", unload_others=True)
@@ -149,6 +162,7 @@ manager.warmup_model("mistral:latest", unload_others=True)
 ```
 
 ### Use Case 3: Programmatic Model Selection
+
 ```python
 manager = OllamaModelManager.create("http://localhost:11434")
 available = manager.list_available_models()
@@ -165,6 +179,7 @@ manager.warmup_model(model)
 ```
 
 ### Use Case 4: Test with Mock
+
 ```python
 from unittest.mock import Mock
 from rune_bench.ollama import OllamaModelManager
@@ -178,10 +193,10 @@ assert "test-model" in manager.list_available_models()
 
 ## Backward Compatibility
 
-✓ All existing code continues to work without changes  
-✓ CLI commands unchanged  
-✓ Workflow functions still available (now delegate to classes)  
-✓ Public API unchanged  
+✓ All existing code continues to work without changes
+✓ CLI commands unchanged
+✓ Workflow functions still available (now delegate to classes)
+✓ Public API unchanged
 
 ```python
 # Old code still works:
@@ -203,7 +218,7 @@ warmup_existing_ollama_model("http://localhost:11434", "mistral:latest")
 
 ## File Structure
 
-```
+```text
 rune_bench/
 ├── ollama/                          ← NEW MODULE
 │   ├── __init__.py                  (Exports public API)
@@ -227,13 +242,13 @@ docs/
 
 ## Benefits Summary
 
-✓ **Separation of Concerns**: Transport vs. business logic clearly separated  
-✓ **Code Reuse**: Classes usable in multiple contexts  
-✓ **Testability**: Easy to mock and test in isolation  
-✓ **Maintainability**: Changes in one place benefit all callers  
-✓ **Extensibility**: Add features without modifying existing code  
-✓ **Clarity**: Clear public APIs, hidden implementation details  
-✓ **Error Handling**: Consistent, centralized error messages  
+✓ **Separation of Concerns**: Transport vs. business logic clearly separated
+✓ **Code Reuse**: Classes usable in multiple contexts
+✓ **Testability**: Easy to mock and test in isolation
+✓ **Maintainability**: Changes in one place benefit all callers
+✓ **Extensibility**: Add features without modifying existing code
+✓ **Clarity**: Clear public APIs, hidden implementation details
+✓ **Error Handling**: Consistent, centralized error messages
 
 ## Next Steps
 
@@ -246,16 +261,16 @@ docs/
 ## Questions?
 
 - **How do I use the module?** → See [Quick Reference](OLLAMA_QUICK_REFERENCE.md)
-- **What changed?** → See [Refactoring Summary](REFACTORING_SUMMARY.md)
-- **Why this design?** → See [Architecture Comparison](ARCHITECTURE_COMPARISON.md)
+- **What changed?** → See Refactoring Summary
+- **Why this design?** → See Architecture Comparison
 - **How is it organized?** → See [Architecture Design](architecture.md)
 - **Will my code break?** → No, it's fully backward compatible
 - **How do I test with it?** → See Mock examples in Quick Reference
 
 ---
 
-**Created**: April 2026  
-**Module Status**: ✅ Production Ready  
-**Backward Compatibility**: ✅ 100% Compatible  
-**Test Coverage**: Ready for unit tests  
-**Documentation**: Complete  
+**Created**: April 2026
+**Module Status**: Production Ready
+**Backward Compatibility**: 100% Compatible
+**Test Coverage**: Ready for unit tests
+**Documentation**: Complete

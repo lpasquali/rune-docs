@@ -4,16 +4,6 @@ Standalone documentation repository for the RUNE platform.
 
 ## Purpose
 
-This repository isolates RUNE documentation from application source code so it can be:
-
-- versioned independently
-- published as a MkDocs static site
-# rune-docs
-
-Standalone documentation repository for the RUNE platform.
-
-## Purpose
-
 This repository isolates documentation from application and chart source code so it can be:
 
 - versioned independently

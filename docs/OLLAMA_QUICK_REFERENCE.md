@@ -3,6 +3,7 @@
 ## Quick Start
 
 ### List available models
+
 ```python
 from rune_bench.ollama import OllamaModelManager
 
@@ -12,6 +13,7 @@ print(models)
 ```
 
 ### Check running models
+
 ```python
 manager = OllamaModelManager.create("http://localhost:11434")
 running = manager.list_running_models()
@@ -19,6 +21,7 @@ print(f"Currently running: {running}")
 ```
 
 ### Load a model with automatic cleanup
+
 ```python
 manager = OllamaModelManager.create("http://localhost:11434")
 loaded = manager.warmup_model(
@@ -30,6 +33,7 @@ print(f"Ready: {loaded}")
 ```
 
 ### Direct HTTP client access (advanced)
+
 ```python
 from rune_bench.ollama import OllamaClient
 
@@ -41,6 +45,7 @@ client.unload_model("llama2:latest")
 ```
 
 ### Model name normalization
+
 ```python
 manager = OllamaModelManager.create("http://localhost:11434")
 
@@ -52,16 +57,19 @@ plain = manager.normalize_model_name("ollama/mistral:latest")
 ## CLI Usage
 
 ### List available models on a server
+
 ```bash
 python -m rune ollama-list-models --ollama-url http://localhost:11434
 ```
 
 ### List Vast.ai models
+
 ```bash
 python -m rune vastai-list-models
 ```
 
 ### Run benchmark with warm-up
+
 ```bash
 python -m rune run-benchmark \
     --ollama-url http://localhost:11434 \
@@ -72,7 +80,7 @@ python -m rune run-benchmark \
 
 ## Module Structure
 
-```
+```text
 rune_bench.ollama
 ├── OllamaClient          # Low-level HTTP client
 │   ├── base_url: str
@@ -93,6 +101,7 @@ rune_bench.ollama
 ## Common Patterns
 
 ### Pattern 1: Simple Model Query
+
 ```python
 manager = OllamaModelManager.create("http://localhost:11434")
 available = manager.list_available_models()
@@ -104,6 +113,7 @@ else:
 ```
 
 ### Pattern 2: Warm-up Before Use
+
 ```python
 manager = OllamaModelManager.create("http://localhost:11434")
 
@@ -119,6 +129,7 @@ except RuntimeError as e:
 ```
 
 ### Pattern 3: Batch Operations
+
 ```python
 manager = OllamaModelManager.create("http://localhost:11434")
 
@@ -131,6 +142,7 @@ for model in ["mistral:latest", "llama2:latest"]:
 ```
 
 ### Pattern 4: Testing with Mocks
+
 ```python
 from unittest.mock import Mock
 from rune_bench.ollama import OllamaModelManager
@@ -230,21 +242,24 @@ def get_model_details(self, model_name: str) -> dict:
 ## Troubleshooting
 
 ### "Failed to query available models"
+
 - Check server is running: `curl http://localhost:11434/api/tags`
 - Check URL format: should be `http://hostname:port` or `https://hostname:port`
 - Check network connectivity: `ping hostname`
 
 ### "Timed out waiting for model"
+
 - Model might be very large, increase `timeout_seconds`
 - Check server has enough memory to load model
 - Check server logs for errors
 
 ### "Model not found"
+
 - Verify model name with `manager.list_available_models()`
 - Model names are case-sensitive and include tags (e.g., `mistral:latest`)
 
 ## Documentation
 
 - **API Details**: [docs/architecture.md](architecture.md)
-- **Design Comparison**: [docs/ARCHITECTURE_COMPARISON.md](ARCHITECTURE_COMPARISON.md)
-- **Refactoring Details**: [docs/OLLAMA_REFACTORING.md](OLLAMA_REFACTORING.md)
+- **Design Comparison**: Architecture Comparison
+- **Refactoring Details**: Refactoring Details

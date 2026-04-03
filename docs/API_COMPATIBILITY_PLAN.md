@@ -4,7 +4,7 @@ Goal: keep the current CLI UX unchanged while enabling a cloud-native API backen
 
 ## Command Compatibility Map
 
-Current CLI commands in [rune/__init__.py](../rune/__init__.py):
+Current CLI commands in rune/__init__.py:
 
 - `run-ollama-instance`
 - `run-agentic-agent`
