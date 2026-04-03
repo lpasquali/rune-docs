@@ -1,0 +1,80 @@
+# Deploy MkDocs to GitHub Pages with versioned docs (mike).
+#
+# Triggers:
+#   - push of a tag matching v* (from rune cross-repo tagging)
+#   - workflow_dispatch (manual trigger)
+#
+# Each tag creates a versioned docs snapshot accessible at /v<version>/.
+# The "latest" alias always points to the newest stable release.
+#
+# Prerequisites (one-time setup):
+#   1. In rune-docs repo Settings → Pages: set source to "GitHub Actions"
+#   2. Ensure gh-pages branch exists (created automatically by first deploy)
+
+name: Deploy MkDocs to GitHub Pages
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version alias (e.g. v0.0.0a1)"
+        required: false
+        default: "latest"
+
+permissions:
+  contents: write  # mike needs to push gh-pages branch
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    name: Docs/Deploy-to-Pages
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0  # mike needs full history to manage gh-pages branch
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install MkDocs and mike
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt mike
+
+      - name: Configure git for mike
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Determine version alias
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "alias=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          else
+            echo "alias=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy versioned docs
+        run: |
+          mike deploy --push --update-aliases "${{ steps.version.outputs.alias }}" latest
+          mike set-default --push latest
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
