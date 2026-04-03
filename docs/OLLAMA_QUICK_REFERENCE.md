@@ -5,7 +5,7 @@
 ### List available models
 
 ```python
-from rune_bench.ollama import OllamaModelManager
+from rune_bench.backends.ollama import OllamaModelManager
 
 manager = OllamaModelManager.create("http://localhost:11434")
 models = manager.list_available_models()
@@ -35,7 +35,7 @@ print(f"Ready: {loaded}")
 ### Direct HTTP client access (advanced)
 
 ```python
-from rune_bench.ollama import OllamaClient
+from rune_bench.backends.ollama import OllamaClient
 
 client = OllamaClient("http://localhost:11434")
 models = client.get_available_models()
@@ -44,7 +44,19 @@ client.load_model("mistral:latest")
 client.unload_model("llama2:latest")
 ```
 
-### Model name normalization
+### Model name normalisation
+
+Ollama appends `:latest` when a bare name (without a tag) is requested, so
+`"tinyllama"` appears as `"tinyllama:latest"` in `/api/ps`.
+`OllamaModelManager.warmup_model()` handles this transparently via the
+`_model_in_running()` helper — both the bare name and the `:latest` variant
+are accepted:
+
+```python
+# Both of these correctly detect "tinyllama:latest" in the running-model list:
+manager.warmup_model("tinyllama")           # bare name
+manager.warmup_model("tinyllama:latest")    # explicit tag
+```
 
 ```python
 manager = OllamaModelManager.create("http://localhost:11434")
@@ -81,7 +93,7 @@ python -m rune run-benchmark \
 ## Module Structure
 
 ```text
-rune_bench.ollama
+rune_bench.backends.ollama
 ├── OllamaClient          # Low-level HTTP client
 │   ├── base_url: str
 │   ├── get_available_models() → list[str]
@@ -145,9 +157,7 @@ for model in ["mistral:latest", "llama2:latest"]:
 
 ```python
 from unittest.mock import Mock
-from rune_bench.ollama import OllamaModelManager
-
-# Create a mock client
+from rune_bench.backends.ollama import OllamaModelManager
 mock_client = Mock()
 mock_client.get_available_models.return_value = ["mistral", "llama2"]
 
@@ -161,7 +171,7 @@ assert manager.list_available_models() == ["mistral", "llama2"]
 All methods raise `RuntimeError` with descriptive messages:
 
 ```python
-from rune_bench.ollama import OllamaModelManager
+from rune_bench.backends.ollama import OllamaModelManager
 
 manager = OllamaModelManager.create("http://invalid:99999")
 
@@ -202,16 +212,13 @@ warmup_existing_ollama_model("http://localhost:11434", "mistral:latest")
 ### Adding a new method to OllamaModelManager
 
 ```python
-# In rune_bench/ollama/models.py
+# In rune_bench/backends/ollama.py
 class OllamaModelManager:
     def get_model_info(self, model_name: str) -> dict:
         """Get detailed info about a specific model."""
         models = self.client.get_available_models()
         for m in models:
             if m == model_name or m.startswith(model_name + ":"):
-                # Find full model info from /api/tags
-                # This would require extending OllamaClient.get_available_models()
-                # to return full model objects instead of just names
                 return m
         raise RuntimeError(f"Model {model_name} not found")
 ```
@@ -219,24 +226,16 @@ class OllamaModelManager:
 ### Adding a new method to OllamaClient
 
 ```python
-# In rune_bench/ollama/client.py
+# In rune_bench/backends/ollama.py
 class OllamaClient:
     def get_model_details(self, model_name: str) -> dict:
         """Get raw model info from /api/show endpoint."""
         return self._make_request(
-            f"/api/show",
+            "/api/show",
             method="POST",
             payload={"model": model_name},
             action=f"show model details for {model_name}",
         )
-```
-
-Then use in OllamaModelManager:
-
-```python
-def get_model_details(self, model_name: str) -> dict:
-    """Get detailed info about a specific model."""
-    return self.client.get_model_details(model_name)
 ```
 
 ## Troubleshooting
@@ -256,10 +255,21 @@ def get_model_details(self, model_name: str) -> dict:
 ### "Model not found"
 
 - Verify model name with `manager.list_available_models()`
-- Model names are case-sensitive and include tags (e.g., `mistral:latest`)
+- Model names are case-sensitive; a bare name like `tinyllama` is equivalent to `tinyllama:latest`
+
+## Integration tests
+
+Tests marked `@pytest.mark.integration` in `tests/test_ollama_integration.py`
+spin up a Docker Ollama container and pull TinyLlama.  They run in CI
+(`RuneGate/Ollama-Integration/TinyLlama`) but are skipped locally by default:
+
+```bash
+pytest -m "not integration"    # skip integration tests (default for local dev)
+pytest -m integration          # run integration tests (requires Docker + internet)
+```
+
+The CI job caches Ollama model files between runs to reduce pull time.
 
 ## Documentation
 
 - **API Details**: [docs/architecture.md](architecture.md)
-- **Design Comparison**: Architecture Comparison
-- **Refactoring Details**: Refactoring Details
