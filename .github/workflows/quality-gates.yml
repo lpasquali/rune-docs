@@ -167,6 +167,32 @@ jobs:
           severity: 'HIGH,CRITICAL'
           ignore-unfixed: true
 
+  security-secrets:
+    name: RuneGate/Security/SecretScanning
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: gitleaks — hardcoded credential detection (IEC 62443 4-1 ML4 SM-8)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  security-sast-bandit:
+    name: RuneGate/Security/SAST-Bandit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.14'
+          cache: 'pip'
+      - name: Bandit gate (IEC 62443 4-1 ML4 SI-1)
+        run: |
+          pip install bandit
+          bandit -r docs/ -ll
+
   security-licenses:
     name: RuneGate/Security/LicenseCompliance
     runs-on: ubuntu-latest
@@ -240,11 +266,11 @@ jobs:
   merge-gate:
     name: Merge Gate
     if: always()
-    needs: [feature-docs, linting-docs, smoke-docs-container, security-sbom, security-sast, security-licenses]
+    needs: [feature-docs, linting-docs, smoke-docs-container, security-sbom, security-sast, security-secrets, security-sast-bandit, security-licenses]
     runs-on: ubuntu-latest
     steps:
       - name: Enforce all required gates
         run: |
-          for result in "${{ needs.feature-docs.result }}" "${{ needs.linting-docs.result }}" "${{ needs.smoke-docs-container.result }}" "${{ needs.security-sbom.result }}" "${{ needs.security-sast.result }}" "${{ needs.security-licenses.result }}"; do
+          for result in "${{ needs.feature-docs.result }}" "${{ needs.linting-docs.result }}" "${{ needs.smoke-docs-container.result }}" "${{ needs.security-sbom.result }}" "${{ needs.security-sast.result }}" "${{ needs.security-secrets.result }}" "${{ needs.security-sast-bandit.result }}" "${{ needs.security-licenses.result }}"; do
             test "$result" = success
           done
