@@ -20,6 +20,8 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
 nav:
   - Home: INDEX.md
+  - Guides:
+    - Coffee-to-Industrial: guides/coffee-to-industrial.md
   - Architecture: architecture.md
   - Deployment Modes: deployment-modes.md
   - Drivers: drivers.md
