@@ -34,27 +34,28 @@ jobs:
         id: diff
         run: |
           set -euo pipefail
+          UNKNOWN_CHANGED=$'docs/\nDockerfile\nmkdocs.yml\nREADME.md\nrequirements.txt\n.pymarkdown\n.dockerignore'
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             CHANGED=$(git diff --name-only \
               "${{ github.event.pull_request.base.sha }}" \
-              "${{ github.event.pull_request.head.sha }}" 2>/dev/null || echo ".")
+              "${{ github.event.pull_request.head.sha }}" 2>/dev/null || printf '%s\n' "$UNKNOWN_CHANGED")
           else
             BEFORE="${{ github.event.before }}"
             if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
-              CHANGED="."
+              CHANGED="$UNKNOWN_CHANGED"
             else
-              CHANGED=$(git diff --name-only "$BEFORE" "${{ github.sha }}" 2>/dev/null || echo ".")
+              CHANGED=$(git diff --name-only "$BEFORE" "${{ github.sha }}" 2>/dev/null || printf '%s\n' "$UNKNOWN_CHANGED")
             fi
           fi
           printf '%s\n' "$CHANGED"
-          # docs: content, config, deps, README
-          if printf '%s\n' "$CHANGED" | grep -qE '^(docs/|mkdocs\.yml|README\.md|requirements\.txt)'; then
+          # docs: content, config, deps, README, pymarkdown config
+          if printf '%s\n' "$CHANGED" | grep -qE '^(docs/|mkdocs\.yml|README\.md|requirements\.txt|\.pymarkdown)'; then
             echo "docs=true" >> "$GITHUB_OUTPUT"
           else
             echo "docs=false" >> "$GITHUB_OUTPUT"
           fi
           # docker: image contents only — README is not copied into the image
-          if printf '%s\n' "$CHANGED" | grep -qE '^(Dockerfile|docs/|mkdocs\.yml|requirements\.txt)'; then
+          if printf '%s\n' "$CHANGED" | grep -qE '^(\.dockerignore|Dockerfile|docs/|mkdocs\.yml|requirements\.txt)'; then
             echo "docker=true" >> "$GITHUB_OUTPUT"
           else
             echo "docker=false" >> "$GITHUB_OUTPUT"
@@ -230,7 +231,7 @@ jobs:
   security-sast:
     name: RuneGate/Security/SAST
     needs: [changes]
-    if: needs.changes.outputs.docs == 'true'
+    if: needs.changes.outputs.docs == 'true' || needs.changes.outputs.docker == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
