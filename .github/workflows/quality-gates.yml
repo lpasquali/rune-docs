@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   # ─── Path-change detection ──────────────────────────────────────────────────
   # docs=true  : any docs content, config, or dependencies changed (incl. README)
