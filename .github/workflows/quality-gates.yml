@@ -121,19 +121,19 @@ jobs:
           context: .
           file: ./Dockerfile
           platforms: linux/amd64
-          push: true
-          tags: ghcr.io/lpasquali/rune-docs:ci-${{ github.sha }}-amd64
-          cache-from: type=registry,ref=ghcr.io/lpasquali/rune-docs:buildcache-amd64
-          cache-to: type=registry,ref=ghcr.io/lpasquali/rune-docs:buildcache-amd64,mode=max
+          push: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+          tags: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:ci-${{ github.sha }}-amd64
+          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:buildcache-amd64
+          cache-to: type=registry,ref=ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:buildcache-amd64,mode=max
 
   smoke-docs-container:
     name: RuneGate/CLI-and-API-Smoke/Docs-Container
     needs: [changes, build-image]
-    if: needs.changes.outputs.docker == 'true'
+    if: needs.changes.outputs.docker == 'true' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      packages: read
     steps:
       - uses: actions/checkout@v6
       - uses: docker/setup-buildx-action@v4
@@ -144,8 +144,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Pull pre-built amd64 image
         run: |
-          docker pull ghcr.io/lpasquali/rune-docs:ci-${{ github.sha }}-amd64
-          docker tag  ghcr.io/lpasquali/rune-docs:ci-${{ github.sha }}-amd64 rune-docs:rune-ci-local
+          docker pull ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:ci-${{ github.sha }}-amd64
+          docker tag  ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:ci-${{ github.sha }}-amd64 rune-docs:rune-ci-local
       - run: |
           set -euo pipefail
           docker run -d --rm --name rune-docs-smoke -p 18080:80 rune-docs:rune-ci-local
@@ -161,13 +161,13 @@ jobs:
   security-sbom:
     name: RuneGate/Security/SBOM-and-CVE-Policy
     needs: [changes, build-image]
-    if: needs.changes.outputs.docker == 'true'
+    if: needs.changes.outputs.docker == 'true' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ubuntu-latest
     permissions:
       id-token: write
       attestations: write
       contents: read
-      packages: write
+      packages: read
     steps:
       - uses: actions/checkout@v6
       - uses: docker/login-action@v3
@@ -177,8 +177,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Pull pre-built amd64 image
         run: |
-          docker pull ghcr.io/lpasquali/rune-docs:ci-${{ github.sha }}-amd64
-          docker tag  ghcr.io/lpasquali/rune-docs:ci-${{ github.sha }}-amd64 rune-docs:rune-ci-local
+          docker pull ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:ci-${{ github.sha }}-amd64
+          docker tag  ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:ci-${{ github.sha }}-amd64 rune-docs:rune-ci-local
       - name: Generate SBOM — CycloneDX via Syft
         run: |
           set -euo pipefail
