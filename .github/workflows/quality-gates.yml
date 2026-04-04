@@ -200,11 +200,11 @@ jobs:
       - name: Scan SBOM — Grype
         run: |
           set -euo pipefail
-          docker run --rm -v "${PWD}:/work" anchore/grype:v0.82.0 sbom:/work/sbom/rune-docs-image.cdx.json -o json > sbom/rune-docs-grype.json || true
+          docker run --rm -v "${PWD}:/work" anchore/grype:v0.82.0 sbom:/work/sbom/rune-docs-image.cdx.json --vex /work/.vex/permanent.openvex.json -o json > sbom/rune-docs-grype.json
       - name: Scan SBOM — Trivy
         run: |
           set -euo pipefail
-          docker run --rm -v "${PWD}:/work" aquasec/trivy:0.65.0 sbom /work/sbom/rune-docs-image.cdx.json --format json --output /work/sbom/rune-docs-trivy.json --severity UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL || true
+          docker run --rm -v "${PWD}:/work" aquasec/trivy:0.65.0 sbom /work/sbom/rune-docs-image.cdx.json --vex /work/.vex/permanent.openvex.json --format json --output /work/sbom/rune-docs-trivy.json --severity UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
       - name: Enforce CVE policy
         run: |
           python3 - <<'PY'
