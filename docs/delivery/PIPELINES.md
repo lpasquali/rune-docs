@@ -44,11 +44,5 @@ Branch protection is enforced on `main`:
 
 ### Single-Maintainer ML4 Code Review Exception
 To satisfy the IEC 62443-4-1 ML4 requirement for peer review (the "two-person rule") without requiring a second human:
-
-1. **When a Human (`lpsquali`) Authors the Code**:
-   - **Compensating Control**: The "second reviewer" is entirely fulfilled by the **RuneGate** automated quality pipelines. If the code deterministically passes all strict Quality Gates (100% coverage target, SAST, SCA, and formal TLA+ specs), the pipeline guarantees structural and security integrity, allowing the human to merge.
-
-2. **When an Agent Authors the Code**:
-   - **Compensating Control**: The human maintainer (`lpsquali`) acts as the mandatory "second reviewer." While the pipeline enforces security and test coverage, the human **must** review the PR for business logic, architectural intent, and edge cases before merging. The pipeline *cannot* blindly auto-approve agent-authored code.
-
-- **AI Review Ban**: Generic, non-deterministic AI PR review bots (e.g., Copilot PR reviews) are explicitly **BANNED** from being used as formal compliance evidence, as they cannot provide guaranteed, reproducible security checks.
+- **Compensating Control**: The "second reviewer" is entirely fulfilled by the **RuneGate** automated quality pipelines. A human maintainer (`lpsquali`) is ALWAYS the author of record. Merging a PR that has deterministically passed all strict Quality Gates (100% coverage target, SAST, SCA, SBOM, and formal TLA+ specs) satisfies the objective peer-review requirement. The pipeline guarantees structural and security integrity.
+- **AI Review Ban**: Non-deterministic AI PR review tools (e.g., Copilot PR bots) are explicitly **BANNED** from being used as compliance evidence for code review, as they cannot provide guaranteed, reproducible security checks.
