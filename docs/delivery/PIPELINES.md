@@ -34,6 +34,11 @@ RUNE aligns with **IEC 62443-4-1 ML4** and **SLSA Level 3**:
 - **IEC 62443 4-1 ML4 SM-9**: SBOM provenance attestation.
 - **IEC 62443 4-1 ML4 SI-1 / SVV-1**: Mandatory SAST gates.
 
+### Target of Evaluation (TOE)
+The primary certification boundary for RUNE is **Airgapped Environments**. 
+- **In-Scope**: Only Tier 1 (OSS) components that can be securely bundled and executed offline are subject to the strict 100% test coverage mandate and formal verification.
+- **Out-of-Scope (Best-Effort)**: Tier 2 and Tier 3 external integrations (SaaS, external APIs, and closed-source artifacts) fall outside the strict formal certification boundary. Coverage and integration tests for these components are maintained on a **best-effort basis**, subject to available funding, API access, and community resources.
+
  
 ## Merge Protection
 

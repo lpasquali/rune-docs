@@ -9,6 +9,7 @@
 - **Typing**: Use type hints in Python.
 - **Testing**:
   - **97% is the absolute floor** (CI gate); however, **100% coverage is the expected target** for all new code if achievable.
+  - **TOE Exception (Airgapped)**: Components outside the formal Target of Evaluation (Tier 2/3 SaaS, external APIs) are exempt from the strict 100% coverage mandate. These are tested on a **best-effort basis**.
   - **No "Cheating"**: Coverage must be earned through meaningful tests, including edge cases and error paths. Do not use excessive "happy path" mocking or `pragma: no cover` to artificially inflate scores.
   - Unit tests should be safe/offline (mock boundaries).
   - Manual tests (e.g., cloud resource creation) must be explicitly marked or handled separately.
