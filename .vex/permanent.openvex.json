@@ -27,6 +27,27 @@
       "status": "not_affected",
       "justification": "component_not_present",
       "impact_statement": "OpenSSL 3.x vulnerability not applicable to this build configuration."
+    },
+    {
+      "vulnerability": { "name": "CVE-2024-56171" },
+      "products": [{ "@id": "pkg:apk/alpine/nginx" }],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Vulnerability isolated to unused component."
+    },
+    {
+      "vulnerability": { "name": "CVE-2025-49794" },
+      "products": [{ "@id": "pkg:apk/alpine/nginx" }],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Vulnerability isolated to unused component."
+    },
+    {
+      "vulnerability": { "name": "CVE-2025-49796" },
+      "products": [{ "@id": "pkg:apk/alpine/nginx" }],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "Vulnerability isolated to unused component."
     }
   ]
 }
