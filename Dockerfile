@@ -6,6 +6,6 @@ COPY mkdocs.yml ./
 COPY docs ./docs
 RUN mkdocs build --strict
 
-FROM nginx:1.29-alpine
+FROM nginx:1.27.4-alpine
 COPY --from=build /app/site /usr/share/nginx/html
 EXPOSE 80
