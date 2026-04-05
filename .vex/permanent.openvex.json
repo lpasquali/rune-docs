@@ -3,9 +3,9 @@
   "@id": "https://github.com/lpasquali/rune-docs/blob/main/.vex/permanent.openvex.json",
   "author": "lpasquali",
   "role": "Project Maintainer",
-  "timestamp": "2026-04-04T00:00:00Z",
-  "last_updated": "2026-04-04T00:00:00Z",
-  "version": "1",
+  "timestamp": "2026-04-05T00:00:00Z",
+  "last_updated": "2026-04-05T00:00:00Z",
+  "version": "2",
   "statements": [
     {
       "vulnerability": { "name": "CVE-2005-2541" },
@@ -13,6 +13,20 @@
       "status": "not_affected",
       "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
       "impact_statement": "Debian: intended behaviour, will not fix in any release."
+    },
+    {
+      "vulnerability": { "name": "CVE-2022-48174" },
+      "products": [{ "@id": "pkg:apk/alpine/busybox" }],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_present",
+      "impact_statement": "False positive in alpine busybox."
+    },
+    {
+      "vulnerability": { "name": "CVE-2024-2511" },
+      "products": [{ "@id": "pkg:apk/alpine/openssl" }],
+      "status": "not_affected",
+      "justification": "component_not_present",
+      "impact_statement": "OpenSSL 3.x vulnerability not applicable to this build configuration."
     }
   ]
 }
