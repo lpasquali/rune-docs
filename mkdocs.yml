@@ -49,3 +49,4 @@ nav:
           - "0001: Client/Server Compatibility": architecture/adrs/0001-api-compatibility.md
           - "0002: Cost Estimation": architecture/adrs/0002-cost-estimation.md
           - "0003: UI Design": architecture/adrs/0003-ui-design.md
+          - "0004: Operator Parity": architecture/adrs/0004-operator-feature-parity.md

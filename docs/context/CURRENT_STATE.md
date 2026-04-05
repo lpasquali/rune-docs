@@ -26,6 +26,7 @@ RUNE is currently in active development for its core LLM backends, agentic workf
  
 ## WIP / Next Steps
 
+- **ADR 0004**: Operator Feature Parity. Implement `Agent` routing, `AttestationRequired`, and fail-closed `/v1/estimates` cost gates in the `rune-operator` to align with the core API.
 - Full implementation of ML4 certification evidence.
 - Enhance observability metrics and runbooks.
 - Explore MCP-based driver implementations for Tier 2 agents.
