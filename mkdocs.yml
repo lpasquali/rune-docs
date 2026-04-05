@@ -1,4 +1,4 @@
-site_name: rune-docs
+site_name: RUNE Documentation
 site_description: Documentation for the RUNE platform, APIs, and compliance posture
 site_url: https://github.com/lpasquali/rune-docs
 repo_name: lpasquali/rune-docs
@@ -19,12 +19,30 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 nav:
-  - Home: INDEX.md
-  - Guides:
-    - Coffee-to-Industrial: guides/coffee-to-industrial.md
-  - Architecture: architecture.md
-  - Deployment Modes: deployment-modes.md
-  - Drivers: drivers.md
-  - API Compatibility Plan: API_COMPATIBILITY_PLAN.md
-  - Ollama Quick Reference: OLLAMA_QUICK_REFERENCE.md
-  - Compliance Targets: compliance-targets.md
+  - Home: index.md
+  - Context:
+      - System Prompt: context/SYSTEM_PROMPT.md
+      - Current State: context/CURRENT_STATE.md
+      - Coding Standards: context/CODING_STANDARDS.md
+  - Usage:
+      - Quickstart: usage/QUICKSTART.md
+      - Guide: usage/GUIDE.md
+      - Interfaces: usage/INTERFACES.md
+      - API Specification: usage/API_SPEC.md
+      - Configuration: usage/CONFIGURATION.md
+      - Ollama Reference: usage/OLLAMA_REFERENCE.md
+  - Delivery:
+      - Pipelines: delivery/PIPELINES.md
+      - Releases: delivery/RELEASES.md
+      - Secrets: delivery/SECRETS.md
+  - Operations:
+      - Deployment: operations/DEPLOYMENT.md
+      - Observability: operations/OBSERVABILITY.md
+      - Runbooks: operations/RUNBOOKS.md
+  - Architecture:
+      - System Design: architecture/SYSTEM_DESIGN.md
+      - Infrastructure: architecture/INFRASTRUCTURE.md
+      - ADRs:
+          - 0001: Client/Server Compatibility: architecture/adrs/0001-api-compatibility.md
+          - 0002: Cost Estimation: architecture/adrs/0002-cost-estimation.md
+          - 0003: UI Design: architecture/adrs/0003-ui-design.md

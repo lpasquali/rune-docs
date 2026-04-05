@@ -1,48 +1,36 @@
-# rune-docs
+# RUNE Documentation Hub
 
-Standalone documentation repository for the RUNE platform.
+Welcome to the central documentation for the RUNE platform.
 
-## Purpose
+## 🤖 Context (AI Memory)
+Instructions, state, and rules for LLMs and agents.
+- **[SYSTEM_PROMPT](docs/context/SYSTEM_PROMPT.md)** — Core identity and constraints.
+- **[CURRENT_STATE](docs/context/CURRENT_STATE.md)** — Living memory, WIP, and next steps.
+- **[CODING_STANDARDS](docs/context/CODING_STANDARDS.md)** — Specific stylistic rules.
 
-This repository isolates documentation from application and chart source code so it can be:
+## 📖 Usage
+How to interact with and configure RUNE.
+- **[QUICKSTART](docs/usage/QUICKSTART.md)** — Getting started locally.
+- **[INTERFACES](docs/usage/INTERFACES.md)** — CLI commands and API endpoints.
+- **[CONFIGURATION](docs/usage/CONFIGURATION.md)** — Environment variables and files.
 
-- versioned independently
-- published as a MkDocs site
-- shipped as a container image
-- protected by dedicated CI, security, and quality gates
+## 🚀 Delivery
+How RUNE is built, tested, and shipped.
+- **[PIPELINES](docs/delivery/PIPELINES.md)** — CI/CD and automated testing.
+- **[RELEASES](docs/delivery/RELEASES.md)** — Versioning and artifact publishing.
+- **[SECRETS](docs/delivery/SECRETS.md)** — Security and compliance policy.
 
-## Contents
+## ⚙️ Operations
+How RUNE is hosted and maintained.
+- **[DEPLOYMENT](docs/operations/DEPLOYMENT.md)** — Hosting modes and provisioning.
+- **[OBSERVABILITY](docs/operations/OBSERVABILITY.md)** — Metrics and logging.
+- **[RUNBOOKS](docs/operations/RUNBOOKS.md)** — Incident response checklists.
 
-- `docs/` — source Markdown for the documentation site
-- `mkdocs.yml` — MkDocs navigation and theme configuration
-- `Dockerfile` — containerized docs build and runtime image
-- `.github/workflows/` — CI and quality/security gates for docs
+## 🏗️ Architecture
+How RUNE is designed internally.
+- **[SYSTEM_DESIGN](docs/architecture/SYSTEM_DESIGN.md)** — Component diagrams and layout.
+- **[INFRASTRUCTURE](docs/architecture/INFRASTRUCTURE.md)** — Networking and dependencies.
+- **[ADRs](docs/architecture/adrs/0001-api-compatibility.md)** — Architecture Decision Records.
 
-## Included Documentation
-
-- [Docs index](docs/INDEX.md)
-- [Architecture](docs/architecture.md)
-- [API compatibility plan](docs/API_COMPATIBILITY_PLAN.md)
-- [Ollama quick reference](docs/OLLAMA_QUICK_REFERENCE.md)
-- [Compliance targets](docs/compliance-targets.md)
-
-## Local Development
-
-```bash
-python -m venv .venv
-. .venv/bin/activate
-pip install -r requirements.txt
-mkdocs serve
-```
-
-## Local Container Build
-
-```bash
-docker build -t rune-docs:local .
-docker run --rm -p 18080:80 rune-docs:local
-```
-
-## Security and Compliance
-
-See [SECURITY.md](SECURITY.md).
-See [docs/compliance-targets.md](docs/compliance-targets.md) for the explicitly declared repository targets.
+---
+*For repository-specific READMEs, see the respective project folders.*
