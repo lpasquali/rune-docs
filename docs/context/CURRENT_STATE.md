@@ -10,7 +10,7 @@
 
 ## Living Memory
 
-RUNE is currently in production-ready status for its core Ollama and Vast.ai integration.
+RUNE is currently in the **IVVQ** (Integration, Verification, Validation, and Qualification) phase for its core Ollama and Vast.ai integration. It is **not yet production-ready**.
 
  
 ## Recent Changes
