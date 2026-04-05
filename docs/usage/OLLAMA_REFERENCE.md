@@ -1,7 +1,9 @@
+ 
 # OLLAMA_REFERENCE
 
 Quick reference for the Ollama integration module.
 
+ 
 ## Quick Start
 
 ### List available models
@@ -34,6 +36,7 @@ loaded = manager.warmup_model(
 print(f"Ready: {loaded}")
 ```
 
+ 
 ## CLI Usage
 
 ### List available models on a server
@@ -52,11 +55,13 @@ python -m rune run-benchmark \
     --ollama-warmup-timeout 90
 ```
 
+ 
 ## Module Structure
 
 - **`OllamaClient`**: Low-level HTTP transport.
 - **`OllamaModelManager`**: High-level model lifecycle operations.
 
+ 
 ## Testing with Mocks
 
 ```python
@@ -65,7 +70,9 @@ from rune_bench.backends.ollama import OllamaModelManager
 mock_client = Mock()
 mock_client.get_available_models.return_value = ["mistral", "llama2"]
 
+ 
 # Test with mock
+
 manager = OllamaModelManager(client=mock_client)
 assert manager.list_available_models() == ["mistral", "llama2"]
 ```

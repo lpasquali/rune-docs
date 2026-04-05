@@ -1,7 +1,9 @@
+ 
 # INTERFACES
 
 Commands, endpoints, and payloads for interacting with RUNE.
 
+ 
 ## CLI Commands
 
 `python -m rune` provides the following primary commands:
@@ -12,6 +14,7 @@ Commands, endpoints, and payloads for interacting with RUNE.
 - `vastai-list-models`: List configured Vast.ai model catalog.
 - `ollama-list-models`: List models exposed by an existing Ollama server.
 
+ 
 ## CLI Options Summary
 
 ### Shared Agent Options
@@ -27,6 +30,7 @@ Commands, endpoints, and payloads for interacting with RUNE.
 - `--vastai-min-dph`, `--vastai-max-dph`: Dollars-per-hour range.
 - `--vastai-reliability`: Minimum machine reliability percentage.
 
+ 
 ## API Server (HTTP Mode)
 
 Run the server with `python -m rune.api`.
@@ -46,9 +50,12 @@ Run the server with `python -m rune.api`.
 - `X-API-Key: <key>`
 - `X-Tenant-ID: <tenant>`
 
+ 
 ## REST API Reference
+
 For a formal definition of all endpoints and request/reponse schemas, see the **[API Specification](API_SPEC.md)**.
 
+ 
 ## Wire Protocol (Driver Layer)
 
 HolmesGPT is invoked via the `DriverTransport` layer.

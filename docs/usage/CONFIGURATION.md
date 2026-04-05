@@ -1,7 +1,9 @@
+ 
 # CONFIGURATION
 
 Environment variables and configuration files for RUNE.
 
+ 
 ## Environment Variables
 
 ### Core Configuration
@@ -41,6 +43,7 @@ Environment variables and configuration files for RUNE.
 | `RUNE_S3_PREFIX` | `results/` | S3 key prefix. |
 | `RUNE_S3_ENDPOINT` | — | S3-compatible endpoint (e.g., MinIO or SeaweedFS). |
 
+ 
 ## Configuration Files
 
 - `~/.kube/config`: Standard Kubernetes configuration.

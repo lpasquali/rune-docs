@@ -1,8 +1,11 @@
+ 
 # SYSTEM_DESIGN
 
 Mermaid.js diagrams and system boundaries for RUNE.
 
+ 
 ## High-Level Architecture
+
 RUNE is a multi-layered platform for AI benchmarking and provisioning.
 
 ```mermaid
@@ -45,7 +48,9 @@ flowchart TD
     WF --> MET
 ```
 
+ 
 ## Repository Layout
+
 - **`rune/`**: The core engine.
   - `rune/`: CLI and API entrypoints.
   - `rune_bench/`: Core business logic (Workflows, Drivers, Backends, Resources).
@@ -54,7 +59,9 @@ flowchart TD
 - **`rune-charts/`**: Helm charts for all components.
 - **`rune-docs/`**: Centralized documentation hub (SSOT).
 
+ 
 ## Agent Support & Licensing Matrix
+
 RUNE maintains a "Clean Room" policy for all agent integrations.
 
 ```mermaid
@@ -85,6 +92,7 @@ graph TD
 ```
 
 ### Supported Agents & Scopes
+
 | Domain | Tier 1: OSS Native (Bundled) | Tier 2: Community | Tier 3: Closed/COTS (No Bundle) |
 | :--- | :--- | :--- | :--- |
 | **SRE** | K8sGPT, HolmesGPT, Metoro | — | PagerDuty AI, Cleric |
@@ -96,11 +104,14 @@ graph TD
 | **Productivity** | OpenClaw, AutoGPT | Dify | OpenAI Operator, Sierra, Decagon |
 
 ### Emerging Integration Standards
+
 RUNE prioritizes standardized, decoupled protocols for Tier 2 and Tier 3 agents:
 - **MCP (Model Context Protocol)**: Universal standard for connecting agents to data/tools.
 - **A2A (Agent-to-Agent)**: Protocols for autonomous negotiation between independent agent systems.
 
+ 
 ## Driver Layer Design
+
 HolmesGPT and other agents are decoupled via the `DriverTransport` protocol.
 
 ```mermaid
@@ -113,7 +124,9 @@ flowchart LR
     E --> F
 ```
 
+ 
 ## Job Lifecycle (RuneBenchmark Operator)
+
 The operator manages the lifecycle of scheduled benchmarks.
 
 ```mermaid
@@ -127,7 +140,9 @@ stateDiagram-v2
     Failed --> [*]
 ```
 
+ 
 ## RUNE UI Interaction (HTMX/SSE)
+
 The UI acts as a thin BFF for the RUNE API.
 
 ```mermaid

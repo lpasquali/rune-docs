@@ -35,14 +35,17 @@ nav:
       - Pipelines: delivery/PIPELINES.md
       - Releases: delivery/RELEASES.md
       - Secrets: delivery/SECRETS.md
+      - VEX Register: delivery/VEX.md
   - Operations:
       - Deployment: operations/DEPLOYMENT.md
       - Observability: operations/OBSERVABILITY.md
       - Runbooks: operations/RUNBOOKS.md
+      - Vault Integration: operations/VAULT.md
   - Architecture:
       - System Design: architecture/SYSTEM_DESIGN.md
       - Infrastructure: architecture/INFRASTRUCTURE.md
+      - Formal Specs: architecture/FORMAL_SPECS.md
       - ADRs:
-          - 0001: Client/Server Compatibility: architecture/adrs/0001-api-compatibility.md
-          - 0002: Cost Estimation: architecture/adrs/0002-cost-estimation.md
-          - 0003: UI Design: architecture/adrs/0003-ui-design.md
+          - "0001: Client/Server Compatibility": architecture/adrs/0001-api-compatibility.md
+          - "0002: Cost Estimation": architecture/adrs/0002-cost-estimation.md
+          - "0003: UI Design": architecture/adrs/0003-ui-design.md

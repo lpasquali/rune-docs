@@ -1,3 +1,4 @@
+ 
 # VEX Register — Vulnerability Exception Tracking
 
 This register documents risk-accepted CVEs that are **unfixable** (no upstream patch available)
@@ -10,12 +11,14 @@ Each entry requires:
 - Patch SLA (target date for re-evaluation)
 - Approver
 
+ 
 ## Active exceptions
 
 | CVE ID | CVSS | Package | Justification | Patch SLA | Approver |
 |--------|------|---------|---------------|-----------|----------|
 | _None_ | — | — | — | — | — |
 
+ 
 ## Closed exceptions
 
 _None._
