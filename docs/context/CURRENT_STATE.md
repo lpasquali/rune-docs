@@ -10,7 +10,7 @@
 
 ## Living Memory
 
-RUNE is currently in active development for its core Ollama and Vast.ai integration. It is **not yet production-ready**.
+RUNE is currently in active development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is **not yet production-ready**.
 
  
 ## Recent Changes
