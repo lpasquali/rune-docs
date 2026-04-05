@@ -5,7 +5,7 @@
   "role": "Project Maintainer",
   "timestamp": "2026-04-05T00:00:00Z",
   "last_updated": "2026-04-05T00:00:00Z",
-  "version": "2",
+  "version": 2,
   "statements": [
     {
       "vulnerability": { "name": "CVE-2005-2541" },
