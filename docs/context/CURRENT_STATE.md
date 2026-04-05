@@ -2,6 +2,12 @@
 # CURRENT_STATE
 
  
+## Incident Log (ML4 Compliance)
+- **Version Baseline Reset**: An erroneous release was previously triggered with incorrect versioning (e.g., `v0.1.0`). To maintain strict ML4 traceability and signed provenance, the ecosystem baseline has been forcefully reset:
+  - `rune`: Verified to be correct at `0.0.0a2`.
+  - All other repositories (`rune-ui`, `rune-operator`, `rune-charts`, etc.): Reset to `0.0.0a0` (or `0.0.0-a0` for Helm charts).
+  - The erroneous tags (`v0.1.0`) will be marked as "Yanked" or "Pre-release" in GitHub Releases to preserve the immutable audit log without polluting the release lineage. Future proper releases of 0.1.0 must use a distinct tag like `v0.1.0-final`.
+
 ## Living Memory
 
 RUNE is currently in production-ready status for its core Ollama and Vast.ai integration.
