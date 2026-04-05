@@ -41,3 +41,8 @@ Branch protection is enforced on `main`:
 - Require status checks to pass before merging.
 - `Merge Gate` is a required status check.
 - Fixable vulnerabilities with CVSS > 8.8 block the merge.
+
+### Single-Maintainer ML4 Code Review Exception
+To satisfy the IEC 62443-4-1 ML4 requirement for peer review (the "two-person rule") without requiring a second human or relying on AI reviewers:
+- **Compensating Control**: The "second reviewer" is entirely fulfilled by the **RuneGate** automated quality pipelines. A human maintainer (`lpsquali`) merging a PR that has passed all required, immutable automated checks (100% coverage target, SAST, SCA, and formal TLA+ specs) satisfies the compliance requirement.
+- **AI Review Ban**: Non-deterministic AI PR review tools (e.g., Copilot PR reviews) are explicitly **BANNED** from being used as compliance evidence for code review, as they cannot provide guaranteed, reproducible security checks.
