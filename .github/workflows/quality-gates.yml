@@ -391,6 +391,7 @@ jobs:
       - pr-body-check
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v6
       - name: Verify all gates passed or were skipped
         env:
           NEEDS_JSON: ${{ toJson(needs) }}
