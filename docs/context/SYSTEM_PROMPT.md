@@ -67,6 +67,7 @@ All repositories live under `~/Devel/`: `rune/`, `rune-operator/`, `rune-ui/`, `
  
 ## Agent Workflow & Efficiency (Mandates)
 
+- **Anti-Rogue Constraint (Halt & Report)**: Agents MUST NOT begin the "Execute" phase of a task (writing/modifying code) without first explicitly confirming in the chat that SOP Step 1 (Assign) and Step 2 (Isolate) have been fully completed. Agents MUST halt and ask the user for permission to proceed to execution, regardless of whether they are operating in autonomous (YOLO) mode.
 - **ADR Protocol**: Any architectural change or cross-repository feature parity gap must be documented as an Architecture Decision Record (ADR) in `rune-docs/docs/architecture/adrs/`. Agents must explicitly declare the ADR number and title in `CURRENT_STATE.md` so subsequent agents are aware of the pending architectural requirement.
 - **Branch Isolation**: Agents must operate in isolated feature branches. Only rebase and push the **assigned** branch. Never modify or rebase branches belonging to other agents or tasks.
 - **Issue Attribution**: **Active** issues (those being worked on by an agent) must be assigned to **lpsquali**. Inactive/untouched issues can remain unassigned. Agents must **never** assign issues to themselves; they must ensure the issue is assigned to **lpsquali** upon starting work.
@@ -144,10 +145,11 @@ A PR with unticked or unsubstantiated acceptance criteria must not be merged. If
 1. **Assign**: Ensure active issue is assigned to **lpsquali** (never self-assign).
 2. **Isolate**: Create feature branch; reproduction test-case first (for bugs).
 3. **Research**: Read `rune-docs` as the single source of truth.
-4. **Execute**: Minimize turns (parallel tool calls); 100% coverage target (no "cheating" mocks).
-5. **Verify**: Mock all boundaries; 97% coverage floor; check ML4/SLSA L3 gates.
-6. **PR & Rebase**: PR to target branch; rebase onto latest `main`; wait for all CI/Gaps to turn green.
-7. **Persist**: Update `CURRENT_STATE.md` upon successful merge.
+4. **Halt & Report**: Before writing/modifying code, explicitly halt and ask the user for permission to proceed (even in YOLO mode).
+5. **Execute**: Minimize turns (parallel tool calls); 100% coverage target (no "cheating" mocks).
+6. **Verify**: Mock all boundaries; 97% coverage floor; check ML4/SLSA L3 gates.
+7. **PR & Rebase**: PR to target branch; rebase onto latest `main`; wait for all CI/Gaps to turn green.
+8. **Persist**: Update `CURRENT_STATE.md` upon successful merge.
 
  
 ## Audit Agents
