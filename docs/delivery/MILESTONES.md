@@ -87,7 +87,7 @@ gh issue view 121 -R lpasquali/rune
 | Milestone | Target | Significance |
 |---|---|---|
 | **m4** | First beta | Feature-complete enough for external testers. Not production-ready. |
-| **m10+** | First stable release | Production-ready, fully certified (IEC 62443 ML4, SLSA L3). |
+| **m10+** | First stable release | Production-ready, fully compliant and prepared for certification (IEC 62443 ML4, SLSA L3). |
 
 Agents and developers must not assume a stable release is imminent. Current version is `0.0.0a2`. The path to stable is long and intentional — compliance, security, and quality gates will not be rushed.
 
