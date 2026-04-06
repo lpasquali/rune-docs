@@ -66,3 +66,4 @@ nav:
           - "0002: Cost Estimation": architecture/adrs/0002-cost-estimation.md
           - "0003: UI Design": architecture/adrs/0003-ui-design.md
           - "0004: Operator Parity": architecture/adrs/0004-operator-feature-parity.md
+          - "0005: Advanced Cognitive Architecture": architecture/adrs/0005-advanced-cognitive-architecture.md
