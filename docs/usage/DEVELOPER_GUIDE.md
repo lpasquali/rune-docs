@@ -295,7 +295,6 @@ If your change introduces or updates any dependency:
 ```bash
 # Python repos
 pip-audit
-safety check
 
 # Go repos
 govulncheck ./...
