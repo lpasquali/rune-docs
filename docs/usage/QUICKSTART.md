@@ -66,7 +66,4 @@ docker run -it --rm \
  
 ## Local Development Setup
 
-1. Clone the repository.
-2. Create and activate a virtual environment.
-3. Install dependencies: `pip install -r requirements.txt`.
-4. Run tests: `pytest`.
+For full environment setup, build/test/lint commands per repo, and Definition of Done validation steps, see the **[Developer Guide](DEVELOPER_GUIDE.md)**.

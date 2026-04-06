@@ -1,10 +1,21 @@
  
 # VEX Register — Vulnerability Exception Tracking
 
-This register documents risk-accepted CVEs that are **unfixable** (no upstream patch available)
-but exceed the CVSS 8.8 threshold defined in the IEC 62443 4-1 ML4 DM-4 security gate.
+ 
+## Vulnerability Management Policy
 
-Each entry requires:
+The project aims to **close all known vulnerabilities**, not just those above the threshold. The CVSS 8.8 gate is a merge blocker, not a goal.
+
+| Severity | Upstream fix exists | Action |
+|---|---|---|
+| Any | Yes | Fix immediately — no exceptions |
+| Above threshold (CVSS > 8.8) | No | **Fork and patch** the dependency in-house. Track under `dep-security-patch` issue label. Never risk-accept above threshold. |
+| Below threshold (CVSS <= 8.8) | No | Risk acceptance permitted with documented justification (see entry format below). Re-evaluate on Patch SLA date. |
+
+ 
+## Exception Entry Format
+
+Each risk-accepted entry requires:
 - CVE ID and CVSS score
 - Affected package and version
 - Justification for acceptance (exploit path not applicable, mitigating control, etc.)

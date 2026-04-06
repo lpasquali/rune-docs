@@ -34,5 +34,15 @@ Required policy:
 Security policy gate in CI:
 
 - SBOM is generated and scanned by multiple scanners.
-- If any vulnerability has CVSS score > 8.8, CI fails.
+- If any fixable vulnerability has CVSS score > 8.8, CI fails and PR merge is blocked.
 - Because `Merge Gate` is required, PR merge is blocked when CVSS > 8.8 is detected.
+
+## Vulnerability Remediation Policy
+
+The project aims to **close all known vulnerabilities**, not just those above the CVSS 8.8 threshold.
+
+| Scenario | Action |
+|---|---|
+| Upstream fix exists (any severity) | Apply fix immediately — no exceptions |
+| No upstream fix, CVSS > 8.8 | Fork and patch the dependency in-house. Track under `dep-security-patch` issue label. Risk acceptance is never permitted above the threshold. |
+| No upstream fix, CVSS <= 8.8 | Risk acceptance permitted with documented justification in the [VEX Register](docs/delivery/VEX.md). Re-evaluate on Patch SLA date. |

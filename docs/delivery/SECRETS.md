@@ -12,10 +12,13 @@ Security scanning and credential handling for RUNE.
  
 ## Vulnerability Handling
 
-- **Threshold**: CVSS > 8.8 (Critical) blocks merge and release.
+- **Goal**: Close all known vulnerabilities, not just those above the threshold. The CVSS 8.8 gate is a merge blocker, not the target.
+- **Threshold**: CVSS > 8.8 blocks merge and release.
+- **Remediation (fixable)**: Apply the upstream fix immediately — no exceptions regardless of severity.
+- **Remediation (unfixable, above threshold)**: Fork and patch the dependency in-house. Track under `dep-security-patch` issue label. Risk acceptance is **never** permitted above the threshold.
+- **Remediation (unfixable, below threshold)**: Risk acceptance permitted with documented justification in the **[VEX Register](VEX.md)**. Re-evaluate on Patch SLA date.
 - **Reporting**: Report vulnerabilities to `luca@bucaniere.us`.
 - **Patch SLA**: Security vulnerabilities are addressed promptly, usually within 48 hours.
-- **Exceptions**: Unfixable vulnerabilities are tracked in the **[VEX Register](VEX.md)**.
 
  
 ## Repository Policy

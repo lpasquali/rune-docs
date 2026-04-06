@@ -246,6 +246,11 @@ jobs:
                               findings.append((v.get('VulnerabilityID', 'UNKNOWN'), score, bool((v.get('FixedVersion') or '').strip())))
           above_threshold = [f for f in findings if f[1] > threshold]
           blocked = [f for f in above_threshold if f[2] and f[0] not in VENDOR_CONSTRAINED]
+          unfixable_above = [f for f in above_threshold if not f[2] and f[0] not in VENDOR_CONSTRAINED]
+          if unfixable_above:
+              print(f"::warning::dep-security-patch REQUIRED: {len(unfixable_above)} unfixable vulnerabilities above threshold (CVSS > {threshold}) — fork-and-patch required per remediation policy")
+              for cve, score, _ in unfixable_above[:5]:
+                  print(f"  - {cve}: {score} (no upstream fix — must fork and patch, track under dep-security-patch label)")
           if blocked:
               print(f"CVE policy violation: {len(blocked)} high-risk fixable vulnerabilities found (threshold: {threshold})")
               for cve, score, _ in blocked[:5]:
@@ -255,7 +260,8 @@ jobs:
               print(
                   f"✓ CVE policy passed: {len(findings)} vulnerabilities total, "
                   f"{len(above_threshold)} above threshold, "
-                  f"{len(blocked)} fixable above threshold"
+                  f"{len(blocked)} fixable above threshold, "
+                  f"{len(unfixable_above)} unfixable above threshold (dep-security-patch required)"
               )
           PY
       - name: Attest SBOM provenance — SLSA L3
@@ -382,6 +388,7 @@ jobs:
       - security-sast
       - security-secrets
       - security-licenses
+      - pr-body-check
     runs-on: ubuntu-latest
     steps:
       - name: Verify all gates passed or were skipped
@@ -401,6 +408,68 @@ jobs:
               raise SystemExit(1)
           print('All RuneGate checks passed.')
           PY
+
+  # ─── PR Body Compliance Check ─────────────────────────────────────────────────
+
+  pr-body-check:
+    name: RuneGate/Process/PR-Body-Compliance
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR body structure
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+            });
+            const body = pr.data.body || '';
+            const errors = [];
+
+            // Must reference an issue
+            if (!/[Cc]loses?\s+#\d+|[Ff]ixes?\s+#\d+|[Rr]esolves?\s+#\d+/.test(body)) {
+              errors.push('PR must reference an issue (Closes #NNN, Fixes #NNN, or Resolves #NNN)');
+            }
+
+            // Must declare a DoD level
+            if (!/\[x\]\s+\*\*Level\s+[123]/.test(body)) {
+              errors.push('PR must check exactly one DoD level (Level 1, 2, or 3)');
+            }
+
+            // Must have acceptance criteria section with at least one checked item
+            if (!/## Acceptance Criteria Evidence/.test(body)) {
+              errors.push('PR must include "## Acceptance Criteria Evidence" section');
+            }
+
+            // Must address audit checks (either results or "No triggers fired")
+            if (!/## Audit Checks/.test(body)) {
+              errors.push('PR must include "## Audit Checks" section');
+            }
+            if (/## Audit Checks/.test(body) && !/PASS|FAIL|No triggers fired/.test(body)) {
+              errors.push('Audit Checks section must report PASS/FAIL results or state "No triggers fired"');
+            }
+
+            // Must not have any FAIL audit results
+            if (/\|\s*FAIL\s*\|/.test(body)) {
+              errors.push('PR has FAIL audit check results — resolve before merging');
+            }
+
+            // Must have breaking changes section
+            if (!/## Breaking Changes/.test(body)) {
+              errors.push('PR must include "## Breaking Changes" section (write "None" if no breaking changes)');
+            }
+
+            if (errors.length > 0) {
+              const msg = '**PR Body Compliance Check Failed**\n\n' +
+                errors.map(e => `- ❌ ${e}`).join('\n') +
+                '\n\nRefer to the [PR template](.github/PULL_REQUEST_TEMPLATE.md) and [SYSTEM_PROMPT.md](docs/context/SYSTEM_PROMPT.md) for requirements.';
+              core.setFailed(msg);
+              console.log(msg);
+            } else {
+              console.log('PR body compliance check passed.');
+            }
 
   # ─── ML4 Automated Peer Review ───────────────────────────────────────────────
 
