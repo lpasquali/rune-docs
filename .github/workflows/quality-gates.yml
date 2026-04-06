@@ -429,8 +429,8 @@ jobs:
             const errors = [];
 
             // Must reference an issue
-            if (!/[Cc]loses?\s+#\d+|[Ff]ixes?\s+#\d+|[Rr]esolves?\s+#\d+/.test(body)) {
-              errors.push('PR must reference an issue (Closes #NNN, Fixes #NNN, or Resolves #NNN)');
+            if (!/[Cc]loses?\s+#\d+|[Ff]ixes?\s+#\d+|[Rr]esolves?\s+#\d+|[Cc]loses?\s+\S+#\d+|[Ff]ixes?\s+\S+#\d+|[Rr]esolves?\s+\S+#\d+/.test(body)) {
+              errors.push('PR must reference an issue (Closes #NNN, Fixes #NNN, or Resolves #NNN — cross-repo format owner/repo#NNN also accepted)');
             }
 
             // Must declare a DoD level
