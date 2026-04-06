@@ -96,7 +96,10 @@ The scope of validation must be **proportional to the scope of the change**. Not
 Applies to: changes that affect runtime behavior, APIs, drivers, backends, agents, Helm charts, or Dockerfiles.
 
 1. **Run RUNE in docker-compose mode** and test the change end-to-end.
+   - *Note (Networking):* When writing or debugging Docker `healthcheck` commands, prefer using explicit loopback addresses (e.g., `127.0.0.1`) instead of `localhost`.
+   - *Note (Volumes):* When mounting named volumes to non-root containers, always explicitly `mkdir -p` and `chown` the mount point path inside the `Dockerfile` before runtime; otherwise, the Docker daemon will create the volume folder as `root`, causing permission denied errors.
 2. **Run RUNE in kind (Kubernetes) mode** and test the change end-to-end.
+   - *Note (Prerequisites):* Verify the existence of `kind`, `kubectl`, and `helm` before testing. If missing, download and install them headlessly. Images must be loaded into the cluster (`kind load docker-image ...`) before installing the chart.
 3. **Run RUNE in standalone CLI mode** and test the change end-to-end.
 4. **Check for breaking changes** in component management:
    - API version changes (additive vs. breaking).
