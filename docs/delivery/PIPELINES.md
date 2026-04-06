@@ -46,6 +46,8 @@ Branch protection is enforced on `main`:
 - Require status checks to pass before merging.
 - `Merge Gate` is a required status check.
 - Fixable vulnerabilities with CVSS > 8.8 block the merge.
+- Unfixable vulnerabilities with CVSS > 8.8 **must** be remediated by forking and patching the dependency in-house, tracked under a `dep-security-patch` issue label. Risk acceptance is **never** permitted above the threshold.
+- Vulnerabilities below the threshold are targeted for closure. Risk acceptance is permitted only when no upstream fix exists, with documented justification in the [VEX Register](VEX.md).
 
 ### Single-Maintainer ML4 Code Review Exception
 To satisfy the IEC 62443-4-1 ML4 requirement for peer review (the "two-person rule") without requiring a second human:

@@ -49,3 +49,9 @@ Every release artifact is:
 - Scanned for CVEs using **Grype** and **Trivy**.
 - Provenance-attested using **SLSA Level 3** (GitHub Attestations).
 - Verified for license compliance.
+
+**Vulnerability remediation gates release**:
+- All fixable vulnerabilities must be resolved before release — no exceptions.
+- Unfixable vulnerabilities above CVSS 8.8 must be remediated via fork-and-patch (tracked under `dep-security-patch` issue label) before release.
+- Unfixable vulnerabilities below the threshold may be risk-accepted with documented justification in the [VEX Register](VEX.md).
+- A release **must not** ship with any unaddressed vulnerability above the threshold.

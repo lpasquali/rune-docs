@@ -13,6 +13,13 @@
 RUNE is currently in active development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is **not yet production-ready**.
 
  
+## Freshness Policy
+
+This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
+
+Last updated: **2026-04-06**.
+
+ 
 ## Recent Changes
 
 - Consolidated documentation into `rune-docs` from all repositories.
@@ -22,11 +29,22 @@ RUNE is currently in active development for its core LLM backends, agentic workf
 - **Documentation Overhaul**: Updated all Mermaid.js diagrams and agent matrices to reflect the latest 2026 cross-repo architecture (Operator, UI, BFF flows).
 - **2026 Agent Landscape**: Expanded support matrix to include **DevTools/Code** and **Productivity** domains; formally adopted **MCP** and **A2A** as decoupled integration standards.
 - **SSOT Enforcement**: Banned binary diagrams and external state; `rune-docs` is now the definitive project memory.
+- **Developer Onboarding Docs (2026-04-06)**: Added Developer Guide, Workstation Setup (Ubuntu 24.04 LTS), Milestones framework, Documentation Expedite Channel policy. Added tier column to `chains.csv`. Introduced proportional DoD levels (Full / Test Infrastructure / Documentation). Enforced vulnerability remediation policy across all delivery docs.
+- **6 Open Docs PRs (2026-04-05)**: Centralizing docs into rune-docs; all have blocking review comments requiring code fixes before merge.
 
  
-## WIP / Next Steps
+## Active Work
 
-- **ADR 0004**: Operator Feature Parity. Implement `Agent` routing, `AttestationRequired`, and fail-closed `/v1/estimates` cost gates in the `rune-operator` to align with the core API.
+| Repo | Issue | Summary | Status |
+|---|---|---|---|
+| rune-operator | [#31](https://github.com/lpasquali/rune-operator/issues/31) | ADR 0004: Operator Feature Parity (Agent routing, AttestationRequired, fail-closed cost gates) | Open |
+| rune | [#121](https://github.com/lpasquali/rune/issues/121) | Epic: Eliminate Tooling Configuration Bias (ML4 Compliance) | Open — parent of #122, #123, #124, #125 |
+| rune | [#123](https://github.com/lpasquali/rune/issues/123) | Enforce Strict Test Coverage Boundaries in .coveragerc | Open |
+| rune-docs | 6 open PRs | Docs centralization into rune-docs | Blocked — all have review comments requiring fixes (2026-04-05) |
+
+ 
+## Next Steps
+
 - Full implementation of ML4 certification evidence.
 - Enhance observability metrics and runbooks.
 - Explore MCP-based driver implementations for Tier 2 agents.
