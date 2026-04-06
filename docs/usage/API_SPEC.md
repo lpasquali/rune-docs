@@ -11,9 +11,13 @@ The default base URL is `http://localhost:8080`.
  
 ## Authentication
 
-RUNE uses tenant-scoped authentication.
+RUNE uses tenant-scoped authentication with strict security controls.
 - **Header**: `X-Tenant-ID` (optional, defaults to `default`)
 - **Header**: `Authorization: Bearer <token>` or `X-API-Key: <key>`
+- **Storage**: Tokens configured via `RUNE_API_TOKENS` are immediately hashed (SHA-256) in memory on server startup. Plaintext tokens are never stored in memory.
+- **Validation**: Incoming tokens are hashed and compared against stored hashes using constant-time comparison (`hmac.compare_digest`).
+- **Rate Limiting**: Authentication endpoints enforce a strict rate limit. Accumulating 10 failed authentication attempts from a single source IP within a 60-second rolling window will result in a temporary block (HTTP 401).
+
 - **Idempotency**: `Idempotency-Key` (optional for POST jobs)
 
  

@@ -95,7 +95,7 @@ kind delete cluster --name rune-test
  
 ## Mode 4: Kubernetes (Production)
 
-The API server runs as a Kubernetes Deployment via the `rune` Helm chart.
+The API server runs as a Kubernetes Deployment via the `rune` Helm chart. Tokens passed via Helm are securely hashed (SHA-256) by the application before being stored in memory.
 
 ```bash
 helm install rune ./charts/rune \
