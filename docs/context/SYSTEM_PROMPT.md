@@ -1,20 +1,20 @@
- 
+
 # SYSTEM_PROMPT
 
  
 ## Core Identity
 
-RUNE (Reliability Use-case Numeric Evaluator) is an AI model benchmarking and provisioning platform. It orchestrates benchmarkable DevOps/SRE operations, with optional Vast.ai provisioning for Ollama and agentic investigation via HolmesGPT.
+RUNE (Reliability Use-case Numeric Evaluator) is an AI agent benchmarking and compute provisioning platform. It orchestrates benchmarkable operations across 23+ agents spanning SRE, research, cybersecurity, legal/ops, and art/creative domains — with pluggable LLM backends and optional cloud GPU provisioning. RUNE is agent-neutral and backend-neutral by design; no single agent or backend is privileged in code.
 
  
 ## Essential References
 
 Before starting any development task, read these documents in order:
 
-1. **This file** (`SYSTEM_PROMPT.md`) — architecture, constraints, policies, and SOP.
+1. **This file** (`SYSTEM_PROMPT.md`) — architecture, protocols, constraints, and SOP.
 2. **[CURRENT_STATE.md](CURRENT_STATE.md)** — WIP, recent changes, known issues.
-3. **[Workstation Setup](../operations/WORKSTATION.md)** — Ubuntu 24.04 LTS provisioning with all required tooling (Python, Go, Docker, Kind, Helm, kubectl, scanners). Read if on a fresh machine or if a tool is missing.
-4. **[Developer Guide](../usage/DEVELOPER_GUIDE.md)** — repo locations, environment setup, build/test/lint commands per repo, and concrete DoD validation steps (docker-compose, kind, CLI).
+3. **[Workstation Setup](../operations/WORKSTATION.md)** — Ubuntu 24.04 LTS provisioning with all required tooling.
+4. **[Developer Guide](../usage/DEVELOPER_GUIDE.md)** — repo locations, environment setup, build/test/lint commands, DoD validation steps.
 5. **[Coding Standards](CODING_STANDARDS.md)** — language-specific style, coverage floors, tier registry, agent filesystem layout.
 
 All repositories live under `~/Devel/`: `rune/`, `rune-operator/`, `rune-ui/`, `rune-charts/`, `rune-docs/`, `rune-audit/`, `rune-airgapped/`.
@@ -22,12 +22,14 @@ All repositories live under `~/Devel/`: `rune/`, `rune-operator/`, `rune-ui/`, `
  
 ## Core Constraints
 
-- **Decoupling**: HolmesGPT is decoupled via a pluggable driver transport layer.
+- **Agent Neutrality**: Code is agent-neutral. The default agent is a config-level setting (`rune.yaml`), not a code-level assumption. All 23+ agents are equal peers in the registry.
+- **Backend Neutrality**: Code is backend-neutral. The default backend type is a config-level setting (`rune.yaml`), not a code-level assumption. Ollama, OpenAI, Bedrock, and future backends (including Gateway API Inference Extension / k8s-inference) are equal peers.
+- **Decoupling**: All agents are decoupled via the pluggable `DriverTransport` protocol (stdio or HTTP).
 - **Thin Entrypoints**: CLI commands are lightweight; business logic resides in `rune_bench/`.
 - **Reproducibility**: Benchmarks must be fully reproducible and documented.
 - **Security**: Mandatory branch protection, signed provenance (SLSA L3), and vulnerability scanning.
-- **Compatibility**: Maintain backward compatibility for CLI and public APIs.
-- **Cost Safety**: Fail-closed cost estimation gates GPU provisioning. If estimation confidence drops below 95%, the operation is rejected.
+- **Pre-alpha**: Version 0.0.0a4. No backward compatibility guarantees. API shapes may change without notice.
+- **Cost Safety**: Fail-closed cost estimation gates GPU provisioning. If confidence drops below 95%, the operation is rejected. Local-only workflows skip cost gates entirely.
 - **Vulnerability Closure**: Always aim to resolve all known vulnerabilities, not just those above the CVSS 8.8 threshold. Risk acceptance is permitted **only** for vulnerabilities below the threshold where no fix exists. Vulnerabilities above the threshold with no upstream fix **must** be remediated by forking and patching the dependency in-house, tracked under a `dep-security-patch` issue label. See [VEX Register](../delivery/VEX.md) for exception tracking.
 
  
@@ -38,31 +40,173 @@ All repositories live under `~/Devel/`: `rune/`, `rune-operator/`, `rune-ui/`, `
 | CLI (Typer + Rich) | `rune/` | Thin shell only — no business logic |
 | Orchestration | `rune_bench/workflows.py` | All business flow lives here |
 | Agent drivers | `rune_bench/drivers/` | Pluggable transport layer (`DriverTransport`) |
-| Agent runners | `rune_bench/agents/` | Grouped by domain (sre, research, legal, etc.) |
-| LLM backends | `rune_bench/backends/` | Ollama, OpenAI, Bedrock |
-| Resource providers | `rune_bench/resources/` | Vast.ai and existing-Ollama |
+| Agent runners | `rune_bench/agents/` | 23+ agents grouped by domain (sre, research, cybersec, legal, ops, art) |
+| Agent registry | `rune_bench/agents/registry.py` | `get_agent(name, **kwargs)` factory with lazy import |
+| LLM backends | `rune_bench/backends/` | `get_backend(type, url, **kwargs)` factory with lazy import |
+| Resource providers | `rune_bench/resources/` | Vast.ai and existing-backend providers |
+| Catalog | `rune_bench/catalog/defaults/` | `chains.csv` (agent catalog), `scopes.csv` (benchmark scopes) |
+| Config | `rune_bench/common/config.py` | YAML loader with profile support and env-var injection |
+| Cost estimation | `rune_bench/api_contracts.py` | `CostEstimationRequest` / `CostEstimationResponse` |
 | HTTP API | `rune_bench/api_server.py` | stdlib `ThreadingHTTPServer` + SQLite |
 
  
-## Key Protocols
+## Extension Points (Protocols)
 
-- `DriverTransport`: Send action + params to a driver process.
-- `AgentRunner`: Execute an agent investigation and return results.
-- `LLMBackend`: Communicate with an LLM inference endpoint.
-- `LLMResourceProvider`: Provision or locate compute for LLM inference.
+These four protocols are the critical extension points of the platform. All new integrations MUST implement one of these protocols.
+
+### DriverTransport — `rune_bench/drivers/base.py`
+
+Send an action + params to a driver process and return a result dict.
+
+```python
+class DriverTransport(Protocol):
+    def call(self, action: str, params: dict) -> dict: ...
+```
+
+Two implementations: `StdioTransport` (subprocess, JSON over stdin/stdout) and `HttpTransport` (HTTP polling). Factory: `make_driver_transport(driver_name)` resolves via env vars (`RUNE_<NAME>_DRIVER_MODE`, `_CMD`, `_URL`).
+
+### AgentRunner — `rune_bench/agents/base.py`
+
+Execute an agent investigation and return results.
+
+```python
+class AgentRunner(Protocol):
+    def ask(self, question: str, model: str, backend_url: str | None = None) -> str: ...
+```
+
+Supporting types: `AgentConfig` (per-agent auth/endpoint resolution), `AgentResult` (structured output with artifacts and metadata).
+
+### LLMBackend — `rune_bench/backends/base.py`
+
+Communicate with an LLM inference endpoint.
+
+```python
+class LLMBackend(Protocol):
+    @property
+    def base_url(self) -> str: ...
+    def get_model_capabilities(self, model: str) -> ModelCapabilities: ...
+    def list_models(self) -> list[str]: ...
+    def list_running_models(self) -> list[str]: ...
+    def normalize_model_name(self, model_name: str) -> str: ...
+    def warmup(self, model_name: str, *, timeout_seconds: int = 120, ...) -> str: ...
+```
+
+Supporting types: `ModelCapabilities` (context window, max tokens, raw metadata), `BackendCredentials` (api_key, base_url, vendor-specific extras).
+
+### LLMResourceProvider — `rune_bench/resources/base.py`
+
+Provision or locate compute for LLM inference.
+
+```python
+class LLMResourceProvider(Protocol):
+    def provision(self) -> ProvisioningResult: ...
+    def teardown(self, result: ProvisioningResult) -> None: ...
+```
+
+`ProvisioningResult` returns `backend_url` (endpoint) + `model` + `provider_handle` (opaque ID for teardown).
+
+ 
+## Factory Registries
+
+Both agents and backends use the same pattern: custom registrations shadow built-in entries, lazy `importlib.import_module` for built-ins.
+
+### Agent Registry — `rune_bench/agents/registry.py`
+
+```python
+get_agent(name, **kwargs) -> AgentRunner     # Resolve and instantiate
+register_agent(name, factory, required_config=[...])  # Custom override
+list_agents() -> list[str]                   # All known agent names
+```
+
+Resolution: custom registry -> built-in map -> ValueError. Config resolution: `resolve_agent_config(name, kwargs)` merges CLI kwargs with env vars. Missing required config raises RuntimeError with the expected env var name.
+
+### Backend Registry — `rune_bench/backends/__init__.py`
+
+```python
+get_backend(backend_type, base_url, **kwargs) -> LLMBackend  # Resolve and instantiate
+register_backend(name, cls)                  # Custom override
+list_backends() -> list[str]                 # All known backend types
+```
+
+Built-in: `ollama` -> `OllamaBackend`. Planned: `k8s-inference` (Gateway API Inference Extension). Resolution order mirrors the agent registry.
+
+ 
+## Driver Ecosystem
+
+All 23+ agents communicate through `DriverTransport`. Every agent is equal — no agent has special code paths. Agents are classified by tier in `chains.csv`:
+
+| Tier | Meaning | Coverage | Examples |
+|---|---|---|---|
+| 1 | OSS, fully testable | 100% target, measured | K8sGPT, HolmesGPT, LangGraph, PentestGPT, Dagger, CrewAI |
+| 2 | Partial API / freemium | Best-effort, may omit | Metoro, Elicit, ComfyUI, BurpGPT, Consensus |
+| 3 | Closed SaaS, no public API | Protocol-only, excluded | PagerDuty AI, Perplexity, Midjourney, Radiant, Harvey AI |
+
+Scopes: SRE, Research, Art/Creative, Cybersec, Legal/Ops. The `chains.csv` `Scope` column maps to `rune_bench/agents/<scope>/` directories.
+
+ 
+## Catalog System
+
+- **`chains.csv`**: Authoritative agent catalog. Defines agent name, tier, scope, rating, capabilities, and recommended Ollama model. This is the single source of truth for which agents exist and their classification.
+- **`scopes.csv`**: Benchmarking scope definitions with evaluation questions per domain.
+- Both files live in `rune_bench/catalog/defaults/` and are shipped as package data.
+
+ 
+## Config System — `rune.yaml`
+
+Precedence (highest wins):
+
+1. **CLI flags** (`--backend-url`, `--agent`, `--model`, etc.)
+2. **Environment variables** (`RUNE_BACKEND_URL`, `RUNE_MODEL`, etc.)
+3. **Project-level config** (`./rune.yaml` or `./rune.yml`)
+4. **User-level config** (`~/.rune/config.yaml`)
+5. **Built-in defaults** (Typer `default=` values)
+
+Key config fields: `backend_type` (default: `ollama`), `backend_url`, `model`, `agent` (resolved at call site, not hardcoded), `kubeconfig`, `vastai`, profiles.
+
+- **Profiles**: Named config blocks (`production`, `staging`, `local`, `ci`, `test`). Activate via `--profile` or `RUNE_PROFILE`.
+- **Secrets exclusion**: API tokens, `VAST_API_KEY`, and all credentials are intentionally excluded from the YAML schema. They must remain in environment variables.
+- **`rune init`**: Generates a starter `rune.yaml` from `INIT_TEMPLATE`.
+
+### Resolution Hierarchies
+
+- **Agent**: CLI `--agent` -> `rune.yaml` `agent:` field -> error (no silent default in code)
+- **Backend**: CLI `--backend-type` -> `rune.yaml` `backend_type:` field -> error (no silent default in code)
+- **Backend URL**: CLI `--backend-url` -> `rune.yaml` `backend_url:` field -> env `RUNE_BACKEND_URL` -> provisioned dynamically
+
+ 
+## Cost Safety Gates
+
+Cost estimation is fail-closed. The `CostEstimationRequest` / `CostEstimationResponse` contract enforces:
+
+- **Confidence threshold**: If `confidence_score < 0.95`, the operation is rejected.
+- **Cost drivers**: `vastai`, `aws`, `gcp`, `azure`, `local` — each with distinct estimation logic.
+- **Local bypass**: Local-only workflows (`vastai: false`, no cloud provider) skip cost gates entirely.
+- **Local cost model**: Supports TDP-based energy cost estimation for on-premises hardware.
+
+ 
+## API Contracts — `rune_bench/api_contracts.py`
+
+Transport-agnostic dataclasses used by CLI and HTTP API:
+
+- `RunLLMInstanceRequest` — provision an LLM instance (`backend_url`, `backend_type`, Vast.ai parameters)
+- `RunAgenticAgentRequest` — execute an agent query (`agent`, `model`, `backend_url`, `backend_type`)
+- `RunBenchmarkRequest` — full benchmark run (combines provisioning + agent execution)
+- `CostEstimationRequest` / `CostEstimationResponse` — cost gates
+
+All contracts use `backend_url` (not `ollama_url`) and `backend_type` (default `"ollama"`) to remain backend-neutral.
 
  
 ## Conventions & Style
 
-- **API Versioning**: Avoid bumping API versions (e.g., v1 to v2, or v1alpha1 to v1alpha2) unless it is a hard blocker. Prefer additive changes to existing schemas to minimize disruption to users.
 - Raise `RuntimeError` with user-facing messages at boundaries.
 - Normalize URLs in client/workflow helpers.
-- Strip LiteLLM prefixes (`ollama/`) before API calls.
+- Strip LiteLLM prefixes (`ollama/`) before API calls via `normalize_model_name()`.
 - Warmup unloads other running models for deterministic memory.
 - For Vast.ai, prefer reusing matching running instances.
 - Secrets (tokens, keys) must stay in env vars — never in `rune.yaml`.
 - Offline testing: Mock all network/provider boundaries (97% coverage gate).
 - No automated tests for real cloud resources (Vast.ai lifecycle is manual).
+- Optional extras in `pyproject.toml` (`holmes`, `vastai`, `catalog`, `all`, `dev`) keep the base install minimal.
 
  
 ## Agent Workflow & Efficiency (Mandates)
@@ -70,7 +214,7 @@ All repositories live under `~/Devel/`: `rune/`, `rune-operator/`, `rune-ui/`, `
 - **Anti-Rogue Constraint (Halt & Report)**: Agents MUST NOT begin the "Execute" phase of a task (writing/modifying code) without first explicitly confirming in the chat that SOP Step 1 (Assign) and Step 2 (Isolate) have been fully completed. Agents MUST halt and ask the user for permission to proceed to execution, regardless of whether they are operating in autonomous (YOLO) mode.
 - **ADR Protocol**: Any architectural change or cross-repository feature parity gap must be documented as an Architecture Decision Record (ADR) in `rune-docs/docs/architecture/adrs/`. Agents must explicitly declare the ADR number and title in `CURRENT_STATE.md` so subsequent agents are aware of the pending architectural requirement.
 - **Branch Isolation**: Agents must operate in isolated feature branches. Only rebase and push the **assigned** branch. Never modify or rebase branches belonging to other agents or tasks.
-- **Issue Attribution**: **Active** issues (those being worked on by an agent) must be assigned to **lpsquali**. Inactive/untouched issues can remain unassigned. Agents must **never** assign issues to themselves; they must ensure the issue is assigned to **lpsquali** upon starting work.
+- **Issue Attribution**: **Active** issues (those being worked on by an agent) must be assigned to **lpasquali**. Inactive/untouched issues can remain unassigned. Agents must **never** assign issues to themselves; they must ensure the issue is assigned to **lpasquali** upon starting work.
 - **PR Workflow**: When handling Pull Requests, resolve merge conflicts by pulling the latest target branch (e.g., `main`) and rebasing the assigned branch onto it. Always wait for GitHub Actions/CI to finish before merging. **Your PR bodies must strictly match the template**, checking exactly one DoD level and including all required sections (Acceptance Criteria Evidence, Audit Checks, Breaking Changes) or the `pr-body-check` CI gate will fail the build.
 - **Minimal Commands**: Minimize turns by combining independent tool calls in parallel. Use `wait_for_previous: true` only when necessary for sequential dependencies.
 - **Strategic Orchestration**: Use sub-agents (e.g., `codebase_investigator`, `generalist`) to compress complex or repetitive tasks, keeping the main context window lean and efficient.
@@ -145,7 +289,7 @@ A PR with unticked or unsubstantiated acceptance criteria must not be merged. If
  
 ## Standard Operating Procedure (SOP): Issue-to-Merge
 
-1. **Assign**: Ensure active issue is assigned to **lpsquali** (never self-assign).
+1. **Assign**: Ensure active issue is assigned to **lpasquali** (never self-assign).
 2. **Isolate**: Create feature branch; reproduction test-case first (for bugs).
 3. **Research**: Read `rune-docs` as the single source of truth.
 4. **Halt & Report**: Before writing/modifying code, explicitly halt and ask the user for permission to proceed (even in YOLO mode).
@@ -184,15 +328,8 @@ Agents **must** run the appropriate focused check when they detect these changes
 ### Key rules
 
 - **License contamination = always `priority/p0`** — a license problem can invalidate the entire project.
-- Focused checks that FAIL → agent must not open the PR. Resolve or escalate to `lpasquali`.
+- Focused checks that FAIL -> agent must not open the PR. Resolve or escalate to `lpasquali`.
 - Full audits run in the background and do not block other work. Findings become issues for the next milestone.
-
- 
-## Tone & Style
-
-- Professional, technical, and concise.
-- Focus on reliability, automation, and security.
-lock other work. Findings become issues for the next milestone.
 
  
 ## Tone & Style
