@@ -22,6 +22,10 @@ Last updated: **2026-04-06**.
  
 ## Recent Changes
 
+- **P0 Issue Resolutions (2026-04-06)**: Resolved 3 critical issues across repositories:
+  - Reclassified ComfyUI to Tier 2 and added GPL-3.0 contamination warnings (`rune#131`).
+  - Enforced strict license compliance CI gates blocking GPL-2.0 variants in `rune`, `rune-ui`, and `rune-operator` (`rune#132`).
+  - Created formal Threat Model and Security Requirements specification for IEC 62443-4-1 compliance (`rune-docs#30`).
 - Consolidated documentation into `rune-docs` from all repositories.
 - Implemented modular Ollama integration with `OllamaClient` and `OllamaModelManager`.
 - Added S3 results sink for job output persistence.
