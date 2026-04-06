@@ -47,7 +47,7 @@ Last updated: **2026-04-06T12:00Z**.
 | Repo | Issue | Summary | Status |
 |---|---|---|---|
 | rune-operator | [#31](https://github.com/lpasquali/rune-operator/issues/31) | ADR 0004: Operator Feature Parity (Agent routing, AttestationRequired, fail-closed cost gates) | Open |
-| rune | [#121](https://github.com/lpasquali/rune/issues/121) | Epic: Eliminate Tooling Configuration Bias (ML4 Compliance) | Open — #123 ✅, #125 ✅, #122 and #124 remain. Includes active work on Level 1 CVE remediation (`feature/121-level1-cve-remediation`) assigned to @lpasquali. |
+| rune | [#121](https://github.com/lpasquali/rune/issues/121) | Epic: Eliminate Tooling Configuration Bias (ML4 Compliance) | Resolved — PR #179 merged, released v0.0.0a5. |
 | rune-docs | [#57](https://github.com/lpasquali/rune-docs/issues/57) | EPIC: Legal & Licensing Compliance | Open — #133 ✅, #32 ✅, #28 ✅; #38, #40, rune-charts#27 remain |
 
  
