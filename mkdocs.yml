@@ -48,6 +48,8 @@ nav:
       - Runbooks: operations/RUNBOOKS.md
       - Vault Integration: operations/VAULT.md
   - Architecture:
+      - Threat Model: architecture/THREAT_MODEL.md
+      - Security Requirements: architecture/SECURITY_REQUIREMENTS.md
       - System Design: architecture/SYSTEM_DESIGN.md
       - Infrastructure: architecture/INFRASTRUCTURE.md
       - Formal Specs: architecture/FORMAL_SPECS.md
