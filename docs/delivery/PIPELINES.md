@@ -22,7 +22,7 @@ Coverage is enforced at a minimum of **97%** via pytest configuration.
 
 Every PR and merge to `main` triggers a set of quality gates:
 - **SAST**: Static analysis using `bandit` and `ruff`.
-- **SCA**: Dependency scanning using `safety` and `pip-audit`.
+- **SCA**: Dependency scanning using `pip-audit`.
 - **Container Scanning**: `Grype` and `Trivy` for Docker images.
 - **SBOM**: Generation of CycloneDX SBOMs.
 

@@ -71,7 +71,7 @@ All repositories live under `~/Devel/`: `rune/`, `rune-operator/`, `rune-ui/`, `
 - **ADR Protocol**: Any architectural change or cross-repository feature parity gap must be documented as an Architecture Decision Record (ADR) in `rune-docs/docs/architecture/adrs/`. Agents must explicitly declare the ADR number and title in `CURRENT_STATE.md` so subsequent agents are aware of the pending architectural requirement.
 - **Branch Isolation**: Agents must operate in isolated feature branches. Only rebase and push the **assigned** branch. Never modify or rebase branches belonging to other agents or tasks.
 - **Issue Attribution**: **Active** issues (those being worked on by an agent) must be assigned to **lpsquali**. Inactive/untouched issues can remain unassigned. Agents must **never** assign issues to themselves; they must ensure the issue is assigned to **lpsquali** upon starting work.
-- **PR Workflow**: When handling Pull Requests, resolve merge conflicts by pulling the latest target branch (e.g., `main`) and rebasing the assigned branch onto it. Always wait for GitHub Actions/CI to finish before merging.
+- **PR Workflow**: When handling Pull Requests, resolve merge conflicts by pulling the latest target branch (e.g., `main`) and rebasing the assigned branch onto it. Always wait for GitHub Actions/CI to finish before merging. **Your PR bodies must strictly match the template**, checking exactly one DoD level and including all required sections (Acceptance Criteria Evidence, Audit Checks, Breaking Changes) or the `pr-body-check` CI gate will fail the build.
 - **Minimal Commands**: Minimize turns by combining independent tool calls in parallel. Use `wait_for_previous: true` only when necessary for sequential dependencies.
 - **Strategic Orchestration**: Use sub-agents (e.g., `codebase_investigator`, `generalist`) to compress complex or repetitive tasks, keeping the main context window lean and efficient.
 - **Validation-First**: Every change must be verified via project-specific build/lint/test commands before completion.
@@ -96,13 +96,16 @@ The scope of validation must be **proportional to the scope of the change**. Not
 Applies to: changes that affect runtime behavior, APIs, drivers, backends, agents, Helm charts, or Dockerfiles.
 
 1. **Run RUNE in docker-compose mode** and test the change end-to-end.
+   - *Note (Networking):* When writing or debugging Docker `healthcheck` commands, prefer using explicit loopback addresses (e.g., `127.0.0.1`) instead of `localhost`.
+   - *Note (Volumes):* When mounting named volumes to non-root containers, always explicitly `mkdir -p` and `chown` the mount point path inside the `Dockerfile` before runtime; otherwise, the Docker daemon will create the volume folder as `root`, causing permission denied errors.
 2. **Run RUNE in kind (Kubernetes) mode** and test the change end-to-end.
+   - *Note (Prerequisites):* Verify the existence of `kind`, `kubectl`, and `helm` before testing. If missing, download and install them headlessly. Images must be loaded into the cluster (`kind load docker-image ...`) before installing the chart.
 3. **Run RUNE in standalone CLI mode** and test the change end-to-end.
 4. **Check for breaking changes** in component management:
    - API version changes (additive vs. breaking).
    - Persistent data compatibility (SQLite schemas, volume mounts).
    - Cross-component contract changes (DriverTransport, AgentRunner, LLMBackend, LLMResourceProvider).
-5. **Dependency CVE audit**: If the change introduces or updates any dependency, the agent **must** run a vulnerability scan (`pip-audit`, `safety`, `grype`, or equivalent) against the new dependency set **before** opening the PR. If any new CVE is introduced by the change, the agent **must not** open the PR. Instead, the agent must:
+5. **Dependency CVE audit**: If the change introduces or updates any dependency, the agent **must** run a vulnerability scan (`pip-audit`, `grype`, or equivalent) against the new dependency set **before** opening the PR. *Never use `safety` for Python SCA as it is deprecated and paywalled; rely exclusively on `pip-audit`.* If any new CVE is introduced by the change, the agent **must not** open the PR. Instead, the agent must:
    - Attempt to resolve the CVE (upgrade to a patched version, find an alternative dependency, or fork-and-patch).
    - If resolution is not possible, stop and report the CVE exposure to `lpasquali` with the dependency name, CVE ID, CVSS score, and reason resolution failed.
    - A PR that knowingly introduces a new CVE into the project is **never acceptable**.
@@ -183,6 +186,13 @@ Agents **must** run the appropriate focused check when they detect these changes
 - **License contamination = always `priority/p0`** — a license problem can invalidate the entire project.
 - Focused checks that FAIL → agent must not open the PR. Resolve or escalate to `lpasquali`.
 - Full audits run in the background and do not block other work. Findings become issues for the next milestone.
+
+ 
+## Tone & Style
+
+- Professional, technical, and concise.
+- Focus on reliability, automation, and security.
+lock other work. Findings become issues for the next milestone.
 
  
 ## Tone & Style

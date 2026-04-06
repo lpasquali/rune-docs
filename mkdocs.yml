@@ -47,6 +47,14 @@ nav:
       - Observability: operations/OBSERVABILITY.md
       - Runbooks: operations/RUNBOOKS.md
       - Vault Integration: operations/VAULT.md
+  - Security:
+      - Security Development Lifecycle: security/SDL.md
+      - Risk Assessment Methodology: security/RISK_ASSESSMENT.md
+      - Risk Register: security/RISK_REGISTER.md
+      - Penetration Testing: security/PENTEST.md
+      - Fuzz Testing: security/FUZZ_TESTING.md
+      - Incident Response: security/INCIDENT_RESPONSE.md
+      - Container Image Signing: security/IMAGE_SIGNING.md
   - Architecture:
       - Threat Model: architecture/THREAT_MODEL.md
       - Security Requirements: architecture/SECURITY_REQUIREMENTS.md
