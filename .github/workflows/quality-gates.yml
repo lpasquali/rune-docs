@@ -323,6 +323,8 @@ jobs:
           blocked_ids = {
               'AGPL-3.0-ONLY',
               'AGPL-3.0-OR-LATER',
+              'GPL-2.0-ONLY',
+              'GPL-2.0-OR-LATER',
               'GPL-3.0-ONLY',
               'GPL-3.0-OR-LATER',
           }
@@ -334,6 +336,12 @@ jobs:
               'AGPL-3.0': 'AGPL-3.0-ONLY',
               'GNU AFFERO GENERAL PUBLIC LICENSE V3': 'AGPL-3.0-ONLY',
               'GNU AFFERO GENERAL PUBLIC LICENSE VERSION 3': 'AGPL-3.0-ONLY',
+              'GPLV2': 'GPL-2.0-ONLY',
+              'GPL V2': 'GPL-2.0-ONLY',
+              'GPL-2': 'GPL-2.0-ONLY',
+              'GPL-2.0': 'GPL-2.0-ONLY',
+              'GNU GENERAL PUBLIC LICENSE V2': 'GPL-2.0-ONLY',
+              'GNU GENERAL PUBLIC LICENSE VERSION 2': 'GPL-2.0-ONLY',
               'GPLV3': 'GPL-3.0-ONLY',
               'GPL V3': 'GPL-3.0-ONLY',
               'GPL-3': 'GPL-3.0-ONLY',
