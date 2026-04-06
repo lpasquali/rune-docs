@@ -110,7 +110,7 @@ Runs a comprehensive cybersecurity compliance audit against IEC 62443-4-1 ML4 an
 Triggered alongside `legal check:dep` when a dependency changes.
 
 **Scope:**
-- Run `pip-audit`, `safety`, or `govulncheck` against the updated dependency set
+- Run `pip-audit` or `govulncheck` against the updated dependency set
 - Check if the new/bumped package introduces any known CVE
 - Check if the new version drops support for any security fix present in the old version
 - Verify the dependency is pinned appropriately (not floating on `>=` for security-critical packages)

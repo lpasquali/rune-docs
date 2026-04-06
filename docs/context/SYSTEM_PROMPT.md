@@ -102,7 +102,7 @@ Applies to: changes that affect runtime behavior, APIs, drivers, backends, agent
    - API version changes (additive vs. breaking).
    - Persistent data compatibility (SQLite schemas, volume mounts).
    - Cross-component contract changes (DriverTransport, AgentRunner, LLMBackend, LLMResourceProvider).
-5. **Dependency CVE audit**: If the change introduces or updates any dependency, the agent **must** run a vulnerability scan (`pip-audit`, `safety`, `grype`, or equivalent) against the new dependency set **before** opening the PR. If any new CVE is introduced by the change, the agent **must not** open the PR. Instead, the agent must:
+5. **Dependency CVE audit**: If the change introduces or updates any dependency, the agent **must** run a vulnerability scan (`pip-audit`, `grype`, or equivalent) against the new dependency set **before** opening the PR. *Never use `safety` for Python SCA as it is deprecated and paywalled; rely exclusively on `pip-audit`.* If any new CVE is introduced by the change, the agent **must not** open the PR. Instead, the agent must:
    - Attempt to resolve the CVE (upgrade to a patched version, find an alternative dependency, or fork-and-patch).
    - If resolution is not possible, stop and report the CVE exposure to `lpasquali` with the dependency name, CVE ID, CVSS score, and reason resolution failed.
    - A PR that knowingly introduces a new CVE into the project is **never acceptable**.
@@ -183,6 +183,13 @@ Agents **must** run the appropriate focused check when they detect these changes
 - **License contamination = always `priority/p0`** — a license problem can invalidate the entire project.
 - Focused checks that FAIL → agent must not open the PR. Resolve or escalate to `lpasquali`.
 - Full audits run in the background and do not block other work. Findings become issues for the next milestone.
+
+ 
+## Tone & Style
+
+- Professional, technical, and concise.
+- Focus on reliability, automation, and security.
+lock other work. Findings become issues for the next milestone.
 
  
 ## Tone & Style
