@@ -13,6 +13,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   # ─── Path-change detection ──────────────────────────────────────────────────
   # docs=true  : any docs content, config, or dependencies changed (incl. README)
@@ -27,7 +30,7 @@ jobs:
       docs: ${{ steps.diff.outputs.docs }}
       docker: ${{ steps.diff.outputs.docker }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Compute changed paths
@@ -69,7 +72,7 @@ jobs:
     if: needs.changes.outputs.docs == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v6
         with:
           python-version: '3.14'
@@ -85,7 +88,7 @@ jobs:
     if: needs.changes.outputs.docs == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v6
         with:
           python-version: '3.14'
@@ -108,7 +111,7 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
       - uses: docker/setup-buildx-action@v4
       - uses: docker/login-action@v3
         if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
@@ -148,7 +151,7 @@ jobs:
       contents: read
       packages: read
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
       - uses: docker/setup-buildx-action@v4
       - uses: docker/login-action@v3
         with:
@@ -182,7 +185,7 @@ jobs:
       contents: read
       packages: read
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
       - uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -281,7 +284,7 @@ jobs:
     if: needs.changes.outputs.docs == 'true' || needs.changes.outputs.docker == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
       - uses: aquasecurity/trivy-action@0.35.0
         with:
           scan-type: 'fs'
@@ -294,7 +297,7 @@ jobs:
     name: RuneGate/Security/SecretScanning
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: gitleaks/gitleaks-action@v2
@@ -307,7 +310,7 @@ jobs:
     if: needs.changes.outputs.docs == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v6
         with:
           python-version: '3.14'
@@ -399,7 +402,7 @@ jobs:
       - pr-body-check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
       - name: Verify all gates passed or were skipped
         env:
           NEEDS_JSON: ${{ toJson(needs) }}
