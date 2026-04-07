@@ -34,6 +34,23 @@ Last updated: **2026-04-07**.
 
 ### 2026-04-07 — Backend Abstraction & Compliance Session (26+ issues closed)
 
+**CI/CD Hardening (Cross-Repo — Phase 4, Epic rune-docs#83):**
+- **Action Pinning**: All 7 repositories now have GitHub Actions pinned to immutable SHAs for SLSA L3 compliance.
+- **Dependency Bumps**: `actions/github-script` bumped to `@v8`; `actions/checkout@v6` fixed to `@v4` in `rune-operator`.
+- **Dependabot**: All repos verified to monitor `github-actions`.
+
+**Audit Infrastructure (rune-audit — Phase 5):**
+- **Release Workflow** (#20): Added GitHub/PyPI OIDC release workflow with SLSA L3 build attestation.
+- **Python 3.14**: `rune-audit` bumped to Python 3.14 for ecosystem consistency.
+- **Helm Chart** (#23): Created `rune-audit` Helm chart (CronJob) in `rune-charts`.
+
+**Airgapped Bundle (rune-airgapped — Phase 6):**
+- **Manifest Generation** (#15): `build-bundle.sh` now generates `manifest.json` and `SHA256SUMS`.
+- **Compliance Artifacts** (#11): Bundle now collects SBOMs, VEX documents, and SLSA attestations.
+
+**Multi-Agent Expansion (rune core — Phase 7a):**
+- **AgentRunner Generalization** (#85): Protocol updated with `ask_structured()` to support multi-modal `AgentResult` (text, images, structured data). All 23+ drivers updated. CLI and API backend refactored to handle enriched responses.
+
 **Backend Abstraction Completion (rune core — Phase 2a):**
 - **AgentRunner.ask() generalized** (rune#170): Added `backend_type` parameter to protocol and all 22 driver `ask()` methods. Holmes driver now uses `get_backend()` instead of `OllamaClient`.
 - **ProvisioningResult generalized** (rune#171): Added `backend_type` field. Created `ExistingBackendProvider` (replaces `ExistingOllamaProvider`). Vast.ai instance manager uses `get_backend()`.
