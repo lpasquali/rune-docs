@@ -30,7 +30,7 @@ treatment, and reviewed on a regular cadence.
 | R-012 | Repudiation | Incomplete audit trail for Vast.ai instance lifecycle events; manual operations are not logged. | 3 | 3 | 9 | Mitigate | lpasquali | Open | 2026-07-01 |
 | R-013 | Denial of Service | MkDocs documentation site denial of service via resource exhaustion (low impact; static site behind CDN). | 1 | 1 | 1 | Accept | lpasquali | Accepted | 2026-07-01 |
 | R-014 | Supply Chain | Container base image (Python/Go) contains unpatched CVEs. Mitigated by SBOM + Grype/Trivy scanning in CI; unfixable CVEs tracked in VEX. | 3 | 3 | 9 | Mitigate | lpasquali | Open | 2026-07-01 |
-| R-015 | Compliance | IEC 62443-4-1 certification evidence gaps. This risk register and supporting security documents address the documentation gaps. | 2 | 4 | 8 | Mitigate | lpasquali | In Progress | 2026-07-01 |
+| R-015 | Compliance | IEC 62443-4-1 certification evidence gaps. This risk register and supporting security documents are being developed to address the documentation gaps. | 2 | 4 | 8 | Mitigate | lpasquali | In Progress | 2026-07-01 |
 
 ## 3. Risk Score Summary
 
