@@ -165,7 +165,7 @@ jobs:
       packages: read
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-      - uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121 # v4.1.0
+      - uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -278,7 +278,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Validate PR body structure
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             const pr = await github.rest.pulls.get({
@@ -366,7 +366,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Approve PR via Automated Quality Gates
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             // IEC 62443-4-1 ML4 Compensating Control: The automated pipeline acts as the objective peer reviewer.
