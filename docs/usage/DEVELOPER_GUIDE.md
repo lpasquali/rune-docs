@@ -215,7 +215,7 @@ cd ~/Devel/rune
 . .venv/bin/activate
 
 export RUNE_BACKEND=local
-export RUNE_OLLAMA_URL=http://localhost:11434
+export RUNE_BACKEND_URL=http://localhost:11434
 
 # Verify the CLI starts and responds
 python -m rune --help
