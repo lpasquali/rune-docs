@@ -50,11 +50,12 @@ Jobs are processed asynchronously. `POST` returns `202 Accepted` with a `job_id`
 - **Request Body**: `RunBenchmarkRequest`
 - **Response**: `{"job_id": "...", "status": "accepted"}`
 
-#### Run Ollama Instance
+#### Run LLM Instance
 
-`POST /v1/jobs/ollama-instance`
-- **Request Body**: `RunOllamaInstanceRequest`
+`POST /v1/jobs/llm-instance`
+- **Request Body**: `RunLLMInstanceRequest`
 - **Response**: `{"job_id": "...", "status": "accepted"}`
+- **Deprecated alias**: `POST /v1/jobs/ollama-instance` (still functional)
 
 #### Get Job Status
 
@@ -73,10 +74,11 @@ Jobs are processed asynchronously. `POST` returns `202 Accepted` with a `job_id`
 `GET /v1/catalog/vastai-models`
 - **Response**: `{"models": [...]}`
 
-#### List Ollama Models
+#### List LLM Backend Models
 
-`GET /v1/ollama/models?ollama_url=<url>`
-- **Response**: `{"models": [...]}`
+`GET /v1/llm/models?backend_url=<url>&backend_type=ollama`
+- **Response**: `{"backend_url": "...", "backend_type": "ollama", "models": [...], "running_models": [...]}`
+- **Deprecated alias**: `GET /v1/ollama/models?backend_url=<url>` (still functional)
 
 ### Metrics
 
@@ -109,7 +111,7 @@ Jobs are processed asynchronously. `POST` returns `202 Accepted` with a `job_id`
   "reliability": 0.99,
   "question": "What is unhealthy?",
   "model": "llama3.1:8b",
-  "ollama_warmup": true,
+  "backend_warmup": true,
   "vastai_stop_instance": true
 }
 ```

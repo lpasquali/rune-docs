@@ -31,7 +31,7 @@ nav:
       - Interfaces: usage/INTERFACES.md
       - API Specification: usage/API_SPEC.md
       - Configuration: usage/CONFIGURATION.md
-      - Ollama Reference: usage/OLLAMA_REFERENCE.md
+      - LLM Backend Reference: usage/OLLAMA_REFERENCE.md
   - Delivery:
       - Pipelines: delivery/PIPELINES.md
       - Releases: delivery/RELEASES.md

@@ -105,8 +105,10 @@ jobs:
     needs: [build-amd64, build-arm64]
     runs-on: ubuntu-latest
     permissions:
-      contents: write   # Required to create GitHub Releases
-      packages: write   # Required to push to GHCR
+      contents: write        # Required to create GitHub Releases
+      packages: write        # Required to push to GHCR
+      id-token: write        # Required for SLSA provenance attestation
+      attestations: write    # Required for attestation
 
     steps:
       - name: Checkout
@@ -129,13 +131,21 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.ref_name }}-amd64 \
             ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.ref_name }}-arm64
 
+      - name: Install Syft
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+
       - name: Generate SBOM
         run: |
-          docker run --rm \
-            -v /var/run/docker.sock:/var/run/docker.sock \
-            anchore/syft:v1.42.3 \
-            ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.ref_name }}-amd64 \
+          syft ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.ref_name }}-amd64 \
             -o cyclonedx-json=sbom.cdx.json
+
+      - name: Attest build provenance — SLSA L3
+        uses: actions/attest-build-provenance@96b4a1ef7235a096b17240c259729fdd70c83d45 # v2
+        with:
+          subject-name: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}
+          subject-digest: sha256:${{ steps.build-amd64.outputs.digest || '' }}
+          push-to-registry: true
 
       - name: Create GitHub Release
         env:
