@@ -32,6 +32,41 @@ Last updated: **2026-04-07**.
  
 ## Recent Changes
 
+### 2026-04-07 — Backend Abstraction & Compliance Session (26+ issues closed)
+
+**Backend Abstraction Completion (rune core — Phase 2a):**
+- **AgentRunner.ask() generalized** (rune#170): Added `backend_type` parameter to protocol and all 22 driver `ask()` methods. Holmes driver now uses `get_backend()` instead of `OllamaClient`.
+- **ProvisioningResult generalized** (rune#171): Added `backend_type` field. Created `ExistingBackendProvider` (replaces `ExistingOllamaProvider`). Vast.ai instance manager uses `get_backend()`.
+- **API endpoint renamed** (rune#172): `GET /v1/llm/models` (new) + `GET /v1/ollama/models` (deprecated alias). `POST /v1/jobs/llm-instance` (new) + `/v1/jobs/ollama-instance` (deprecated alias). `list_backend_models()` uses `get_backend()` directly.
+
+**Operator Feature Parity (rune-operator — Phase 2b, Epic #58):**
+- **CRD field rename** (#60): `OllamaURL` → `BackendURL`, `OllamaWarmup` → `BackendWarmup`, payload keys updated.
+- **backend_type field** (#61): Added `BackendType` with kubebuilder default `"ollama"` to all payload branches.
+- **Job status polling** (#62): Operator now polls `GET /v1/jobs/{job_id}` for actual completion instead of treating 202 as success. Added `PollIntervalSeconds` CRD field.
+- **Job result capture** (#63): `RunRecord.Result` stores raw JSON job output from poll response.
+- **Cost estimation abstraction** (#64): `CostEstimation` struct supports VastAI, AWS, GCP, Azure, LocalHardware providers. Backward-compatible with `spec.vastai=true`.
+- **Idempotency key** (#65): Deterministic `Idempotency-Key` header from namespace/name/generation/scheduleTime.
+- **Debug log cleanup** (#59): Removed accidentally committed log files, added `.gitignore` patterns.
+
+**Compliance & Legal (Phase 3):**
+- **SPDX headers** (rune-docs#38): Added `# SPDX-License-Identifier: Apache-2.0` to all Python files in rune (191 files), rune-ui (3), rune-audit (51).
+- **Copyright standardization** (rune-docs#40): All 7 repos now use `Copyright 2025-2026 The Rune Authors`.
+- **Rollback procedures** (rune-docs#35): New `ROLLBACK_PROCEDURES.md` covering Helm, image, DB, PyPI, and airgapped rollback (IEC 62443-4-1 SUM-4).
+- **Security training** (rune-docs#36): New `SECURITY_TRAINING.md` with training matrix and records (IEC 62443-4-1 SM-3).
+- **VEX justifications** (rune-docs#34): Strengthened 3 nginx CVE VEX entries with specific libxml2 module analysis and `ldd` verification.
+- **SECURITY.md** (rune-docs#42): Updated version table for pre-alpha state.
+- **Certification language** (rune-docs#64): Softened "fully compliant" claims across docs.
+- **Chart.yaml license** (rune-charts#27): Added `license: Apache-2.0` to all Helm charts.
+
+**Security:**
+- **P0 security gate bypass removed** (rune#122): Verified `strict_branch` already removed from all 3 repos.
+
+**Documentation:**
+- Removed `copilot-instructions.md` (rune-docs#92).
+- Added PR body template to SYSTEM_PROMPT.md (rune-docs#94).
+- Added E2E test step to SOP (rune-docs#96).
+- Updated observability docs for backend abstraction (rune-docs#99).
+
 ### 2026-04-06 — Major Session (45+ PRs merged, 60+ issues closed)
 
 **Architecture Refactoring:**
@@ -82,10 +117,11 @@ Last updated: **2026-04-07**.
 
 | Repo | Issue | Summary | Status |
 |---|---|---|---|
-| rune | [#166](https://github.com/lpasquali/rune/issues/166) | EPIC: Abstract LLM Backend Layer | Phases 1-3 complete; #170-#172 (agent interface, provisioning, API endpoints) remain |
+| rune | [#166](https://github.com/lpasquali/rune/issues/166) | EPIC: Abstract LLM Backend Layer | **Complete** — all 6 phases merged (#167-#172) |
 | rune | [#182](https://github.com/lpasquali/rune/issues/182) | EPIC: 100% Test Coverage Campaign | Created, not started |
-| rune-docs | [#57](https://github.com/lpasquali/rune-docs/issues/57) | EPIC: Legal & Licensing Compliance | #38 (SPDX), #40 (copyright years), rune-charts#27 remain |
+| rune-operator | [#58](https://github.com/lpasquali/rune-operator/issues/58) | EPIC: Operator ↔ Rune API Feature Parity | **Complete** — all 7 child issues (#59-#65) closed |
 | rune-docs | [#48](https://github.com/lpasquali/rune-docs/issues/48) | Epic: Unified theming and accessibility | Not started |
+| rune-docs | [#83](https://github.com/lpasquali/rune-docs/issues/83) | EPIC: Node.js 20 Action Deprecation | Not started |
 | rune-airgapped | [#23](https://github.com/lpasquali/rune-airgapped/issues/23) | EPIC: Network Isolation & Least-Privilege Security | PRs merged, issues to close |
 | rune-airgapped | [#24](https://github.com/lpasquali/rune-airgapped/issues/24) | EPIC: Customer Documentation & Guides | Not started |
 
