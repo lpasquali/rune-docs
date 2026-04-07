@@ -4,12 +4,33 @@ We take the security of `rune` very seriously.
 
 ## Supported Versions
 
-Currently, only the main branch (`master` or `main`) and the latest tagged release are actively supported with security updates.
+RUNE is currently in **pre-alpha development** and is not intended for production use.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| v1.x    | :white_check_mark: |
-| < v1.0  | :x:                |
+| Version | Supported | Notes |
+|---|---|---|
+| `0.0.0a5` (latest alpha — `rune`) | Best-effort | Critical and high vulnerabilities (CVSS >= 7.0) addressed before first stable release |
+| `0.0.0-a0` (latest alpha — all other repos) | Best-effort | Same policy as above |
+| Any older pre-release build | Not supported | Upgrade to the latest alpha |
+| `>= 1.0.0` (not yet released) | Full support upon release | Will follow semantic versioning with a defined EOL policy |
+
+> **Note:** During the pre-alpha phase, "best-effort" means vulnerabilities are triaged and addressed
+> as fast as practically possible given a solo-maintainer context, but there are no guaranteed SLA
+> timelines. Security researchers are encouraged to report all findings — see the Reporting section.
+
+### Version identification
+
+To identify the exact version of `rune` you are running:
+```bash
+rune --version
+# Output: rune-bench 0.0.0a5
+```
+
+For `rune-operator` and `rune-ui` (deployed via Helm):
+```bash
+helm list -n <namespace>
+kubectl get deployment rune-operator -n <namespace> \
+  -o jsonpath='{.spec.template.spec.containers[0].image}'
+```
 
 ## Reporting a Vulnerability
 
