@@ -46,6 +46,7 @@ nav:
       - Deployment: operations/DEPLOYMENT.md
       - Observability: operations/OBSERVABILITY.md
       - Runbooks: operations/RUNBOOKS.md
+      - Rollback Procedures: operations/ROLLBACK_PROCEDURES.md
       - Vault Integration: operations/VAULT.md
   - Security:
       - Security Development Lifecycle: security/SDL.md
@@ -55,6 +56,7 @@ nav:
       - Fuzz Testing: security/FUZZ_TESTING.md
       - Incident Response: security/INCIDENT_RESPONSE.md
       - Container Image Signing: security/IMAGE_SIGNING.md
+      - Security Training Records: security/SECURITY_TRAINING.md
   - Architecture:
       - Threat Model: architecture/THREAT_MODEL.md
       - Security Requirements: architecture/SECURITY_REQUIREMENTS.md
