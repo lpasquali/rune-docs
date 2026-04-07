@@ -311,7 +311,7 @@ Unit tests and CI green alone do **not** satisfy the Definition of Done at any l
 
 Every issue with a test plan or acceptance criteria must have **attached evidence** for each ticked checkbox. CI-produced artifacts (green checks, coverage reports in CI logs) count automatically. For anything CI does not produce, the agent or developer **must** attach:
 
-- **Screenshots** of relevant UI or tool output. You are bound by RUNE's visual Test Plan Evidence requirements. Open all PRs as a Draft and append a bold warning: **HUMAN INTERVENTION REQUIRED: Please capture and upload the required DoD screenshots before merging.**
+- **Screenshots** of relevant UI or tool output. Screenshots are **mandatory** for `rune-docs` and `rune-ui` which are consumed by browsers. AI agents MUST proceed with headless tools (e.g., `playwright screenshot <url> <output.png>`) to take screenshots. Only if this is fundamentally impossible, ask for human intervention. Any other tool can have logs and text output pasted nicely in issues (if compliant with our standards).
 - **Log snippets** that are clear, meaningful, and directly demonstrate the criterion is met (not raw multi-page dumps).
 - **Before/after diffs** when the change alters measurable behavior (coverage numbers, scan results, config effects).
 - **Command output** showing manual verification steps and their results.
