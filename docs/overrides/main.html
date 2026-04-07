@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <script>
+    // Apply theme early to prevent flash
+    (function() {
+        var theme = localStorage.getItem('rune-theme') || 'auto';
+        if (theme !== 'auto') {
+            document.documentElement.setAttribute('data-theme', theme);
+        }
+    })();
+    
+    function setTheme(theme) {
+        localStorage.setItem('rune-theme', theme);
+        if (theme === 'auto') {
+            document.documentElement.removeAttribute('data-theme');
+        } else {
+            document.documentElement.setAttribute('data-theme', theme);
+        }
+    }
+  </script>
+{% endblock %}
+
+{% block header %}
+  {{ super() }}
+  <div style="position: absolute; top: 12px; right: 20px; z-index: 100;" data-theme-toggle>
+      <label for="theme-selector" style="font-size: 0.8em; margin-right: 5px; color: var(--md-primary-bg-color);">Theme:</label>
+      <select id="theme-selector" onchange="setTheme(this.value)" style="background: var(--button-bg); color: var(--button-text); border: 1px solid var(--button-text); padding: 4px; border-radius: 4px;">
+          <option value="auto">Auto</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="high-contrast">High Contrast</option>
+          <option value="dyslexia-friendly">Dyslexia Friendly</option>
+          <option value="reduced-motion">Reduced Motion</option>
+          <option value="print">Print</option>
+      </select>
+      <script>
+          document.addEventListener('DOMContentLoaded', function() {
+             var sel = document.getElementById('theme-selector');
+             if(sel) sel.value = localStorage.getItem('rune-theme') || 'auto';
+          });
+      </script>
+  </div>
+{% endblock %}

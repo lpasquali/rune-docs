@@ -5,10 +5,19 @@ repo_name: lpasquali/rune-docs
 repo_url: https://github.com/lpasquali/rune-docs
 theme:
   name: material
+  custom_dir: docs/overrides
+  font: false
   features:
     - navigation.sections
     - navigation.expand
     - content.code.copy
+extra:
+  version:
+    provider: mike
+extra_css:
+  - stylesheets/rune-tokens.css
+  - stylesheets/theme-overrides.css
+  - stylesheets/rune-print.css
 markdown_extensions:
   - admonition
   - toc:

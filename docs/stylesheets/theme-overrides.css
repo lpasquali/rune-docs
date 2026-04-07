@@ -1,0 +1,22 @@
+:root {
+  --md-primary-fg-color: var(--button-bg);
+  --md-primary-fg-color--light: var(--button-hover-bg);
+  --md-primary-fg-color--dark: var(--button-bg);
+  --md-primary-bg-color: var(--button-text);
+  --md-primary-bg-color--light: var(--button-hover-text);
+  --md-accent-fg-color: var(--link-color);
+  --md-accent-fg-color--transparent: var(--link-color);
+  --md-accent-bg-color: var(--bg-color);
+  --md-accent-bg-color--light: var(--card-bg);
+  --md-default-bg-color: var(--bg-color);
+  --md-default-fg-color: var(--text-color);
+  --md-default-fg-color--light: var(--text-subheading);
+  --md-default-fg-color--lighter: var(--border-color);
+  --md-code-bg-color: var(--card-bg);
+  --md-code-fg-color: var(--text-color);
+  --md-typeset-color: var(--text-color);
+  --md-typeset-a-color: var(--link-color);
+  --md-typeset-table-color: var(--text-color);
+  --md-text-font: var(--font-family);
+  --md-code-font: var(--font-family);
+}

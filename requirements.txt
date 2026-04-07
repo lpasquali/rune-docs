@@ -4,3 +4,4 @@ pymarkdownlnt==0.9.33
 pip-licenses==5.0.0
 pip-audit==2.9.0
 mike>=2.1.3
+mike==2.1.4

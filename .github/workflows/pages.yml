@@ -1,20 +1,21 @@
 # Deploy MkDocs to GitHub Pages with versioned docs (mike).
 #
 # Triggers:
-#   - push of a tag matching v* (from rune cross-repo tagging)
+#   - push to main
+#   - push to release-*
+#   - push of a tag matching v*
 #   - workflow_dispatch (manual trigger)
 #
-# Each tag creates a versioned docs snapshot accessible at /v<version>/.
+# Each tag/branch creates a versioned docs snapshot.
 # The "latest" alias always points to the newest stable release.
-#
-# Prerequisites (one-time setup):
-#   1. In rune-docs repo Settings → Pages: set source to "GitHub Actions"
-#   2. Ensure gh-pages branch exists (created automatically by first deploy)
 
 name: Deploy MkDocs to GitHub Pages
 
 on:
   push:
+    branches:
+      - main
+      - 'release-*'
     tags:
       - "v*"
   workflow_dispatch:
@@ -25,7 +26,7 @@ on:
         default: "latest"
 
 permissions:
-  contents: write  # mike needs to push gh-pages branch
+  contents: write
   pages: write
   id-token: write
 
@@ -46,7 +47,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # mike needs full history to manage gh-pages branch
+          fetch-depth: 0
 
       - uses: actions/setup-python@v6
         with:
@@ -72,10 +73,40 @@ jobs:
             echo "alias=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Clean up stale branches
+        run: |
+          # Fetch the gh-pages branch to read versions
+          git fetch origin gh-pages:gh-pages || echo "No gh-pages branch yet"
+          if git rev-parse --verify gh-pages >/dev/null 2>&1; then
+             git checkout gh-pages
+             if [ -f versions.json ]; then
+                # Get list of deployed versions
+                VERSIONS=$(python -c "import json; print(' '.join([v['version'] for v in json.load(open('versions.json'))]))")
+                git checkout -
+                # Get active branches and tags from remote
+                ACTIVE_REFS=$(git ls-remote --heads --tags origin | awk -F'refs/(heads|tags)/' '{print $2}' | sed 's/\^{}//' | sort -u)
+                
+                for V in $VERSIONS; do
+                   if [ "$V" != "latest" ] && ! echo "$ACTIVE_REFS" | grep -qx "^$V$"; then
+                      echo "Deleting stale version: $V"
+                      mike delete --push $V || true
+                   fi
+                done
+             else
+                git checkout -
+             fi
+          fi
+
       - name: Deploy versioned docs
         run: |
-          mike deploy --push --update-aliases "${{ steps.version.outputs.alias }}" latest
-          mike set-default --push latest
+          # Deploy current version
+          mike deploy --push --update-aliases "${{ steps.version.outputs.alias }}"
+          
+          # If this is a tag or main branch, we can update latest
+          if [[ "${{ steps.version.outputs.alias }}" == v* ]] || [[ "${{ steps.version.outputs.alias }}" == "main" ]]; then
+             mike deploy --push --update-aliases "${{ steps.version.outputs.alias }}" latest
+             mike set-default --push latest
+          fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
