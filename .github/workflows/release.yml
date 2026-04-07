@@ -124,12 +124,19 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create and push multi-arch manifest
+        id: manifest
         run: |
           docker buildx imagetools create \
             --tag ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.ref_name }} \
             --tag ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest \
             ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.ref_name }}-amd64 \
             ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.ref_name }}-arm64
+
+          # Fetch the manifest digest for attestation
+          DIGEST=$(docker buildx imagetools inspect \
+            ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.ref_name }} \
+            --format '{{.Manifest.Digest}}')
+          echo "digest=${DIGEST}" >> "$GITHUB_OUTPUT"
 
       - name: Install Syft
         run: |
@@ -144,7 +151,7 @@ jobs:
         uses: actions/attest-build-provenance@96b4a1ef7235a096b17240c259729fdd70c83d45 # v2
         with:
           subject-name: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}
-          subject-digest: sha256:${{ steps.build-amd64.outputs.digest || '' }}
+          subject-digest: ${{ steps.manifest.outputs.digest }}
           push-to-registry: true
 
       - name: Create GitHub Release
