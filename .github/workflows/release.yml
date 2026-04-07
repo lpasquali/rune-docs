@@ -132,10 +132,17 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.ref_name }}-amd64 \
             ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.ref_name }}-arm64
 
-          # Fetch the manifest digest for attestation
+          # Fetch the manifest digest for attestation (crane outputs clean sha256:...)
           DIGEST=$(docker buildx imagetools inspect \
             ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.ref_name }} \
-            --format '{{.Manifest.Digest}}')
+            --format '{{.Manifest.Digest}}' 2>/dev/null \
+            | grep -oP 'sha256:[a-f0-9]+' | head -1)
+          if [ -z "$DIGEST" ]; then
+            # Fallback: parse from imagetools inspect raw output
+            DIGEST=$(docker buildx imagetools inspect \
+              ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.ref_name }} \
+              2>&1 | grep -oP 'Digest:\s+\Ksha256:[a-f0-9]+' | head -1)
+          fi
           echo "digest=${DIGEST}" >> "$GITHUB_OUTPUT"
 
       - name: Install Syft
