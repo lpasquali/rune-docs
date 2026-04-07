@@ -216,6 +216,32 @@ All contracts use `backend_url` (not `ollama_url`) and `backend_type` (default `
 - **Branch Isolation**: Agents must operate in isolated feature branches. Only rebase and push the **assigned** branch. Never modify or rebase branches belonging to other agents or tasks.
 - **Issue Attribution**: **Active** issues (those being worked on by an agent) must be assigned to **lpasquali**. Inactive/untouched issues can remain unassigned. Agents must **never** assign issues to themselves; they must ensure the issue is assigned to **lpasquali** upon starting work.
 - **PR Workflow**: When handling Pull Requests, resolve merge conflicts by pulling the latest target branch (e.g., `main`) and rebasing the assigned branch onto it. Always wait for GitHub Actions/CI to finish before merging. **Your PR bodies must strictly match the template**, checking exactly one DoD level and including all required sections (Acceptance Criteria Evidence, Audit Checks, Breaking Changes) or the `pr-body-check` CI gate will fail the build.
+- **PR Body Template** (enforced by CI in all repos):
+  ```markdown
+  ## Summary
+  <bullet points>
+
+  Closes #NNN
+
+  ## DoD Level
+  - [ ] **Level 1** — Full Validation
+  - [x] **Level 2** — Test Infrastructure
+  - [ ] **Level 3** — Documentation Validation
+
+  ## Acceptance Criteria Evidence
+  - [x] <criterion with evidence>
+
+  ## Audit Checks
+  No triggers fired.
+  <!-- OR: | Check | Result | ... | `cyber check:api` | PASS | -->
+
+  ## Breaking Changes
+  None.
+
+  ## Test plan
+  - [x] <test with evidence>
+  ```
+  The `pr-body-check` CI gate validates: issue reference (`Closes #NNN`), exactly one checked DoD level (`[x] **Level N**`), all four required sections present, and audit results containing `PASS`, `FAIL`, or `No triggers fired`.
 - **Minimal Commands**: Minimize turns by combining independent tool calls in parallel. Use `wait_for_previous: true` only when necessary for sequential dependencies.
 - **Strategic Orchestration**: Use sub-agents (e.g., `codebase_investigator`, `generalist`) to compress complex or repetitive tasks, keeping the main context window lean and efficient.
 - **Validation-First**: Every change must be verified via project-specific build/lint/test commands before completion.
@@ -295,8 +321,9 @@ A PR with unticked or unsubstantiated acceptance criteria must not be merged. If
 4. **Halt & Report**: Before writing/modifying code, explicitly halt and ask the user for permission to proceed (even in YOLO mode).
 5. **Execute**: Minimize turns (parallel tool calls); 100% coverage target (no "cheating" mocks).
 6. **Verify**: Mock all boundaries; 97% coverage floor; check ML4/SLSA L3 gates.
-7. **PR & Rebase**: PR to target branch; rebase onto latest `main`; wait for all CI/Gaps to turn green.
-8. **Persist**: Update `CURRENT_STATE.md` upon successful merge.
+7. **E2E Test**: For Level 1 DoD, run the change through docker-compose, kind, and standalone CLI modes. Attach evidence (logs, screenshots) to the PR for each mode tested.
+8. **PR & Rebase**: PR to target branch; rebase onto latest `main`; wait for all CI/Gaps to turn green.
+9. **Persist**: Update `CURRENT_STATE.md` upon successful merge.
 
  
 ## Audit Agents
