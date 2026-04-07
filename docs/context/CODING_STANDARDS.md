@@ -5,7 +5,7 @@
 ## Specific Stylistic Rules
 
 - **Python**: Use `black` and `ruff`. Follow PEP 8.
-- **Go**: Use `gofmt` and `staticcheck`.
+- **Go**: Use `gofmt` and `staticcheck`. Same coverage floors as Python (97% CI gate, 100% target for new code).
 - **Typing**: Use type hints in Python.
 - **Testing**:
   - **97% is the absolute floor** (CI gate); however, **100% coverage is the expected target** for all new code if achievable.
