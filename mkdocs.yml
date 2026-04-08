@@ -67,6 +67,7 @@ nav:
   - Delivery:
       - Pipelines: delivery/PIPELINES.md
       - Shared CI Workflows: delivery/CI_SHARED_WORKFLOWS.md
+      - CI Migration Risk Mitigations: delivery/CI_RISK_MITIGATIONS.md
       - Releases: delivery/RELEASES.md
       - Secrets: delivery/SECRETS.md
       - VEX Register: delivery/VEX.md
