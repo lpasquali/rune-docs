@@ -337,7 +337,10 @@ A PR with unticked or unsubstantiated acceptance criteria must not be merged. If
 4. **Halt & Report**: Before writing/modifying code, explicitly halt and ask the user for permission to proceed (even in YOLO mode).
 5. **Execute**: Minimize turns (parallel tool calls); 100% coverage target (no "cheating" mocks).
 6. **Verify**: Mock all boundaries; 97% coverage floor; check ML4/SLSA L3 gates.
-7. **E2E Test**: For Level 1 DoD, run the change through docker-compose, kind, and standalone CLI modes. Attach evidence (logs, screenshots) to the PR for each mode tested.
+7. **Test**: Execute end-to-end integration tests using the `OLLAMA_SERVER` variable from the local workstation environment:
+   - Command line benchmark (`ollama` + `holmesgpt`).
+   - Kubernetes (`kind`) benchmark (`ollama` + `holmesgpt`).
+   - Docker Compose: Build images locally with the `latest` tag and run the compose stack using the same server variable.
 8. **PR & Rebase**: PR to target branch; rebase onto latest `main`; wait for all CI/Gaps to turn green.
 9. **Persist**: Update `CURRENT_STATE.md` upon successful merge.
 
