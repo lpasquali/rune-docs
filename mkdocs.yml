@@ -66,6 +66,7 @@ nav:
       - LLM Backend Reference: usage/OLLAMA_REFERENCE.md
   - Delivery:
       - Pipelines: delivery/PIPELINES.md
+      - Shared CI Workflows: delivery/CI_SHARED_WORKFLOWS.md
       - Releases: delivery/RELEASES.md
       - Secrets: delivery/SECRETS.md
       - VEX Register: delivery/VEX.md
