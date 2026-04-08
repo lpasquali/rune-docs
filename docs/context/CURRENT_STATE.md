@@ -43,6 +43,8 @@ Last updated: **2026-04-07**.
 - **Release Workflow** (#20): Added GitHub/PyPI OIDC release workflow with SLSA L3 build attestation.
 - **Python 3.14**: `rune-audit` bumped to Python 3.14 for ecosystem consistency.
 - **Helm Chart** (#23): Created `rune-audit` Helm chart (CronJob) in `rune-charts`.
+- **Sigstore Signer** (#1): Implemented `SigstoreSigner` to sign `EvidenceBundle` objects using OIDC tokens.
+- **Rekor Integration** (#2): Added support for storing Rekor indices and transparency log entries in evidence bundles.
 
 **Airgapped Bundle (rune-airgapped — Phase 6):**
 - **Manifest Generation** (#15): `build-bundle.sh` now generates `manifest.json` and `SHA256SUMS`.
