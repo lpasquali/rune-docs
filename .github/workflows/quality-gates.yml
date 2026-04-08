@@ -179,7 +179,7 @@ jobs:
           image: rune-docs:rune-ci-local
           cvss-threshold: '8.8'
       - name: Attest SBOM provenance — SLSA L3
-        uses: actions/attest-build-provenance@96b4a1ef7235a096b17240c259729fdd70c83d45 # v2
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v4
         with:
           subject-path: sbom/image.cdx.json
       - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
