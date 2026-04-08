@@ -6,7 +6,7 @@ on:
   issues:
     types: [opened, closed, reopened, labeled, unlabeled, assigned]
   pull_request:
-    types: [opened, closed, reopened, ready_for_review, converted_to_draft, labeled, unlabeled]
+    types: [opened, closed, reopened, ready_for_review, converted_to_draft, labeled, unlabeled, synchronized]
 
 env:
   PROJECT_ID: "PVT_kwHOABsqts4BT6xG"

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 name: Deploy MkDocs to GitHub Pages
 
 on:
@@ -9,32 +10,6 @@ on:
 permissions:
   contents: write
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-      - name: Configure Git Credentials
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6
-        with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-      - uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-      - run: pip install -r requirements.txt
-      - name: Deploy versioned docs
-        run: |
-          VERSION=$(grep '^version:' docs/context/CURRENT_STATE.md | awk '{print $2}' || echo "latest")
-          mike deploy --push --update-aliases $VERSION latest
-          mike set-default latest
-
+    uses: lpasquali/rune-ci/.github/workflows/docs-deploy.yml@main
