@@ -270,3 +270,148 @@ jobs:
     with:
       charts-dir: "charts"
 ```
+
+## Rollback Procedure
+
+This section defines the rollback playbook for failed CI workflow migrations.
+The target rollback time is **under 15 minutes per repository**.
+
+### Pre-Migration Safety
+
+Before migrating any consumer repository to `rune-ci` shared workflows, tag
+the current known-good state so you can return to it:
+
+```bash
+# In the consumer repo (e.g., rune, rune-operator, rune-ui, etc.)
+git tag pre-rune-ci -m "Last known-good CI state before rune-ci migration"
+git push origin pre-rune-ci
+```
+
+This tag is your safety net. Every consumer repo must have a `pre-rune-ci` tag
+before migration begins.
+
+### Scenario 1: Migrated Workflow Fails in a Consumer Repo
+
+If a consumer repo's CI breaks after migrating to `rune-ci` shared workflows,
+revert the migration commit in that repo:
+
+```bash
+# 1. Identify the migration commit
+git log --oneline --all -- '.github/workflows/'
+
+# 2. Revert the migration commit (creates a new commit, preserving history)
+git revert <migration-commit-sha> --no-edit
+
+# 3. Push the revert
+git push origin <branch>
+
+# 4. Verify CI passes on the reverted state
+#    (wait for GitHub Actions to complete)
+```
+
+If multiple commits were involved in the migration, revert them in reverse
+chronological order:
+
+```bash
+# Revert a range (newest first)
+git revert --no-edit <newest-sha>...<oldest-sha>
+git push origin <branch>
+```
+
+### Scenario 2: rune-ci Itself Is Broken
+
+If a bug in `rune-ci` breaks CI across multiple consumer repos, each consumer
+repo can roll back independently without waiting for a `rune-ci` fix:
+
+```bash
+# Option A: Revert the migration commit (preferred)
+git revert <migration-commit-sha> --no-edit
+git push origin <branch>
+
+# Option B: Restore workflows from the pre-migration tag
+git checkout pre-rune-ci -- .github/workflows/
+git commit -m "ci: restore pre-migration workflows (rune-ci broken)"
+git push origin <branch>
+```
+
+Option A is preferred because it creates a clean revert commit. Option B is
+useful when you need to restore the exact workflow files without identifying
+individual migration commits.
+
+### Scenario 3: Partial Migration Failure
+
+If only some workflows fail after migration (e.g., `release.yml` works but
+`quality-gates.yml` does not):
+
+```bash
+# Restore only the broken workflow from the pre-migration tag
+git checkout pre-rune-ci -- .github/workflows/quality-gates.yml
+git commit -m "ci: restore quality-gates.yml from pre-migration state"
+git push origin <branch>
+```
+
+### Step-by-Step Rollback Commands
+
+Complete rollback procedure for a single consumer repository:
+
+```bash
+# 1. Switch to the repo's default branch
+cd ~/Devel/<repo-name>
+git checkout main && git pull origin main
+
+# 2. Create a rollback branch
+git checkout -b ci/rollback-rune-ci
+
+# 3. Revert the migration commit
+git log --oneline -- '.github/workflows/'   # find the commit
+git revert <migration-commit-sha> --no-edit
+
+# 4. Push and open a PR
+git push -u origin ci/rollback-rune-ci
+
+# 5. Wait for CI to pass on the reverted state
+#    Verify all checks are green before merging
+
+# 6. After merge, confirm the pre-rune-ci tag still exists
+git tag -l 'pre-rune-ci'
+```
+
+### Post-Rollback Verification
+
+After rolling back, verify the following:
+
+1. **CI passes**: All GitHub Actions checks on the default branch are green.
+2. **Workflows are correct**: The `.github/workflows/` directory matches the
+   expected pre-migration state.
+3. **Tags are preserved**: The `pre-rune-ci` tag still exists and points to
+   the correct commit.
+4. **No orphaned secrets**: If the migration added new secrets (e.g.,
+   `PROJECT_TOKEN`), they can remain -- unused secrets cause no harm.
+
+```bash
+# Quick verification script
+echo "=== CI Status ==="
+gh run list --limit 3 --json status,conclusion,name \
+  --template '{{range .}}{{.name}}: {{.conclusion}}{{"\n"}}{{end}}'
+
+echo "=== Workflow files ==="
+ls -la .github/workflows/
+
+echo "=== Pre-migration tag ==="
+git log --oneline -1 pre-rune-ci 2>/dev/null \
+  || echo "WARNING: pre-rune-ci tag missing"
+```
+
+### Estimated Rollback Time
+
+| Step | Time |
+|------|------|
+| Identify migration commit | 2 min |
+| Create rollback branch and revert | 3 min |
+| Push and open PR | 2 min |
+| Wait for CI to pass | 5-8 min |
+| **Total** | **~15 min** |
+
+For emergency situations where CI must be restored immediately, the revert can
+be pushed directly to `main` (bypassing PR review) if branch protection rules
+permit it. This should be documented as an incident per ML4 compliance.
