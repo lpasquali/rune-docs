@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-07**.
+Last updated: **2026-04-08**.
 
  
 ## Version Baseline
@@ -31,6 +31,40 @@ Last updated: **2026-04-07**.
 
  
 ## Recent Changes
+
+### 2026-04-08 — Cross-Repo Feature Buildout (20 issues, 15 PRs)
+
+**Issues Closed Directly:**
+- **rune-operator#58** (EPIC: Operator ↔ Rune API Feature Parity) — closed, all 7 child issues merged.
+- **rune-airgapped#15** (Bundle manifest and integrity file) — closed, implemented by PR #35.
+- **rune-docs#83** (EPIC: Node.js 20 Action Deprecation) — closed, already mitigated across all 7 repos (SHA-pinned v4+ actions + `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24`).
+
+**rune-ui (2 PRs — Ready for Review):**
+- **PR #74** (#33): Solarized Light theme mode switcher with localStorage persistence and `prefers-color-scheme` detection. 100% coverage.
+- **PR #75** (#34): Print stylesheet with `@media print` rules (hide nav, white bg, link URLs, page breaks). 100% coverage.
+
+**rune-docs (3 PRs — Ready for Review):**
+- **PR #108** (#48, #49, #50, #51, #52): Unified theming — Solarized design tokens, Material palette toggle (dark/light), print stylesheet, WCAG AAA (12.6:1 contrast, focus rings).
+- **PR #109** (#20): Agent pricing and access tiers matrix — 25 agents from `chains.csv` organized by scope with tier definitions and cost implications.
+- **PR #110** (#87): Mike versioned docs — `deploy-pages.yml` updated to use mike for "dev" deployments, version selector added to mkdocs.yml, 24 stale branches cleaned up.
+
+**rune-audit (9 PRs — Ready for Review):**
+- **PR #56** (#1): Sigstore log-signing engine — `SigstoreEngine` with cosign CLI subprocess, sign/verify/sign_blob. 98% coverage.
+- **PR #57** (#2): Rekor transparency log client — `RekorClient` with httpx, search/get/verify_inclusion (Merkle proof). 98% coverage.
+- **PR #58** (#3): TLA+ formal verification — 3 specs (AuditChain, ComplianceMatrix, GateAggregation) + `TLAChecker` + CLI. 98% coverage.
+- **PR #59** (#25): TPM2 attestation collector — `TPM2Collector` with tpm2-tools subprocess, PCR/quote/eventlog collection. 98% coverage.
+- **PR #60** (#22): Audit report generator — `ReportGenerator` with full/summary/delta reports in markdown and JSON. 98% coverage.
+- **PR #61** (#24): Operator integration — `OperatorCollector` for RuneBenchmark audit trails via kubectl. 98% coverage.
+- **PR #62** (#20): Release workflow — enhanced with SBOM generation, SLSA provenance, PyPI OIDC publishing.
+- **PR #63** (#28): Scheduled audit action — weekly cron (Monday 6am UTC), cross-repo evidence collection, auto-issue on critical findings.
+- **PR #64** (#18): Cross-repo quality gate dashboard — `DashboardCollector` + `DashboardRenderer` (terminal/markdown/JSON). 98% coverage.
+
+**rune-charts (1 PR — Ready for Review):**
+- **PR #57** (#58/rune-audit#23): Helm chart for rune-audit — CronJob deployment, security hardened (non-root, read-only rootfs, seccomp).
+
+**Branch Cleanup:**
+- 24 stale branches deleted from rune-docs (15 merged + 9 unmerged with no open PRs).
+- Stale worktrees removed from rune-audit and rune-charts.
 
 ### 2026-04-07 — Backend Abstraction & Compliance Session (26+ issues closed)
 
@@ -140,12 +174,11 @@ Last updated: **2026-04-07**.
 
 | Repo | Issue | Summary | Status |
 |---|---|---|---|
-| rune | [#166](https://github.com/lpasquali/rune/issues/166) | EPIC: Abstract LLM Backend Layer | **Complete** — all 6 phases merged (#167-#172) |
 | rune | [#182](https://github.com/lpasquali/rune/issues/182) | EPIC: 100% Test Coverage Campaign | Created, not started |
-| rune-operator | [#58](https://github.com/lpasquali/rune-operator/issues/58) | EPIC: Operator ↔ Rune API Feature Parity | **Complete** — all 7 child issues (#59-#65) closed |
-| rune-docs | [#48](https://github.com/lpasquali/rune-docs/issues/48) | Epic: Unified theming and accessibility | Not started |
-| rune-docs | [#83](https://github.com/lpasquali/rune-docs/issues/83) | EPIC: Node.js 20 Action Deprecation | Not started |
-| rune-airgapped | [#23](https://github.com/lpasquali/rune-airgapped/issues/23) | EPIC: Network Isolation & Least-Privilege Security | PRs merged, issues to close |
+| rune-docs | [#48](https://github.com/lpasquali/rune-docs/issues/48) | Epic: Unified theming and accessibility | PR #108 — Ready for Review |
+| rune-docs | [#87](https://github.com/lpasquali/rune-docs/issues/87) | Versioned docs with mike | PR #110 — Ready for Review |
+| rune-audit | [#1](https://github.com/lpasquali/rune-audit/issues/1)–[#28](https://github.com/lpasquali/rune-audit/issues/28) | 10 features (Sigstore, Rekor, TLA+, TPM2, reports, dashboard, etc.) | 9 PRs — Ready for Review |
+| rune-charts | [#58](https://github.com/lpasquali/rune-charts/issues/58) | Helm chart for rune-audit | PR #57 — Ready for Review |
 | rune-airgapped | [#24](https://github.com/lpasquali/rune-airgapped/issues/24) | EPIC: Customer Documentation & Guides | Not started |
 
  
@@ -162,12 +195,13 @@ Last updated: **2026-04-07**.
  
 ## Next Steps
 
-- Complete backend abstraction phases 4-6 (agent interface, provisioning, API endpoints).
-- Run 100% coverage campaign across all repos.
+- **Merge 15 open PRs** across rune-ui, rune-docs, rune-audit, and rune-charts (all CI-green, Ready for Review).
+- Run 100% coverage campaign across all repos (rune#182).
 - Enable Dependabot on all repos.
 - Fix remaining open CVEs (pip upgrade, CodeQL alerts).
 - Implement `/v1/estimates` end-to-end validation in docker-compose.
 - Explore Gateway API Inference Extension (`k8s-inference` backend type).
+- Customer documentation for rune-airgapped (rune-airgapped#24).
 
  
 ## Known Issues
