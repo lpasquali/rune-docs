@@ -9,6 +9,37 @@ theme:
     - navigation.sections
     - navigation.expand
     - content.code.copy
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+extra_css:
+  - overrides/main.css
+
+plugins:
+  - search
+  - mike:
+      alias_type: redirect
+
+extra:
+  version:
+    provider: mike
+
 markdown_extensions:
   - admonition
   - toc:
@@ -28,6 +59,7 @@ nav:
       - Quickstart: usage/QUICKSTART.md
       - Developer Guide: usage/DEVELOPER_GUIDE.md
       - Guide: usage/GUIDE.md
+      - Pricing & Access Tiers: usage/PRICING.md
       - Interfaces: usage/INTERFACES.md
       - API Specification: usage/API_SPEC.md
       - Configuration: usage/CONFIGURATION.md

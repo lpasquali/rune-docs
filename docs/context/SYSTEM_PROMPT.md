@@ -211,6 +211,7 @@ All contracts use `backend_url` (not `ollama_url`) and `backend_type` (default `
  
 ## Agent Workflow & Efficiency (Mandates)
 
+- **Label Guard**: Before starting work on an existing issue, agents MUST verify the issue carries a label matching their identity (`claude_cli`, `gemini_cli`, or `copilot_cli`). If the label is missing or belongs to a different agent, the agent MUST halt and ask the user for permission — even in YOLO mode.
 - **Anti-Rogue Constraint (Halt & Report)**: Agents MUST NOT begin the "Execute" phase of a task (writing/modifying code) without first explicitly confirming in the chat that SOP Step 1 (Assign) and Step 2 (Isolate) have been fully completed. Agents MUST halt and ask the user for permission to proceed to execution, regardless of whether they are operating in autonomous (YOLO) mode.
 - **ADR Protocol**: Any architectural change or cross-repository feature parity gap must be documented as an Architecture Decision Record (ADR) in `rune-docs/docs/architecture/adrs/`. Agents must explicitly declare the ADR number and title in `CURRENT_STATE.md` so subsequent agents are aware of the pending architectural requirement.
 - **Branch Isolation**: Agents must operate in isolated feature branches. Only rebase and push the **assigned** branch. Never modify or rebase branches belonging to other agents or tasks.
@@ -315,7 +316,7 @@ A PR with unticked or unsubstantiated acceptance criteria must not be merged. If
  
 ## Standard Operating Procedure (SOP): Issue-to-Merge
 
-1. **Assign**: Ensure active issue is assigned to **lpasquali** (never self-assign).
+1. **Assign**: Ensure active issue is assigned to **lpasquali** (never self-assign). **Perform Label Guard check**: verify the issue carries a label matching your identity (`claude_cli`, `gemini_cli`, or `copilot_cli`).
 2. **Isolate**: Create feature branch; reproduction test-case first (for bugs).
 3. **Research**: Read `rune-docs` as the single source of truth.
 4. **Halt & Report**: Before writing/modifying code, explicitly halt and ask the user for permission to proceed (even in YOLO mode).
