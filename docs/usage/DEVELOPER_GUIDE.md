@@ -17,6 +17,7 @@ All repositories live under `~/Devel/` on the development machine.
 | `rune-docs/` | Python (MkDocs) | Documentation hub (single source of truth) |
 | `rune-audit/` | YAML/Markdown | Compliance and audit evidence |
 | `rune-airgapped/` | Shell (POSIX) | Air-gapped OCI bundle tooling |
+| `rune-ci/` | GitHub Actions YAML | [Shared CI workflows and composite actions](../delivery/CI_SHARED_WORKFLOWS.md) |
 
  
 ## Environment Setup

@@ -17,7 +17,7 @@ Before starting any development task, read these documents in order:
 4. **[Developer Guide](../usage/DEVELOPER_GUIDE.md)** — repo locations, environment setup, build/test/lint commands, DoD validation steps.
 5. **[Coding Standards](CODING_STANDARDS.md)** — language-specific style, coverage floors, tier registry, agent filesystem layout.
 
-All repositories live under `~/Devel/`: `rune/`, `rune-operator/`, `rune-ui/`, `rune-charts/`, `rune-docs/`, `rune-audit/`, `rune-airgapped/`.
+All repositories live under `~/Devel/`: `rune/`, `rune-operator/`, `rune-ui/`, `rune-charts/`, `rune-docs/`, `rune-audit/`, `rune-airgapped/`, `rune-ci/` (shared CI workflows and composite actions).
 
  
 ## Core Constraints
