@@ -212,6 +212,11 @@ All contracts use `backend_url` (not `ollama_url`) and `backend_type` (default `
 ## Agent Workflow & Efficiency (Mandates)
 
 - **Label Guard**: Before starting work on an existing issue, agents MUST verify the issue carries a label matching their identity (`claude_cli`, `gemini_cli`, or `copilot_cli`). If the label is missing or belongs to a different agent, the agent MUST halt and ask the user for permission — even in YOLO mode.
+- **Agent Label Isolation**: During parallel agent execution, labels provide a lightweight ownership fence that prevents cross-contamination:
+    1. **Label on Assign**: When an agent begins work on an issue, it MUST add the label `<agent_name>_cli` (e.g., `claude_cli`, `copilot_cli`, `cursor_cli`) to the issue.
+    2. **Label on Draft PR**: All Draft PRs created by an agent MUST carry the same `<agent_name>_cli` label.
+    3. **Ownership Fence**: An agent MUST only work on issues, Draft PRs, and PRs that bear its own `<agent_name>_cli` label. It MUST NOT modify, rebase, or push to branches belonging to another agent's labeled items.
+    4. **Label Creation**: If the label does not exist in the repo, the agent must create it before applying it.
 - **Anti-Rogue Constraint (Halt & Report)**: Agents MUST NOT begin the "Execute" phase of a task (writing/modifying code) without first explicitly confirming in the chat that SOP Step 1 (Assign) and Step 2 (Isolate) have been fully completed. Agents MUST halt and ask the user for permission to proceed to execution, regardless of whether they are operating in autonomous (YOLO) mode.
 - **ADR Protocol**: Any architectural change or cross-repository feature parity gap must be documented as an Architecture Decision Record (ADR) in `rune-docs/docs/architecture/adrs/`. Agents must explicitly declare the ADR number and title in `CURRENT_STATE.md` so subsequent agents are aware of the pending architectural requirement.
 - **Branch Isolation**: Agents must operate in isolated feature branches. Only rebase and push the **assigned** branch. Never modify or rebase branches belonging to other agents or tasks.
