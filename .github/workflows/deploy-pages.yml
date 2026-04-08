@@ -1,4 +1,13 @@
-name: Deploy MkDocs to GitHub Pages
+# Deploy MkDocs "dev" version to GitHub Pages on every push to main.
+#
+# Uses mike to maintain versioned docs:
+#   - Push to main → deploys as "dev" (latest from main branch)
+#   - Tag push (v*) → handled by pages.yml (deploys versioned release)
+#
+# The "latest" alias always points to the newest tagged release.
+# The "dev" alias always points to the current main branch.
+
+name: Deploy MkDocs (dev)
 
 on:
   push:
@@ -9,27 +18,37 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: deploy-pages
+  cancel-in-progress: true
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   deploy:
+    name: Docs/Deploy-Dev
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-      - name: Configure Git Credentials
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+        with:
+          fetch-depth: 0  # mike needs full history
+
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Configure git for mike
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Deploy dev version
+        run: |
+          mike deploy --push dev

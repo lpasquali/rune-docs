@@ -9,6 +9,10 @@ theme:
     - navigation.sections
     - navigation.expand
     - content.code.copy
+extra:
+  version:
+    provider: mike
+    default: latest
 markdown_extensions:
   - admonition
   - toc:
