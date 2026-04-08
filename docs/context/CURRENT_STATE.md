@@ -50,6 +50,8 @@ Last updated: **2026-04-07**.
 
 **Multi-Agent Expansion (rune core — Phase 7a):**
 - **AgentRunner Generalization** (#85): Protocol updated with `ask_structured()` to support multi-modal `AgentResult` (text, images, structured data). All 23+ drivers updated. CLI and API backend refactored to handle enriched responses.
+- **Async Driver Support** (#87): Introduced `AsyncDriverTransport` and `AsyncHttpTransport` (via `httpx`). Added `ask_async()` to `AgentRunner` protocol.
+- **Chain Execution Engine** (#86): Created `ChainExecutionEngine` for orchestrating asynchronous multi-agent DAGs with dependency management.
 
 **Backend Abstraction Completion (rune core — Phase 2a):**
 - **AgentRunner.ask() generalized** (rune#170): Added `backend_type` parameter to protocol and all 22 driver `ask()` methods. Holmes driver now uses `get_backend()` instead of `OllamaClient`.
