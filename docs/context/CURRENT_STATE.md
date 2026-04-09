@@ -32,6 +32,38 @@ Last updated: **2026-04-09**.
  
 ## Recent Changes
 
+### 2026-04-09 — Advanced pipelines docs + database roadmap ADR
+
+**`ADVANCED_PIPELINES.md`** added to document the now-shipped chain DAG and
+audit artifact views:
+
+- `/chains/{run_id}` backed by `GET /v1/chains/{run_id}/state`
+- `/audits/{run_id}` backed by `GET /v1/audits/{run_id}/artifacts`
+- Payload shapes, validation steps, and artifact-kind coverage now live in one
+  user-facing page
+
+**`API_SPEC.md` and `INTERFACES.md`** updated to include the chain-state and
+audit-artifact endpoints so the published docs reflect the merged `rune` and
+`rune-ui` features behind rune-docs#175.
+
+**ADR 0006** added for external database support (rune-docs#195):
+
+- SQLite remains the shipped default today
+- PostgreSQL is the accepted direction for multi-pod and audit-heavy
+  deployments
+- Supply-chain and licensing decisions are now written down in docs
+- Implementation status is explicit: `rune#231` and `rune#232` are done, while
+  Postgres adapter/config/chart/docs work remains open
+- `DATABASE.md` and `DATABASE_HA.md` now document the current SQLite reality and
+  the planned PostgreSQL/CNPG operating model without claiming the runtime work
+  is finished
+
+**Current docs clarified**:
+
+- `DEPLOYMENT.md`, `INFRASTRUCTURE.md`, `CONFIGURATION.md`, and
+  `DEVELOPER_GUIDE.md` now distinguish **current SQLite support** from the
+  **planned PostgreSQL rollout**
+
 ### 2026-04-09 — Hybrid project board sync (Epic rune-docs#187 closed)
 
 Consolidated project board automation by splitting Status field ownership (Projects v2 built-in workflows) from Agent Lane ownership (slimmed `rune-ci/project-sync-logic.yml`).

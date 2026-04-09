@@ -285,7 +285,10 @@ kind delete cluster --name rune-test
 Before opening the PR, verify:
 
 - **API versions**: Did you change any request/response schema? Is it additive or breaking?
-- **Persistent data**: Did you change SQLite schemas or volume mount paths? Is there a migration path?
+- **Persistent data**: Did you change SQLite schemas, storage adapters, or
+  volume mount paths? Is there a migration path? Review
+  **[ADR 0006](../architecture/adrs/0006-storage-abstraction-postgres.md)** if
+  the change touches persistence design.
 - **Cross-component contracts**: Did you change DriverTransport, AgentRunner, LLMBackend, or LLMResourceProvider protocols?
 - **Helm values**: Did you add/remove/rename any values.yaml keys?
 

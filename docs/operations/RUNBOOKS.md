@@ -43,6 +43,10 @@ Incident response checklists for RUNE.
 2.  **K8s Volume Mount**: If in K8s, verify the PersistentVolume claim is `ReadWriteOnce` and not mounted by multiple pods.
 3.  **Restart**: Restarting the `rune-api` pod may resolve transient locks.
 
+This incident class is specific to the current SQLite-backed deployment model.
+For the planned external database direction, see
+[DATABASE.md](DATABASE.md) and [DATABASE_HA.md](DATABASE_HA.md).
+
  
 ## Incident Response
 

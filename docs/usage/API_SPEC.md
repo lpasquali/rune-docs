@@ -85,6 +85,43 @@ Jobs are processed asynchronously. `POST` returns `202 Accepted` with a `job_id`
 `GET /v1/metrics/summary?job_id=<id>`
 - **Response**: `{"events": [...]}` (aggregated metrics)
 
+### Chain Visualization
+
+#### Get Chain State
+
+`GET /v1/chains/{run_id}/state`
+- **Response**: `{"run_id": "...", "nodes": [...], "edges": [...], "overall_status": "pending|running|success|failed|skipped"}`
+- **404**: Unknown run or tenant-scoped miss
+- **Notes**:
+  - Existing runs with no recorded chain state return an empty shell:
+    `{"run_id": "...", "nodes": [], "edges": [], "overall_status": "pending"}`
+  - `nodes[*]` include per-step status and timestamps; `edges[*]` use
+    `{"from": "...", "to": "..."}` pairs.
+
+### Audit Artifacts
+
+#### List Audit Artifacts
+
+`GET /v1/audits/{run_id}/artifacts`
+- **Response**:
+  `{"run_id": "...", "summary": {"total_count": 0, "kinds_present": []}, "artifacts": [...]}`
+- **Artifact metadata shape**:
+  `{"artifact_id": "...", "kind": "sbom", "name": "sbom.json", "size_bytes": 1234, "sha256": "...", "created_at": 1712660100.0, "download_url": "/v1/audits/{run_id}/artifacts/{artifact_id}"}`
+- **404**: Unknown run or tenant-scoped miss
+- **Notes**:
+  - The list response excludes raw bytes.
+  - An existing run with no audit evidence returns `200` with an empty list.
+
+#### Download Audit Artifact
+
+`GET /v1/audits/{run_id}/artifacts/{artifact_id}`
+- **Response**: Raw artifact bytes with `Content-Disposition: attachment`
+- **Content-Type**:
+  - `application/json` for JSON-backed artifacts such as SLSA provenance,
+    SBOMs, or TLA+ reports
+  - `application/octet-stream` for binary or opaque artifacts such as Sigstore,
+    Rekor, or TPM evidence
+
  
 ## Data Structures
 

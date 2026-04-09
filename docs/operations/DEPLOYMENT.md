@@ -107,10 +107,21 @@ helm install rune ./charts/rune \
 ### Components
 
 - **rune-api**: Python API server handling jobs.
-- **SQLite**: Persistent volume for job storage.
+- **SQLite**: Current default persistence model. A single persistent volume backs
+  the embedded job store for local and single-pod installs.
 - **S3 Sink**: Results pushed to S3/SeaweedFS.
 - **rune-operator**: Cron-based job scheduling via Custom Resources.
 - **Vault**: Optional secret injection via **[Vault Agent](VAULT.md)**.
+
+### Storage Status
+
+Today, released deployments should assume **SQLite-only runtime support** via
+`RUNE_API_DB_PATH`.
+
+External PostgreSQL support is an accepted architecture direction, but it is not
+complete in the current release line. Track the design and rollout sequence in
+**[DATABASE.md](DATABASE.md)** and
+**[ADR 0006](../architecture/adrs/0006-storage-abstraction-postgres.md)**.
 
  
 ## Infrastructure Dependencies

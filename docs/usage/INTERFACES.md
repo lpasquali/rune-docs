@@ -37,12 +37,14 @@ Run the server with `python -m rune.api`.
 
 ### Endpoints
 
-- `POST /v1/jobs/ollama`: Submit an Ollama provisioning job.
-- `POST /v1/jobs/agent`: Submit an agent analysis job.
+- `POST /v1/jobs/agentic-agent`: Submit an agent analysis job.
 - `POST /v1/jobs/benchmark`: Submit a full benchmark job.
+- `POST /v1/jobs/llm-instance`: Submit an LLM backend provisioning job.
+- `POST /v1/jobs/ollama-instance`: Deprecated alias for `llm-instance`.
 - `GET /v1/jobs/{job_id}`: Poll for job status and results.
-- `GET /v1/models/vastai`: List available Vast.ai models.
-- `GET /v1/models/ollama`: List models from a target Ollama server.
+- `GET /v1/catalog/vastai-models`: List available Vast.ai models.
+- `GET /v1/llm/models?backend_url=<url>&backend_type=ollama`: List models from a target backend.
+- `GET /v1/ollama/models?backend_url=<url>`: Deprecated alias for the backend-generic models endpoint.
 
 ### Auth Headers
 
@@ -54,6 +56,24 @@ Run the server with `python -m rune.api`.
 ## REST API Reference
 
 For a formal definition of all endpoints and request/reponse schemas, see the **[API Specification](API_SPEC.md)**.
+
+## Advanced Inspection Views
+
+These routes are primarily surfaced by `rune-ui`, but they are backed by
+first-class `rune` API contracts and are useful integration targets in their
+own right.
+
+| Surface | UI route | API route | Notes |
+|---|---|---|---|
+| Run detail | `/runs/{run_id}` | `GET /v1/jobs/{job_id}` | Status, result metadata, telemetry |
+| Live trace | `/runs/{run_id}` | `GET /api/v1/runs/{run_id}/trace` | UI proxy for the run event stream |
+| Browser live view | `/runs/{run_id}` | `GET /api/v1/runs/{run_id}/browser-stream` | UI proxy for browser screenshots |
+| Chain DAG | `/chains/{run_id}` | `GET /v1/chains/{run_id}/state` | Multi-agent graph state (`nodes`, `edges`, `overall_status`) |
+| Audit artifacts | `/audits/{run_id}` | `GET /v1/audits/{run_id}/artifacts` | Compliance evidence list grouped by artifact kind |
+| Audit download | `/audits/{run_id}` | `GET /v1/audits/{run_id}/artifacts/{artifact_id}` | Streams raw artifact bytes |
+
+See **[Advanced Pipelines](ADVANCED_PIPELINES.md)** for behavior and validation
+details.
 
  
 ## Wire Protocol (Driver Layer)

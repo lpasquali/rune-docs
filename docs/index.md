@@ -16,6 +16,7 @@ How to interact with and configure RUNE.
 
 - **[QUICKSTART](usage/QUICKSTART.md)** — Getting started locally.
 - **[INTERFACES](usage/INTERFACES.md)** — CLI commands and API endpoints.
+- **[ADVANCED_PIPELINES](usage/ADVANCED_PIPELINES.md)** — Chain DAG and audit artifact views.
 - **[CONFIGURATION](usage/CONFIGURATION.md)** — Environment variables and files.
 
 ## 🚀 Delivery
@@ -31,6 +32,7 @@ How RUNE is built, tested, and shipped.
 How RUNE is hosted and maintained.
 
 - **[DEPLOYMENT](operations/DEPLOYMENT.md)** — Hosting modes and provisioning.
+- **[DATABASE](operations/DATABASE.md)** — Current SQLite operations and planned PostgreSQL rollout.
 - **[OBSERVABILITY](operations/OBSERVABILITY.md)** — Metrics and logging.
 - **[RUNBOOKS](operations/RUNBOOKS.md)** — Incident response checklists.
 

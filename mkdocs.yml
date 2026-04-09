@@ -1,8 +1,5 @@
 site_name: RUNE Documentation
 site_description: Documentation for the RUNE platform, APIs, and compliance posture
-site_url: https://github.com/lpasquali/rune-docs
-repo_name: lpasquali/rune-docs
-repo_url: https://github.com/lpasquali/rune-docs
 theme:
   name: material
   palette:
@@ -57,6 +54,7 @@ nav:
       - Pricing & Access Tiers: usage/PRICING.md
       - Interfaces: usage/INTERFACES.md
       - API Specification: usage/API_SPEC.md
+      - Advanced Pipelines: usage/ADVANCED_PIPELINES.md
       - Configuration: usage/CONFIGURATION.md
       - LLM Backend Reference: usage/OLLAMA_REFERENCE.md
   - Delivery:
@@ -73,6 +71,8 @@ nav:
       - Workstation Setup: operations/WORKSTATION.md
       - Golden Image: operations/GOLDEN_IMAGE.md
       - Deployment: operations/DEPLOYMENT.md
+      - Database Operations: operations/DATABASE.md
+      - Database HA: operations/DATABASE_HA.md
       - Observability: operations/OBSERVABILITY.md
       - Runbooks: operations/RUNBOOKS.md
       - Rollback Procedures: operations/ROLLBACK_PROCEDURES.md
@@ -98,3 +98,4 @@ nav:
           - "0003: UI Design": architecture/adrs/0003-ui-design.md
           - "0004: Operator Parity": architecture/adrs/0004-operator-feature-parity.md
           - "0005: Advanced Cognitive Architecture": architecture/adrs/0005-advanced-cognitive-architecture.md
+          - "0006: Storage Abstraction and PostgreSQL": architecture/adrs/0006-storage-abstraction-postgres.md
