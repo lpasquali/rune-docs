@@ -32,6 +32,27 @@ Last updated: **2026-04-09**.
  
 ## Recent Changes
 
+### 2026-04-09 — Hybrid project board sync (Epic rune-docs#187 closed)
+
+Consolidated project board automation by splitting Status field ownership (Projects v2 built-in workflows) from Agent Lane ownership (slimmed `rune-ci/project-sync-logic.yml`).
+
+**Built-in workflows enabled in project #1** (zero code, configured in UI):
+- Item added → Status = Todo
+- Item closed → Status = Done
+- Item reopened → Status = In progress
+- Pull request merged → Status = Done
+
+**`rune-ci/project-sync-logic.yml` slimmed** (rune-ci#13): JS body 94 → 50 lines (-47%); total file 113 → 88 lines. Now only does (a) `addProjectV2ItemById` for manual auto-add (filter-based built-in is gated to GitHub Team / Enterprise) and (b) Agent Lane mapping from `<agent>_cli` labels.
+
+**SYSTEM_PROMPT.md updated** (rune-docs#192, #193) — Project Board Tracking section rewritten for the hybrid model; Reopened transition corrected from Todo to In progress to match observed built-in behavior.
+
+**Stale config fixes discovered along the way:**
+- Bumped 8 consumer caller workflows with `permissions: contents: read` and `synchronized → synchronize` typo fix (rune#225, rune-operator#87, rune-ui#97, rune-docs#186, rune-charts#69, rune-audit#77, rune-airgapped#61, rune-ci#11)
+- rune-audit branch protection had a stale required check `RuneGate/Compliance/ML4-Automated-Approval` (left over from before the reusable-workflow refactor — actual emitted name now has a `compliance /` prefix). Removed; ruleset's `Merge Gate` requirement still gates the same compliance chain via job dependencies.
+- Removed the third-party "Claude" GitHub App from rune-audit (its check suite was getting stuck queued, blocking merges).
+
+**Verification matrix passed** (rune-docs#190): 6/6 tests across rune-ui, rune-airgapped, and rune-ci confirm the slimmed workflow no longer overrides Status when a `_cli` label is added — the central goal of the epic.
+
 ### 2026-04-09 — CI Standardization & PR Cleanup (12 PRs resolved)
 
 **Project-Sync Standardization (5 repos):**
