@@ -32,6 +32,24 @@ Last updated: **2026-04-08**.
  
 ## Recent Changes
 
+### 2026-04-08 — Security & CI/CD Hardening Session
+
+**Security Fixes (3 PRs):**
+- **pip CVE-2026-1703** (rune#216): Pinned pip to 26.0 in Dockerfiles (rune, rune-audit, rune-ui) and CI actions.
+- **API Socket Bind** (rune#217): Changed default `api_server.py` host from `0.0.0.0` to `127.0.0.1` to resolve CodeQL alert.
+- **SLSA URL Sanitization** (rune-audit#71): Fixed incomplete URL substring sanitization in `slsa.py` to resolve CodeQL alert.
+
+**CI/CD Hardening (Phase 4):**
+- Bumped `actions/github-script` to `@v8` across all repos.
+- Pinned all GitHub Actions to exact SHAs across 6 active repositories.
+
+**Audit Infrastructure (Phase 5):**
+- **Helm Chart** (rune-charts#58): Fixed malformed YAML templates (CronJob, ServiceAccount) to allow successful `rune-audit` deployment.
+
+**Airgapped Bundle (Phase 6):**
+- **TLS Certificates** (rune-airgapped#16): Added `generate-certs.sh` script to generate self-signed TLS certs with SANs for internal services.
+
+
 ### 2026-04-08 — Cross-Repo Feature Buildout (20 issues, 15 PRs)
 
 **Issues Closed Directly:**
@@ -182,13 +200,9 @@ Last updated: **2026-04-08**.
 | rune-airgapped | [#24](https://github.com/lpasquali/rune-airgapped/issues/24) | EPIC: Customer Documentation & Guides | Not started |
 
  
-## Open CVEs (as of 2026-04-07)
+## Open CVEs
 
-| Repo | CVE | Package | Severity | Fix |
-|---|---|---|---|---|
-| rune, rune-ui, rune-audit | CVE-2026-1703 | pip 25.3 | — | Upgrade to pip 26.0 |
-| rune | CodeQL `py/bind-socket-all-network-interfaces` | — | Medium | Change default bind to 127.0.0.1 |
-| rune-audit | CodeQL `py/incomplete-url-substring-sanitization` | — | High | Fix URL validation in slsa.py |
+All critical and high severity CVEs and CodeQL alerts identified on 2026-04-07 have pending PRs for remediation.
 
 **Dependabot is DISABLED** on 5 repos (rune-operator, rune-ui, rune-charts, rune-docs, rune-airgapped). Should be enabled for ML4 compliance.
 
@@ -198,7 +212,6 @@ Last updated: **2026-04-08**.
 - **Merge 15 open PRs** across rune-ui, rune-docs, rune-audit, and rune-charts (all CI-green, Ready for Review).
 - Run 100% coverage campaign across all repos (rune#182).
 - Enable Dependabot on all repos.
-- Fix remaining open CVEs (pip upgrade, CodeQL alerts).
 - Implement `/v1/estimates` end-to-end validation in docker-compose.
 - Explore Gateway API Inference Extension (`k8s-inference` backend type).
 - Customer documentation for rune-airgapped (rune-airgapped#24).
