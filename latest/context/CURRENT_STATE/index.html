@@ -495,6 +495,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-09-ci-standardization-pr-cleanup-12-prs-resolved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-09 — CI Standardization &amp; PR Cleanup (12 PRs resolved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-08-security-cicd-hardening-session" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2265,6 +2276,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-09-ci-standardization-pr-cleanup-12-prs-resolved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-09 — CI Standardization &amp; PR Cleanup (12 PRs resolved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-08-security-cicd-hardening-session" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2397,7 +2419,7 @@
 <p>RUNE is currently in active pre-alpha development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is <strong>not yet production-ready</strong>.</p>
 <h2 id="freshness-policy">Freshness Policy<a class="headerlink" href="#freshness-policy" title="Permanent link">&para;</a></h2>
 <p>This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.</p>
-<p>Last updated: <strong>2026-04-08</strong>.</p>
+<p>Last updated: <strong>2026-04-09</strong>.</p>
 <h2 id="version-baseline">Version Baseline<a class="headerlink" href="#version-baseline" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -2454,6 +2476,19 @@
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-09-ci-standardization-pr-cleanup-12-prs-resolved">2026-04-09 — CI Standardization &amp; PR Cleanup (12 PRs resolved)<a class="headerlink" href="#2026-04-09-ci-standardization-pr-cleanup-12-prs-resolved" title="Permanent link">&para;</a></h3>
+<p><strong>Project-Sync Standardization (5 repos):</strong>
+- Standardized <code>project-sync.yml</code> across rune (#215), rune-operator (#85), rune-ui (#94), rune-docs (#177), rune-charts (#66) to call <code>rune-ci</code> reusable workflow <code>project-sync-logic.yml</code> with SHA-pinned reference.
+- Fixed <code>project-sync.yml</code> in all consumer repos: was pointing to <code>project-sync.yml</code> (caller template, not a <code>workflow_call</code> workflow); now correctly references <code>project-sync-logic.yml</code>.</p>
+<p><strong>CI Fix (rune):</strong>
+- Added missing top-level "Merge Gate" job to <code>quality-gates.yml</code> — ruleset required <code>Merge Gate</code> but only <code>compliance / Merge Gate</code> existed, blocking all PR merges.</p>
+<p><strong>Feature PRs Merged:</strong>
+- <strong>rune-ui#75</strong>: Print stylesheet with <code>@media print</code> rules.
+- <strong>rune-docs#179</strong>: Epic Lifecycle rule added to SYSTEM_PROMPT.md.</p>
+<p><strong>Superseded PRs Closed (4):</strong>
+- rune-operator#78, rune-docs#114, rune-charts#60: Consolidated dep bump PRs — all changes already on main via SHA-pinned action versions.
+- rune-ui#78: Python 3.14 base image bump — already on main.</p>
+<p><strong>rune-charts#55</strong>: CI action SHA pinning — merged (remaining changes after rebase: project-sync fix).</p>
 <h3 id="2026-04-08-security-cicd-hardening-session">2026-04-08 — Security &amp; CI/CD Hardening Session<a class="headerlink" href="#2026-04-08-security-cicd-hardening-session" title="Permanent link">&para;</a></h3>
 <p><strong>Security Fixes (3 PRs):</strong>
 - <strong>pip CVE-2026-1703</strong> (rune#216): Pinned pip to 26.0 in Dockerfiles (rune, rune-audit, rune-ui) and CI actions.
