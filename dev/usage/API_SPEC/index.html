@@ -10,13 +10,11 @@
       
       
       
-        <link rel="canonical" href="https://github.com/lpasquali/rune-docs/dev/usage/API_SPEC/">
-      
       
         <link rel="prev" href="../INTERFACES/">
       
       
-        <link rel="next" href="../CONFIGURATION/">
+        <link rel="next" href="../ADVANCED_PIPELINES/">
       
       
         
@@ -203,18 +201,6 @@
       
     
     
-      <div class="md-header__source">
-        <a href="https://github.com/lpasquali/rune-docs" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
-  </div>
-  <div class="md-source__repository">
-    lpasquali/rune-docs
-  </div>
-</a>
-      </div>
-    
   </nav>
   
 </header>
@@ -248,18 +234,6 @@
     </a>
     RUNE Documentation
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/lpasquali/rune-docs" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
-  </div>
-  <div class="md-source__repository">
-    lpasquali/rune-docs
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -873,6 +847,73 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#chain-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chain Visualization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chain Visualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-chain-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Chain State
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audit-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit Artifacts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Audit Artifacts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-audit-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List Audit Artifacts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-audit-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download Audit Artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -921,6 +962,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ADVANCED_PIPELINES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1427,6 +1496,62 @@
     
   
     Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DATABASE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DATABASE_HA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database HA
   
 
     
@@ -2229,6 +2354,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0006-storage-abstraction-postgres/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0006: Storage Abstraction and PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2448,6 +2601,73 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#chain-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chain Visualization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chain Visualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-chain-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Chain State
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audit-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit Artifacts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Audit Artifacts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-audit-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List Audit Artifacts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-audit-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download Audit Artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2508,9 +2728,6 @@
                   
 
 
-  
-  
-
 
 <h1 id="rune-api-specification">RUNE API Specification<a class="headerlink" href="#rune-api-specification" title="Permanent link">&para;</a></h1>
 <p>This document defines the formal REST API for the RUNE platform.</p>
@@ -2566,6 +2783,35 @@
 <h3 id="metrics">Metrics<a class="headerlink" href="#metrics" title="Permanent link">&para;</a></h3>
 <p><code>GET /v1/metrics/summary?job_id=&lt;id&gt;</code>
 - <strong>Response</strong>: <code>{"events": [...]}</code> (aggregated metrics)</p>
+<h3 id="chain-visualization">Chain Visualization<a class="headerlink" href="#chain-visualization" title="Permanent link">&para;</a></h3>
+<h4 id="get-chain-state">Get Chain State<a class="headerlink" href="#get-chain-state" title="Permanent link">&para;</a></h4>
+<p><code>GET /v1/chains/{run_id}/state</code>
+- <strong>Response</strong>: <code>{"run_id": "...", "nodes": [...], "edges": [...], "overall_status": "pending|running|success|failed|skipped"}</code>
+- <strong>404</strong>: Unknown run or tenant-scoped miss
+- <strong>Notes</strong>:
+  - Existing runs with no recorded chain state return an empty shell:
+    <code>{"run_id": "...", "nodes": [], "edges": [], "overall_status": "pending"}</code>
+  - <code>nodes[*]</code> include per-step status and timestamps; <code>edges[*]</code> use
+    <code>{"from": "...", "to": "..."}</code> pairs.</p>
+<h3 id="audit-artifacts">Audit Artifacts<a class="headerlink" href="#audit-artifacts" title="Permanent link">&para;</a></h3>
+<h4 id="list-audit-artifacts">List Audit Artifacts<a class="headerlink" href="#list-audit-artifacts" title="Permanent link">&para;</a></h4>
+<p><code>GET /v1/audits/{run_id}/artifacts</code>
+- <strong>Response</strong>:
+  <code>{"run_id": "...", "summary": {"total_count": 0, "kinds_present": []}, "artifacts": [...]}</code>
+- <strong>Artifact metadata shape</strong>:
+  <code>{"artifact_id": "...", "kind": "sbom", "name": "sbom.json", "size_bytes": 1234, "sha256": "...", "created_at": 1712660100.0, "download_url": "/v1/audits/{run_id}/artifacts/{artifact_id}"}</code>
+- <strong>404</strong>: Unknown run or tenant-scoped miss
+- <strong>Notes</strong>:
+  - The list response excludes raw bytes.
+  - An existing run with no audit evidence returns <code>200</code> with an empty list.</p>
+<h4 id="download-audit-artifact">Download Audit Artifact<a class="headerlink" href="#download-audit-artifact" title="Permanent link">&para;</a></h4>
+<p><code>GET /v1/audits/{run_id}/artifacts/{artifact_id}</code>
+- <strong>Response</strong>: Raw artifact bytes with <code>Content-Disposition: attachment</code>
+- <strong>Content-Type</strong>:
+  - <code>application/json</code> for JSON-backed artifacts such as SLSA provenance,
+    SBOMs, or TLA+ reports
+  - <code>application/octet-stream</code> for binary or opaque artifacts such as Sigstore,
+    Rekor, or TPM evidence</p>
 <h2 id="data-structures">Data Structures<a class="headerlink" href="#data-structures" title="Permanent link">&para;</a></h2>
 <h3 id="costestimationrequest"><code>CostEstimationRequest</code><a class="headerlink" href="#costestimationrequest" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
