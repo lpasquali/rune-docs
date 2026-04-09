@@ -25,7 +25,7 @@ Last updated: **2026-04-09**.
 | rune-operator | `v0.0.0a0` (yanked `v0.1.0`) | 42 | Active development |
 | rune-ui | `v0.0.0a0` (yanked `v0.1.1`) | 34 | Active development |
 | rune-charts | `0.0.0-a0` (yanked `v0.1.1`) | 26 | Active development |
-| rune-docs | `v0.0.0a2` (yanked `v0.1.0`, `v0.0.0a3`–`v0.0.0a5`, `v0.0.0a6`) | 125 | Active development |
+| rune-docs | `v0.0.0a3` (yanked `v0.1.0`, legacy `v0.0.0a3`–`v0.0.0a5`, `v0.0.0a6`) | 131 | Active development |
 | rune-airgapped | unversioned | 14 | Pre-scaffolding |
 | rune-audit | `v0.0.0a0` (yanked `v0.1.1`) | 15 | Scaffolding complete |
 
