@@ -506,6 +506,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#2026-04-09-cursor-agent-cursor_cli-in-ssot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-09 — Cursor agent (cursor_cli) in SSOT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-09-ci-standardization-pr-cleanup-12-prs-resolved" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2298,6 +2309,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#2026-04-09-cursor-agent-cursor_cli-in-ssot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-09 — Cursor agent (cursor_cli) in SSOT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-09-ci-standardization-pr-cleanup-12-prs-resolved" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2512,6 +2534,9 @@
 - rune-audit branch protection had a stale required check <code>RuneGate/Compliance/ML4-Automated-Approval</code> (left over from before the reusable-workflow refactor — actual emitted name now has a <code>compliance /</code> prefix). Removed; ruleset's <code>Merge Gate</code> requirement still gates the same compliance chain via job dependencies.
 - Removed the third-party "Claude" GitHub App from rune-audit (its check suite was getting stuck queued, blocking merges).</p>
 <p><strong>Verification matrix passed</strong> (rune-docs#190): 6/6 tests across rune-ui, rune-airgapped, and rune-ci confirm the slimmed workflow no longer overrides Status when a <code>_cli</code> label is added — the central goal of the epic.</p>
+<h3 id="2026-04-09-cursor-agent-cursor_cli-in-ssot">2026-04-09 — Cursor agent (<code>cursor_cli</code>) in SSOT<a class="headerlink" href="#2026-04-09-cursor-agent-cursor_cli-in-ssot" title="Permanent link">&para;</a></h3>
+<p><strong><code>SYSTEM_PROMPT.md</code></strong> — Label Guard, label-on-assign examples, SOP Step 1 (Assign), and Project Board <strong>Agent Lane</strong> now explicitly include the Cursor agent and <code>cursor_cli</code>, consistent with other <code>&lt;agent&gt;_cli</code> ownership labels and <code>project-sync-logic.yml</code> lane mapping.</p>
+<p><strong><code>CI_SHARED_WORKFLOWS.md</code></strong> — <code>project-sync.yml</code> description lists Cursor alongside Claude, Gemini, and Copilot in the Agent Lane set.</p>
 <h3 id="2026-04-09-ci-standardization-pr-cleanup-12-prs-resolved">2026-04-09 — CI Standardization &amp; PR Cleanup (12 PRs resolved)<a class="headerlink" href="#2026-04-09-ci-standardization-pr-cleanup-12-prs-resolved" title="Permanent link">&para;</a></h3>
 <p><strong>Project-Sync Standardization (5 repos):</strong>
 - Standardized <code>project-sync.yml</code> across rune (#215), rune-operator (#85), rune-ui (#94), rune-docs (#177), rune-charts (#66) to call <code>rune-ci</code> reusable workflow <code>project-sync-logic.yml</code> with SHA-pinned reference.

@@ -3084,9 +3084,9 @@
 </ul>
 <h2 id="agent-workflow-efficiency-mandates">Agent Workflow &amp; Efficiency (Mandates)<a class="headerlink" href="#agent-workflow-efficiency-mandates" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Label Guard</strong>: Before starting work on an existing issue, agents MUST verify the issue carries a label matching their identity (<code>claude_cli</code>, <code>gemini_cli</code>, or <code>copilot_cli</code>). If the label is missing or belongs to a different agent, the agent MUST halt and ask the user for permission — even in YOLO mode.</li>
+<li><strong>Label Guard</strong>: Before starting work on an existing issue, agents MUST verify the issue carries a label matching their identity (<code>claude_cli</code>, <code>gemini_cli</code>, <code>copilot_cli</code>, or <code>cursor_cli</code> for the Cursor agent / Cursor CLI). If the label is missing or belongs to a different agent, the agent MUST halt and ask the user for permission — even in YOLO mode.</li>
 <li><strong>Agent Label Isolation</strong>: During parallel agent execution, labels provide a lightweight ownership fence that prevents cross-contamination:<ol>
-<li><strong>Label on Assign</strong>: When an agent begins work on an issue, it MUST add the label <code>&lt;agent_name&gt;_cli</code> (e.g., <code>claude_cli</code>, <code>copilot_cli</code>, <code>cursor_cli</code>) to the issue.</li>
+<li><strong>Label on Assign</strong>: When an agent begins work on an issue, it MUST add the label <code>&lt;agent_name&gt;_cli</code> (e.g., <code>claude_cli</code>, <code>gemini_cli</code>, <code>copilot_cli</code>, <code>cursor_cli</code>) to the issue.</li>
 <li><strong>Label on Draft PR</strong>: All Draft PRs created by an agent MUST carry the same <code>&lt;agent_name&gt;_cli</code> label.</li>
 <li><strong>Ownership Fence</strong>: An agent MUST only work on issues, Draft PRs, and PRs that bear its own <code>&lt;agent_name&gt;_cli</code> label. It MUST NOT modify, rebase, or push to branches belonging to another agent's labeled items.</li>
 <li><strong>Label Creation</strong>: If the label does not exist in the repo, the agent must create it before applying it.</li>
@@ -3103,7 +3103,7 @@
 <li><strong>Needs human intervention</strong> → Status: <strong>Review</strong>, Agent Lane: <strong>Human</strong>. <strong>Manual transition</strong> by the agent. When an agent cannot proceed without human input (approval, decision, manual step), set both fields.</li>
 <li><strong>Closed / merged</strong> → Status: <strong>Done</strong>. Set automatically by the built-in <strong>"Item closed"</strong> and <strong>"Pull request merged"</strong> workflows.</li>
 <li><strong>Reopened</strong> → Status: <strong>In progress</strong>. Set automatically by the built-in <strong>"Item reopened"</strong> workflow. (Reopens typically resume active work, so the item lands back in the active column rather than re-queuing at Todo.)</li>
-<li><strong>Agent Lane</strong> (Claude / Gemini / Copilot / Human): Set automatically by <code>rune-ci/project-sync-logic.yml</code> based on the <code>&lt;agent&gt;_cli</code> label on the issue or PR. Adding/removing the label updates the lane on the next event.</li>
+<li><strong>Agent Lane</strong> (Claude / Gemini / Copilot / Cursor / Human): Set automatically by <code>rune-ci/project-sync-logic.yml</code> based on the <code>&lt;agent&gt;_cli</code> label on the issue or PR (including <code>cursor_cli</code> → Cursor). Adding/removing the label updates the lane on the next event. The GitHub project #1 <strong>Agent Lane</strong> single-select must include a <strong>Cursor</strong> option aligned with that mapping.</li>
 </ul>
 </li>
 <li><strong>PR Workflow</strong>: When handling Pull Requests, resolve merge conflicts by pulling the latest target branch (e.g., <code>main</code>) and rebasing the assigned branch onto it. Always wait for GitHub Actions/CI to finish before merging. <strong>Your PR bodies must strictly match the template</strong>, checking exactly one DoD level and including all required sections (Acceptance Criteria Evidence, Audit Checks, Breaking Changes) or the <code>pr-body-check</code> CI gate will fail the build.</li>
@@ -3193,7 +3193,7 @@ None.
 <p>A PR with unticked or unsubstantiated acceptance criteria must not be merged. If evidence cannot be produced for a criterion, explain why in the PR body and flag it for review.</p>
 <h2 id="standard-operating-procedure-sop-issue-to-merge">Standard Operating Procedure (SOP): Issue-to-Merge<a class="headerlink" href="#standard-operating-procedure-sop-issue-to-merge" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Assign</strong>: Ensure active issue is assigned to <strong>lpasquali</strong> (never self-assign). <strong>Perform Label Guard check</strong>: verify the issue carries a label matching your identity (<code>claude_cli</code>, <code>gemini_cli</code>, or <code>copilot_cli</code>).</li>
+<li><strong>Assign</strong>: Ensure active issue is assigned to <strong>lpasquali</strong> (never self-assign). <strong>Perform Label Guard check</strong>: verify the issue carries a label matching your identity (<code>claude_cli</code>, <code>gemini_cli</code>, <code>copilot_cli</code>, or <code>cursor_cli</code>).</li>
 <li><strong>Isolate</strong>: Create feature branch; reproduction test-case first (for bugs).</li>
 <li><strong>Research</strong>: Read <code>rune-docs</code> as the single source of truth.</li>
 <li><strong>Halt &amp; Report</strong>: Before writing/modifying code, explicitly halt and ask the user for permission to proceed (even in YOLO mode).</li>
