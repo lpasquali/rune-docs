@@ -221,7 +221,11 @@ All contracts use `backend_url` (not `ollama_url`) and `backend_type` (default `
 - **ADR Protocol**: Any architectural change or cross-repository feature parity gap must be documented as an Architecture Decision Record (ADR) in `rune-docs/docs/architecture/adrs/`. Agents must explicitly declare the ADR number and title in `CURRENT_STATE.md` so subsequent agents are aware of the pending architectural requirement.
 - **Branch Isolation**: Agents must operate in isolated feature branches. Only rebase and push the **assigned** branch. Never modify or rebase branches belonging to other agents or tasks.
 - **Issue Attribution**: **Active** issues (those being worked on by an agent) must be assigned to **lpasquali**. Inactive/untouched issues can remain unassigned. Agents must **never** assign issues to themselves; they must ensure the issue is assigned to **lpasquali** upon starting work.
-- **Project Board Tracking**: When creating any issue or Epic, agents MUST add it to the GitHub project board in the **Todo** column. Use `gh project item-add 1 --owner lpasquali --url <ISSUE_URL>` to add the item. The `project-sync` workflow will automatically set the Status to "Todo" on issue creation events, but agents should verify the item appears on the board. This ensures all new work is visible on the project board from the moment of creation.
+- **Project Board Tracking**: All issues and Epics must be tracked on GitHub project #1 (`gh project item-add 1 --owner lpasquali --url <ISSUE_URL>`). Board state transitions:
+    - **Creation** → Status: **Todo**. The `project-sync` workflow handles this automatically on issue creation events; agents should verify the item appears on the board.
+    - **Starting work** → Status: **In progress**. When an agent begins work on an issue (SOP Step 1–2 completed), it must move the item to "In progress".
+    - **Needs human intervention** → Status: **Review**, Agent Lane: **Human**. When an agent cannot proceed without human input (approval, decision, manual step), move the item to "Review" and set Agent Lane to "Human".
+    - **Completed** → Status: **Done**. Set automatically by `project-sync` when the issue is closed.
 - **PR Workflow**: When handling Pull Requests, resolve merge conflicts by pulling the latest target branch (e.g., `main`) and rebasing the assigned branch onto it. Always wait for GitHub Actions/CI to finish before merging. **Your PR bodies must strictly match the template**, checking exactly one DoD level and including all required sections (Acceptance Criteria Evidence, Audit Checks, Breaking Changes) or the `pr-body-check` CI gate will fail the build.
 - **PR Body Template** (enforced by CI in all repos):
   ```markdown
@@ -252,7 +256,8 @@ All contracts use `backend_url` (not `ollama_url`) and `backend_type` (default `
 - **Minimal Commands**: Minimize turns by combining independent tool calls in parallel. Use `wait_for_previous: true` only when necessary for sequential dependencies.
 - **Strategic Orchestration**: Use sub-agents (e.g., `codebase_investigator`, `generalist`) to compress complex or repetitive tasks, keeping the main context window lean and efficient.
 - **Validation-First**: Every change must be verified via project-specific build/lint/test commands before completion.
-- **Epic Lifecycle**: An Epic issue MUST NOT be closed until **every** child issue listed in its body is closed. Before closing an Epic, the agent MUST query all child issue references and verify each is in `CLOSED` state. If any child is still open, the Epic stays open — no exceptions. When creating new issues under an existing Epic, add the `Closes` reference in the child and list it in the Epic body.
+- **Issue Closure Gate**: An issue MUST NOT be closed while any associated PR (including Draft PRs) remains open. Before closing an issue, the agent MUST verify that every linked PR is either merged or closed. If any PR is still open, the issue stays open — no exceptions.
+- **Epic Lifecycle**: An Epic issue MUST NOT be closed until **every** child issue listed in its body is closed **and** every associated PR (including Draft PRs) is merged or closed. Before closing an Epic, the agent MUST query all child issue references and verify each is in `CLOSED` state, and verify no open PRs or Draft PRs reference the Epic or its children. If any child issue or PR is still open, the Epic stays open — no exceptions. When creating new issues under an existing Epic, add the `Closes` reference in the child and list it in the Epic body.
 
  
 ## Documentation Expedite Channel
