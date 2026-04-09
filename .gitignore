@@ -7,3 +7,6 @@ __pycache__/
 htmlcov/
 sbom/
 *.pyc
+
+# Claude Code per-project agent state
+.claude/
