@@ -53,6 +53,14 @@ Consolidated project board automation by splitting Status field ownership (Proje
 
 **Verification matrix passed** (rune-docs#190): 6/6 tests across rune-ui, rune-airgapped, and rune-ci confirm the slimmed workflow no longer overrides Status when a `_cli` label is added — the central goal of the epic.
 
+### 2026-04-09 — Agent Lane "Cursor" on GitHub project #1 + `rune-ci` sync
+
+**GitHub project #1 (user `lpasquali`)** — Added **Cursor** to the **Agent Lane** single-select field via GraphQL `updateProjectV2Field`. GitHub regenerated **all** option node IDs for that field (Gemini, Claude, Copilot, Human, Cursor).
+
+**`rune-ci` `main`** (`02b3865`) — `project-sync-logic.yml` now maps `cursor_cli` → Cursor and updates `gemini_cli` / `claude_cli` / `copilot_cli` / `human` to the new option IDs.
+
+**Operational note:** Board items that had **Agent Lane** set before this change may need a fresh sync: remove and re-add the relevant `<agent>_cli` label on the issue or PR (or set the lane manually once).
+
 ### 2026-04-09 — CI Standardization & PR Cleanup (12 PRs resolved)
 
 **Project-Sync Standardization (5 repos):**
