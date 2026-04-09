@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-08**.
+Last updated: **2026-04-09**.
 
  
 ## Version Baseline
@@ -31,6 +31,25 @@ Last updated: **2026-04-08**.
 
  
 ## Recent Changes
+
+### 2026-04-09 — CI Standardization & PR Cleanup (12 PRs resolved)
+
+**Project-Sync Standardization (5 repos):**
+- Standardized `project-sync.yml` across rune (#215), rune-operator (#85), rune-ui (#94), rune-docs (#177), rune-charts (#66) to call `rune-ci` reusable workflow `project-sync-logic.yml` with SHA-pinned reference.
+- Fixed `project-sync.yml` in all consumer repos: was pointing to `project-sync.yml` (caller template, not a `workflow_call` workflow); now correctly references `project-sync-logic.yml`.
+
+**CI Fix (rune):**
+- Added missing top-level "Merge Gate" job to `quality-gates.yml` — ruleset required `Merge Gate` but only `compliance / Merge Gate` existed, blocking all PR merges.
+
+**Feature PRs Merged:**
+- **rune-ui#75**: Print stylesheet with `@media print` rules.
+- **rune-docs#179**: Epic Lifecycle rule added to SYSTEM_PROMPT.md.
+
+**Superseded PRs Closed (4):**
+- rune-operator#78, rune-docs#114, rune-charts#60: Consolidated dep bump PRs — all changes already on main via SHA-pinned action versions.
+- rune-ui#78: Python 3.14 base image bump — already on main.
+
+**rune-charts#55**: CI action SHA pinning — merged (remaining changes after rebase: project-sync fix).
 
 ### 2026-04-08 — Security & CI/CD Hardening Session
 
