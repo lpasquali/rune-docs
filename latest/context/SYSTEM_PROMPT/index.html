@@ -3125,6 +3125,7 @@ None.
 <li><strong>Minimal Commands</strong>: Minimize turns by combining independent tool calls in parallel. Use <code>wait_for_previous: true</code> only when necessary for sequential dependencies.</li>
 <li><strong>Strategic Orchestration</strong>: Use sub-agents (e.g., <code>codebase_investigator</code>, <code>generalist</code>) to compress complex or repetitive tasks, keeping the main context window lean and efficient.</li>
 <li><strong>Validation-First</strong>: Every change must be verified via project-specific build/lint/test commands before completion.</li>
+<li><strong>Epic Lifecycle</strong>: An Epic issue MUST NOT be closed until <strong>every</strong> child issue listed in its body is closed. Before closing an Epic, the agent MUST query all child issue references and verify each is in <code>CLOSED</code> state. If any child is still open, the Epic stays open — no exceptions. When creating new issues under an existing Epic, add the <code>Closes</code> reference in the child and list it in the Epic body.</li>
 </ul>
 <h2 id="documentation-expedite-channel">Documentation Expedite Channel<a class="headerlink" href="#documentation-expedite-channel" title="Permanent link">&para;</a></h2>
 <p>Documentation changes to <code>rune-docs</code> run on a <strong>parallel expedited channel</strong>, independent of feature milestones. Because <code>rune-docs</code> is the single source of truth consumed by all agents at boot, docs PRs must never be blocked behind feature milestone timelines.</p>
