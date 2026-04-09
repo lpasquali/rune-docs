@@ -211,9 +211,9 @@ All contracts use `backend_url` (not `ollama_url`) and `backend_type` (default `
  
 ## Agent Workflow & Efficiency (Mandates)
 
-- **Label Guard**: Before starting work on an existing issue, agents MUST verify the issue carries a label matching their identity (`claude_cli`, `gemini_cli`, or `copilot_cli`). If the label is missing or belongs to a different agent, the agent MUST halt and ask the user for permission — even in YOLO mode.
+- **Label Guard**: Before starting work on an existing issue, agents MUST verify the issue carries a label matching their identity (`claude_cli`, `gemini_cli`, `copilot_cli`, or `cursor_cli` for the Cursor agent / Cursor CLI). If the label is missing or belongs to a different agent, the agent MUST halt and ask the user for permission — even in YOLO mode.
 - **Agent Label Isolation**: During parallel agent execution, labels provide a lightweight ownership fence that prevents cross-contamination:
-    1. **Label on Assign**: When an agent begins work on an issue, it MUST add the label `<agent_name>_cli` (e.g., `claude_cli`, `copilot_cli`, `cursor_cli`) to the issue.
+    1. **Label on Assign**: When an agent begins work on an issue, it MUST add the label `<agent_name>_cli` (e.g., `claude_cli`, `gemini_cli`, `copilot_cli`, `cursor_cli`) to the issue.
     2. **Label on Draft PR**: All Draft PRs created by an agent MUST carry the same `<agent_name>_cli` label.
     3. **Ownership Fence**: An agent MUST only work on issues, Draft PRs, and PRs that bear its own `<agent_name>_cli` label. It MUST NOT modify, rebase, or push to branches belonging to another agent's labeled items.
     4. **Label Creation**: If the label does not exist in the repo, the agent must create it before applying it.
@@ -228,7 +228,7 @@ All contracts use `backend_url` (not `ollama_url`) and `backend_type` (default `
     - **Needs human intervention** → Status: **Review**, Agent Lane: **Human**. **Manual transition** by the agent. When an agent cannot proceed without human input (approval, decision, manual step), set both fields.
     - **Closed / merged** → Status: **Done**. Set automatically by the built-in **"Item closed"** and **"Pull request merged"** workflows.
     - **Reopened** → Status: **In progress**. Set automatically by the built-in **"Item reopened"** workflow. (Reopens typically resume active work, so the item lands back in the active column rather than re-queuing at Todo.)
-    - **Agent Lane** (Claude / Gemini / Copilot / Human): Set automatically by `rune-ci/project-sync-logic.yml` based on the `<agent>_cli` label on the issue or PR. Adding/removing the label updates the lane on the next event.
+    - **Agent Lane** (Claude / Gemini / Copilot / Cursor / Human): Set automatically by `rune-ci/project-sync-logic.yml` based on the `<agent>_cli` label on the issue or PR (including `cursor_cli` → Cursor). Adding/removing the label updates the lane on the next event. The GitHub project #1 **Agent Lane** single-select must include a **Cursor** option aligned with that mapping.
 - **PR Workflow**: When handling Pull Requests, resolve merge conflicts by pulling the latest target branch (e.g., `main`) and rebasing the assigned branch onto it. Always wait for GitHub Actions/CI to finish before merging. **Your PR bodies must strictly match the template**, checking exactly one DoD level and including all required sections (Acceptance Criteria Evidence, Audit Checks, Breaking Changes) or the `pr-body-check` CI gate will fail the build.
 - **PR Body Template** (enforced by CI in all repos):
   ```markdown
@@ -331,7 +331,7 @@ A PR with unticked or unsubstantiated acceptance criteria must not be merged. If
  
 ## Standard Operating Procedure (SOP): Issue-to-Merge
 
-1. **Assign**: Ensure active issue is assigned to **lpasquali** (never self-assign). **Perform Label Guard check**: verify the issue carries a label matching your identity (`claude_cli`, `gemini_cli`, or `copilot_cli`).
+1. **Assign**: Ensure active issue is assigned to **lpasquali** (never self-assign). **Perform Label Guard check**: verify the issue carries a label matching your identity (`claude_cli`, `gemini_cli`, `copilot_cli`, or `cursor_cli`).
 2. **Isolate**: Create feature branch; reproduction test-case first (for bugs).
 3. **Research**: Read `rune-docs` as the single source of truth.
 4. **Halt & Report**: Before writing/modifying code, explicitly halt and ask the user for permission to proceed (even in YOLO mode).

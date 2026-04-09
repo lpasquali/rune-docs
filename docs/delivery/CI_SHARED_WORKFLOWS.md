@@ -140,7 +140,7 @@ Changes) and auto-approves after all gates pass.
 ### project-sync.yml
 
 Automated project board synchronization. Sets Status (Todo/In progress/Done)
-and Agent Lane (Claude/Gemini/Copilot/Human) based on issue/PR events and
+and Agent Lane (Claude/Gemini/Copilot/Cursor/Human) based on issue/PR events and
 labels.
 
 | Secret | Required | Description |
