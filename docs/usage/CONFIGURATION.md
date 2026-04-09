@@ -18,6 +18,13 @@ Environment variables and configuration files for RUNE.
 | `RUNE_API_TOKENS` | — | Comma-separated map of `tenant:token` for the server. |
 | `RUNE_API_AUTH_DISABLED` | `0` | Disable API authentication (dev-only). |
 
+`RUNE_API_DB_PATH` is the current released persistence knob. URL-based storage
+selection exists as an architectural direction, but `RUNE_DB_URL` is not yet a
+released runtime contract. See
+**[Database Operations](../operations/DATABASE.md)** and
+**[ADR 0006](../architecture/adrs/0006-storage-abstraction-postgres.md)** for
+the planned PostgreSQL rollout.
+
 ### Driver Layer Configuration
 
 | Variable | Default | Description |

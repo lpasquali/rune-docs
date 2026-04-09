@@ -53,6 +53,10 @@ All spans include `job_id` when executing within a job context. The `backend_typ
  
 ## Results Persistence
 
-- **SQLite**: Local/Kubernetes persistence for immediate job state.
+- **SQLite**: Current local/Kubernetes persistence for immediate job state.
 - **S3 Sink**: JSON results pushed to S3/SeaweedFS for long-term storage and audit.
   - Path: `results/{tenant}/{kind}/{date}/{job_id}.json`
+
+For the accepted but not yet fully released PostgreSQL storage direction, see
+[DATABASE.md](DATABASE.md) and
+[ADR 0006](../architecture/adrs/0006-storage-abstraction-postgres.md).

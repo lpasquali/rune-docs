@@ -21,7 +21,11 @@ Networking, scaling limits, and dependencies for RUNE.
  
 ## Scaling Limits
 
-- **Concurrency**: SQLite-backed job store limits high-volume concurrent writes. For large-scale use, consider PostgreSQL (future ADR).
+- **Concurrency**: SQLite-backed job storage is simple and reliable for
+  single-node or single-pod deployments, but it limits high-volume concurrent
+  writes and does not provide a shared store for multiple `rune-api` replicas.
+  The accepted PostgreSQL direction is documented in
+  **[ADR 0006](adrs/0006-storage-abstraction-postgres.md)**.
 - **Vast.ai Limits**: Subject to provider availability and account limits.
 - **Model Size**: Limited by target machine GPU memory (VRAM).
 

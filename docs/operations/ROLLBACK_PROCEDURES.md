@@ -47,7 +47,11 @@ kubectl get pods -n rune -o jsonpath='{.items[*].spec.containers[*].image}'
 
 ## Database Schema Rollback
 
-RUNE uses SQLite for job persistence. The database file is stored in a persistent volume.
+RUNE currently uses SQLite for shipped job persistence. The database file is
+stored in a persistent volume.
+
+For the broader storage roadmap and the planned PostgreSQL path, see
+[DATABASE.md](DATABASE.md).
 
 ### Pre-upgrade Backup
 

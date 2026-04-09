@@ -17,7 +17,7 @@ flowchart TD
 
     subgraph "Control Plane (RUNE Core)"
         API["rune-api\n(ThreadingHTTPServer)"]
-        STORE[("Job Store\n(SQLite)")]
+        STORE[("Job Store\n(SQLite today /\nPostgreSQL planned)")]
         WF["Workflows\n(Orchestration)"]
     end
 
@@ -47,6 +47,10 @@ flowchart TD
     WF --> S3
     WF --> MET
 ```
+
+The current released runtime remains SQLite-backed. The PostgreSQL direction is
+accepted but still in progress; see
+[ADR 0006](adrs/0006-storage-abstraction-postgres.md).
 
  
 ## Repository Layout
