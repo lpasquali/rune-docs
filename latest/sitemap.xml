@@ -2,186 +2,186 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/architecture/FORMAL_SPECS/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/architecture/INFRASTRUCTURE/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/architecture/SECURITY_REQUIREMENTS/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/architecture/SYSTEM_DESIGN/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/architecture/THREAT_MODEL/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/architecture/adrs/0001-api-compatibility/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/architecture/adrs/0002-cost-estimation/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/architecture/adrs/0003-ui-design/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/architecture/adrs/0004-operator-feature-parity/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/architecture/adrs/0005-advanced-cognitive-architecture/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/context/CODING_STANDARDS/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/context/CURRENT_STATE/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/context/SYSTEM_PROMPT/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/delivery/AUDIT_AGENTS/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/delivery/CI_RISK_MITIGATIONS/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/delivery/CI_SHARED_WORKFLOWS/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/delivery/LABELS/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/delivery/MILESTONES/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/delivery/PIPELINES/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/delivery/RELEASES/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/delivery/SECRETS/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/delivery/VEX/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/operations/DEPLOYMENT/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/operations/GOLDEN_IMAGE/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/operations/OBSERVABILITY/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/operations/ROLLBACK_PROCEDURES/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/operations/RUNBOOKS/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/operations/VAULT/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/operations/WORKSTATION/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/security/FUZZ_TESTING/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/security/IMAGE_SIGNING/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/security/INCIDENT_RESPONSE/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/security/PENTEST/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/security/RISK_ASSESSMENT/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/security/RISK_REGISTER/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/security/SDL/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/security/SECURITY_TRAINING/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/usage/API_SPEC/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/usage/CONFIGURATION/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/usage/DEVELOPER_GUIDE/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/usage/GUIDE/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/usage/INTERFACES/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/usage/OLLAMA_REFERENCE/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/usage/PRICING/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://github.com/lpasquali/rune-docs/latest/usage/QUICKSTART/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
 </urlset>

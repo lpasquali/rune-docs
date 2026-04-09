@@ -495,6 +495,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-08-security-cicd-hardening-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-08 — Security &amp; CI/CD Hardening Session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-08-cross-repo-feature-buildout-20-issues-15-prs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -555,10 +566,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#open-cves-as-of-2026-04-07" class="md-nav__link">
+  <a href="#open-cves" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Open CVEs (as of 2026-04-07)
+        Open CVEs
       
     </span>
   </a>
@@ -2254,6 +2265,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-08-security-cicd-hardening-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-08 — Security &amp; CI/CD Hardening Session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-08-cross-repo-feature-buildout-20-issues-15-prs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2314,10 +2336,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#open-cves-as-of-2026-04-07" class="md-nav__link">
+  <a href="#open-cves" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Open CVEs (as of 2026-04-07)
+        Open CVEs
       
     </span>
   </a>
@@ -2432,6 +2454,18 @@
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-08-security-cicd-hardening-session">2026-04-08 — Security &amp; CI/CD Hardening Session<a class="headerlink" href="#2026-04-08-security-cicd-hardening-session" title="Permanent link">&para;</a></h3>
+<p><strong>Security Fixes (3 PRs):</strong>
+- <strong>pip CVE-2026-1703</strong> (rune#216): Pinned pip to 26.0 in Dockerfiles (rune, rune-audit, rune-ui) and CI actions.
+- <strong>API Socket Bind</strong> (rune#217): Changed default <code>api_server.py</code> host from <code>0.0.0.0</code> to <code>127.0.0.1</code> to resolve CodeQL alert.
+- <strong>SLSA URL Sanitization</strong> (rune-audit#71): Fixed incomplete URL substring sanitization in <code>slsa.py</code> to resolve CodeQL alert.</p>
+<p><strong>CI/CD Hardening (Phase 4):</strong>
+- Bumped <code>actions/github-script</code> to <code>@v8</code> across all repos.
+- Pinned all GitHub Actions to exact SHAs across 6 active repositories.</p>
+<p><strong>Audit Infrastructure (Phase 5):</strong>
+- <strong>Helm Chart</strong> (rune-charts#58): Fixed malformed YAML templates (CronJob, ServiceAccount) to allow successful <code>rune-audit</code> deployment.</p>
+<p><strong>Airgapped Bundle (Phase 6):</strong>
+- <strong>TLS Certificates</strong> (rune-airgapped#16): Added <code>generate-certs.sh</code> script to generate self-signed TLS certs with SANs for internal services.</p>
 <h3 id="2026-04-08-cross-repo-feature-buildout-20-issues-15-prs">2026-04-08 — Cross-Repo Feature Buildout (20 issues, 15 PRs)<a class="headerlink" href="#2026-04-08-cross-repo-feature-buildout-20-issues-15-prs" title="Permanent link">&para;</a></h3>
 <p><strong>Issues Closed Directly:</strong>
 - <strong>rune-operator#58</strong> (EPIC: Operator ↔ Rune API Feature Parity) — closed, all 7 child issues merged.
@@ -2596,48 +2630,14 @@
 </tr>
 </tbody>
 </table>
-<h2 id="open-cves-as-of-2026-04-07">Open CVEs (as of 2026-04-07)<a class="headerlink" href="#open-cves-as-of-2026-04-07" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Repo</th>
-<th>CVE</th>
-<th>Package</th>
-<th>Severity</th>
-<th>Fix</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>rune, rune-ui, rune-audit</td>
-<td>CVE-2026-1703</td>
-<td>pip 25.3</td>
-<td>—</td>
-<td>Upgrade to pip 26.0</td>
-</tr>
-<tr>
-<td>rune</td>
-<td>CodeQL <code>py/bind-socket-all-network-interfaces</code></td>
-<td>—</td>
-<td>Medium</td>
-<td>Change default bind to 127.0.0.1</td>
-</tr>
-<tr>
-<td>rune-audit</td>
-<td>CodeQL <code>py/incomplete-url-substring-sanitization</code></td>
-<td>—</td>
-<td>High</td>
-<td>Fix URL validation in slsa.py</td>
-</tr>
-</tbody>
-</table>
+<h2 id="open-cves">Open CVEs<a class="headerlink" href="#open-cves" title="Permanent link">&para;</a></h2>
+<p>All critical and high severity CVEs and CodeQL alerts identified on 2026-04-07 have pending PRs for remediation.</p>
 <p><strong>Dependabot is DISABLED</strong> on 5 repos (rune-operator, rune-ui, rune-charts, rune-docs, rune-airgapped). Should be enabled for ML4 compliance.</p>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Merge 15 open PRs</strong> across rune-ui, rune-docs, rune-audit, and rune-charts (all CI-green, Ready for Review).</li>
 <li>Run 100% coverage campaign across all repos (rune#182).</li>
 <li>Enable Dependabot on all repos.</li>
-<li>Fix remaining open CVEs (pip upgrade, CodeQL alerts).</li>
 <li>Implement <code>/v1/estimates</code> end-to-end validation in docker-compose.</li>
 <li>Explore Gateway API Inference Extension (<code>k8s-inference</code> backend type).</li>
 <li>Customer documentation for rune-airgapped (rune-airgapped#24).</li>
