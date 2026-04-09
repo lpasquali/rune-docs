@@ -251,6 +251,7 @@ All contracts use `backend_url` (not `ollama_url`) and `backend_type` (default `
 - **Minimal Commands**: Minimize turns by combining independent tool calls in parallel. Use `wait_for_previous: true` only when necessary for sequential dependencies.
 - **Strategic Orchestration**: Use sub-agents (e.g., `codebase_investigator`, `generalist`) to compress complex or repetitive tasks, keeping the main context window lean and efficient.
 - **Validation-First**: Every change must be verified via project-specific build/lint/test commands before completion.
+- **Epic Lifecycle**: An Epic issue MUST NOT be closed until **every** child issue listed in its body is closed. Before closing an Epic, the agent MUST query all child issue references and verify each is in `CLOSED` state. If any child is still open, the Epic stays open — no exceptions. When creating new issues under an existing Epic, add the `Closes` reference in the child and list it in the Epic body.
 
  
 ## Documentation Expedite Channel
