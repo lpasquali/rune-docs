@@ -1,0 +1,3338 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the RUNE platform, APIs, and compliance posture">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/lpasquali/rune-docs/v0.0.0a3/context/SYSTEM_PROMPT/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../CURRENT_STATE/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>System Prompt - RUNE Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../overrides/main.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/tokens.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#system_prompt" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RUNE Documentation" class="md-header__button md-logo" aria-label="RUNE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RUNE Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              System Prompt
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lpasquali/rune-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lpasquali/rune-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RUNE Documentation" class="md-nav__button md-logo" aria-label="RUNE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RUNE Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lpasquali/rune-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lpasquali/rune-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Context
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Prompt
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Identity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#essential-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Essential References
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Constraints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Layers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extension-points-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension Points (Protocols)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extension Points (Protocols)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drivertransport-rune_benchdriversbasepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DriverTransport — rune_bench/drivers/base.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agentrunner-rune_benchagentsbasepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AgentRunner — rune_bench/agents/base.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llmbackend-rune_benchbackendsbasepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLMBackend — rune_bench/backends/base.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llmresourceprovider-rune_benchresourcesbasepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLMResourceProvider — rune_bench/resources/base.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factory-registries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Factory Registries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Factory Registries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-registry-rune_benchagentsregistrypy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Registry — rune_bench/agents/registry.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-registry-rune_benchbackends__init__py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Registry — rune_bench/backends/__init__.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#driver-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Driver Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catalog-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catalog System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-system-runeyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config System — rune.yaml
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Config System — rune.yaml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resolution-hierarchies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolution Hierarchies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-safety-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Safety Gates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-contracts-rune_benchapi_contractspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Contracts — rune_bench/api_contracts.py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conventions-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conventions &amp; Style
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-workflow-efficiency-mandates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Workflow &amp; Efficiency (Mandates)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-expedite-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Expedite Channel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definition-of-done-pre-pr-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition of Done (Pre-PR Gate)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Definition of Done (Pre-PR Gate)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1-full-validation-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 — Full Validation (default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2-test-infrastructure-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2 — Test Infrastructure Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-3-documentation-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3 — Documentation Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-the-right-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing the Right Level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pr-evidence-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PR Evidence Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-operating-procedure-sop-issue-to-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard Operating Procedure (SOP): Issue-to-Merge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audit-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Audit Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatic-triggers-mandatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automatic Triggers (mandatory)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cadence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cadence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tone-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tone &amp; Style
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CURRENT_STATE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Current State
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CODING_STANDARDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coding Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Usage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/QUICKSTART/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/DEVELOPER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/PRICING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pricing & Access Tiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/INTERFACES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/API_SPEC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/CONFIGURATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/OLLAMA_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Backend Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Delivery
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Delivery
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/PIPELINES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/CI_SHARED_WORKFLOWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared CI Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/CI_RISK_MITIGATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI Migration Risk Mitigations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/RELEASES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/SECRETS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/VEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VEX Register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/MILESTONES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Milestones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/LABELS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/AUDIT_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/WORKSTATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workstation Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/GOLDEN_IMAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Golden Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/OBSERVABILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/RUNBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runbooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/ROLLBACK_PROCEDURES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rollback Procedures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/VAULT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vault Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/SDL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Development Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/RISK_ASSESSMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Assessment Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/RISK_REGISTER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/PENTEST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Penetration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/FUZZ_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fuzz Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/INCIDENT_RESPONSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Incident Response
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/IMAGE_SIGNING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container Image Signing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/SECURITY_TRAINING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Training Records
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/THREAT_MODEL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/SECURITY_REQUIREMENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/SYSTEM_DESIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/INFRASTRUCTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/FORMAL_SPECS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formal Specs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_6" id="__nav_7_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADRs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADRs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0001-api-compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0001: Client/Server Compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0002-cost-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0002: Cost Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0003-ui-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0003: UI Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0004-operator-feature-parity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0004: Operator Parity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0005-advanced-cognitive-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0005: Advanced Cognitive Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Identity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#essential-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Essential References
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Constraints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Layers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extension-points-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension Points (Protocols)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extension Points (Protocols)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drivertransport-rune_benchdriversbasepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DriverTransport — rune_bench/drivers/base.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agentrunner-rune_benchagentsbasepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AgentRunner — rune_bench/agents/base.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llmbackend-rune_benchbackendsbasepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLMBackend — rune_bench/backends/base.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llmresourceprovider-rune_benchresourcesbasepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LLMResourceProvider — rune_bench/resources/base.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factory-registries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Factory Registries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Factory Registries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-registry-rune_benchagentsregistrypy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Registry — rune_bench/agents/registry.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-registry-rune_benchbackends__init__py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Registry — rune_bench/backends/__init__.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#driver-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Driver Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catalog-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catalog System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-system-runeyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config System — rune.yaml
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Config System — rune.yaml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resolution-hierarchies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolution Hierarchies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-safety-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Safety Gates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-contracts-rune_benchapi_contractspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Contracts — rune_bench/api_contracts.py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conventions-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conventions &amp; Style
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-workflow-efficiency-mandates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Workflow &amp; Efficiency (Mandates)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-expedite-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Expedite Channel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definition-of-done-pre-pr-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition of Done (Pre-PR Gate)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Definition of Done (Pre-PR Gate)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level-1-full-validation-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 — Full Validation (default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-2-test-infrastructure-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2 — Test Infrastructure Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-3-documentation-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3 — Documentation Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-the-right-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing the Right Level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pr-evidence-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PR Evidence Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-operating-procedure-sop-issue-to-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard Operating Procedure (SOP): Issue-to-Merge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audit-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Audit Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatic-triggers-mandatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automatic Triggers (mandatory)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cadence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cadence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tone-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tone &amp; Style
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="system_prompt">SYSTEM_PROMPT<a class="headerlink" href="#system_prompt" title="Permanent link">&para;</a></h1>
+<h2 id="core-identity">Core Identity<a class="headerlink" href="#core-identity" title="Permanent link">&para;</a></h2>
+<p>RUNE (Reliability Use-case Numeric Evaluator) is an AI agent benchmarking and compute provisioning platform. It orchestrates benchmarkable operations across 23+ agents spanning SRE, research, cybersecurity, legal/ops, and art/creative domains — with pluggable LLM backends and optional cloud GPU provisioning. RUNE is agent-neutral and backend-neutral by design; no single agent or backend is privileged in code.</p>
+<h2 id="essential-references">Essential References<a class="headerlink" href="#essential-references" title="Permanent link">&para;</a></h2>
+<p>Before starting any development task, read these documents in order:</p>
+<ol>
+<li><strong>This file</strong> (<code>SYSTEM_PROMPT.md</code>) — architecture, protocols, constraints, and SOP.</li>
+<li><strong><a href="../CURRENT_STATE/">CURRENT_STATE.md</a></strong> — WIP, recent changes, known issues.</li>
+<li><strong><a href="../../operations/WORKSTATION/">Workstation Setup</a></strong> — Ubuntu 24.04 LTS provisioning with all required tooling.</li>
+<li><strong><a href="../../usage/DEVELOPER_GUIDE/">Developer Guide</a></strong> — repo locations, environment setup, build/test/lint commands, DoD validation steps.</li>
+<li><strong><a href="../CODING_STANDARDS/">Coding Standards</a></strong> — language-specific style, coverage floors, tier registry, agent filesystem layout.</li>
+</ol>
+<p>All repositories live under <code>~/Devel/</code>: <code>rune/</code>, <code>rune-operator/</code>, <code>rune-ui/</code>, <code>rune-charts/</code>, <code>rune-docs/</code>, <code>rune-audit/</code>, <code>rune-airgapped/</code>, <code>rune-ci/</code> (shared CI workflows and composite actions).</p>
+<h2 id="core-constraints">Core Constraints<a class="headerlink" href="#core-constraints" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Agent Neutrality</strong>: Code is agent-neutral. The default agent is a config-level setting (<code>rune.yaml</code>), not a code-level assumption. All 23+ agents are equal peers in the registry.</li>
+<li><strong>Backend Neutrality</strong>: Code is backend-neutral. The default backend type is a config-level setting (<code>rune.yaml</code>), not a code-level assumption. Ollama, OpenAI, Bedrock, and future backends (including Gateway API Inference Extension / k8s-inference) are equal peers.</li>
+<li><strong>Decoupling</strong>: All agents are decoupled via the pluggable <code>DriverTransport</code> protocol (stdio or HTTP).</li>
+<li><strong>Thin Entrypoints</strong>: CLI commands are lightweight; business logic resides in <code>rune_bench/</code>.</li>
+<li><strong>Reproducibility</strong>: Benchmarks must be fully reproducible and documented.</li>
+<li><strong>Security</strong>: Mandatory branch protection, signed provenance (SLSA L3), and vulnerability scanning.</li>
+<li><strong>Pre-alpha</strong>: Version 0.0.0a4. No backward compatibility guarantees. API shapes may change without notice.</li>
+<li><strong>Cost Safety</strong>: Fail-closed cost estimation gates GPU provisioning. If confidence drops below 95%, the operation is rejected. Local-only workflows skip cost gates entirely.</li>
+<li><strong>Vulnerability Closure</strong>: Always aim to resolve all known vulnerabilities, not just those above the CVSS 8.8 threshold. Risk acceptance is permitted <strong>only</strong> for vulnerabilities below the threshold where no fix exists. Vulnerabilities above the threshold with no upstream fix <strong>must</strong> be remediated by forking and patching the dependency in-house, tracked under a <code>dep-security-patch</code> issue label. See <a href="../../delivery/VEX/">VEX Register</a> for exception tracking.</li>
+</ul>
+<h2 id="architecture-layers">Architecture Layers<a class="headerlink" href="#architecture-layers" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Location</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLI (Typer + Rich)</td>
+<td><code>rune/</code></td>
+<td>Thin shell only — no business logic</td>
+</tr>
+<tr>
+<td>Orchestration</td>
+<td><code>rune_bench/workflows.py</code></td>
+<td>All business flow lives here</td>
+</tr>
+<tr>
+<td>Agent drivers</td>
+<td><code>rune_bench/drivers/</code></td>
+<td>Pluggable transport layer (<code>DriverTransport</code>)</td>
+</tr>
+<tr>
+<td>Agent runners</td>
+<td><code>rune_bench/agents/</code></td>
+<td>23+ agents grouped by domain (sre, research, cybersec, legal, ops, art)</td>
+</tr>
+<tr>
+<td>Agent registry</td>
+<td><code>rune_bench/agents/registry.py</code></td>
+<td><code>get_agent(name, **kwargs)</code> factory with lazy import</td>
+</tr>
+<tr>
+<td>LLM backends</td>
+<td><code>rune_bench/backends/</code></td>
+<td><code>get_backend(type, url, **kwargs)</code> factory with lazy import</td>
+</tr>
+<tr>
+<td>Resource providers</td>
+<td><code>rune_bench/resources/</code></td>
+<td>Vast.ai and existing-backend providers</td>
+</tr>
+<tr>
+<td>Catalog</td>
+<td><code>rune_bench/catalog/defaults/</code></td>
+<td><code>chains.csv</code> (agent catalog), <code>scopes.csv</code> (benchmark scopes)</td>
+</tr>
+<tr>
+<td>Config</td>
+<td><code>rune_bench/common/config.py</code></td>
+<td>YAML loader with profile support and env-var injection</td>
+</tr>
+<tr>
+<td>Cost estimation</td>
+<td><code>rune_bench/api_contracts.py</code></td>
+<td><code>CostEstimationRequest</code> / <code>CostEstimationResponse</code></td>
+</tr>
+<tr>
+<td>HTTP API</td>
+<td><code>rune_bench/api_server.py</code></td>
+<td>stdlib <code>ThreadingHTTPServer</code> + SQLite</td>
+</tr>
+</tbody>
+</table>
+<h2 id="extension-points-protocols">Extension Points (Protocols)<a class="headerlink" href="#extension-points-protocols" title="Permanent link">&para;</a></h2>
+<p>These four protocols are the critical extension points of the platform. All new integrations MUST implement one of these protocols.</p>
+<h3 id="drivertransport-rune_benchdriversbasepy">DriverTransport — <code>rune_bench/drivers/base.py</code><a class="headerlink" href="#drivertransport-rune_benchdriversbasepy" title="Permanent link">&para;</a></h3>
+<p>Send an action + params to a driver process and return a result dict.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DriverTransport</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span> <span class="o">...</span>
+</code></pre></div>
+<p>Two implementations: <code>StdioTransport</code> (subprocess, JSON over stdin/stdout) and <code>HttpTransport</code> (HTTP polling). Factory: <code>make_driver_transport(driver_name)</code> resolves via env vars (<code>RUNE_&lt;NAME&gt;_DRIVER_MODE</code>, <code>_CMD</code>, <code>_URL</code>).</p>
+<h3 id="agentrunner-rune_benchagentsbasepy">AgentRunner — <code>rune_bench/agents/base.py</code><a class="headerlink" href="#agentrunner-rune_benchagentsbasepy" title="Permanent link">&para;</a></h3>
+<p>Execute an agent investigation and return results.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AgentRunner</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">backend_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
+</code></pre></div>
+<p>Supporting types: <code>AgentConfig</code> (per-agent auth/endpoint resolution), <code>AgentResult</code> (structured output with artifacts and metadata).</p>
+<h3 id="llmbackend-rune_benchbackendsbasepy">LLMBackend — <code>rune_bench/backends/base.py</code><a class="headerlink" href="#llmbackend-rune_benchbackendsbasepy" title="Permanent link">&para;</a></h3>
+<p>Communicate with an LLM inference endpoint.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LLMBackend</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">base_url</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_model_capabilities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ModelCapabilities</span><span class="p">:</span> <span class="o">...</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_models</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span> <span class="o">...</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_running_models</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span> <span class="o">...</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">normalize_model_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">timeout_seconds</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
+</code></pre></div>
+<p>Supporting types: <code>ModelCapabilities</code> (context window, max tokens, raw metadata), <code>BackendCredentials</code> (api_key, base_url, vendor-specific extras).</p>
+<h3 id="llmresourceprovider-rune_benchresourcesbasepy">LLMResourceProvider — <code>rune_bench/resources/base.py</code><a class="headerlink" href="#llmresourceprovider-rune_benchresourcesbasepy" title="Permanent link">&para;</a></h3>
+<p>Provision or locate compute for LLM inference.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LLMResourceProvider</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">provision</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProvisioningResult</span><span class="p">:</span> <span class="o">...</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">teardown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="n">ProvisioningResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
+</code></pre></div>
+<p><code>ProvisioningResult</code> returns <code>backend_url</code> (endpoint) + <code>model</code> + <code>provider_handle</code> (opaque ID for teardown).</p>
+<h2 id="factory-registries">Factory Registries<a class="headerlink" href="#factory-registries" title="Permanent link">&para;</a></h2>
+<p>Both agents and backends use the same pattern: custom registrations shadow built-in entries, lazy <code>importlib.import_module</code> for built-ins.</p>
+<h3 id="agent-registry-rune_benchagentsregistrypy">Agent Registry — <code>rune_bench/agents/registry.py</code><a class="headerlink" href="#agent-registry-rune_benchagentsregistrypy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">get_agent</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AgentRunner</span>     <span class="c1"># Resolve and instantiate</span>
+<span class="n">register_agent</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">factory</span><span class="p">,</span> <span class="n">required_config</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">])</span>  <span class="c1"># Custom override</span>
+<span class="n">list_agents</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>                   <span class="c1"># All known agent names</span>
+</code></pre></div>
+<p>Resolution: custom registry -&gt; built-in map -&gt; ValueError. Config resolution: <code>resolve_agent_config(name, kwargs)</code> merges CLI kwargs with env vars. Missing required config raises RuntimeError with the expected env var name.</p>
+<h3 id="backend-registry-rune_benchbackends__init__py">Backend Registry — <code>rune_bench/backends/__init__.py</code><a class="headerlink" href="#backend-registry-rune_benchbackends__init__py" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">get_backend</span><span class="p">(</span><span class="n">backend_type</span><span class="p">,</span> <span class="n">base_url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LLMBackend</span>  <span class="c1"># Resolve and instantiate</span>
+<span class="n">register_backend</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span>                  <span class="c1"># Custom override</span>
+<span class="n">list_backends</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>                 <span class="c1"># All known backend types</span>
+</code></pre></div>
+<p>Built-in: <code>ollama</code> -&gt; <code>OllamaBackend</code>. Planned: <code>k8s-inference</code> (Gateway API Inference Extension). Resolution order mirrors the agent registry.</p>
+<h2 id="driver-ecosystem">Driver Ecosystem<a class="headerlink" href="#driver-ecosystem" title="Permanent link">&para;</a></h2>
+<p>All 23+ agents communicate through <code>DriverTransport</code>. Every agent is equal — no agent has special code paths. Agents are classified by tier in <code>chains.csv</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Meaning</th>
+<th>Coverage</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>OSS, fully testable</td>
+<td>100% target, measured</td>
+<td>K8sGPT, HolmesGPT, LangGraph, PentestGPT, Dagger, CrewAI</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Partial API / freemium</td>
+<td>Best-effort, may omit</td>
+<td>Metoro, Elicit, ComfyUI, BurpGPT, Consensus</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Closed SaaS, no public API</td>
+<td>Protocol-only, excluded</td>
+<td>PagerDuty AI, Perplexity, Midjourney, Radiant, Harvey AI</td>
+</tr>
+</tbody>
+</table>
+<p>Scopes: SRE, Research, Art/Creative, Cybersec, Legal/Ops. The <code>chains.csv</code> <code>Scope</code> column maps to <code>rune_bench/agents/&lt;scope&gt;/</code> directories.</p>
+<h2 id="catalog-system">Catalog System<a class="headerlink" href="#catalog-system" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><code>chains.csv</code></strong>: Authoritative agent catalog. Defines agent name, tier, scope, rating, capabilities, and recommended Ollama model. This is the single source of truth for which agents exist and their classification.</li>
+<li><strong><code>scopes.csv</code></strong>: Benchmarking scope definitions with evaluation questions per domain.</li>
+<li>Both files live in <code>rune_bench/catalog/defaults/</code> and are shipped as package data.</li>
+</ul>
+<h2 id="config-system-runeyaml">Config System — <code>rune.yaml</code><a class="headerlink" href="#config-system-runeyaml" title="Permanent link">&para;</a></h2>
+<p>Precedence (highest wins):</p>
+<ol>
+<li><strong>CLI flags</strong> (<code>--backend-url</code>, <code>--agent</code>, <code>--model</code>, etc.)</li>
+<li><strong>Environment variables</strong> (<code>RUNE_BACKEND_URL</code>, <code>RUNE_MODEL</code>, etc.)</li>
+<li><strong>Project-level config</strong> (<code>./rune.yaml</code> or <code>./rune.yml</code>)</li>
+<li><strong>User-level config</strong> (<code>~/.rune/config.yaml</code>)</li>
+<li><strong>Built-in defaults</strong> (Typer <code>default=</code> values)</li>
+</ol>
+<p>Key config fields: <code>backend_type</code> (default: <code>ollama</code>), <code>backend_url</code>, <code>model</code>, <code>agent</code> (resolved at call site, not hardcoded), <code>kubeconfig</code>, <code>vastai</code>, profiles.</p>
+<ul>
+<li><strong>Profiles</strong>: Named config blocks (<code>production</code>, <code>staging</code>, <code>local</code>, <code>ci</code>, <code>test</code>). Activate via <code>--profile</code> or <code>RUNE_PROFILE</code>.</li>
+<li><strong>Secrets exclusion</strong>: API tokens, <code>VAST_API_KEY</code>, and all credentials are intentionally excluded from the YAML schema. They must remain in environment variables.</li>
+<li><strong><code>rune init</code></strong>: Generates a starter <code>rune.yaml</code> from <code>INIT_TEMPLATE</code>.</li>
+</ul>
+<h3 id="resolution-hierarchies">Resolution Hierarchies<a class="headerlink" href="#resolution-hierarchies" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Agent</strong>: CLI <code>--agent</code> -&gt; <code>rune.yaml</code> <code>agent:</code> field -&gt; error (no silent default in code)</li>
+<li><strong>Backend</strong>: CLI <code>--backend-type</code> -&gt; <code>rune.yaml</code> <code>backend_type:</code> field -&gt; error (no silent default in code)</li>
+<li><strong>Backend URL</strong>: CLI <code>--backend-url</code> -&gt; <code>rune.yaml</code> <code>backend_url:</code> field -&gt; env <code>RUNE_BACKEND_URL</code> -&gt; provisioned dynamically</li>
+</ul>
+<h2 id="cost-safety-gates">Cost Safety Gates<a class="headerlink" href="#cost-safety-gates" title="Permanent link">&para;</a></h2>
+<p>Cost estimation is fail-closed. The <code>CostEstimationRequest</code> / <code>CostEstimationResponse</code> contract enforces:</p>
+<ul>
+<li><strong>Confidence threshold</strong>: If <code>confidence_score &lt; 0.95</code>, the operation is rejected.</li>
+<li><strong>Cost drivers</strong>: <code>vastai</code>, <code>aws</code>, <code>gcp</code>, <code>azure</code>, <code>local</code> — each with distinct estimation logic.</li>
+<li><strong>Local bypass</strong>: Local-only workflows (<code>vastai: false</code>, no cloud provider) skip cost gates entirely.</li>
+<li><strong>Local cost model</strong>: Supports TDP-based energy cost estimation for on-premises hardware.</li>
+</ul>
+<h2 id="api-contracts-rune_benchapi_contractspy">API Contracts — <code>rune_bench/api_contracts.py</code><a class="headerlink" href="#api-contracts-rune_benchapi_contractspy" title="Permanent link">&para;</a></h2>
+<p>Transport-agnostic dataclasses used by CLI and HTTP API:</p>
+<ul>
+<li><code>RunLLMInstanceRequest</code> — provision an LLM instance (<code>backend_url</code>, <code>backend_type</code>, Vast.ai parameters)</li>
+<li><code>RunAgenticAgentRequest</code> — execute an agent query (<code>agent</code>, <code>model</code>, <code>backend_url</code>, <code>backend_type</code>)</li>
+<li><code>RunBenchmarkRequest</code> — full benchmark run (combines provisioning + agent execution)</li>
+<li><code>CostEstimationRequest</code> / <code>CostEstimationResponse</code> — cost gates</li>
+</ul>
+<p>All contracts use <code>backend_url</code> (not <code>ollama_url</code>) and <code>backend_type</code> (default <code>"ollama"</code>) to remain backend-neutral.</p>
+<h2 id="conventions-style">Conventions &amp; Style<a class="headerlink" href="#conventions-style" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Raise <code>RuntimeError</code> with user-facing messages at boundaries.</li>
+<li>Normalize URLs in client/workflow helpers.</li>
+<li>Strip LiteLLM prefixes (<code>ollama/</code>) before API calls via <code>normalize_model_name()</code>.</li>
+<li>Warmup unloads other running models for deterministic memory.</li>
+<li>For Vast.ai, prefer reusing matching running instances.</li>
+<li>Secrets (tokens, keys) must stay in env vars — never in <code>rune.yaml</code>.</li>
+<li>Offline testing: Mock all network/provider boundaries (97% coverage gate).</li>
+<li>No automated tests for real cloud resources (Vast.ai lifecycle is manual).</li>
+<li>Optional extras in <code>pyproject.toml</code> (<code>holmes</code>, <code>vastai</code>, <code>catalog</code>, <code>all</code>, <code>dev</code>) keep the base install minimal.</li>
+</ul>
+<h2 id="agent-workflow-efficiency-mandates">Agent Workflow &amp; Efficiency (Mandates)<a class="headerlink" href="#agent-workflow-efficiency-mandates" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Label Guard</strong>: Before starting work on an existing issue, agents MUST verify the issue carries a label matching their identity (<code>claude_cli</code>, <code>gemini_cli</code>, or <code>copilot_cli</code>). If the label is missing or belongs to a different agent, the agent MUST halt and ask the user for permission — even in YOLO mode.</li>
+<li><strong>Agent Label Isolation</strong>: During parallel agent execution, labels provide a lightweight ownership fence that prevents cross-contamination:<ol>
+<li><strong>Label on Assign</strong>: When an agent begins work on an issue, it MUST add the label <code>&lt;agent_name&gt;_cli</code> (e.g., <code>claude_cli</code>, <code>copilot_cli</code>, <code>cursor_cli</code>) to the issue.</li>
+<li><strong>Label on Draft PR</strong>: All Draft PRs created by an agent MUST carry the same <code>&lt;agent_name&gt;_cli</code> label.</li>
+<li><strong>Ownership Fence</strong>: An agent MUST only work on issues, Draft PRs, and PRs that bear its own <code>&lt;agent_name&gt;_cli</code> label. It MUST NOT modify, rebase, or push to branches belonging to another agent's labeled items.</li>
+<li><strong>Label Creation</strong>: If the label does not exist in the repo, the agent must create it before applying it.</li>
+</ol>
+</li>
+<li><strong>Anti-Rogue Constraint (Halt &amp; Report)</strong>: Agents MUST NOT begin the "Execute" phase of a task (writing/modifying code) without first explicitly confirming in the chat that SOP Step 1 (Assign) and Step 2 (Isolate) have been fully completed. Agents MUST halt and ask the user for permission to proceed to execution, regardless of whether they are operating in autonomous (YOLO) mode.</li>
+<li><strong>ADR Protocol</strong>: Any architectural change or cross-repository feature parity gap must be documented as an Architecture Decision Record (ADR) in <code>rune-docs/docs/architecture/adrs/</code>. Agents must explicitly declare the ADR number and title in <code>CURRENT_STATE.md</code> so subsequent agents are aware of the pending architectural requirement.</li>
+<li><strong>Branch Isolation</strong>: Agents must operate in isolated feature branches. Only rebase and push the <strong>assigned</strong> branch. Never modify or rebase branches belonging to other agents or tasks.</li>
+<li><strong>Issue Attribution</strong>: <strong>Active</strong> issues (those being worked on by an agent) must be assigned to <strong>lpasquali</strong>. Inactive/untouched issues can remain unassigned. Agents must <strong>never</strong> assign issues to themselves; they must ensure the issue is assigned to <strong>lpasquali</strong> upon starting work.</li>
+<li><strong>Project Board Tracking</strong>: All issues and Epics must be tracked on GitHub project #1. The sync model is <strong>hybrid</strong> — Status field is owned by Projects v2 built-in workflows (configured in the project UI), Agent Lane is owned by the <code>rune-ci</code> reusable workflow. See <a href="https://github.com/lpasquali/rune-docs/issues/187">rune-docs#187</a> for the design rationale.<ul>
+<li><strong>Auto-add to board</strong>: Handled by <code>rune-ci/.github/workflows/project-sync-logic.yml</code> (calls <code>addProjectV2ItemById</code> on every <code>issues</code> / <code>pull_request</code> event). Filter-based "Auto-add to project" is gated to GitHub Team / Enterprise plans, so we do this manually. As a fallback for items created outside that flow, agents can run <code>gh project item-add 1 --owner lpasquali --url &lt;ISSUE_URL&gt;</code>.</li>
+<li><strong>Creation</strong> → Status: <strong>Todo</strong>. Set automatically by the built-in <strong>"Item added to project"</strong> workflow. Agents should verify the item lands on the board.</li>
+<li><strong>Starting work</strong> → Status: <strong>In progress</strong>. <strong>Manual transition</strong> by the agent (no built-in covers this). Use the GraphQL <code>updateProjectV2ItemFieldValue</code> mutation against the <code>Status</code> field, or the project board UI. Trigger this when SOP Steps 1–2 (Assign + Isolate) are complete.</li>
+<li><strong>Needs human intervention</strong> → Status: <strong>Review</strong>, Agent Lane: <strong>Human</strong>. <strong>Manual transition</strong> by the agent. When an agent cannot proceed without human input (approval, decision, manual step), set both fields.</li>
+<li><strong>Closed / merged</strong> → Status: <strong>Done</strong>. Set automatically by the built-in <strong>"Item closed"</strong> and <strong>"Pull request merged"</strong> workflows.</li>
+<li><strong>Reopened</strong> → Status: <strong>In progress</strong>. Set automatically by the built-in <strong>"Item reopened"</strong> workflow. (Reopens typically resume active work, so the item lands back in the active column rather than re-queuing at Todo.)</li>
+<li><strong>Agent Lane</strong> (Claude / Gemini / Copilot / Human): Set automatically by <code>rune-ci/project-sync-logic.yml</code> based on the <code>&lt;agent&gt;_cli</code> label on the issue or PR. Adding/removing the label updates the lane on the next event.</li>
+</ul>
+</li>
+<li><strong>PR Workflow</strong>: When handling Pull Requests, resolve merge conflicts by pulling the latest target branch (e.g., <code>main</code>) and rebasing the assigned branch onto it. Always wait for GitHub Actions/CI to finish before merging. <strong>Your PR bodies must strictly match the template</strong>, checking exactly one DoD level and including all required sections (Acceptance Criteria Evidence, Audit Checks, Breaking Changes) or the <code>pr-body-check</code> CI gate will fail the build.</li>
+<li><strong>PR Body Template</strong> (enforced by CI in all repos):
+  <div class="highlight"><pre><span></span><code><span class="gu">## Summary</span>
+&lt;bullet points&gt;
+
+Closes <span class="ni">#NNN</span>
+
+<span class="gu">## DoD Level</span>
+<span class="k">- [ ]</span> <span class="gs">**Level 1**</span> — Full Validation
+<span class="k">- [x]</span> <span class="gs">**Level 2**</span> — Test Infrastructure
+<span class="k">- [ ]</span> <span class="gs">**Level 3**</span> — Documentation Validation
+
+<span class="gu">## Acceptance Criteria Evidence</span>
+<span class="k">- [x]</span> &lt;criterion with evidence&gt;
+
+<span class="gu">## Audit Checks</span>
+No triggers fired.
+&lt;!-- OR: | Check | Result | ... | <span class="sb">`cyber check:api`</span> | PASS | --&gt;
+
+<span class="gu">## Breaking Changes</span>
+None.
+
+<span class="gu">## Test plan</span>
+<span class="k">- [x]</span> &lt;test with evidence&gt;
+</code></pre></div>
+  The <code>pr-body-check</code> CI gate validates: issue reference (<code>Closes #NNN</code>), exactly one checked DoD level (<code>[x] **Level N**</code>), all four required sections present, and audit results containing <code>PASS</code>, <code>FAIL</code>, or <code>No triggers fired</code>.</li>
+<li><strong>Minimal Commands</strong>: Minimize turns by combining independent tool calls in parallel. Use <code>wait_for_previous: true</code> only when necessary for sequential dependencies.</li>
+<li><strong>Strategic Orchestration</strong>: Use sub-agents (e.g., <code>codebase_investigator</code>, <code>generalist</code>) to compress complex or repetitive tasks, keeping the main context window lean and efficient.</li>
+<li><strong>Validation-First</strong>: Every change must be verified via project-specific build/lint/test commands before completion.</li>
+<li><strong>Issue Closure Gate</strong>: An issue MUST NOT be closed while any associated PR (including Draft PRs) remains open. Before closing an issue, the agent MUST verify that every linked PR is either merged or closed. If any PR is still open, the issue stays open — no exceptions.</li>
+<li><strong>Epic Lifecycle</strong>: An Epic issue MUST NOT be closed until <strong>every</strong> child issue listed in its body is closed <strong>and</strong> every associated PR (including Draft PRs) is merged or closed. Before closing an Epic, the agent MUST query all child issue references and verify each is in <code>CLOSED</code> state, and verify no open PRs or Draft PRs reference the Epic or its children. If any child issue or PR is still open, the Epic stays open — no exceptions. When creating new issues under an existing Epic, add the <code>Closes</code> reference in the child and list it in the Epic body.</li>
+</ul>
+<h2 id="documentation-expedite-channel">Documentation Expedite Channel<a class="headerlink" href="#documentation-expedite-channel" title="Permanent link">&para;</a></h2>
+<p>Documentation changes to <code>rune-docs</code> run on a <strong>parallel expedited channel</strong>, independent of feature milestones. Because <code>rune-docs</code> is the single source of truth consumed by all agents at boot, docs PRs must never be blocked behind feature milestone timelines.</p>
+<ul>
+<li>Docs PRs are reviewed and merged on their own cadence.</li>
+<li>Any agent that discovers stale, missing, or incorrect documentation <strong>must</strong> open a docs PR immediately, regardless of its current milestone assignment.</li>
+<li>Docs PRs do not require the full deployment-mode DoD (docker-compose/kind/CLI) — they require only build validation (<code>mkdocs build</code>) and peer review.</li>
+<li>Feature milestones reference docs but do not gate them.</li>
+</ul>
+<h2 id="definition-of-done-pre-pr-gate">Definition of Done (Pre-PR Gate)<a class="headerlink" href="#definition-of-done-pre-pr-gate" title="Permanent link">&para;</a></h2>
+<p>The scope of validation must be <strong>proportional to the scope of the change</strong>. Not every PR needs a full Kubernetes deployment. Use the appropriate level below.</p>
+<h3 id="level-1-full-validation-default">Level 1 — Full Validation (default)<a class="headerlink" href="#level-1-full-validation-default" title="Permanent link">&para;</a></h3>
+<p>Applies to: changes that affect runtime behavior, APIs, drivers, backends, agents, Helm charts, or Dockerfiles.</p>
+<ol>
+<li><strong>Run RUNE in docker-compose mode</strong> and test the change end-to-end.</li>
+<li><em>Note (Networking):</em> When writing or debugging Docker <code>healthcheck</code> commands, prefer using explicit loopback addresses (e.g., <code>127.0.0.1</code>) instead of <code>localhost</code>.</li>
+<li><em>Note (Volumes):</em> When mounting named volumes to non-root containers, always explicitly <code>mkdir -p</code> and <code>chown</code> the mount point path inside the <code>Dockerfile</code> before runtime; otherwise, the Docker daemon will create the volume folder as <code>root</code>, causing permission denied errors.</li>
+<li><strong>Run RUNE in kind (Kubernetes) mode</strong> and test the change end-to-end.</li>
+<li><em>Note (Prerequisites):</em> Verify the existence of <code>kind</code>, <code>kubectl</code>, and <code>helm</code> before testing. If missing, download and install them headlessly. Images must be loaded into the cluster (<code>kind load docker-image ...</code>) before installing the chart.</li>
+<li><strong>Run RUNE in standalone CLI mode</strong> and test the change end-to-end.</li>
+<li><strong>Check for breaking changes</strong> in component management:</li>
+<li>API version changes (additive vs. breaking).</li>
+<li>Persistent data compatibility (SQLite schemas, volume mounts).</li>
+<li>Cross-component contract changes (DriverTransport, AgentRunner, LLMBackend, LLMResourceProvider).</li>
+<li><strong>Dependency CVE audit</strong>: If the change introduces or updates any dependency, the agent <strong>must</strong> run a vulnerability scan (<code>pip-audit</code>, <code>grype</code>, or equivalent) against the new dependency set <strong>before</strong> opening the PR. <em>Never use <code>safety</code> for Python SCA as it is deprecated and paywalled; rely exclusively on <code>pip-audit</code>.</em> If any new CVE is introduced by the change, the agent <strong>must not</strong> open the PR. Instead, the agent must:</li>
+<li>Attempt to resolve the CVE (upgrade to a patched version, find an alternative dependency, or fork-and-patch).</li>
+<li>If resolution is not possible, stop and report the CVE exposure to <code>lpasquali</code> with the dependency name, CVE ID, CVSS score, and reason resolution failed.</li>
+<li>A PR that knowingly introduces a new CVE into the project is <strong>never acceptable</strong>.</li>
+</ol>
+<h3 id="level-2-test-infrastructure-validation">Level 2 — Test Infrastructure Validation<a class="headerlink" href="#level-2-test-infrastructure-validation" title="Permanent link">&para;</a></h3>
+<p>Applies to: changes that only affect test configuration, CI workflows, coverage settings, linter configs, or dev tooling — with no runtime code changes.</p>
+<ol>
+<li><strong>Run the full test suite</strong> (<code>pytest</code>, <code>go test ./...</code>, etc.) and verify it passes with the new configuration.</li>
+<li><strong>Verify coverage</strong> is not degraded — if the change expands measurement scope (e.g., removing coverage omits), confirm that sufficient tests exist for the newly-measured code. If coverage drops below the floor, write or update tests before opening the PR.</li>
+<li><strong>Check for unintended side effects</strong> — does the config change break any CI job? Does it change what gets measured, linted, or scanned in a way that could mask regressions?</li>
+</ol>
+<h3 id="level-3-documentation-validation">Level 3 — Documentation Validation<a class="headerlink" href="#level-3-documentation-validation" title="Permanent link">&para;</a></h3>
+<p>Applies to: changes that only affect <code>rune-docs</code> content (Markdown, MkDocs config, diagrams).</p>
+<ol>
+<li><strong>Build validation</strong>: <code>mkdocs build --strict</code> must pass.</li>
+<li><strong>Peer review</strong>: Content must be reviewed for accuracy.</li>
+</ol>
+<h3 id="choosing-the-right-level">Choosing the Right Level<a class="headerlink" href="#choosing-the-right-level" title="Permanent link">&para;</a></h3>
+<p>When in doubt, use Level 1. If the change touches only test infrastructure or config files with zero runtime impact, Level 2 is sufficient. If the change is documentation-only, Level 3 applies. A change that spans multiple categories uses the highest applicable level.</p>
+<p>Unit tests and CI green alone do <strong>not</strong> satisfy the Definition of Done at any level.</p>
+<h3 id="pr-evidence-requirements">PR Evidence Requirements<a class="headerlink" href="#pr-evidence-requirements" title="Permanent link">&para;</a></h3>
+<p>Every issue with a test plan or acceptance criteria must have <strong>attached evidence</strong> for each ticked checkbox. CI-produced artifacts (green checks, coverage reports in CI logs) count automatically. For anything CI does not produce, the agent or developer <strong>must</strong> attach:</p>
+<ul>
+<li><strong>Screenshots</strong> of relevant UI or tool output. Screenshots are <strong>mandatory</strong> for <code>rune-docs</code> and <code>rune-ui</code> which are consumed by browsers. AI agents MUST proceed with headless tools (e.g., <code>playwright screenshot &lt;url&gt; &lt;output.png&gt;</code>) to take screenshots. <strong>Whenever a screenshot is taken, you MUST subsequently analyze the image to confirm the state of the UI or docs matches the expected results (e.g., new icon is there, new text, changed theme) before attaching it as evidence.</strong> If this is fundamentally impossible, open all PRs as a Draft and append a bold warning: <strong>HUMAN INTERVENTION REQUIRED: Please capture and upload the required DoD screenshots before merging.</strong> Any other tool can have logs and text output pasted nicely in issues (if compliant with our standards).</li>
+<li><strong>Log snippets</strong> that are clear, meaningful, and directly demonstrate the criterion is met (not raw multi-page dumps).</li>
+<li><strong>Before/after diffs</strong> when the change alters measurable behavior (coverage numbers, scan results, config effects).</li>
+<li><strong>Command output</strong> showing manual verification steps and their results.</li>
+</ul>
+<p>A PR with unticked or unsubstantiated acceptance criteria must not be merged. If evidence cannot be produced for a criterion, explain why in the PR body and flag it for review.</p>
+<h2 id="standard-operating-procedure-sop-issue-to-merge">Standard Operating Procedure (SOP): Issue-to-Merge<a class="headerlink" href="#standard-operating-procedure-sop-issue-to-merge" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Assign</strong>: Ensure active issue is assigned to <strong>lpasquali</strong> (never self-assign). <strong>Perform Label Guard check</strong>: verify the issue carries a label matching your identity (<code>claude_cli</code>, <code>gemini_cli</code>, or <code>copilot_cli</code>).</li>
+<li><strong>Isolate</strong>: Create feature branch; reproduction test-case first (for bugs).</li>
+<li><strong>Research</strong>: Read <code>rune-docs</code> as the single source of truth.</li>
+<li><strong>Halt &amp; Report</strong>: Before writing/modifying code, explicitly halt and ask the user for permission to proceed (even in YOLO mode).</li>
+<li><strong>Execute</strong>: Minimize turns (parallel tool calls); 100% coverage target (no "cheating" mocks).</li>
+<li><strong>Verify</strong>: Mock all boundaries; 97% coverage floor; check ML4/SLSA L3 gates.</li>
+<li><strong>E2E Test</strong>: For Level 1 DoD, run the change through docker-compose, kind, and standalone CLI modes. Attach evidence (logs, screenshots) to the PR for each mode tested.</li>
+<li><strong>PR &amp; Rebase</strong>: PR to target branch; rebase onto latest <code>main</code>; wait for all CI/Gaps to turn green.</li>
+<li><strong>Persist</strong>: Update <code>CURRENT_STATE.md</code> upon successful merge.</li>
+</ol>
+<h2 id="audit-agents">Audit Agents<a class="headerlink" href="#audit-agents" title="Permanent link">&para;</a></h2>
+<p>Legal and cybersecurity audits run as background agents, proportional to the change. Full specs for each audit type are in <strong><a href="../../delivery/AUDIT_AGENTS/">Audit Agents</a></strong>. This section defines <strong>when</strong> to trigger them.</p>
+<h3 id="automatic-triggers-mandatory">Automatic Triggers (mandatory)<a class="headerlink" href="#automatic-triggers-mandatory" title="Permanent link">&para;</a></h3>
+<p>Agents <strong>must</strong> run the appropriate focused check when they detect these changes. This is part of the DoD — not optional. Focused checks that return FAIL <strong>block the PR</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Change detected</th>
+<th>Check to run</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependency added/bumped (<code>requirements.txt</code>, <code>pyproject.toml</code>, <code>go.mod</code>)</td>
+<td><code>legal check:dep &lt;pkg&gt;</code> + <code>cyber check:dep &lt;pkg&gt;</code></td>
+</tr>
+<tr>
+<td>New agent integration or driver</td>
+<td><code>legal check:integration &lt;agent&gt;</code></td>
+</tr>
+<tr>
+<td>New build/CI tool introduced</td>
+<td><code>legal check:tool &lt;tool&gt;</code></td>
+</tr>
+<tr>
+<td>API endpoint, auth, or CRD schema changed</td>
+<td><code>cyber check:api</code></td>
+</tr>
+<tr>
+<td>CI workflow modified (<code>.github/workflows/</code>)</td>
+<td><code>cyber check:supply-chain</code></td>
+</tr>
+<tr>
+<td>Dockerfile or base image changed</td>
+<td><code>legal check:dep &lt;image&gt;</code> + <code>cyber check:supply-chain</code></td>
+</tr>
+<tr>
+<td>VEX statement added/modified</td>
+<td><code>cyber check:vex</code></td>
+</tr>
+<tr>
+<td>Helm chart values changed</td>
+<td><code>cyber check:api</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="cadence">Cadence<a class="headerlink" href="#cadence" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>When</th>
+<th>What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Every PR</strong> (when triggers above fire)</td>
+<td>Focused checks only</td>
+</tr>
+<tr>
+<td><strong>Milestone exit / quarterly / on demand</strong></td>
+<td>Full <code>legal check</code> + full <code>cyber check</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-rules">Key rules<a class="headerlink" href="#key-rules" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>License contamination = always <code>priority/p0</code></strong> — a license problem can invalidate the entire project.</li>
+<li>Focused checks that FAIL -&gt; agent must not open the PR. Resolve or escalate to <code>lpasquali</code>.</li>
+<li>Full audits run in the background and do not block other work. Findings become issues for the next milestone.</li>
+</ul>
+<h2 id="tone-style">Tone &amp; Style<a class="headerlink" href="#tone-style" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Professional, technical, and concise.</li>
+<li>Focus on reliability, automation, and security.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

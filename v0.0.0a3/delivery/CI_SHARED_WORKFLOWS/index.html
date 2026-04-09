@@ -1,0 +1,3489 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the RUNE platform, APIs, and compliance posture">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/lpasquali/rune-docs/v0.0.0a3/delivery/CI_SHARED_WORKFLOWS/">
+      
+      
+        <link rel="prev" href="../PIPELINES/">
+      
+      
+        <link rel="next" href="../CI_RISK_MITIGATIONS/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Shared CI Workflows - RUNE Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../overrides/main.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/tokens.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ci-shared-workflows-rune-ci" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RUNE Documentation" class="md-header__button md-logo" aria-label="RUNE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RUNE Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Shared CI Workflows
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lpasquali/rune-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lpasquali/rune-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RUNE Documentation" class="md-nav__button md-logo" aria-label="RUNE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RUNE Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lpasquali/rune-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lpasquali/rune-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Context
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/SYSTEM_PROMPT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/CURRENT_STATE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Current State
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/CODING_STANDARDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coding Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Usage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/QUICKSTART/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/DEVELOPER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/PRICING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pricing & Access Tiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/INTERFACES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/API_SPEC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/CONFIGURATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/OLLAMA_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Backend Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Delivery
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Delivery
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PIPELINES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared CI Workflows
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared CI Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#repository-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repository Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reusable-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reusable Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reusable Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-qualityyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        python-quality.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-qualityyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        go-quality.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-scanyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        security-scan.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-buildyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        container-build.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#releaseyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        release.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-releaseyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        helm-release.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-qualityyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        helm-quality.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docs-qualityyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docs-quality.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell-qualityyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shell-quality.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pr-complianceyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pr-compliance.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-syncyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        project-sync.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composite-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Composite Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Composite Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gitleaks-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gitleaks-scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sbom-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sbom-scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#license-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        license-check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker-setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versioning-and-pinning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versioning and Pinning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onboarding-a-new-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Onboarding a New Repository
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consumer-repo-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consumer Repo Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consumer Repo Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-repo-with-charts-notification-rune-rune-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container repo with charts notification (rune, rune-ui)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-repo-with-sbom-and-slsa-rune-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container repo with SBOM and SLSA (rune-docs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-container-repo-rune-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-container repo (rune-audit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-repo-rune-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Helm repo (rune-charts)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollback-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback Procedure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rollback Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-migration-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-Migration Safety
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-1-migrated-workflow-fails-in-a-consumer-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 1: Migrated Workflow Fails in a Consumer Repo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-2-rune-ci-itself-is-broken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 2: rune-ci Itself Is Broken
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-3-partial-migration-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 3: Partial Migration Failure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-rollback-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step Rollback Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-rollback-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-Rollback Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estimated-rollback-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estimated Rollback Time
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CI_RISK_MITIGATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI Migration Risk Mitigations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RELEASES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SECRETS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VEX Register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MILESTONES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Milestones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LABELS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AUDIT_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/WORKSTATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workstation Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/GOLDEN_IMAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Golden Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/OBSERVABILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/RUNBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runbooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/ROLLBACK_PROCEDURES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rollback Procedures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/VAULT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vault Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/SDL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Development Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/RISK_ASSESSMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Assessment Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/RISK_REGISTER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/PENTEST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Penetration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/FUZZ_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fuzz Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/INCIDENT_RESPONSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Incident Response
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/IMAGE_SIGNING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container Image Signing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/SECURITY_TRAINING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Training Records
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/THREAT_MODEL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/SECURITY_REQUIREMENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/SYSTEM_DESIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/INFRASTRUCTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/FORMAL_SPECS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formal Specs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_6" id="__nav_7_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADRs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADRs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0001-api-compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0001: Client/Server Compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0002-cost-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0002: Cost Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0003-ui-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0003: UI Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0004-operator-feature-parity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0004: Operator Parity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0005-advanced-cognitive-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0005: Advanced Cognitive Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#repository-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repository Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reusable-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reusable Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reusable Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-qualityyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        python-quality.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-qualityyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        go-quality.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-scanyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        security-scan.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-buildyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        container-build.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#releaseyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        release.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-releaseyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        helm-release.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-qualityyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        helm-quality.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docs-qualityyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docs-quality.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell-qualityyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shell-quality.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pr-complianceyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pr-compliance.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-syncyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        project-sync.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composite-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Composite Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Composite Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gitleaks-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gitleaks-scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sbom-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sbom-scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#license-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        license-check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker-setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versioning-and-pinning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versioning and Pinning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onboarding-a-new-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Onboarding a New Repository
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consumer-repo-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consumer Repo Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consumer Repo Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-repo-with-charts-notification-rune-rune-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container repo with charts notification (rune, rune-ui)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-repo-with-sbom-and-slsa-rune-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container repo with SBOM and SLSA (rune-docs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-container-repo-rune-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-container repo (rune-audit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-repo-rune-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Helm repo (rune-charts)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollback-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback Procedure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rollback Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-migration-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-Migration Safety
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-1-migrated-workflow-fails-in-a-consumer-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 1: Migrated Workflow Fails in a Consumer Repo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-2-rune-ci-itself-is-broken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 2: rune-ci Itself Is Broken
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-3-partial-migration-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 3: Partial Migration Failure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-rollback-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step Rollback Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-rollback-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-Rollback Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estimated-rollback-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estimated Rollback Time
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ci-shared-workflows-rune-ci">CI Shared Workflows (rune-ci)<a class="headerlink" href="#ci-shared-workflows-rune-ci" title="Permanent link">&para;</a></h1>
+<p>The <a href="https://github.com/lpasquali/rune-ci"><code>rune-ci</code></a> repository centralizes
+reusable GitHub Actions workflows and composite actions for the entire RUNE
+platform. Consumer repos call these shared workflows with thin callers
+(typically 15-20 lines each), eliminating duplication across 8 repositories.</p>
+<h2 id="repository-structure">Repository Structure<a class="headerlink" href="#repository-structure" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>rune-ci/
+  .github/workflows/          # Reusable workflows (workflow_call)
+    python-quality.yml         # Coverage + lint + SAST + license
+    go-quality.yml             # Go test + fmt + vet + gosec + license
+    security-scan.yml          # Gitleaks + optional SBOM scan
+    container-build.yml        # Multi-arch Docker build (amd64 + arm64)
+    release.yml                # Tag verify + build + manifest + GH Release
+    helm-release.yml           # Helm chart packaging + GH Release
+    helm-quality.yml           # helm lint + trivy config scan
+    docs-quality.yml           # mkdocs build --strict + pymarkdown
+    shell-quality.yml          # ShellCheck + YAMLLint
+    pr-compliance.yml          # PR body validation + merge gate + ML4
+    project-sync.yml           # Project board automation
+    quality-gates.yml          # CI for CI (actionlint + yamllint)
+  actions/                     # Composite actions
+    gitleaks-scan/             # Secret scanning
+    sbom-scan/                 # SBOM generation + CVE scanning
+    license-check/             # License compliance (Python + Go)
+    docker-setup/              # Docker login + buildx + cache metadata
+  scripts/
+    merge_gate.py              # Merge gate evaluator
+</code></pre></div>
+<h2 id="reusable-workflows">Reusable Workflows<a class="headerlink" href="#reusable-workflows" title="Permanent link">&para;</a></h2>
+<h3 id="python-qualityyml">python-quality.yml<a class="headerlink" href="#python-qualityyml" title="Permanent link">&para;</a></h3>
+<p>Python test coverage, linting (ruff), SAST (bandit), and license compliance.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>python-version</code></td>
+<td>string</td>
+<td><code>"3.12"</code></td>
+<td>Python version</td>
+</tr>
+<tr>
+<td><code>coverage-threshold</code></td>
+<td>number</td>
+<td><code>97</code></td>
+<td>Minimum coverage percentage</td>
+</tr>
+<tr>
+<td><code>requirements-file</code></td>
+<td>string</td>
+<td><code>"requirements.txt"</code></td>
+<td>Pip requirements file</td>
+</tr>
+<tr>
+<td><code>source-dir</code></td>
+<td>string</td>
+<td><code>"."</code></td>
+<td>Source directory for coverage</td>
+</tr>
+</tbody>
+</table>
+<h3 id="go-qualityyml">go-quality.yml<a class="headerlink" href="#go-qualityyml" title="Permanent link">&para;</a></h3>
+<p>Go test coverage, formatting, vetting, static analysis (gosec), and license
+compliance.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>go-version</code></td>
+<td>string</td>
+<td><code>"1.24"</code></td>
+<td>Go version</td>
+</tr>
+<tr>
+<td><code>coverage-threshold</code></td>
+<td>number</td>
+<td><code>80</code></td>
+<td>Minimum coverage percentage</td>
+</tr>
+</tbody>
+</table>
+<h3 id="security-scanyml">security-scan.yml<a class="headerlink" href="#security-scanyml" title="Permanent link">&para;</a></h3>
+<p>Gitleaks secret scanning with optional SBOM + CVE scanning.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gitleaks-version</code></td>
+<td>string</td>
+<td><code>"8.24.3"</code></td>
+<td>Gitleaks version</td>
+</tr>
+<tr>
+<td><code>run-sbom</code></td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>Enable SBOM + CVE scan</td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td>string</td>
+<td><code>""</code></td>
+<td>Container image for SBOM scan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="container-buildyml">container-build.yml<a class="headerlink" href="#container-buildyml" title="Permanent link">&para;</a></h3>
+<p>Multi-arch Docker image build (amd64 + arm64) with registry caching.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>image-name</code></td>
+<td>string</td>
+<td>required</td>
+<td>Image name</td>
+</tr>
+<tr>
+<td><code>registry-owner</code></td>
+<td>string</td>
+<td><code>"lpasquali"</code></td>
+<td>Registry owner</td>
+</tr>
+<tr>
+<td><code>dockerfile</code></td>
+<td>string</td>
+<td><code>"./Dockerfile"</code></td>
+<td>Dockerfile path</td>
+</tr>
+</tbody>
+</table>
+<h3 id="releaseyml">release.yml<a class="headerlink" href="#releaseyml" title="Permanent link">&para;</a></h3>
+<p>Tag verification, multi-arch Docker build, manifest creation, GitHub Release,
+optional SBOM generation, SLSA L3 attestation, and rune-charts notification.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>image-name</code></td>
+<td>string</td>
+<td><code>""</code></td>
+<td>Image name (required if <code>build-container</code> is true)</td>
+</tr>
+<tr>
+<td><code>registry-owner</code></td>
+<td>string</td>
+<td><code>"lpasquali"</code></td>
+<td>Registry owner</td>
+</tr>
+<tr>
+<td><code>dockerfile</code></td>
+<td>string</td>
+<td><code>"./Dockerfile"</code></td>
+<td>Dockerfile path</td>
+</tr>
+<tr>
+<td><code>build-container</code></td>
+<td>boolean</td>
+<td><code>true</code></td>
+<td>Build and publish container image</td>
+</tr>
+<tr>
+<td><code>notify-charts</code></td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>Send dispatch to rune-charts</td>
+</tr>
+<tr>
+<td><code>generate-sbom</code></td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>Generate CycloneDX SBOM</td>
+</tr>
+<tr>
+<td><code>slsa-attestation</code></td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>Generate SLSA L3 attestation</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Secret</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RUNE_CHARTS_BOT_TOKEN</code></td>
+<td>No</td>
+<td>PAT for cross-repo dispatch</td>
+</tr>
+</tbody>
+</table>
+<h3 id="helm-releaseyml">helm-release.yml<a class="headerlink" href="#helm-releaseyml" title="Permanent link">&para;</a></h3>
+<p>Helm chart packaging and GitHub Release creation.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>charts-dir</code></td>
+<td>string</td>
+<td><code>"charts"</code></td>
+<td>Directory containing chart subdirectories</td>
+</tr>
+</tbody>
+</table>
+<h3 id="helm-qualityyml">helm-quality.yml<a class="headerlink" href="#helm-qualityyml" title="Permanent link">&para;</a></h3>
+<p>Helm lint and Trivy configuration scanning.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>charts-dir</code></td>
+<td>string</td>
+<td><code>"charts"</code></td>
+<td>Directory containing chart subdirectories</td>
+</tr>
+</tbody>
+</table>
+<h3 id="docs-qualityyml">docs-quality.yml<a class="headerlink" href="#docs-qualityyml" title="Permanent link">&para;</a></h3>
+<p>MkDocs strict build and pymarkdown linting.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>python-version</code></td>
+<td>string</td>
+<td><code>"3.12"</code></td>
+<td>Python version</td>
+</tr>
+<tr>
+<td><code>requirements-file</code></td>
+<td>string</td>
+<td><code>"requirements.txt"</code></td>
+<td>Pip requirements file</td>
+</tr>
+</tbody>
+</table>
+<h3 id="shell-qualityyml">shell-quality.yml<a class="headerlink" href="#shell-qualityyml" title="Permanent link">&para;</a></h3>
+<p>ShellCheck and YAMLLint for shell scripts and YAML files.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>script-dirs</code></td>
+<td>string</td>
+<td><code>"scripts"</code></td>
+<td>Space-separated script directories</td>
+</tr>
+<tr>
+<td><code>script-glob</code></td>
+<td>string</td>
+<td><code>"*.sh"</code></td>
+<td>Glob pattern for shell scripts</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pr-complianceyml">pr-compliance.yml<a class="headerlink" href="#pr-complianceyml" title="Permanent link">&para;</a></h3>
+<p>PR body structure validation, merge gate aggregation, and ML4 automated
+approval.</p>
+<p>No configurable inputs. The workflow validates PR body sections (issue
+reference, DoD level, Acceptance Criteria Evidence, Audit Checks, Breaking
+Changes) and auto-approves after all gates pass.</p>
+<h3 id="project-syncyml">project-sync.yml<a class="headerlink" href="#project-syncyml" title="Permanent link">&para;</a></h3>
+<p>Automated project board synchronization. Sets Status (Todo/In progress/Done)
+and Agent Lane (Claude/Gemini/Copilot/Human) based on issue/PR events and
+labels.</p>
+<table>
+<thead>
+<tr>
+<th>Secret</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PROJECT_TOKEN</code></td>
+<td>Yes</td>
+<td>PAT with <code>project</code> scope</td>
+</tr>
+</tbody>
+</table>
+<h2 id="composite-actions">Composite Actions<a class="headerlink" href="#composite-actions" title="Permanent link">&para;</a></h2>
+<h3 id="gitleaks-scan">gitleaks-scan<a class="headerlink" href="#gitleaks-scan" title="Permanent link">&para;</a></h3>
+<p>Secret scanning using Gitleaks. Supports both PR (range-based) and push event
+scanning.</p>
+<h3 id="sbom-scan">sbom-scan<a class="headerlink" href="#sbom-scan" title="Permanent link">&para;</a></h3>
+<p>SBOM generation with Syft, CVE scanning with Grype and Trivy, and policy
+enforcement against a configurable CVSS threshold. Supports VEX suppression.</p>
+<h3 id="license-check">license-check<a class="headerlink" href="#license-check" title="Permanent link">&para;</a></h3>
+<p>License compliance checking for Python (pip-licenses) and Go (go-licenses)
+ecosystems. Configurable blocklist and package-level exceptions.</p>
+<h3 id="docker-setup">docker-setup<a class="headerlink" href="#docker-setup" title="Permanent link">&para;</a></h3>
+<p>Docker login to GHCR, buildx setup, and cache metadata computation. Outputs
+<code>full-image</code>, <code>cache-from</code>, and <code>cache-to</code> for use with <code>docker/build-push-action</code>.</p>
+<h2 id="versioning-and-pinning">Versioning and Pinning<a class="headerlink" href="#versioning-and-pinning" title="Permanent link">&para;</a></h2>
+<p>Consumer repos pin to a tagged version:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lpasquali/rune-ci/.github/workflows/release.yml@v0.1.0</span>
+</code></pre></div>
+<p>The current version is <strong>v0.1.0</strong>. Tags are updated in-place during pre-1.0
+development. After 1.0, tags will follow strict semver with immutable releases.</p>
+<p>All third-party actions within rune-ci are SHA-pinned for supply chain security
+(SLSA L3 compliance).</p>
+<h2 id="onboarding-a-new-repository">Onboarding a New Repository<a class="headerlink" href="#onboarding-a-new-repository" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Quality gates</strong> -- copy <code>project-sync-caller-template.yml</code> to
+   <code>.github/workflows/project-sync.yml</code> in the new repo.</p>
+</li>
+<li>
+<p><strong>Create a quality-gates.yml</strong> caller that invokes the appropriate shared
+   workflows (python-quality, go-quality, security-scan, etc.) based on the
+   repo's tech stack.</p>
+</li>
+<li>
+<p><strong>Create a release.yml</strong> caller that invokes <code>release.yml</code> (for container
+   repos) or <code>helm-release.yml</code> (for Helm repos), or uses
+   <code>build-container: false</code> (for non-container repos like rune-audit).</p>
+</li>
+<li>
+<p><strong>Set secrets</strong> at the org or repo level:</p>
+</li>
+<li><code>PROJECT_TOKEN</code> -- PAT with <code>project</code> scope (required for project-sync)</li>
+<li>
+<p><code>RUNE_CHARTS_BOT_TOKEN</code> -- PAT for cross-repo dispatch (only if
+     <code>notify-charts: true</code>)</p>
+</li>
+<li>
+<p><strong>Add the repo</strong> to the project board and verify sync works by opening a
+   test issue.</p>
+</li>
+</ol>
+<h2 id="consumer-repo-examples">Consumer Repo Examples<a class="headerlink" href="#consumer-repo-examples" title="Permanent link">&para;</a></h2>
+<h3 id="container-repo-with-charts-notification-rune-rune-ui">Container repo with charts notification (rune, rune-ui)<a class="headerlink" href="#container-repo-with-charts-notification-rune-rune-ui" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># .github/workflows/release.yml</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Release</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;v*&quot;</span><span class="p p-Indicator">]</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">release</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lpasquali/rune-ci/.github/workflows/release.yml@v0.1.0</span>
+<span class="w">    </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">image-name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rune&quot;</span>
+<span class="w">      </span><span class="nt">notify-charts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">secrets</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">RUNE_CHARTS_BOT_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.RUNE_CHARTS_BOT_TOKEN }}</span>
+</code></pre></div>
+<h3 id="container-repo-with-sbom-and-slsa-rune-docs">Container repo with SBOM and SLSA (rune-docs)<a class="headerlink" href="#container-repo-with-sbom-and-slsa-rune-docs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># .github/workflows/release.yml</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Release</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;v*&quot;</span><span class="p p-Indicator">]</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">release</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lpasquali/rune-ci/.github/workflows/release.yml@v0.1.0</span>
+<span class="w">    </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">image-name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rune-docs&quot;</span>
+<span class="w">      </span><span class="nt">generate-sbom</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">slsa-attestation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<h3 id="non-container-repo-rune-audit">Non-container repo (rune-audit)<a class="headerlink" href="#non-container-repo-rune-audit" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># .github/workflows/release.yml</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Release</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;v*&quot;</span><span class="p p-Indicator">]</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">release</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lpasquali/rune-ci/.github/workflows/release.yml@v0.1.0</span>
+<span class="w">    </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">build-container</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+<h3 id="helm-repo-rune-charts">Helm repo (rune-charts)<a class="headerlink" href="#helm-repo-rune-charts" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># .github/workflows/release.yml</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Release Charts</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;v*&quot;</span><span class="p p-Indicator">]</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">release</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lpasquali/rune-ci/.github/workflows/helm-release.yml@v0.1.0</span>
+<span class="w">    </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">charts-dir</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;charts&quot;</span>
+</code></pre></div>
+<h2 id="rollback-procedure">Rollback Procedure<a class="headerlink" href="#rollback-procedure" title="Permanent link">&para;</a></h2>
+<p>This section defines the rollback playbook for failed CI workflow migrations.
+The target rollback time is <strong>under 15 minutes per repository</strong>.</p>
+<h3 id="pre-migration-safety">Pre-Migration Safety<a class="headerlink" href="#pre-migration-safety" title="Permanent link">&para;</a></h3>
+<p>Before migrating any consumer repository to <code>rune-ci</code> shared workflows, tag
+the current known-good state so you can return to it:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In the consumer repo (e.g., rune, rune-operator, rune-ui, etc.)</span>
+git<span class="w"> </span>tag<span class="w"> </span>pre-rune-ci<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Last known-good CI state before rune-ci migration&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>pre-rune-ci
+</code></pre></div>
+<p>This tag is your safety net. Every consumer repo must have a <code>pre-rune-ci</code> tag
+before migration begins.</p>
+<h3 id="scenario-1-migrated-workflow-fails-in-a-consumer-repo">Scenario 1: Migrated Workflow Fails in a Consumer Repo<a class="headerlink" href="#scenario-1-migrated-workflow-fails-in-a-consumer-repo" title="Permanent link">&para;</a></h3>
+<p>If a consumer repo's CI breaks after migrating to <code>rune-ci</code> shared workflows,
+revert the migration commit in that repo:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Identify the migration commit</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--all<span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;.github/workflows/&#39;</span>
+
+<span class="c1"># 2. Revert the migration commit (creates a new commit, preserving history)</span>
+git<span class="w"> </span>revert<span class="w"> </span>&lt;migration-commit-sha&gt;<span class="w"> </span>--no-edit
+
+<span class="c1"># 3. Push the revert</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;branch&gt;
+
+<span class="c1"># 4. Verify CI passes on the reverted state</span>
+<span class="c1">#    (wait for GitHub Actions to complete)</span>
+</code></pre></div>
+<p>If multiple commits were involved in the migration, revert them in reverse
+chronological order:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Revert a range (newest first)</span>
+git<span class="w"> </span>revert<span class="w"> </span>--no-edit<span class="w"> </span>&lt;newest-sha&gt;...&lt;oldest-sha&gt;
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;branch&gt;
+</code></pre></div>
+<h3 id="scenario-2-rune-ci-itself-is-broken">Scenario 2: rune-ci Itself Is Broken<a class="headerlink" href="#scenario-2-rune-ci-itself-is-broken" title="Permanent link">&para;</a></h3>
+<p>If a bug in <code>rune-ci</code> breaks CI across multiple consumer repos, each consumer
+repo can roll back independently without waiting for a <code>rune-ci</code> fix:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Option A: Revert the migration commit (preferred)</span>
+git<span class="w"> </span>revert<span class="w"> </span>&lt;migration-commit-sha&gt;<span class="w"> </span>--no-edit
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;branch&gt;
+
+<span class="c1"># Option B: Restore workflows from the pre-migration tag</span>
+git<span class="w"> </span>checkout<span class="w"> </span>pre-rune-ci<span class="w"> </span>--<span class="w"> </span>.github/workflows/
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;ci: restore pre-migration workflows (rune-ci broken)&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;branch&gt;
+</code></pre></div>
+<p>Option A is preferred because it creates a clean revert commit. Option B is
+useful when you need to restore the exact workflow files without identifying
+individual migration commits.</p>
+<h3 id="scenario-3-partial-migration-failure">Scenario 3: Partial Migration Failure<a class="headerlink" href="#scenario-3-partial-migration-failure" title="Permanent link">&para;</a></h3>
+<p>If only some workflows fail after migration (e.g., <code>release.yml</code> works but
+<code>quality-gates.yml</code> does not):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Restore only the broken workflow from the pre-migration tag</span>
+git<span class="w"> </span>checkout<span class="w"> </span>pre-rune-ci<span class="w"> </span>--<span class="w"> </span>.github/workflows/quality-gates.yml
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;ci: restore quality-gates.yml from pre-migration state&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;branch&gt;
+</code></pre></div>
+<h3 id="step-by-step-rollback-commands">Step-by-Step Rollback Commands<a class="headerlink" href="#step-by-step-rollback-commands" title="Permanent link">&para;</a></h3>
+<p>Complete rollback procedure for a single consumer repository:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Switch to the repo&#39;s default branch</span>
+<span class="nb">cd</span><span class="w"> </span>~/Devel/&lt;repo-name&gt;
+git<span class="w"> </span>checkout<span class="w"> </span>main<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+
+<span class="c1"># 2. Create a rollback branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>ci/rollback-rune-ci
+
+<span class="c1"># 3. Revert the migration commit</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;.github/workflows/&#39;</span><span class="w">   </span><span class="c1"># find the commit</span>
+git<span class="w"> </span>revert<span class="w"> </span>&lt;migration-commit-sha&gt;<span class="w"> </span>--no-edit
+
+<span class="c1"># 4. Push and open a PR</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>ci/rollback-rune-ci
+
+<span class="c1"># 5. Wait for CI to pass on the reverted state</span>
+<span class="c1">#    Verify all checks are green before merging</span>
+
+<span class="c1"># 6. After merge, confirm the pre-rune-ci tag still exists</span>
+git<span class="w"> </span>tag<span class="w"> </span>-l<span class="w"> </span><span class="s1">&#39;pre-rune-ci&#39;</span>
+</code></pre></div>
+<h3 id="post-rollback-verification">Post-Rollback Verification<a class="headerlink" href="#post-rollback-verification" title="Permanent link">&para;</a></h3>
+<p>After rolling back, verify the following:</p>
+<ol>
+<li><strong>CI passes</strong>: All GitHub Actions checks on the default branch are green.</li>
+<li><strong>Workflows are correct</strong>: The <code>.github/workflows/</code> directory matches the
+   expected pre-migration state.</li>
+<li><strong>Tags are preserved</strong>: The <code>pre-rune-ci</code> tag still exists and points to
+   the correct commit.</li>
+<li><strong>No orphaned secrets</strong>: If the migration added new secrets (e.g.,
+   <code>PROJECT_TOKEN</code>), they can remain -- unused secrets cause no harm.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Quick verification script</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== CI Status ===&quot;</span>
+gh<span class="w"> </span>run<span class="w"> </span>list<span class="w"> </span>--limit<span class="w"> </span><span class="m">3</span><span class="w"> </span>--json<span class="w"> </span>status,conclusion,name<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--template<span class="w"> </span><span class="s1">&#39;{{range .}}{{.name}}: {{.conclusion}}{{&quot;\n&quot;}}{{end}}&#39;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== Workflow files ===&quot;</span>
+ls<span class="w"> </span>-la<span class="w"> </span>.github/workflows/
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== Pre-migration tag ===&quot;</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-1<span class="w"> </span>pre-rune-ci<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;WARNING: pre-rune-ci tag missing&quot;</span>
+</code></pre></div>
+<h3 id="estimated-rollback-time">Estimated Rollback Time<a class="headerlink" href="#estimated-rollback-time" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identify migration commit</td>
+<td>2 min</td>
+</tr>
+<tr>
+<td>Create rollback branch and revert</td>
+<td>3 min</td>
+</tr>
+<tr>
+<td>Push and open PR</td>
+<td>2 min</td>
+</tr>
+<tr>
+<td>Wait for CI to pass</td>
+<td>5-8 min</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>~15 min</strong></td>
+</tr>
+</tbody>
+</table>
+<p>For emergency situations where CI must be restored immediately, the revert can
+be pushed directly to <code>main</code> (bypassing PR review) if branch protection rules
+permit it. This should be documented as an incident per ML4 compliance.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
