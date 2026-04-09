@@ -53,6 +53,12 @@ Consolidated project board automation by splitting Status field ownership (Proje
 
 **Verification matrix passed** (rune-docs#190): 6/6 tests across rune-ui, rune-airgapped, and rune-ci confirm the slimmed workflow no longer overrides Status when a `_cli` label is added — the central goal of the epic.
 
+### 2026-04-09 — Cursor agent (`cursor_cli`) in SSOT
+
+**`SYSTEM_PROMPT.md`** — Label Guard, label-on-assign examples, SOP Step 1 (Assign), and Project Board **Agent Lane** now explicitly include the Cursor agent and `cursor_cli`, consistent with other `<agent>_cli` ownership labels and `project-sync-logic.yml` lane mapping.
+
+**`CI_SHARED_WORKFLOWS.md`** — `project-sync.yml` description lists Cursor alongside Claude, Gemini, and Copilot in the Agent Lane set.
+
 ### 2026-04-09 — CI Standardization & PR Cleanup (12 PRs resolved)
 
 **Project-Sync Standardization (5 repos):**
