@@ -32,6 +32,14 @@ Last updated: **2026-04-10**.
  
 ## Recent Changes
 
+### 2026-04-10 — Project board backfill (rune-ci#19 + consumer PRs)
+
+**rune-ci** `main` adds `project-backfill-logic.yml`, caller template, and repo-local
+`project-backfill.yml`; extends **project-sync** with Agent Lane inference from PR
+head commit `Co-authored-by` when no `*_cli` label. Consumer repos add thin
+`project-backfill.yml` (see rune#249 and sibling PRs in charts, operator, audit,
+airgapped, docs, ui).
+
 ### 2026-04-10 — External OSS: dashboard + init docs (rune-docs#212, #231)
 
 **External projects** [quickstart](../external-projects/quickstart.md): document
