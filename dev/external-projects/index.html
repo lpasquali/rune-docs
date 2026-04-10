@@ -2516,7 +2516,7 @@
 <tbody>
 <tr>
 <td><a href="quickstart/">Quickstart</a></td>
-<td>Install, init project file, first <code>sr2 verify</code></td>
+<td>Install, <code>rune-audit init</code>, <code>sr2 verify</code>, multi-repo <code>sr2 dashboard</code></td>
 </tr>
 <tr>
 <td><a href="configuration/">Configuration</a></td>
@@ -2547,7 +2547,8 @@
 <h2 id="normative-requirements-text">Normative requirements text<a class="headerlink" href="#normative-requirements-text" title="Permanent link">&para;</a></h2>
 <p>Requirement titles and evidence expectations are defined in <strong><a href="../architecture/QUANTITATIVE_SECURITY_REQUIREMENTS/">Quantitative security requirements</a></strong> (rune-docs). Inspectors map evidence to those SR-Q ids.</p>
 <h2 id="status">Status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h2>
-<p>Today many inspectors still return <strong><code>not_implemented</code></strong> (stub phase). Use <code>rune-audit sr2 verify</code> without <code>--strict</code> for informational runs; add <code>--strict</code> in CI when you are ready to fail on unfinished coverage.</p>
+<p>Today many SR-Q rows still return <strong><code>not_implemented</code></strong> for catalog verification (stub phase). <strong>Stdlib</strong> inspectors (e.g. <code>stdlib.python_coverage</code>) return <strong><code>not_applicable</code></strong> when the technology is absent. Use <code>rune-audit sr2 verify</code> without <code>--strict</code> for informational runs; add <code>--strict</code> in CI when you are ready to fail on unfinished coverage.</p>
+<p><strong>Matrix dashboard:</strong> <code>rune-audit sr2 dashboard</code> (HTML / JSON / Markdown) aggregates verification across repos listed in <strong><code>compliance-config.yaml</code></strong> — see <a href="quickstart/">Quickstart §4</a> and <a href="https://github.com/lpasquali/rune-docs/issues/212">rune-docs#212</a>.</p>
 
 
 

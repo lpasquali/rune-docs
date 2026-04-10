@@ -893,10 +893,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-create-a-project-file" class="md-nav__link">
+  <a href="#2-bootstrap-config" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Create a project file
+        2. Bootstrap config
       
     </span>
   </a>
@@ -915,10 +915,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-next-steps" class="md-nav__link">
+  <a href="#4-multi-repo-matrix-dashboard-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Next steps
+        4. Multi-repo matrix dashboard (optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Next steps
       
     </span>
   </a>
@@ -2497,10 +2508,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-create-a-project-file" class="md-nav__link">
+  <a href="#2-bootstrap-config" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Create a project file
+        2. Bootstrap config
       
     </span>
   </a>
@@ -2519,10 +2530,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-next-steps" class="md-nav__link">
+  <a href="#4-multi-repo-matrix-dashboard-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Next steps
+        4. Multi-repo matrix dashboard (optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Next steps
       
     </span>
   </a>
@@ -2561,12 +2583,13 @@
 <p>Confirm:</p>
 <div class="highlight"><pre><span></span><code>rune-audit<span class="w"> </span>--version
 </code></pre></div>
-<h2 id="2-create-a-project-file">2. Create a project file<a class="headerlink" href="#2-create-a-project-file" title="Permanent link">&para;</a></h2>
+<h2 id="2-bootstrap-config">2. Bootstrap config<a class="headerlink" href="#2-bootstrap-config" title="Permanent link">&para;</a></h2>
 <p>At the <strong>root of the repo you want to audit</strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/path/to/your/repo
-rune-audit<span class="w"> </span>sr2<span class="w"> </span>init<span class="w"> </span>-o<span class="w"> </span>.rune-audit-project.yaml
+rune-audit<span class="w"> </span>init<span class="w"> </span>-y<span class="w"> </span>--org<span class="w"> </span>my-org<span class="w"> </span>--repos<span class="w"> </span>core<span class="w"> </span>--no-project-file
+<span class="c1"># or interactive: rune-audit init</span>
 </code></pre></div>
-<p>This writes a starter file (see <a href="../configuration/">Configuration</a>). Validate it:</p>
+<p>This writes <strong><code>compliance-config.yaml</code></strong> (and optionally <strong><code>.rune-audit-project.yaml</code></strong>). Validate the project file if you use it:</p>
 <div class="highlight"><pre><span></span><code>rune-audit<span class="w"> </span>sr2<span class="w"> </span>config-validate<span class="w"> </span>.rune-audit-project.yaml
 </code></pre></div>
 <h2 id="3-run-verification">3. Run verification<a class="headerlink" href="#3-run-verification" title="Permanent link">&para;</a></h2>
@@ -2581,7 +2604,15 @@ rune-audit<span class="w"> </span>sr2<span class="w"> </span>init<span class="w"
 rune-audit<span class="w"> </span>sr2<span class="w"> </span>verify<span class="w"> </span>.<span class="w"> </span>--json
 rune-audit<span class="w"> </span>sr2<span class="w"> </span>gaps<span class="w"> </span>--priority<span class="w"> </span>P0
 </code></pre></div>
-<h2 id="4-next-steps">4. Next steps<a class="headerlink" href="#4-next-steps" title="Permanent link">&para;</a></h2>
+<h2 id="4-multi-repo-matrix-dashboard-optional">4. Multi-repo matrix dashboard (optional)<a class="headerlink" href="#4-multi-repo-matrix-dashboard-optional" title="Permanent link">&para;</a></h2>
+<p>From a <strong>parent directory</strong> that contains sibling clones named like your <strong><code>compliance-config.yaml</code></strong> <code>project.repos</code> entries:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel
+rune-audit<span class="w"> </span>sr2<span class="w"> </span>dashboard<span class="w"> </span>--base-path<span class="w"> </span>.<span class="w"> </span>--format<span class="w"> </span>html<span class="w"> </span>-o<span class="w"> </span>sr2-dashboard.html
+rune-audit<span class="w"> </span>sr2<span class="w"> </span>dashboard<span class="w"> </span>--base-path<span class="w"> </span>.<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span>-o<span class="w"> </span>sr2-dashboard.json
+rune-audit<span class="w"> </span>sr2<span class="w"> </span>dashboard<span class="w"> </span>--single-repo<span class="w"> </span>--format<span class="w"> </span>md
+</code></pre></div>
+<p>Use <strong><code>--previous sr2-dashboard.json</code></strong> on a second run to emit a <strong>trend delta</strong> in HTML/JSON output. See <a href="https://github.com/lpasquali/rune-docs/issues/212">rune-docs#212</a>.</p>
+<h2 id="5-next-steps">5. Next steps<a class="headerlink" href="#5-next-steps" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Add a reusable workflow: <a href="../ci-integration/">CI integration</a>.</li>
 <li>Register real checks: <a href="../custom-inspectors/">Custom inspectors</a>.</li>
