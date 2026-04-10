@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-09**.
+Last updated: **2026-04-10**.
 
  
 ## Version Baseline
@@ -31,6 +31,25 @@ Last updated: **2026-04-09**.
 
  
 ## Recent Changes
+
+### 2026-04-10 — SYSTEM_PROMPT compression
+
+**`SYSTEM_PROMPT.md`** heavily shortened while keeping mandatory rules: core identity
+and constraints; single architecture table; extension protocols as a summary table
+(signatures remain in source); merged **Take issue (user-directed)**, label
+isolation, **`lpasquali`** assignment, and project **#1** Status vs automation
+(including explicit **In progress** manual step and CI scope); condensed DoD,
+SOP, and **Audit Agents** (full trigger detail remains in **AUDIT_AGENTS.md**).
+Inline PR markdown template removed — agents use each repo’s
+**`.github/PULL_REQUEST_TEMPLATE.md`** plus **`pr-body-check`** requirements
+stated in one bullet.
+
+**Read first** list now includes **[AUDIT_AGENTS.md](../delivery/AUDIT_AGENTS.md)**.
+
+**Local hygiene (worktrees outside this commit):** `rune` still has
+`stash@{0}` (untracked `.python-version` from switching to `main`);
+`rune-audit` has `stash@{0}` (small `rune_audit/cli/app.py` hunk). Owners should
+`stash pop` / `drop` or turn into PRs as appropriate.
 
 ### 2026-04-09 — Advanced pipelines docs + database roadmap ADR
 
