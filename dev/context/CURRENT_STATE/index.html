@@ -469,6 +469,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-10-runebenchmark-budget-gate-rune-operator94-rune-charts77" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — RuneBenchmark budget gate (rune-operator#94, rune-charts#77)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-10-project-board-backfill-rune-ci19-consumer-prs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2735,6 +2746,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-10-runebenchmark-budget-gate-rune-operator94-rune-charts77" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — RuneBenchmark budget gate (rune-operator#94, rune-charts#77)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-10-project-board-backfill-rune-ci19-consumer-prs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3020,6 +3042,12 @@
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-10-runebenchmark-budget-gate-rune-operator94-rune-charts77">2026-04-10 — RuneBenchmark budget gate (rune-operator#94, rune-charts#77)<a class="headerlink" href="#2026-04-10-runebenchmark-budget-gate-rune-operator94-rune-charts77" title="Permanent link">&para;</a></h3>
+<p><strong>rune-operator</strong> <code>main</code> adds optional <strong><code>spec.budget.maxCostUSD</code></strong>: before job submit, GET
+<code>/v1/finops/simulate</code> and compare <strong><code>cost_high_usd</code></strong> when present (else <strong><code>projected_cost_usd</code></strong>)
+to the cap; <strong><code>Ready</code></strong> reason <strong><code>BudgetExceeded</code></strong> on violation. <strong>rune-charts</strong> <code>main</code> vendors
+the CRD under <strong><code>charts/rune-operator/crds/</code></strong> (correct <strong><code>bench.rune.ai</code></strong> group / <strong><code>v1alpha1</code></strong>).
+Tracks <strong>rune-operator#84</strong> (closed) and epic <strong>rune-docs#176</strong>.</p>
 <h3 id="2026-04-10-project-board-backfill-rune-ci19-consumer-prs">2026-04-10 — Project board backfill (rune-ci#19 + consumer PRs)<a class="headerlink" href="#2026-04-10-project-board-backfill-rune-ci19-consumer-prs" title="Permanent link">&para;</a></h3>
 <p><strong>rune-ci</strong> <code>main</code> adds <code>project-backfill-logic.yml</code>, caller template, and repo-local
 <code>project-backfill.yml</code>; extends <strong>project-sync</strong> with Agent Lane inference from PR
