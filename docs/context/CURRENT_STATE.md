@@ -46,6 +46,15 @@ stated in one bullet.
 
 **Read first** list now includes **[AUDIT_AGENTS.md](../delivery/AUDIT_AGENTS.md)**.
 
+### 2026-04-10 — External projects docs (rune-docs#232)
+
+New **`docs/external-projects/`** section for **rune-audit** adopters: overview,
+quickstart, configuration (`.rune-audit-project.yaml`), inspector library, custom
+inspectors (registry + current `run_all` limitation), requirement packs,
+CI samples (GitHub Actions reusable workflow, GitLab, Jenkins), and RUNE case
+study. **MkDocs** nav group **External projects (rune-audit)**; links from
+**`docs/index.md`** and repo **README**.
+
 ### 2026-04-09 — Advanced pipelines docs + database roadmap ADR
 
 **`ADVANCED_PIPELINES.md`** added to document the now-shipped chain DAG and
