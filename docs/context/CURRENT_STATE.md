@@ -32,6 +32,14 @@ Last updated: **2026-04-10**.
  
 ## Recent Changes
 
+### 2026-04-10 — External OSS: dashboard + init docs (rune-docs#212, #231)
+
+**External projects** [quickstart](external-projects/quickstart.md): document
+**`rune-audit init`** (replacing incorrect `sr2 init` for bootstrap),
+**`rune-audit sr2 dashboard`** (HTML/JSON/Markdown, `--base-path`,
+`--previous` trend), and link **#212**. [Index](external-projects/index.md)
+updated for stdlib **`not_applicable`** behavior and dashboard pointer.
+
 ### 2026-04-10 — SYSTEM_PROMPT compression
 
 **`SYSTEM_PROMPT.md`** heavily shortened while keeping mandatory rules: core identity
