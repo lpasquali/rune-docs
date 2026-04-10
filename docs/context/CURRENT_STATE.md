@@ -46,11 +46,6 @@ stated in one bullet.
 
 **Read first** list now includes **[AUDIT_AGENTS.md](../delivery/AUDIT_AGENTS.md)**.
 
-**Local hygiene (worktrees outside this commit):** `rune` still has
-`stash@{0}` (untracked `.python-version` from switching to `main`);
-`rune-audit` has `stash@{0}` (small `rune_audit/cli/app.py` hunk). Owners should
-`stash pop` / `drop` or turn into PRs as appropriate.
-
 ### 2026-04-09 — Advanced pipelines docs + database roadmap ADR
 
 **`ADVANCED_PIPELINES.md`** added to document the now-shipped chain DAG and
