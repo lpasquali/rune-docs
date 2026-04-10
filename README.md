@@ -19,6 +19,11 @@ How to interact with and configure RUNE.
 - **[ADVANCED_PIPELINES](docs/usage/ADVANCED_PIPELINES.md)** — Chain DAG and audit artifact views.
 - **[CONFIGURATION](docs/usage/CONFIGURATION.md)** — Environment variables and files.
 
+## 🔭 External projects (rune-audit)
+
+- **[Overview](docs/external-projects/index.md)** — SR-2 adoption outside RUNE.
+- **[Quickstart](docs/external-projects/quickstart.md)** — Five-minute path to `sr2 verify`.
+
 ## 🚀 Delivery
 
 How RUNE is built, tested, and shipped.
