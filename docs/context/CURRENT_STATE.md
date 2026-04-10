@@ -32,6 +32,14 @@ Last updated: **2026-04-10**.
  
 ## Recent Changes
 
+### 2026-04-10 — RuneBenchmark budget gate (rune-operator#94, rune-charts#77)
+
+**rune-operator** `main` adds optional **`spec.budget.maxCostUSD`**: before job submit, GET
+`/v1/finops/simulate` and compare **`cost_high_usd`** when present (else **`projected_cost_usd`**)
+to the cap; **`Ready`** reason **`BudgetExceeded`** on violation. **rune-charts** `main` vendors
+the CRD under **`charts/rune-operator/crds/`** (correct **`bench.rune.ai`** group / **`v1alpha1`**).
+Tracks **rune-operator#84** (closed) and epic **rune-docs#176**.
+
 ### 2026-04-10 — Project board backfill (rune-ci#19 + consumer PRs)
 
 **rune-ci** `main` adds `project-backfill-logic.yml`, caller template, and repo-local
