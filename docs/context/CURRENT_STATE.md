@@ -32,6 +32,11 @@ Last updated: **2026-04-10**.
  
 ## Recent Changes
 
+### 2026-04-10 — `.claude/` in `.gitignore` (rune-docs#199, rune#250)
+
+All eight RUNE repos ignore **`.claude/`** (Claude Code local state). **rune** was the last
+gap; **rune#250** merged the line to **`main`**. Tracking issue **rune-docs#199** closed.
+
 ### 2026-04-10 — RuneBenchmark budget gate (rune-operator#94, rune-charts#77)
 
 **rune-operator** `main` adds optional **`spec.budget.maxCostUSD`**: before job submit, GET
