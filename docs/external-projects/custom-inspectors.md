@@ -16,12 +16,13 @@ Return a structured **`InspectResult`** with status **`pass`**, **`fail`**, **`n
 
 ## Registration
 
-**`InspectorRegistry`** (`rune_audit.sr2.registry`) maps requirement ids to callables via **`register()`**. Today **`run_all()`** always uses **`default_registry()`** internally, so the stock **`rune-audit sr2 verify`** CLI does not yet accept an injected registry. Custom inspectors require either:
+**`InspectorRegistry`** (`rune_audit.sr2.registry`) maps requirement ids to callables via **`register()`**.
 
-- extending rune-audit (fork or PR) to register callables on the default registry at import time, or  
-- waiting for **EPIC #228** / follow-on API work to pass a registry into **`run_verification`**.
+- **`@register_inspector("SR-Q-00N")`** — decorator registers a built-in when your module is imported before **`default_registry()`** runs (rune-audit ships **`standard_inspectors`** for this pattern).
+- **`default_registry()`** — builds a fresh registry, imports **`rune_audit.sr2.standard_inspectors`**, and applies all decorator-registered callables.
+- **`run_verification(..., registry=...)`** — library callers can pass a fully custom **`InspectorRegistry`** instance (wraps the same **`run_all(..., registry=...)`** path). The **`rune-audit sr2 verify`** CLI still uses the default registry only (no CLI flag yet).
 
-Until then, treat this section as the **intended** integration pattern.
+Forks and downstream packages can register via decorator in an importable module, or construct a registry in Python and call **`run_verification`** from their own entry point.
 
 ## Rules of thumb
 
@@ -32,4 +33,4 @@ Until then, treat this section as the **intended** integration pattern.
 ## Related
 
 - [Inspector library](inspector-library.md)
-- Upstream **EPIC #228** — pluggable inspector registry (rune-docs / rune-audit tracking).
+- **rune-docs#228** — pluggable inspector registry (registry API + engine wiring; CLI plugins remain follow-on).

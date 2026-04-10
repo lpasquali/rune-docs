@@ -32,6 +32,14 @@ Last updated: **2026-04-10**.
  
 ## Recent Changes
 
+### 2026-04-10 — External OSS: dashboard + init docs (rune-docs#212, #231)
+
+**External projects** [quickstart](../external-projects/quickstart.md): document
+**`rune-audit init`** (replacing incorrect `sr2 init` for bootstrap),
+**`rune-audit sr2 dashboard`** (HTML/JSON/Markdown, `--base-path`,
+`--previous` trend), and link **#212**. [Index](../external-projects/index.md)
+updated for stdlib **`not_applicable`** behavior and dashboard pointer.
+
 ### 2026-04-10 — SYSTEM_PROMPT compression
 
 **`SYSTEM_PROMPT.md`** heavily shortened while keeping mandatory rules: core identity
@@ -50,10 +58,16 @@ stated in one bullet.
 
 New **`docs/external-projects/`** section for **rune-audit** adopters: overview,
 quickstart, configuration (`.rune-audit-project.yaml`), inspector library, custom
-inspectors (registry + current `run_all` limitation), requirement packs,
+inspectors (registry / decorator patterns), requirement packs,
 CI samples (GitHub Actions reusable workflow, GitLab, Jenkins), and RUNE case
 study. **MkDocs** nav group **External projects (rune-audit)**; links from
 **`docs/index.md`** and repo **README**.
+
+### 2026-04-10 — Custom inspectors doc vs rune-audit #228
+
+**`external-projects/custom-inspectors.md`** aligned with **rune-audit**:
+`@register_inspector`, `default_registry()` + **`standard_inspectors`** import,
+and **`run_verification(..., registry=...)`** (stock CLI unchanged).
 
 ### 2026-04-09 — Advanced pipelines docs + database roadmap ADR
 

@@ -8,7 +8,7 @@ These pages are the **adopter-facing** guide. The short upstream summary lives i
 
 | Page | Purpose |
 | --- | --- |
-| [Quickstart](quickstart.md) | Install, init project file, first `sr2 verify` |
+| [Quickstart](quickstart.md) | Install, `rune-audit init`, `sr2 verify`, multi-repo `sr2 dashboard` |
 | [Configuration](configuration.md) | `.rune-audit-project.yaml` schema |
 | [Inspector library](inspector-library.md) | Built-in vs stub inspectors, catalog |
 | [Custom inspectors](custom-inspectors.md) | `InspectorRegistry` extension |
@@ -22,4 +22,6 @@ Requirement titles and evidence expectations are defined in **[Quantitative secu
 
 ## Status
 
-Today many inspectors still return **`not_implemented`** (stub phase). Use `rune-audit sr2 verify` without `--strict` for informational runs; add `--strict` in CI when you are ready to fail on unfinished coverage.
+Today many SR-Q rows still return **`not_implemented`** for catalog verification (stub phase). **Stdlib** inspectors (e.g. `stdlib.python_coverage`) return **`not_applicable`** when the technology is absent. Use `rune-audit sr2 verify` without `--strict` for informational runs; add `--strict` in CI when you are ready to fail on unfinished coverage.
+
+**Matrix dashboard:** `rune-audit sr2 dashboard` (HTML / JSON / Markdown) aggregates verification across repos listed in **`compliance-config.yaml`** — see [Quickstart §4](quickstart.md) and [rune-docs#212](https://github.com/lpasquali/rune-docs/issues/212).

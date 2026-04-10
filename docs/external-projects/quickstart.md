@@ -22,16 +22,17 @@ Confirm:
 rune-audit --version
 ```
 
-## 2. Create a project file
+## 2. Bootstrap config
 
 At the **root of the repo you want to audit**:
 
 ```bash
 cd /path/to/your/repo
-rune-audit sr2 init -o .rune-audit-project.yaml
+rune-audit init -y --org my-org --repos core --no-project-file
+# or interactive: rune-audit init
 ```
 
-This writes a starter file (see [Configuration](configuration.md)). Validate it:
+This writes **`compliance-config.yaml`** (and optionally **`.rune-audit-project.yaml`**). Validate the project file if you use it:
 
 ```bash
 rune-audit sr2 config-validate .rune-audit-project.yaml
@@ -59,7 +60,20 @@ rune-audit sr2 verify . --json
 rune-audit sr2 gaps --priority P0
 ```
 
-## 4. Next steps
+## 4. Multi-repo matrix dashboard (optional)
+
+From a **parent directory** that contains sibling clones named like your **`compliance-config.yaml`** `project.repos` entries:
+
+```bash
+cd ~/Devel
+rune-audit sr2 dashboard --base-path . --format html -o sr2-dashboard.html
+rune-audit sr2 dashboard --base-path . --format json -o sr2-dashboard.json
+rune-audit sr2 dashboard --single-repo --format md
+```
+
+Use **`--previous sr2-dashboard.json`** on a second run to emit a **trend delta** in HTML/JSON output. See [rune-docs#212](https://github.com/lpasquali/rune-docs/issues/212).
+
+## 5. Next steps
 
 - Add a reusable workflow: [CI integration](ci-integration.md).
 - Register real checks: [Custom inspectors](custom-inspectors.md).
