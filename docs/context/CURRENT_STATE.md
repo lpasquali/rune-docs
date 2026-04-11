@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-10**.
+Last updated: **2026-04-11**.
 
  
 ## Version Baseline
@@ -31,6 +31,10 @@ Last updated: **2026-04-10**.
 
  
 ## Recent Changes
+
+### 2026-04-11 — Standalone CodeQL workflows merged (rune pattern)
+
+**Python** repos now use the same **standalone** \`.github/workflows/codeql.yml\` as **rune** (PR/push/weekly, pinned \`codeql-action\`, \`FORCE_JAVASCRIPT_ACTIONS_TO_NODE24\`). Merged: **rune-ui#122**, **rune-docs#245**, **rune-charts#79**, **rune-airgapped#69** (inline, no \`rune-ci\` caller), **rune-audit#86**. Where **CodeQL default setup** had been enabled (**rune-ui**, **rune-charts**, **rune-audit**), it was set to \`not-configured\` so advanced SARIF upload works (see issues **#121**, **#78**, **#85**).
 
 ### 2026-04-10 — `.claude/` in `.gitignore` (rune-docs#199, rune#250)
 
