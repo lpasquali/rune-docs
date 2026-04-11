@@ -469,6 +469,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-11-standalone-codeql-workflows-merged-rune-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-11 — Standalone CodeQL workflows merged (rune pattern)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-10-claude-in-gitignore-rune-docs199-rune250" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2757,6 +2768,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-11-standalone-codeql-workflows-merged-rune-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-11 — Standalone CodeQL workflows merged (rune pattern)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-10-claude-in-gitignore-rune-docs199-rune250" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3007,7 +3029,7 @@
 <p>RUNE is currently in active pre-alpha development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is <strong>not yet production-ready</strong>.</p>
 <h2 id="freshness-policy">Freshness Policy<a class="headerlink" href="#freshness-policy" title="Permanent link">&para;</a></h2>
 <p>This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.</p>
-<p>Last updated: <strong>2026-04-10</strong>.</p>
+<p>Last updated: <strong>2026-04-11</strong>.</p>
 <h2 id="version-baseline">Version Baseline<a class="headerlink" href="#version-baseline" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -3064,6 +3086,8 @@
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-11-standalone-codeql-workflows-merged-rune-pattern">2026-04-11 — Standalone CodeQL workflows merged (rune pattern)<a class="headerlink" href="#2026-04-11-standalone-codeql-workflows-merged-rune-pattern" title="Permanent link">&para;</a></h3>
+<p><strong>Python</strong> repos now use the same <strong>standalone</strong> `.github/workflows/codeql.yml` as <strong>rune</strong> (PR/push/weekly, pinned `codeql-action`, `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24`). Merged: <strong>rune-ui#122</strong>, <strong>rune-docs#245</strong>, <strong>rune-charts#79</strong>, <strong>rune-airgapped#69</strong> (inline, no `rune-ci` caller), <strong>rune-audit#86</strong>. Where <strong>CodeQL default setup</strong> had been enabled (<strong>rune-ui</strong>, <strong>rune-charts</strong>, <strong>rune-audit</strong>), it was set to `not-configured` so advanced SARIF upload works (see issues <strong>#121</strong>, <strong>#78</strong>, <strong>#85</strong>).</p>
 <h3 id="2026-04-10-claude-in-gitignore-rune-docs199-rune250">2026-04-10 — <code>.claude/</code> in <code>.gitignore</code> (rune-docs#199, rune#250)<a class="headerlink" href="#2026-04-10-claude-in-gitignore-rune-docs199-rune250" title="Permanent link">&para;</a></h3>
 <p>All eight RUNE repos ignore <strong><code>.claude/</code></strong> (Claude Code local state). <strong>rune</strong> was the last
 gap; <strong>rune#250</strong> merged the line to <strong><code>main</code></strong>. Tracking issue <strong>rune-docs#199</strong> closed.</p>
