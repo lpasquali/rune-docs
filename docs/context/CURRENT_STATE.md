@@ -36,6 +36,17 @@ Last updated: **2026-04-11**.
 
 **Python** repos now use the same **standalone** \`.github/workflows/codeql.yml\` as **rune** (PR/push/weekly, pinned \`codeql-action\`, \`FORCE_JAVASCRIPT_ACTIONS_TO_NODE24\`). Merged: **rune-ui#122**, **rune-docs#245**, **rune-charts#79**, **rune-airgapped#69** (inline, no \`rune-ci\` caller), **rune-audit#86**. Where **CodeQL default setup** had been enabled (**rune-ui**, **rune-charts**, **rune-audit**), it was set to \`not-configured\` so advanced SARIF upload works (see issues **#121**, **#78**, **#85**).
 
+### 2026-04-11 — Project board backfill: `github-script` duplicate `core` (rune-ci)
+
+**Scheduled Project Board Backfill** failed with `SyntaxError: Identifier 'core' has already been declared`
+because **`actions/github-script` v8** already injects **`core`** into the script scope; reusable workflow
+**`project-backfill-logic.yml`** in **rune-ci** also declared `const core = require('@actions/core')`.
+**rune-ci** `main` commit **`8cae0c5`** removes the redundant line.
+
+**Evidence:** `workflow_dispatch` **Project Board Backfill** on **rune-docs** completed successfully after the fix:
+https://github.com/lpasquali/rune-docs/actions/runs/24277613301 (prior failure:
+https://github.com/lpasquali/rune-docs/actions/runs/24276942219/job/70892417613). Consumer repos call the workflow at **`@main`** — no pin bump required.
+
 ### 2026-04-10 — `.claude/` in `.gitignore` (rune-docs#199, rune#250)
 
 All eight RUNE repos ignore **`.claude/`** (Claude Code local state). **rune** was the last
