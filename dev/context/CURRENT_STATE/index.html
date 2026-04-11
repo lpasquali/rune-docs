@@ -480,6 +480,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#2026-04-11-project-board-backfill-github-script-duplicate-core-rune-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-11 — Project board backfill: github-script duplicate core (rune-ci)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-10-claude-in-gitignore-rune-docs199-rune250" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2779,6 +2790,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#2026-04-11-project-board-backfill-github-script-duplicate-core-rune-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-11 — Project board backfill: github-script duplicate core (rune-ci)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-10-claude-in-gitignore-rune-docs199-rune250" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3088,6 +3110,14 @@
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
 <h3 id="2026-04-11-standalone-codeql-workflows-merged-rune-pattern">2026-04-11 — Standalone CodeQL workflows merged (rune pattern)<a class="headerlink" href="#2026-04-11-standalone-codeql-workflows-merged-rune-pattern" title="Permanent link">&para;</a></h3>
 <p><strong>Python</strong> repos now use the same <strong>standalone</strong> `.github/workflows/codeql.yml` as <strong>rune</strong> (PR/push/weekly, pinned `codeql-action`, `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24`). Merged: <strong>rune-ui#122</strong>, <strong>rune-docs#245</strong>, <strong>rune-charts#79</strong>, <strong>rune-airgapped#69</strong> (inline, no `rune-ci` caller), <strong>rune-audit#86</strong>. Where <strong>CodeQL default setup</strong> had been enabled (<strong>rune-ui</strong>, <strong>rune-charts</strong>, <strong>rune-audit</strong>), it was set to `not-configured` so advanced SARIF upload works (see issues <strong>#121</strong>, <strong>#78</strong>, <strong>#85</strong>).</p>
+<h3 id="2026-04-11-project-board-backfill-github-script-duplicate-core-rune-ci">2026-04-11 — Project board backfill: <code>github-script</code> duplicate <code>core</code> (rune-ci)<a class="headerlink" href="#2026-04-11-project-board-backfill-github-script-duplicate-core-rune-ci" title="Permanent link">&para;</a></h3>
+<p><strong>Scheduled Project Board Backfill</strong> failed with <code>SyntaxError: Identifier 'core' has already been declared</code>
+because <strong><code>actions/github-script</code> v8</strong> already injects <strong><code>core</code></strong> into the script scope; reusable workflow
+<strong><code>project-backfill-logic.yml</code></strong> in <strong>rune-ci</strong> also declared <code>const core = require('@actions/core')</code>.
+<strong>rune-ci</strong> <code>main</code> commit <strong><code>8cae0c5</code></strong> removes the redundant line.</p>
+<p><strong>Evidence:</strong> <code>workflow_dispatch</code> <strong>Project Board Backfill</strong> on <strong>rune-docs</strong> completed successfully after the fix:
+https://github.com/lpasquali/rune-docs/actions/runs/24277613301 (prior failure:
+https://github.com/lpasquali/rune-docs/actions/runs/24276942219/job/70892417613). Consumer repos call the workflow at <strong><code>@main</code></strong> — no pin bump required.</p>
 <h3 id="2026-04-10-claude-in-gitignore-rune-docs199-rune250">2026-04-10 — <code>.claude/</code> in <code>.gitignore</code> (rune-docs#199, rune#250)<a class="headerlink" href="#2026-04-10-claude-in-gitignore-rune-docs199-rune250" title="Permanent link">&para;</a></h3>
 <p>All eight RUNE repos ignore <strong><code>.claude/</code></strong> (Claude Code local state). <strong>rune</strong> was the last
 gap; <strong>rune#250</strong> merged the line to <strong><code>main</code></strong>. Tracking issue <strong>rune-docs#199</strong> closed.</p>
