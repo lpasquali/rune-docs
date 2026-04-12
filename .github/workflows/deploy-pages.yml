@@ -12,4 +12,4 @@ permissions:
 
 jobs:
   deploy:
-    uses: lpasquali/rune-ci/.github/workflows/docs-deploy.yml@main
+    uses: lpasquali/rune-ci/.github/workflows/docs-deploy.yml@9f939b2c28317b6f55c1913c6a6485bd91e1bda5
