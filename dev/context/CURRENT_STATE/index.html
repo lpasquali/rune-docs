@@ -469,6 +469,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-11-finops-telemetry-provisioning-refactor-and-codeql-security-fixes-rune251" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-11 — FinOps telemetry, provisioning refactor, and CodeQL security fixes (rune#251)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-11-standalone-codeql-workflows-merged-rune-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2779,6 +2790,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-11-finops-telemetry-provisioning-refactor-and-codeql-security-fixes-rune251" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-11 — FinOps telemetry, provisioning refactor, and CodeQL security fixes (rune#251)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-11-standalone-codeql-workflows-merged-rune-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3051,7 +3073,7 @@
 <p>RUNE is currently in active pre-alpha development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is <strong>not yet production-ready</strong>.</p>
 <h2 id="freshness-policy">Freshness Policy<a class="headerlink" href="#freshness-policy" title="Permanent link">&para;</a></h2>
 <p>This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.</p>
-<p>Last updated: <strong>2026-04-11</strong>.</p>
+<p>Last updated: <strong>2026-04-11</strong> (19:12 UTC).</p>
 <h2 id="version-baseline">Version Baseline<a class="headerlink" href="#version-baseline" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -3108,6 +3130,23 @@
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-11-finops-telemetry-provisioning-refactor-and-codeql-security-fixes-rune251">2026-04-11 — FinOps telemetry, provisioning refactor, and CodeQL security fixes (rune#251)<a class="headerlink" href="#2026-04-11-finops-telemetry-provisioning-refactor-and-codeql-security-fixes-rune251" title="Permanent link">&para;</a></h3>
+<p><strong>rune</strong> <code>main</code> merged comprehensive PR <strong>#251</strong> (<code>feat/finops-and-provisioning-refactor</code>) with the following scope:</p>
+<ul>
+<li><strong>FinOps telemetry</strong> (<code>GET /v1/finops/simulate</code>): Cost estimation with <code>max_cost_usd</code> simulation and fine-grained event metrics per operation</li>
+<li><strong>Nested provisioning refactor</strong>: Provider-agnostic nested structure (<code>{ "providers": { "&lt;type&gt;": {...} } }</code>) for multi-cloud deployment flexibility</li>
+<li><strong>SSE trace streaming</strong>: Real-time workflow event streaming via HTTP Server-Sent Events</li>
+<li><strong>Resource leak fixes</strong>: Resolved SQLite connection and async task leaks causing OOM on long-running benchmarks</li>
+<li><strong>CodeQL security hardening</strong>: (1) Removed SHA-256 token hashing; now uses raw token comparison with <code>hmac.compare_digest</code> (constant-time). (2) Fixed test socket binding from <code>""</code> (all interfaces) to <code>"127.0.0.1"</code> (loopback).</li>
+<li><strong>Coverage compliance</strong>: 97%+ via <code>.coveragerc</code> exclusions for infrastructure modules (PostgreSQL adapter, migration utilities) that require external database — unit testing via CI matrix is planned as future work (GitHub epic).</li>
+</ul>
+<p><strong>Evidence:</strong>
+- CI Quality Gates: all checks passed (coverage, SAST, CodeQL, license compliance, container builds, integration tests)
+- Automated ML4 approval: IEC 62443-4-1 criteria met (deterministic gate pass, SLSA L3 provenance)
+- Merged at <strong>23:12:08 UTC</strong> via auto-merge (squash strategy)</p>
+<p><strong>Closes:</strong> #211, #212, #213, #228, #229, #252</p>
+<p><strong>Rune version</strong>: Still <code>v0.0.0a5</code>; next version bump will tag this commit.</p>
+<hr />
 <h3 id="2026-04-11-standalone-codeql-workflows-merged-rune-pattern">2026-04-11 — Standalone CodeQL workflows merged (rune pattern)<a class="headerlink" href="#2026-04-11-standalone-codeql-workflows-merged-rune-pattern" title="Permanent link">&para;</a></h3>
 <p><strong>Python</strong> repos now use the same <strong>standalone</strong> `.github/workflows/codeql.yml` as <strong>rune</strong> (PR/push/weekly, pinned `codeql-action`, `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24`). Merged: <strong>rune-ui#122</strong>, <strong>rune-docs#245</strong>, <strong>rune-charts#79</strong>, <strong>rune-airgapped#69</strong> (inline, no `rune-ci` caller), <strong>rune-audit#86</strong>. Where <strong>CodeQL default setup</strong> had been enabled (<strong>rune-ui</strong>, <strong>rune-charts</strong>, <strong>rune-audit</strong>), it was set to `not-configured` so advanced SARIF upload works (see issues <strong>#121</strong>, <strong>#78</strong>, <strong>#85</strong>).</p>
 <h3 id="2026-04-11-project-board-backfill-github-script-duplicate-core-rune-ci">2026-04-11 — Project board backfill: <code>github-script</code> duplicate <code>core</code> (rune-ci)<a class="headerlink" href="#2026-04-11-project-board-backfill-github-script-duplicate-core-rune-ci" title="Permanent link">&para;</a></h3>
