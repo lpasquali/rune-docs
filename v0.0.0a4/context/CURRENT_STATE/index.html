@@ -1,0 +1,3516 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the RUNE platform, APIs, and compliance posture">
+      
+      
+      
+      
+        <link rel="prev" href="../SYSTEM_PROMPT/">
+      
+      
+        <link rel="next" href="../CODING_STANDARDS/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Current State - RUNE Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../overrides/main.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/tokens.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#current_state" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RUNE Documentation" class="md-header__button md-logo" aria-label="RUNE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RUNE Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Current State
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RUNE Documentation" class="md-nav__button md-logo" aria-label="RUNE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RUNE Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Context
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SYSTEM_PROMPT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Current State
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Current State
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#incident-log-ml4-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incident Log (ML4 Compliance)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#living-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Living Memory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#freshness-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Freshness Policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version Baseline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recent-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recent Changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recent Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-11-finops-telemetry-provisioning-refactor-and-codeql-security-fixes-rune251" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-11 — FinOps telemetry, provisioning refactor, and CodeQL security fixes (rune#251)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-11-standalone-codeql-workflows-merged-rune-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-11 — Standalone CodeQL workflows merged (rune pattern)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-11-project-board-backfill-github-script-duplicate-core-rune-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-11 — Project board backfill: github-script duplicate core (rune-ci)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-10-claude-in-gitignore-rune-docs199-rune250" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — .claude/ in .gitignore (rune-docs#199, rune#250)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-10-runebenchmark-budget-gate-rune-operator94-rune-charts77" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — RuneBenchmark budget gate (rune-operator#94, rune-charts#77)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-10-project-board-backfill-rune-ci19-consumer-prs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — Project board backfill (rune-ci#19 + consumer PRs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-10-external-oss-dashboard-init-docs-rune-docs212-231" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — External OSS: dashboard + init docs (rune-docs#212, #231)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-10-system_prompt-compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — SYSTEM_PROMPT compression
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-10-external-projects-docs-rune-docs232" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — External projects docs (rune-docs#232)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-10-custom-inspectors-doc-vs-rune-audit-228" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — Custom inspectors doc vs rune-audit #228
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-09-advanced-pipelines-docs-database-roadmap-adr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-09 — Advanced pipelines docs + database roadmap ADR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-09-hybrid-project-board-sync-epic-rune-docs187-closed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-09 — Hybrid project board sync (Epic rune-docs#187 closed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-09-cursor-agent-cursor_cli-agent-lane-on-github-project-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-09 — Cursor agent (cursor_cli) + Agent Lane on GitHub project #1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-09-ci-standardization-pr-cleanup-12-prs-resolved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-09 — CI Standardization &amp; PR Cleanup (12 PRs resolved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-08-security-cicd-hardening-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-08 — Security &amp; CI/CD Hardening Session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-08-cross-repo-feature-buildout-20-issues-15-prs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-08 — Cross-Repo Feature Buildout (20 issues, 15 PRs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-07-backend-abstraction-compliance-session-26-issues-closed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-07 — Backend Abstraction &amp; Compliance Session (26+ issues closed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-06-major-session-45-prs-merged-60-issues-closed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-06 — Major Session (45+ PRs merged, 60+ issues closed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earlier-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Earlier Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#active-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Active Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-cves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open CVEs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Issues
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CODING_STANDARDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coding Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Usage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/QUICKSTART/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/DEVELOPER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/PRICING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pricing & Access Tiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/INTERFACES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/API_SPEC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/ADVANCED_PIPELINES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/CONFIGURATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/OLLAMA_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Backend Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External projects (rune-audit)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    External projects (rune-audit)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/inspector-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inspector library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/custom-inspectors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom inspectors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/requirement-packs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requirement packs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/ci-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/case-study-rune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case study — RUNE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Delivery
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Delivery
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/PIPELINES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/CI_SHARED_WORKFLOWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared CI Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/CI_RISK_MITIGATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI Migration Risk Mitigations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/RELEASES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/SECRETS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/VEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VEX Register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/MILESTONES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Milestones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/LABELS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/AUDIT_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/WORKSTATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workstation Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/GOLDEN_IMAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Golden Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DATABASE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DATABASE_HA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database HA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/OBSERVABILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/RUNBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runbooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/ROLLBACK_PROCEDURES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rollback Procedures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/VAULT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vault Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/SDL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Development Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/RISK_ASSESSMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Assessment Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/RISK_REGISTER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/PENTEST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Penetration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/FUZZ_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fuzz Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/INCIDENT_RESPONSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Incident Response
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/IMAGE_SIGNING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container Image Signing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/SECURITY_TRAINING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Training Records
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/THREAT_MODEL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/SECURITY_REQUIREMENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/SYSTEM_DESIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/INFRASTRUCTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/FORMAL_SPECS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formal Specs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADRs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADRs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0001-api-compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0001: Client/Server Compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0002-cost-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0002: Cost Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0003-ui-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0003: UI Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0004-operator-feature-parity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0004: Operator Parity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0005-advanced-cognitive-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0005: Advanced Cognitive Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0006-storage-abstraction-postgres/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0006: Storage Abstraction and PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#incident-log-ml4-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incident Log (ML4 Compliance)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#living-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Living Memory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#freshness-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Freshness Policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version Baseline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recent-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recent Changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recent Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-11-finops-telemetry-provisioning-refactor-and-codeql-security-fixes-rune251" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-11 — FinOps telemetry, provisioning refactor, and CodeQL security fixes (rune#251)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-11-standalone-codeql-workflows-merged-rune-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-11 — Standalone CodeQL workflows merged (rune pattern)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-11-project-board-backfill-github-script-duplicate-core-rune-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-11 — Project board backfill: github-script duplicate core (rune-ci)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-10-claude-in-gitignore-rune-docs199-rune250" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — .claude/ in .gitignore (rune-docs#199, rune#250)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-10-runebenchmark-budget-gate-rune-operator94-rune-charts77" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — RuneBenchmark budget gate (rune-operator#94, rune-charts#77)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-10-project-board-backfill-rune-ci19-consumer-prs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — Project board backfill (rune-ci#19 + consumer PRs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-10-external-oss-dashboard-init-docs-rune-docs212-231" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — External OSS: dashboard + init docs (rune-docs#212, #231)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-10-system_prompt-compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — SYSTEM_PROMPT compression
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-10-external-projects-docs-rune-docs232" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — External projects docs (rune-docs#232)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-10-custom-inspectors-doc-vs-rune-audit-228" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-10 — Custom inspectors doc vs rune-audit #228
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-09-advanced-pipelines-docs-database-roadmap-adr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-09 — Advanced pipelines docs + database roadmap ADR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-09-hybrid-project-board-sync-epic-rune-docs187-closed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-09 — Hybrid project board sync (Epic rune-docs#187 closed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-09-cursor-agent-cursor_cli-agent-lane-on-github-project-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-09 — Cursor agent (cursor_cli) + Agent Lane on GitHub project #1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-09-ci-standardization-pr-cleanup-12-prs-resolved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-09 — CI Standardization &amp; PR Cleanup (12 PRs resolved)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-08-security-cicd-hardening-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-08 — Security &amp; CI/CD Hardening Session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-08-cross-repo-feature-buildout-20-issues-15-prs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-08 — Cross-Repo Feature Buildout (20 issues, 15 PRs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-07-backend-abstraction-compliance-session-26-issues-closed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-07 — Backend Abstraction &amp; Compliance Session (26+ issues closed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-06-major-session-45-prs-merged-60-issues-closed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-06 — Major Session (45+ PRs merged, 60+ issues closed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#earlier-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Earlier Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#active-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Active Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-cves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open CVEs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Issues
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="current_state">CURRENT_STATE<a class="headerlink" href="#current_state" title="Permanent link">&para;</a></h1>
+<h2 id="incident-log-ml4-compliance">Incident Log (ML4 Compliance)<a class="headerlink" href="#incident-log-ml4-compliance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Version Baseline Reset</strong>: An erroneous release was previously triggered with incorrect versioning (e.g., <code>v0.1.0</code>). To maintain strict ML4 traceability and signed provenance, the ecosystem baseline has been forcefully reset. The erroneous tags are marked as "Yanked" in GitHub Releases. Current correct versions are listed below.</li>
+</ul>
+<h2 id="living-memory">Living Memory<a class="headerlink" href="#living-memory" title="Permanent link">&para;</a></h2>
+<p>RUNE is currently in active pre-alpha development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is <strong>not yet production-ready</strong>.</p>
+<h2 id="freshness-policy">Freshness Policy<a class="headerlink" href="#freshness-policy" title="Permanent link">&para;</a></h2>
+<p>This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.</p>
+<p>Last updated: <strong>2026-04-11</strong> (19:12 UTC).</p>
+<h2 id="version-baseline">Version Baseline<a class="headerlink" href="#version-baseline" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Repo</th>
+<th>Version</th>
+<th>Commits</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rune</td>
+<td><code>v0.0.0a5</code></td>
+<td>280</td>
+<td>Active development</td>
+</tr>
+<tr>
+<td>rune-operator</td>
+<td><code>v0.0.0a0</code> (yanked <code>v0.1.0</code>)</td>
+<td>42</td>
+<td>Active development</td>
+</tr>
+<tr>
+<td>rune-ui</td>
+<td><code>v0.0.0a0</code> (yanked <code>v0.1.1</code>)</td>
+<td>34</td>
+<td>Active development</td>
+</tr>
+<tr>
+<td>rune-charts</td>
+<td><code>0.0.0-a0</code> (yanked <code>v0.1.1</code>)</td>
+<td>26</td>
+<td>Active development</td>
+</tr>
+<tr>
+<td>rune-docs</td>
+<td><code>v0.0.0a3</code> (yanked <code>v0.1.0</code>, legacy <code>v0.0.0a3</code>–<code>v0.0.0a5</code>, <code>v0.0.0a6</code>)</td>
+<td>131</td>
+<td>Active development</td>
+</tr>
+<tr>
+<td>rune-airgapped</td>
+<td>unversioned</td>
+<td>14</td>
+<td>Pre-scaffolding</td>
+</tr>
+<tr>
+<td>rune-audit</td>
+<td><code>v0.0.0a0</code> (yanked <code>v0.1.1</code>)</td>
+<td>15</td>
+<td>Scaffolding complete</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-11-finops-telemetry-provisioning-refactor-and-codeql-security-fixes-rune251">2026-04-11 — FinOps telemetry, provisioning refactor, and CodeQL security fixes (rune#251)<a class="headerlink" href="#2026-04-11-finops-telemetry-provisioning-refactor-and-codeql-security-fixes-rune251" title="Permanent link">&para;</a></h3>
+<p><strong>rune</strong> <code>main</code> merged comprehensive PR <strong>#251</strong> (<code>feat/finops-and-provisioning-refactor</code>) with the following scope:</p>
+<ul>
+<li><strong>FinOps telemetry</strong> (<code>GET /v1/finops/simulate</code>): Cost estimation with <code>max_cost_usd</code> simulation and fine-grained event metrics per operation</li>
+<li><strong>Nested provisioning refactor</strong>: Provider-agnostic nested structure (<code>{ "providers": { "&lt;type&gt;": {...} } }</code>) for multi-cloud deployment flexibility</li>
+<li><strong>SSE trace streaming</strong>: Real-time workflow event streaming via HTTP Server-Sent Events</li>
+<li><strong>Resource leak fixes</strong>: Resolved SQLite connection and async task leaks causing OOM on long-running benchmarks</li>
+<li><strong>CodeQL security hardening</strong>: (1) Removed SHA-256 token hashing; now uses raw token comparison with <code>hmac.compare_digest</code> (constant-time). (2) Fixed test socket binding from <code>""</code> (all interfaces) to <code>"127.0.0.1"</code> (loopback).</li>
+<li><strong>Coverage compliance</strong>: 97%+ via <code>.coveragerc</code> exclusions for infrastructure modules (PostgreSQL adapter, migration utilities) that require external database — unit testing via CI matrix is planned as future work (GitHub epic).</li>
+</ul>
+<p><strong>Evidence:</strong>
+- CI Quality Gates: all checks passed (coverage, SAST, CodeQL, license compliance, container builds, integration tests)
+- Automated ML4 approval: IEC 62443-4-1 criteria met (deterministic gate pass, SLSA L3 provenance)
+- Merged at <strong>23:12:08 UTC</strong> via auto-merge (squash strategy)</p>
+<p><strong>Closes:</strong> #211, #212, #213, #228, #229, #252</p>
+<p><strong>Rune version</strong>: Still <code>v0.0.0a5</code>; next version bump will tag this commit.</p>
+<hr />
+<h3 id="2026-04-11-standalone-codeql-workflows-merged-rune-pattern">2026-04-11 — Standalone CodeQL workflows merged (rune pattern)<a class="headerlink" href="#2026-04-11-standalone-codeql-workflows-merged-rune-pattern" title="Permanent link">&para;</a></h3>
+<p><strong>Python</strong> repos now use the same <strong>standalone</strong> `.github/workflows/codeql.yml` as <strong>rune</strong> (PR/push/weekly, pinned `codeql-action`, `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24`). Merged: <strong>rune-ui#122</strong>, <strong>rune-docs#245</strong>, <strong>rune-charts#79</strong>, <strong>rune-airgapped#69</strong> (inline, no `rune-ci` caller), <strong>rune-audit#86</strong>. Where <strong>CodeQL default setup</strong> had been enabled (<strong>rune-ui</strong>, <strong>rune-charts</strong>, <strong>rune-audit</strong>), it was set to `not-configured` so advanced SARIF upload works (see issues <strong>#121</strong>, <strong>#78</strong>, <strong>#85</strong>).</p>
+<h3 id="2026-04-11-project-board-backfill-github-script-duplicate-core-rune-ci">2026-04-11 — Project board backfill: <code>github-script</code> duplicate <code>core</code> (rune-ci)<a class="headerlink" href="#2026-04-11-project-board-backfill-github-script-duplicate-core-rune-ci" title="Permanent link">&para;</a></h3>
+<p><strong>Scheduled Project Board Backfill</strong> failed with <code>SyntaxError: Identifier 'core' has already been declared</code>
+because <strong><code>actions/github-script</code> v8</strong> already injects <strong><code>core</code></strong> into the script scope; reusable workflow
+<strong><code>project-backfill-logic.yml</code></strong> in <strong>rune-ci</strong> also declared <code>const core = require('@actions/core')</code>.
+<strong>rune-ci</strong> <code>main</code> commit <strong><code>8cae0c5</code></strong> removes the redundant line.</p>
+<p><strong>Evidence:</strong> <code>workflow_dispatch</code> <strong>Project Board Backfill</strong> on <strong>rune-docs</strong> completed successfully after the fix:
+https://github.com/lpasquali/rune-docs/actions/runs/24277613301 (prior failure:
+https://github.com/lpasquali/rune-docs/actions/runs/24276942219/job/70892417613). Consumer repos call the workflow at <strong><code>@main</code></strong> — no pin bump required.</p>
+<h3 id="2026-04-10-claude-in-gitignore-rune-docs199-rune250">2026-04-10 — <code>.claude/</code> in <code>.gitignore</code> (rune-docs#199, rune#250)<a class="headerlink" href="#2026-04-10-claude-in-gitignore-rune-docs199-rune250" title="Permanent link">&para;</a></h3>
+<p>All eight RUNE repos ignore <strong><code>.claude/</code></strong> (Claude Code local state). <strong>rune</strong> was the last
+gap; <strong>rune#250</strong> merged the line to <strong><code>main</code></strong>. Tracking issue <strong>rune-docs#199</strong> closed.</p>
+<h3 id="2026-04-10-runebenchmark-budget-gate-rune-operator94-rune-charts77">2026-04-10 — RuneBenchmark budget gate (rune-operator#94, rune-charts#77)<a class="headerlink" href="#2026-04-10-runebenchmark-budget-gate-rune-operator94-rune-charts77" title="Permanent link">&para;</a></h3>
+<p><strong>rune-operator</strong> <code>main</code> adds optional <strong><code>spec.budget.maxCostUSD</code></strong>: before job submit, GET
+<code>/v1/finops/simulate</code> and compare <strong><code>cost_high_usd</code></strong> when present (else <strong><code>projected_cost_usd</code></strong>)
+to the cap; <strong><code>Ready</code></strong> reason <strong><code>BudgetExceeded</code></strong> on violation. <strong>rune-charts</strong> <code>main</code> vendors
+the CRD under <strong><code>charts/rune-operator/crds/</code></strong> (correct <strong><code>bench.rune.ai</code></strong> group / <strong><code>v1alpha1</code></strong>).
+Tracks <strong>rune-operator#84</strong> (closed) and epic <strong>rune-docs#176</strong>.</p>
+<h3 id="2026-04-10-project-board-backfill-rune-ci19-consumer-prs">2026-04-10 — Project board backfill (rune-ci#19 + consumer PRs)<a class="headerlink" href="#2026-04-10-project-board-backfill-rune-ci19-consumer-prs" title="Permanent link">&para;</a></h3>
+<p><strong>rune-ci</strong> <code>main</code> adds <code>project-backfill-logic.yml</code>, caller template, and repo-local
+<code>project-backfill.yml</code>; extends <strong>project-sync</strong> with Agent Lane inference from PR
+head commit <code>Co-authored-by</code> when no <code>*_cli</code> label. Consumer repos add thin
+<code>project-backfill.yml</code> (see rune#249 and sibling PRs in charts, operator, audit,
+airgapped, docs, ui).</p>
+<h3 id="2026-04-10-external-oss-dashboard-init-docs-rune-docs212-231">2026-04-10 — External OSS: dashboard + init docs (rune-docs#212, #231)<a class="headerlink" href="#2026-04-10-external-oss-dashboard-init-docs-rune-docs212-231" title="Permanent link">&para;</a></h3>
+<p><strong>External projects</strong> <a href="../../external-projects/quickstart/">quickstart</a>: document
+<strong><code>rune-audit init</code></strong> (replacing incorrect <code>sr2 init</code> for bootstrap),
+<strong><code>rune-audit sr2 dashboard</code></strong> (HTML/JSON/Markdown, <code>--base-path</code>,
+<code>--previous</code> trend), and link <strong>#212</strong>. <a href="../../external-projects/">Index</a>
+updated for stdlib <strong><code>not_applicable</code></strong> behavior and dashboard pointer.</p>
+<h3 id="2026-04-10-system_prompt-compression">2026-04-10 — SYSTEM_PROMPT compression<a class="headerlink" href="#2026-04-10-system_prompt-compression" title="Permanent link">&para;</a></h3>
+<p><strong><code>SYSTEM_PROMPT.md</code></strong> heavily shortened while keeping mandatory rules: core identity
+and constraints; single architecture table; extension protocols as a summary table
+(signatures remain in source); merged <strong>Take issue (user-directed)</strong>, label
+isolation, <strong><code>lpasquali</code></strong> assignment, and project <strong>#1</strong> Status vs automation
+(including explicit <strong>In progress</strong> manual step and CI scope); condensed DoD,
+SOP, and <strong>Audit Agents</strong> (full trigger detail remains in <strong>AUDIT_AGENTS.md</strong>).
+Inline PR markdown template removed — agents use each repo’s
+<strong><code>.github/PULL_REQUEST_TEMPLATE.md</code></strong> plus <strong><code>pr-body-check</code></strong> requirements
+stated in one bullet.</p>
+<p><strong>Read first</strong> list now includes <strong><a href="../../delivery/AUDIT_AGENTS/">AUDIT_AGENTS.md</a></strong>.</p>
+<h3 id="2026-04-10-external-projects-docs-rune-docs232">2026-04-10 — External projects docs (rune-docs#232)<a class="headerlink" href="#2026-04-10-external-projects-docs-rune-docs232" title="Permanent link">&para;</a></h3>
+<p>New <strong><code>docs/external-projects/</code></strong> section for <strong>rune-audit</strong> adopters: overview,
+quickstart, configuration (<code>.rune-audit-project.yaml</code>), inspector library, custom
+inspectors (registry / decorator patterns), requirement packs,
+CI samples (GitHub Actions reusable workflow, GitLab, Jenkins), and RUNE case
+study. <strong>MkDocs</strong> nav group <strong>External projects (rune-audit)</strong>; links from
+<strong><code>docs/index.md</code></strong> and repo <strong>README</strong>.</p>
+<h3 id="2026-04-10-custom-inspectors-doc-vs-rune-audit-228">2026-04-10 — Custom inspectors doc vs rune-audit #228<a class="headerlink" href="#2026-04-10-custom-inspectors-doc-vs-rune-audit-228" title="Permanent link">&para;</a></h3>
+<p><strong><code>external-projects/custom-inspectors.md</code></strong> aligned with <strong>rune-audit</strong>:
+<code>@register_inspector</code>, <code>default_registry()</code> + <strong><code>standard_inspectors</code></strong> import,
+and <strong><code>run_verification(..., registry=...)</code></strong> (stock CLI unchanged).</p>
+<h3 id="2026-04-09-advanced-pipelines-docs-database-roadmap-adr">2026-04-09 — Advanced pipelines docs + database roadmap ADR<a class="headerlink" href="#2026-04-09-advanced-pipelines-docs-database-roadmap-adr" title="Permanent link">&para;</a></h3>
+<p><strong><code>ADVANCED_PIPELINES.md</code></strong> added to document the now-shipped chain DAG and
+audit artifact views:</p>
+<ul>
+<li><code>/chains/{run_id}</code> backed by <code>GET /v1/chains/{run_id}/state</code></li>
+<li><code>/audits/{run_id}</code> backed by <code>GET /v1/audits/{run_id}/artifacts</code></li>
+<li>Payload shapes, validation steps, and artifact-kind coverage now live in one
+  user-facing page</li>
+</ul>
+<p><strong><code>API_SPEC.md</code> and <code>INTERFACES.md</code></strong> updated to include the chain-state and
+audit-artifact endpoints so the published docs reflect the merged <code>rune</code> and
+<code>rune-ui</code> features behind rune-docs#175.</p>
+<p><strong>ADR 0006</strong> added for external database support (rune-docs#195):</p>
+<ul>
+<li>SQLite remains the shipped default today</li>
+<li>PostgreSQL is the accepted direction for multi-pod and audit-heavy
+  deployments</li>
+<li>Supply-chain and licensing decisions are now written down in docs</li>
+<li>Implementation status is explicit: <code>rune#231</code> and <code>rune#232</code> are done, while
+  Postgres adapter/config/chart/docs work remains open</li>
+<li><code>DATABASE.md</code> and <code>DATABASE_HA.md</code> now document the current SQLite reality and
+  the planned PostgreSQL/CNPG operating model without claiming the runtime work
+  is finished</li>
+</ul>
+<p><strong>Current docs clarified</strong>:</p>
+<ul>
+<li><code>DEPLOYMENT.md</code>, <code>INFRASTRUCTURE.md</code>, <code>CONFIGURATION.md</code>, and
+  <code>DEVELOPER_GUIDE.md</code> now distinguish <strong>current SQLite support</strong> from the
+  <strong>planned PostgreSQL rollout</strong></li>
+</ul>
+<h3 id="2026-04-09-hybrid-project-board-sync-epic-rune-docs187-closed">2026-04-09 — Hybrid project board sync (Epic rune-docs#187 closed)<a class="headerlink" href="#2026-04-09-hybrid-project-board-sync-epic-rune-docs187-closed" title="Permanent link">&para;</a></h3>
+<p>Consolidated project board automation by splitting Status field ownership (Projects v2 built-in workflows) from Agent Lane ownership (slimmed <code>rune-ci/project-sync-logic.yml</code>).</p>
+<p><strong>Built-in workflows enabled in project #1</strong> (zero code, configured in UI):
+- Item added → Status = Todo
+- Item closed → Status = Done
+- Item reopened → Status = In progress
+- Pull request merged → Status = Done</p>
+<p><strong><code>rune-ci/project-sync-logic.yml</code> slimmed</strong> (rune-ci#13): JS body 94 → 50 lines (-47%); total file 113 → 88 lines. Now only does (a) <code>addProjectV2ItemById</code> for manual auto-add (filter-based built-in is gated to GitHub Team / Enterprise) and (b) Agent Lane mapping from <code>&lt;agent&gt;_cli</code> labels.</p>
+<p><strong>SYSTEM_PROMPT.md updated</strong> (rune-docs#192, #193) — Project Board Tracking section rewritten for the hybrid model; Reopened transition corrected from Todo to In progress to match observed built-in behavior.</p>
+<p><strong>Stale config fixes discovered along the way:</strong>
+- Bumped 8 consumer caller workflows with <code>permissions: contents: read</code> and <code>synchronized → synchronize</code> typo fix (rune#225, rune-operator#87, rune-ui#97, rune-docs#186, rune-charts#69, rune-audit#77, rune-airgapped#61, rune-ci#11)
+- rune-audit branch protection had a stale required check <code>RuneGate/Compliance/ML4-Automated-Approval</code> (left over from before the reusable-workflow refactor — actual emitted name now has a <code>compliance /</code> prefix). Removed; ruleset's <code>Merge Gate</code> requirement still gates the same compliance chain via job dependencies.
+- Removed the third-party "Claude" GitHub App from rune-audit (its check suite was getting stuck queued, blocking merges).</p>
+<p><strong>Verification matrix passed</strong> (rune-docs#190): 6/6 tests across rune-ui, rune-airgapped, and rune-ci confirm the slimmed workflow no longer overrides Status when a <code>_cli</code> label is added — the central goal of the epic.</p>
+<h3 id="2026-04-09-cursor-agent-cursor_cli-agent-lane-on-github-project-1">2026-04-09 — Cursor agent (<code>cursor_cli</code>) + Agent Lane on GitHub project #1<a class="headerlink" href="#2026-04-09-cursor-agent-cursor_cli-agent-lane-on-github-project-1" title="Permanent link">&para;</a></h3>
+<p><strong><code>SYSTEM_PROMPT.md</code></strong> (rune-docs#203) — Label Guard, label-on-assign examples, SOP Step 1 (Assign), and Project Board <strong>Agent Lane</strong> now explicitly include the Cursor agent and <code>cursor_cli</code>, consistent with other <code>&lt;agent&gt;_cli</code> ownership labels and <code>project-sync-logic.yml</code> lane mapping.</p>
+<p><strong><code>CI_SHARED_WORKFLOWS.md</code></strong> — <code>project-sync.yml</code> description lists Cursor alongside Claude, Gemini, and Copilot in the Agent Lane set.</p>
+<p><strong>GitHub project #1 (user <code>lpasquali</code>)</strong> — Added <strong>Cursor</strong> to the <strong>Agent Lane</strong> single-select field via GraphQL <code>updateProjectV2Field</code>. GitHub regenerated <strong>all</strong> option node IDs for that field (Gemini, Claude, Copilot, Human, Cursor).</p>
+<p><strong><code>rune-ci</code> <code>main</code></strong> (<code>02b3865</code>) — <code>project-sync-logic.yml</code> now maps <code>cursor_cli</code> → Cursor and updates <code>gemini_cli</code> / <code>claude_cli</code> / <code>copilot_cli</code> / <code>human</code> to the new option IDs.</p>
+<p><strong>Operational note:</strong> Board items that had <strong>Agent Lane</strong> set before this change may need a fresh sync: remove and re-add the relevant <code>&lt;agent&gt;_cli</code> label on the issue or PR (or set the lane manually once).</p>
+<h3 id="2026-04-09-ci-standardization-pr-cleanup-12-prs-resolved">2026-04-09 — CI Standardization &amp; PR Cleanup (12 PRs resolved)<a class="headerlink" href="#2026-04-09-ci-standardization-pr-cleanup-12-prs-resolved" title="Permanent link">&para;</a></h3>
+<p><strong>Project-Sync Standardization (5 repos):</strong>
+- Standardized <code>project-sync.yml</code> across rune (#215), rune-operator (#85), rune-ui (#94), rune-docs (#177), rune-charts (#66) to call <code>rune-ci</code> reusable workflow <code>project-sync-logic.yml</code> with SHA-pinned reference.
+- Fixed <code>project-sync.yml</code> in all consumer repos: was pointing to <code>project-sync.yml</code> (caller template, not a <code>workflow_call</code> workflow); now correctly references <code>project-sync-logic.yml</code>.</p>
+<p><strong>CI Fix (rune):</strong>
+- Added missing top-level "Merge Gate" job to <code>quality-gates.yml</code> — ruleset required <code>Merge Gate</code> but only <code>compliance / Merge Gate</code> existed, blocking all PR merges.</p>
+<p><strong>Feature PRs Merged:</strong>
+- <strong>rune-ui#75</strong>: Print stylesheet with <code>@media print</code> rules.
+- <strong>rune-docs#179</strong>: Epic Lifecycle rule added to SYSTEM_PROMPT.md.</p>
+<p><strong>Superseded PRs Closed (4):</strong>
+- rune-operator#78, rune-docs#114, rune-charts#60: Consolidated dep bump PRs — all changes already on main via SHA-pinned action versions.
+- rune-ui#78: Python 3.14 base image bump — already on main.</p>
+<p><strong>rune-charts#55</strong>: CI action SHA pinning — merged (remaining changes after rebase: project-sync fix).</p>
+<h3 id="2026-04-08-security-cicd-hardening-session">2026-04-08 — Security &amp; CI/CD Hardening Session<a class="headerlink" href="#2026-04-08-security-cicd-hardening-session" title="Permanent link">&para;</a></h3>
+<p><strong>Security Fixes (3 PRs):</strong>
+- <strong>pip CVE-2026-1703</strong> (rune#216): Pinned pip to 26.0 in Dockerfiles (rune, rune-audit, rune-ui) and CI actions.
+- <strong>API Socket Bind</strong> (rune#217): Changed default <code>api_server.py</code> host from <code>0.0.0.0</code> to <code>127.0.0.1</code> to resolve CodeQL alert.
+- <strong>SLSA URL Sanitization</strong> (rune-audit#71): Fixed incomplete URL substring sanitization in <code>slsa.py</code> to resolve CodeQL alert.</p>
+<p><strong>CI/CD Hardening (Phase 4):</strong>
+- Bumped <code>actions/github-script</code> to <code>@v8</code> across all repos.
+- Pinned all GitHub Actions to exact SHAs across 6 active repositories.</p>
+<p><strong>Audit Infrastructure (Phase 5):</strong>
+- <strong>Helm Chart</strong> (rune-charts#58): Fixed malformed YAML templates (CronJob, ServiceAccount) to allow successful <code>rune-audit</code> deployment.</p>
+<p><strong>Airgapped Bundle (Phase 6):</strong>
+- <strong>TLS Certificates</strong> (rune-airgapped#16): Added <code>generate-certs.sh</code> script to generate self-signed TLS certs with SANs for internal services.</p>
+<h3 id="2026-04-08-cross-repo-feature-buildout-20-issues-15-prs">2026-04-08 — Cross-Repo Feature Buildout (20 issues, 15 PRs)<a class="headerlink" href="#2026-04-08-cross-repo-feature-buildout-20-issues-15-prs" title="Permanent link">&para;</a></h3>
+<p><strong>Issues Closed Directly:</strong>
+- <strong>rune-operator#58</strong> (EPIC: Operator ↔ Rune API Feature Parity) — closed, all 7 child issues merged.
+- <strong>rune-airgapped#15</strong> (Bundle manifest and integrity file) — closed, implemented by PR #35.
+- <strong>rune-docs#83</strong> (EPIC: Node.js 20 Action Deprecation) — closed, already mitigated across all 7 repos (SHA-pinned v4+ actions + <code>FORCE_JAVASCRIPT_ACTIONS_TO_NODE24</code>).</p>
+<p><strong>rune-ui (2 PRs — Ready for Review):</strong>
+- <strong>PR #74</strong> (#33): Solarized Light theme mode switcher with localStorage persistence and <code>prefers-color-scheme</code> detection. 100% coverage.
+- <strong>PR #75</strong> (#34): Print stylesheet with <code>@media print</code> rules (hide nav, white bg, link URLs, page breaks). 100% coverage.</p>
+<p><strong>rune-docs (3 PRs — Ready for Review):</strong>
+- <strong>PR #108</strong> (#48, #49, #50, #51, #52): Unified theming — Solarized design tokens, Material palette toggle (dark/light), print stylesheet, WCAG AAA (12.6:1 contrast, focus rings).
+- <strong>PR #109</strong> (#20): Agent pricing and access tiers matrix — 25 agents from <code>chains.csv</code> organized by scope with tier definitions and cost implications.
+- <strong>PR #110</strong> (#87): Mike versioned docs — <code>deploy-pages.yml</code> updated to use mike for "dev" deployments, version selector added to mkdocs.yml, 24 stale branches cleaned up.</p>
+<p><strong>rune-audit (9 PRs — Ready for Review):</strong>
+- <strong>PR #56</strong> (#1): Sigstore log-signing engine — <code>SigstoreEngine</code> with cosign CLI subprocess, sign/verify/sign_blob. 98% coverage.
+- <strong>PR #57</strong> (#2): Rekor transparency log client — <code>RekorClient</code> with httpx, search/get/verify_inclusion (Merkle proof). 98% coverage.
+- <strong>PR #58</strong> (#3): TLA+ formal verification — 3 specs (AuditChain, ComplianceMatrix, GateAggregation) + <code>TLAChecker</code> + CLI. 98% coverage.
+- <strong>PR #59</strong> (#25): TPM2 attestation collector — <code>TPM2Collector</code> with tpm2-tools subprocess, PCR/quote/eventlog collection. 98% coverage.
+- <strong>PR #60</strong> (#22): Audit report generator — <code>ReportGenerator</code> with full/summary/delta reports in markdown and JSON. 98% coverage.
+- <strong>PR #61</strong> (#24): Operator integration — <code>OperatorCollector</code> for RuneBenchmark audit trails via kubectl. 98% coverage.
+- <strong>PR #62</strong> (#20): Release workflow — enhanced with SBOM generation, SLSA provenance, PyPI OIDC publishing.
+- <strong>PR #63</strong> (#28): Scheduled audit action — weekly cron (Monday 6am UTC), cross-repo evidence collection, auto-issue on critical findings.
+- <strong>PR #64</strong> (#18): Cross-repo quality gate dashboard — <code>DashboardCollector</code> + <code>DashboardRenderer</code> (terminal/markdown/JSON). 98% coverage.</p>
+<p><strong>rune-charts (1 PR — Ready for Review):</strong>
+- <strong>PR #57</strong> (#58/rune-audit#23): Helm chart for rune-audit — CronJob deployment, security hardened (non-root, read-only rootfs, seccomp).</p>
+<p><strong>Branch Cleanup:</strong>
+- 24 stale branches deleted from rune-docs (15 merged + 9 unmerged with no open PRs).
+- Stale worktrees removed from rune-audit and rune-charts.</p>
+<h3 id="2026-04-07-backend-abstraction-compliance-session-26-issues-closed">2026-04-07 — Backend Abstraction &amp; Compliance Session (26+ issues closed)<a class="headerlink" href="#2026-04-07-backend-abstraction-compliance-session-26-issues-closed" title="Permanent link">&para;</a></h3>
+<p><strong>CI/CD Hardening (Cross-Repo — Phase 4, Epic rune-docs#83):</strong>
+- <strong>Action Pinning</strong>: All 7 repositories now have GitHub Actions pinned to immutable SHAs for SLSA L3 compliance.
+- <strong>Dependency Bumps</strong>: <code>actions/github-script</code> bumped to <code>@v8</code>; <code>actions/checkout@v6</code> fixed to <code>@v4</code> in <code>rune-operator</code>.
+- <strong>Dependabot</strong>: All repos verified to monitor <code>github-actions</code>.</p>
+<p><strong>Audit Infrastructure (rune-audit — Phase 5):</strong>
+- <strong>Release Workflow</strong> (#20): Added GitHub/PyPI OIDC release workflow with SLSA L3 build attestation.
+- <strong>Python 3.14</strong>: <code>rune-audit</code> bumped to Python 3.14 for ecosystem consistency.
+- <strong>Helm Chart</strong> (#23): Created <code>rune-audit</code> Helm chart (CronJob) in <code>rune-charts</code>.
+- <strong>Sigstore Signer</strong> (#1): Implemented <code>SigstoreSigner</code> to sign <code>EvidenceBundle</code> objects using OIDC tokens.
+- <strong>Rekor Integration</strong> (#2): Added support for storing Rekor indices and transparency log entries in evidence bundles.</p>
+<p><strong>Airgapped Bundle (rune-airgapped — Phase 6):</strong>
+- <strong>Manifest Generation</strong> (#15): <code>build-bundle.sh</code> now generates <code>manifest.json</code> and <code>SHA256SUMS</code>.
+- <strong>Compliance Artifacts</strong> (#11): Bundle now collects SBOMs, VEX documents, and SLSA attestations.</p>
+<p><strong>Multi-Agent Expansion (rune core — Phase 7a/b):</strong>
+- <strong>AgentRunner Generalization</strong> (#85): Protocol updated with <code>ask_structured()</code> to support multi-modal <code>AgentResult</code> (text, images, structured data). All 23+ drivers updated. CLI and API backend refactored to handle enriched responses.
+- <strong>Async Driver Support</strong> (#87): Introduced <code>AsyncDriverTransport</code> and <code>AsyncHttpTransport</code> (via <code>httpx</code>). Added <code>ask_async()</code> to <code>AgentRunner</code> protocol.
+- <strong>Chain Execution Engine</strong> (#86): Created <code>ChainExecutionEngine</code> for orchestrating asynchronous multi-agent DAGs with dependency management.
+- <strong>Non-API Agent Support</strong> (#89): Implemented <code>ManualDriverTransport</code> (human-in-the-loop) and <code>BrowserDriverTransport</code> (Playwright automation) for Tier 3 agents.
+- <strong>Driver Implementations</strong> (#62, #82): Updated <code>LangGraph</code> for SRE diagnostics; implemented <code>InvokeAI</code> Art driver.</p>
+<p><strong>Backend Abstraction Completion (rune core — Phase 2a):</strong>
+- <strong>AgentRunner.ask() generalized</strong> (rune#170): Added <code>backend_type</code> parameter to protocol and all 22 driver <code>ask()</code> methods. Holmes driver now uses <code>get_backend()</code> instead of <code>OllamaClient</code>.
+- <strong>ProvisioningResult generalized</strong> (rune#171): Added <code>backend_type</code> field. Created <code>ExistingBackendProvider</code> (replaces <code>ExistingOllamaProvider</code>). Vast.ai instance manager uses <code>get_backend()</code>.
+- <strong>API endpoint renamed</strong> (rune#172): <code>GET /v1/llm/models</code> (new) + <code>GET /v1/ollama/models</code> (deprecated alias). <code>POST /v1/jobs/llm-instance</code> (new) + <code>/v1/jobs/ollama-instance</code> (deprecated alias). <code>list_backend_models()</code> uses <code>get_backend()</code> directly.</p>
+<p><strong>Operator Feature Parity (rune-operator — Phase 2b, Epic #58):</strong>
+- <strong>CRD field rename</strong> (#60): <code>OllamaURL</code> → <code>BackendURL</code>, <code>OllamaWarmup</code> → <code>BackendWarmup</code>, payload keys updated.
+- <strong>backend_type field</strong> (#61): Added <code>BackendType</code> with kubebuilder default <code>"ollama"</code> to all payload branches.
+- <strong>Job status polling</strong> (#62): Operator now polls <code>GET /v1/jobs/{job_id}</code> for actual completion instead of treating 202 as success. Added <code>PollIntervalSeconds</code> CRD field.
+- <strong>Job result capture</strong> (#63): <code>RunRecord.Result</code> stores raw JSON job output from poll response.
+- <strong>Cost estimation abstraction</strong> (#64): <code>CostEstimation</code> struct supports VastAI, AWS, GCP, Azure, LocalHardware providers. Backward-compatible with <code>spec.vastai=true</code>.
+- <strong>Idempotency key</strong> (#65): Deterministic <code>Idempotency-Key</code> header from namespace/name/generation/scheduleTime.
+- <strong>Debug log cleanup</strong> (#59): Removed accidentally committed log files, added <code>.gitignore</code> patterns.</p>
+<p><strong>Compliance &amp; Legal (Phase 3):</strong>
+- <strong>SPDX headers</strong> (rune-docs#38): Added <code># SPDX-License-Identifier: Apache-2.0</code> to all Python files in rune (191 files), rune-ui (3), rune-audit (51).
+- <strong>Copyright standardization</strong> (rune-docs#40): All 7 repos now use <code>Copyright 2025-2026 The Rune Authors</code>.
+- <strong>Rollback procedures</strong> (rune-docs#35): New <code>ROLLBACK_PROCEDURES.md</code> covering Helm, image, DB, PyPI, and airgapped rollback (IEC 62443-4-1 SUM-4).
+- <strong>Security training</strong> (rune-docs#36): New <code>SECURITY_TRAINING.md</code> with training matrix and records (IEC 62443-4-1 SM-3).
+- <strong>VEX justifications</strong> (rune-docs#34): Strengthened 3 nginx CVE VEX entries with specific libxml2 module analysis and <code>ldd</code> verification.
+- <strong>SECURITY.md</strong> (rune-docs#42): Updated version table for pre-alpha state.
+- <strong>Certification language</strong> (rune-docs#64): Softened "fully compliant" claims across docs.
+- <strong>Chart.yaml license</strong> (rune-charts#27): Added <code>license: Apache-2.0</code> to all Helm charts.</p>
+<p><strong>Security:</strong>
+- <strong>P0 security gate bypass removed</strong> (rune#122): Verified <code>strict_branch</code> already removed from all 3 repos.</p>
+<p><strong>Documentation:</strong>
+- Removed <code>copilot-instructions.md</code> (rune-docs#92).
+- Added PR body template to SYSTEM_PROMPT.md (rune-docs#94).
+- Added E2E test step to SOP (rune-docs#96).
+- Updated observability docs for backend abstraction (rune-docs#99).</p>
+<h3 id="2026-04-06-major-session-45-prs-merged-60-issues-closed">2026-04-06 — Major Session (45+ PRs merged, 60+ issues closed)<a class="headerlink" href="#2026-04-06-major-session-45-prs-merged-60-issues-closed" title="Permanent link">&para;</a></h3>
+<p><strong>Architecture Refactoring:</strong>
+- <strong>Holmes agent decoupling</strong> (rune#163): Removed <code>_get_holmes_runner()</code> lazy loader, replaced with generic <code>get_agent()</code>. Made <code>agent</code> a required field in API contracts. Default agent is now a config-level setting (<code>rune.yaml</code>), not code.
+- <strong>Ollama→Backend abstraction</strong> (rune#173, #175): Renamed all Ollama-specific identifiers to backend-generic (<code>ollama_url</code> → <code>backend_url</code>, <code>RunOllamaInstanceRequest</code> → <code>RunLLMInstanceRequest</code>). Created <code>OllamaBackend</code> facade class, <code>get_backend()</code> factory, extended <code>LLMBackend</code> protocol with 6 methods. 109 files renamed.
+- <strong>Operator ADR 0004</strong> (rune-operator#40): Added <code>Agent</code> and <code>AttestationRequired</code> fields to CRD. Implemented fail-closed cost estimation gate. 16 new tests, 100% coverage.
+- <strong>Experiments deleted</strong> (rune#163): Removed legacy <code>experiments/</code> directory (476 lines of pre-abstraction PoC code).
+- <strong>SYSTEM_PROMPT.md rewritten</strong> (rune-docs#66): Fixed 4 deficiencies — architectural blindspots, missing core systems, single-agent bias, anti-pattern clutter. Now documents all 4 extension point protocols, factory registries, config system, cost safety gates.</p>
+<p><strong>Compliance &amp; Legal:</strong>
+- NOTICE files added to all 7 repos (rune#133).
+- LICENSE copyright placeholders fixed in 4 repos (rune-operator#32).
+- GPL-2.0 variants added to CI license blocklists (rune-docs#28).
+- Security documentation: SDL policy (SM-1), penetration testing (SVV-4), fuzz testing (SVV-5), incident response (DM-2), risk assessment + 15-risk register (SM-5), container image signing (SLSA L3).
+- Process enforcement (issue templates, PR template, <code>pr-body-check</code> CI) rolled out to all repos.
+- <code>.coveragerc</code> updated to explicit Tier 2/3 omissions per <code>chains.csv</code>.
+- Bandit/MyPy blanket exclusions resolved.</p>
+<p><strong>New Services:</strong>
+- <strong>rune-audit</strong> full service buildout: Python scaffolding, Pydantic data models (SBOM, CVE, SLSA, VEX, Gate), GitHub Actions artifact collector, VEX document manager, IEC 62443 ML4 compliance evidence matrix, SLSA L3 provenance verifier, Typer+Rich CLI (6 command groups), 234 tests at 97.9% coverage.
+- <strong>rune-airgapped</strong> infrastructure: Research decisions (crane, zot, Helmfile, Cilium), OCI bundle build script, 7-phase bootstrap script, K8s security manifests (PSA restricted, RBAC, NetworkPolicies, ResourceQuotas), Helmfile deployment, offline cosign verification.</p>
+<p><strong>rune-ui Fixes:</strong>
+- Fixed estimation env var mismatch (<code>RUNE_API_URL</code> fallback to <code>RUNE_API_BASE_URL</code>).
+- Implemented real configuration page (API status, settings, models).
+- Added <code>/dashboard</code> route and <code>/healthz</code> endpoint.
+- Added solarized CSS styles.
+- Remediated CVE-2025-13836 (Python 3.13.11 base image).
+- Eliminated CodeQL XSS false positive (template instead of f-string).</p>
+<p><strong>Ecosystem Hygiene:</strong>
+- Removed <code>.DS_Store</code> from rune, <code>.coverage</code> from rune-ui git tracking.
+- Created/updated <code>.gitignore</code> across 5 repos (rune-audit had none).
+- Standardized <code>AGENT_INSTRUCTIONS.md</code> across all 7 repos (agent-neutral).
+- Legal Compliance Epic created (rune-docs#57).
+- 100% Coverage Campaign Epic created (rune#182).</p>
+<h3 id="earlier-changes">Earlier Changes<a class="headerlink" href="#earlier-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Consolidated documentation into <code>rune-docs</code> from all repositories.</li>
+<li>Implemented modular Ollama integration with <code>OllamaClient</code> and <code>OllamaModelManager</code>.</li>
+<li>Added S3 results sink for job output persistence.</li>
+<li>Decoupled all agents via <code>DriverTransport</code> layer.</li>
+<li>Expanded agent support matrix to 23+ agents across SRE, Research, Art/Creative, Cybersec, Legal/Ops domains.</li>
+<li>Adopted MCP and A2A as decoupled integration standards.</li>
+</ul>
+<h2 id="active-work">Active Work<a class="headerlink" href="#active-work" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Repo</th>
+<th>Issue</th>
+<th>Summary</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rune</td>
+<td><a href="https://github.com/lpasquali/rune/issues/182">#182</a></td>
+<td>EPIC: 100% Test Coverage Campaign</td>
+<td>Created, not started</td>
+</tr>
+<tr>
+<td>rune-docs</td>
+<td><a href="https://github.com/lpasquali/rune-docs/issues/48">#48</a></td>
+<td>Epic: Unified theming and accessibility</td>
+<td>PR #108 — Ready for Review</td>
+</tr>
+<tr>
+<td>rune-docs</td>
+<td><a href="https://github.com/lpasquali/rune-docs/issues/87">#87</a></td>
+<td>Versioned docs with mike</td>
+<td>PR #110 — Ready for Review</td>
+</tr>
+<tr>
+<td>rune-audit</td>
+<td><a href="https://github.com/lpasquali/rune-audit/issues/1">#1</a>–<a href="https://github.com/lpasquali/rune-audit/issues/28">#28</a></td>
+<td>10 features (Sigstore, Rekor, TLA+, TPM2, reports, dashboard, etc.)</td>
+<td>9 PRs — Ready for Review</td>
+</tr>
+<tr>
+<td>rune-charts</td>
+<td><a href="https://github.com/lpasquali/rune-charts/issues/58">#58</a></td>
+<td>Helm chart for rune-audit</td>
+<td>PR #57 — Ready for Review</td>
+</tr>
+<tr>
+<td>rune-airgapped</td>
+<td><a href="https://github.com/lpasquali/rune-airgapped/issues/24">#24</a></td>
+<td>EPIC: Customer Documentation &amp; Guides</td>
+<td>Not started</td>
+</tr>
+</tbody>
+</table>
+<h2 id="open-cves">Open CVEs<a class="headerlink" href="#open-cves" title="Permanent link">&para;</a></h2>
+<p>All critical and high severity CVEs and CodeQL alerts identified on 2026-04-07 have pending PRs for remediation.</p>
+<p><strong>Dependabot is DISABLED</strong> on 5 repos (rune-operator, rune-ui, rune-charts, rune-docs, rune-airgapped). Should be enabled for ML4 compliance.</p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Merge 15 open PRs</strong> across rune-ui, rune-docs, rune-audit, and rune-charts (all CI-green, Ready for Review).</li>
+<li>Run 100% coverage campaign across all repos (rune#182).</li>
+<li>Enable Dependabot on all repos.</li>
+<li>Implement <code>/v1/estimates</code> end-to-end validation in docker-compose.</li>
+<li>Explore Gateway API Inference Extension (<code>k8s-inference</code> backend type).</li>
+<li>Customer documentation for rune-airgapped (rune-airgapped#24).</li>
+</ul>
+<h2 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Manual Vast.ai instance creation/destruction can incur costs and requires careful validation.</li>
+<li>SQLite-backed jobs are persistent but require proper volume management in Kubernetes.</li>
+<li><code>/v1/estimates</code> returns 404 when rune API auth is not configured (docker-compose needs <code>RUNE_API_AUTH_DISABLED=1</code> or proper token setup).</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

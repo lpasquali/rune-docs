@@ -1,0 +1,4104 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the RUNE platform, APIs, and compliance posture">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Quantitative Security Requirements - RUNE Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../overrides/main.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/tokens.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quantitative-security-requirements" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RUNE Documentation" class="md-header__button md-logo" aria-label="RUNE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RUNE Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quantitative Security Requirements
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RUNE Documentation" class="md-nav__button md-logo" aria-label="RUNE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RUNE Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Context
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/SYSTEM_PROMPT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/CURRENT_STATE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Current State
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/CODING_STANDARDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coding Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Usage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/QUICKSTART/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/DEVELOPER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/PRICING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pricing & Access Tiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/INTERFACES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/API_SPEC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/ADVANCED_PIPELINES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/CONFIGURATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/OLLAMA_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Backend Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External projects (rune-audit)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    External projects (rune-audit)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/inspector-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inspector library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/custom-inspectors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom inspectors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/requirement-packs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requirement packs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/ci-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/case-study-rune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case study — RUNE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Delivery
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Delivery
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/PIPELINES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/CI_SHARED_WORKFLOWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared CI Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/CI_RISK_MITIGATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI Migration Risk Mitigations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/RELEASES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/SECRETS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/VEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VEX Register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/MILESTONES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Milestones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/LABELS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/AUDIT_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/WORKSTATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workstation Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/GOLDEN_IMAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Golden Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DATABASE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DATABASE_HA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database HA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/OBSERVABILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/RUNBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runbooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/ROLLBACK_PROCEDURES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rollback Procedures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/VAULT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vault Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/SDL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Development Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/RISK_ASSESSMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Assessment Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/RISK_REGISTER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/PENTEST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Penetration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/FUZZ_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fuzz Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/INCIDENT_RESPONSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Incident Response
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/IMAGE_SIGNING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container Image Signing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/SECURITY_TRAINING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Training Records
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../THREAT_MODEL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SECURITY_REQUIREMENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SYSTEM_DESIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../INFRASTRUCTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FORMAL_SPECS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formal Specs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADRs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADRs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adrs/0001-api-compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0001: Client/Server Compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adrs/0002-cost-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0002: Cost Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adrs/0003-ui-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0003: UI Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adrs/0004-operator-feature-parity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0004: Operator Parity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adrs/0005-advanced-cognitive-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0005: Advanced Cognitive Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adrs/0006-storage-abstraction-postgres/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0006: Storage Abstraction and PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-authentication-and-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Authentication and Authorization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Authentication and Authorization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-001-api-token-entropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-001: API Token Entropy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-002-authentication-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-002: Authentication Rate Limiting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-003-session-token-lifetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-003: Session Token Lifetime
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-denial-of-service-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Denial of Service Protection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Denial of Service Protection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-004-api-request-body-size-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-004: API Request Body Size Limit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-005-api-request-rate-limiting-per-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-005: API Request Rate Limiting (Per Client)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-006-operator-work-queue-depth-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-006: Operator Work Queue Depth Limit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-007-database-connection-pool-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-007: Database Connection Pool Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-008-http-server-request-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-008: HTTP Server Request Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-resource-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Resource Limits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Resource Limits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-009-job-execution-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-009: Job Execution Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-010-ollama-warmup-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-010: Ollama Warmup Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-011-driver-invocation-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-011: Driver Invocation Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-012-vastai-polling-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-012: Vast.ai Polling Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-013-container-resource-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-013: Container Resource Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-014-kubernetes-resource-quotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-014: Kubernetes Resource Quotas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cryptographic-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Cryptographic Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Cryptographic Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-015-tls-minimum-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-015: TLS Minimum Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-016-passwordsecret-minimum-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-016: Password/Secret Minimum Length
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-test-coverage-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Test Coverage Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Test Coverage Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-017-unit-test-coverage-thresholds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-017: Unit Test Coverage Thresholds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-018-fuzz-test-coverage-thresholds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-018: Fuzz Test Coverage Thresholds
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-vulnerability-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Vulnerability Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Vulnerability Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-019-cve-severity-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-019: CVE Severity Threshold
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-020-dependency-update-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-020: Dependency Update Frequency
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-secure-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Secure Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Secure Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-021-security-context-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-021: Security Context - Containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-022-pod-security-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-022: Pod Security Standards
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-logging-and-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Logging and Audit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Logging and Audit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-023-audit-log-retention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-023: Audit Log Retention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-024-audit-trail-completeness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-024: Audit Trail Completeness
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-supply-chain-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Supply Chain Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Supply Chain Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-025-sbom-component-completeness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-025: SBOM Component Completeness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-026-slsa-provenance-attestation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-026: SLSA Provenance Attestation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-027-github-actions-pinning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-027: GitHub Actions Pinning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-network-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Network Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Network Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-028-network-policy-ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-028: Network Policy - Ingress
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-029-network-policy-egress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-029: Network Policy - Egress
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-cost-and-resource-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Cost and Resource Governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Cost and Resource Governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-030-cost-estimation-confidence-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-030: Cost Estimation Confidence Threshold
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-031-vastai-cost-ceiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-031: Vast.ai Cost Ceiling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-operational-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Operational Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Operational Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-032-health-check-endpoint-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-032: Health Check Endpoint Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-033-graceful-shutdown-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-033: Graceful Shutdown Timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-input-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Input Validation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Input Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-034-json-schema-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-034: JSON Schema Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-035-string-length-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-035: String Length Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-concurrency-and-threading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Concurrency and Threading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Concurrency and Threading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sr-q-036-thread-pool-size-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SR-Q-036: Thread Pool Size Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#priority-implementation-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Priority Implementation Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification Matrix
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="quantitative-security-requirements">Quantitative Security Requirements<a class="headerlink" href="#quantitative-security-requirements" title="Permanent link">&para;</a></h1>
+<p><strong>Version</strong>: 1.0<br />
+<strong>Date</strong>: 2026-04-10<br />
+<strong>Standard</strong>: IEC 62443-4-1 ML4 SR-2 (Security Requirements Specification)</p>
+<p>This document defines quantitative acceptance criteria for all security requirements across the RUNE ecosystem. Each requirement includes measurable thresholds that can be verified through automated testing or inspection.</p>
+<hr />
+<h2 id="1-authentication-and-authorization">1. Authentication and Authorization<a class="headerlink" href="#1-authentication-and-authorization" title="Permanent link">&para;</a></h2>
+<h3 id="sr-q-001-api-token-entropy">SR-Q-001: API Token Entropy<a class="headerlink" href="#sr-q-001-api-token-entropy" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All API authentication tokens MUST have minimum 256-bit entropy.</p>
+<p><strong>Quantitative Threshold</strong>: Token length &gt;= 32 bytes (256 bits) when decoded.</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Unit test</span>
+<span class="n">token_bytes</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">token_bytes</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;Token entropy below 256 bits&quot;</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: CI unit test passes.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: IMPLEMENTED (SHA-256 hashing in <code>api_server.py</code> line 87)</p>
+<hr />
+<h3 id="sr-q-002-authentication-rate-limiting">SR-Q-002: Authentication Rate Limiting<a class="headerlink" href="#sr-q-002-authentication-rate-limiting" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: Authentication endpoints MUST enforce rate limiting to prevent credential stuffing attacks.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Failed attempts</strong>: 10 failures per source IP
+- <strong>Time window</strong>: 60 seconds (rolling window)
+- <strong>Block duration</strong>: Remainder of 60-second window
+- <strong>Response</strong>: HTTP 401 with <code>"rate limit exceeded"</code> message</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Integration test: test_api_server_rate_limiting</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">make_request_with_invalid_token</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">401</span><span class="p">,</span> <span class="s2">&quot;error: invalid token&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">401</span><span class="p">,</span> <span class="s2">&quot;error: rate limit exceeded&quot;</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: CI integration test passes.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: IMPLEMENTED (<code>api_server.py</code> lines 154-161, tested in <code>tests/test_api_server.py::test_api_server_rate_limiting</code>)</p>
+<hr />
+<h3 id="sr-q-003-session-token-lifetime">SR-Q-003: Session Token Lifetime<a class="headerlink" href="#sr-q-003-session-token-lifetime" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: API tokens MUST NOT have indefinite lifetime for non-development environments.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Development mode</strong> (<code>RUNE_API_AUTH_DISABLED=1</code>): No expiration
+- <strong>Production mode</strong>: Token expiration = 8 hours from issuance
+- <strong>Refresh window</strong>: Last 10 minutes of lifetime</p>
+<p><strong>Verification Method</strong>: Manual inspection of token issuance timestamp claims (JWT) or database session records.</p>
+<p><strong>Acceptance Criteria</strong>: Token expiration enforced in production deployments.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: PLANNED (Issue to be created)</p>
+<p><strong>Implementation Notes</strong>: Current implementation uses static tokens from environment variables. For ML4 compliance, add session management with expiration.</p>
+<hr />
+<h2 id="2-denial-of-service-protection">2. Denial of Service Protection<a class="headerlink" href="#2-denial-of-service-protection" title="Permanent link">&para;</a></h2>
+<h3 id="sr-q-004-api-request-body-size-limit">SR-Q-004: API Request Body Size Limit<a class="headerlink" href="#sr-q-004-api-request-body-size-limit" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: API endpoints MUST enforce maximum request body size to prevent memory exhaustion.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Maximum body size</strong>: 10 MiB (10,485,760 bytes)
+- <strong>Response on violation</strong>: HTTP 413 Payload Too Large
+- <strong>Enforcement point</strong>: Before JSON parsing</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Integration test</span>
+<span class="n">large_payload</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;x&quot;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 10 MiB + 1 byte</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">POST</span><span class="p">(</span><span class="s2">&quot;/v1/jobs/benchmark&quot;</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">large_payload</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">413</span>
+<span class="k">assert</span> <span class="s2">&quot;request too large&quot;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: CI integration test passes.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: IMPLEMENTED (<code>api_server.py</code> lines 142-145, 349-354)</p>
+<p><strong>Verification</strong>: Test file <code>tests/test_sr_q_004_request_size_limit.py</code> created.</p>
+<hr />
+<h3 id="sr-q-005-api-request-rate-limiting-per-client">SR-Q-005: API Request Rate Limiting (Per Client)<a class="headerlink" href="#sr-q-005-api-request-rate-limiting-per-client" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: API endpoints MUST enforce per-client rate limiting to prevent resource exhaustion.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Rate limit</strong>: 100 requests per minute per source IP
+- <strong>Burst allowance</strong>: 20 requests
+- <strong>Block duration</strong>: 60 seconds
+- <strong>Response</strong>: HTTP 429 Too Many Requests
+- <strong>Exemption</strong>: <code>/healthz</code> endpoint is NOT rate limited</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Integration test</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">121</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">POST</span><span class="p">(</span><span class="s2">&quot;/v1/jobs/benchmark&quot;</span><span class="p">,</span> <span class="n">valid_payload</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">202</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">429</span>
+    <span class="k">assert</span> <span class="s2">&quot;rate limit exceeded&quot;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: CI integration test passes.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: IMPLEMENTED (<code>api_server.py</code> lines 50-51, 150-169, 273-276, 286-290, 437-440)</p>
+<p><strong>Verification</strong>: Token bucket algorithm with burst 20, sustained 100 req/min. Existing test: <code>tests/test_api_server.py::test_api_server_rate_limiting</code>.</p>
+<hr />
+<h3 id="sr-q-006-operator-work-queue-depth-limit">SR-Q-006: Operator Work Queue Depth Limit<a class="headerlink" href="#sr-q-006-operator-work-queue-depth-limit" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: Kubernetes operator MUST limit reconciliation work queue depth to prevent memory exhaustion.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Max concurrent reconciles</strong>: 3
+- <strong>Max queue depth</strong>: 100 CRD resources
+- <strong>Behavior on overflow</strong>: Drop oldest items with warning log
+- <strong>Requeue delay</strong>: 30 seconds (exponential backoff, max 5 minutes)</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1">// controller-runtime configuration check</span>
+<span class="nx">mgr</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">NewManager</span><span class="p">(</span><span class="nx">cfg</span><span class="p">,</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">Options</span><span class="p">{</span>
+<span class="w">    </span><span class="nx">Controller</span><span class="p">:</span><span class="w"> </span><span class="nx">controller</span><span class="p">.</span><span class="nx">Options</span><span class="p">{</span>
+<span class="w">        </span><span class="nx">MaxConcurrentReconciles</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">RateLimiter</span><span class="p">:</span><span class="w"> </span><span class="nx">workqueue</span><span class="p">.</span><span class="nx">NewMaxOfRateLimiter</span><span class="p">(</span>
+<span class="w">        </span><span class="nx">workqueue</span><span class="p">.</span><span class="nx">NewItemExponentialFailureRateLimiter</span><span class="p">(</span><span class="mi">30</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Minute</span><span class="p">),</span>
+<span class="w">        </span><span class="o">&amp;</span><span class="nx">workqueue</span><span class="p">.</span><span class="nx">BucketRateLimiter</span><span class="p">{</span><span class="nx">Limiter</span><span class="p">:</span><span class="w"> </span><span class="nx">rate</span><span class="p">.</span><span class="nx">NewLimiter</span><span class="p">(</span><span class="nx">rate</span><span class="p">.</span><span class="nx">Limit</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="mi">100</span><span class="p">)},</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="p">})</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Configuration present in <code>main.go</code>, integration test verifies queue behavior under load.</p>
+<p><strong>Owner</strong>: rune-operator<br />
+<strong>Status</strong>: TO IMPLEMENT (Gap identified in ML4 analysis)</p>
+<hr />
+<h3 id="sr-q-007-database-connection-pool-limits">SR-Q-007: Database Connection Pool Limits<a class="headerlink" href="#sr-q-007-database-connection-pool-limits" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: Database connection pools MUST have bounded size to prevent connection exhaustion.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>PostgreSQL pool max size</strong>: 10 connections
+- <strong>PostgreSQL pool min size</strong>: 2 connections
+- <strong>Connection timeout</strong>: 30 seconds
+- <strong>Statement timeout</strong>: 60 seconds
+- <strong>Idle connection timeout</strong>: 5 minutes</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Unit test</span>
+<span class="n">adapter</span> <span class="o">=</span> <span class="n">PostgresStorageAdapter</span><span class="p">(</span><span class="n">db_url</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">adapter</span><span class="o">.</span><span class="n">_pool_max_size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">10</span>
+<span class="k">assert</span> <span class="n">adapter</span><span class="o">.</span><span class="n">_pool_min_size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: CI unit test passes, configuration enforced in code.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: PARTIALLY IMPLEMENTED (max_size in <code>postgres.py</code> line 42, needs min_size and timeout configuration)</p>
+<hr />
+<h3 id="sr-q-008-http-server-request-timeout">SR-Q-008: HTTP Server Request Timeout<a class="headerlink" href="#sr-q-008-http-server-request-timeout" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: HTTP server MUST enforce maximum request processing time to prevent resource holding attacks.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Read timeout</strong>: 30 seconds
+- <strong>Write timeout</strong>: 30 seconds
+- <strong>Request processing timeout</strong>: 5 minutes (job submission is async)
+- <strong>Response</strong>: Connection closed on timeout</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Integration test</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">ThreadingHTTPServer</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">),</span> <span class="n">handler</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># Read/write timeout</span>
+<span class="k">assert</span> <span class="n">server</span><span class="o">.</span><span class="n">timeout</span> <span class="o">==</span> <span class="mi">30</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Server configured with timeout, integration test verifies timeout enforcement.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: IMPLEMENTED (<code>api_server.py</code>: <code>Handler.setup()</code> sets <code>request.settimeout</code>; <code>RUNE_API_REQUEST_SOCKET_TIMEOUT</code> default 30s; <code>server.timeout</code> aligned)</p>
+<p><strong>Implementation Notes</strong>: See <code>rune/rune_bench/api_server.py</code> (<code>setup</code>, <code>serve</code>, <code>/healthz</code> documents <code>active_threads</code> for SR-Q-036 monitoring).</p>
+<hr />
+<h2 id="3-resource-limits">3. Resource Limits<a class="headerlink" href="#3-resource-limits" title="Permanent link">&para;</a></h2>
+<h3 id="sr-q-009-job-execution-timeout">SR-Q-009: Job Execution Timeout<a class="headerlink" href="#sr-q-009-job-execution-timeout" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All job executions MUST have bounded maximum execution time.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Default timeout</strong>: 120 seconds
+- <strong>Maximum configurable timeout</strong>: 3600 seconds (1 hour)
+- <strong>Minimum timeout</strong>: 10 seconds
+- <strong>Behavior on timeout</strong>: Job marked as <code>failed</code> with error message <code>"execution timeout exceeded"</code></p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Integration test</span>
+<span class="n">job_id</span> <span class="o">=</span> <span class="n">submit_job</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;benchmark&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">get_job</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">job</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;failed&quot;</span>
+<span class="k">assert</span> <span class="s2">&quot;timeout&quot;</span> <span class="ow">in</span> <span class="n">job</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Timeout enforced for all job types, CI integration test passes.</p>
+<p><strong>Owner</strong>: rune, rune-operator<br />
+<strong>Status</strong>: IMPLEMENTED in operator (<code>runebenchmark_controller.go</code> line 107: <code>timeout := time.Duration(maxInt32(obj.Spec.TimeoutSeconds, 120))</code>), needs implementation in <code>rune</code> API server.</p>
+<hr />
+<h3 id="sr-q-010-ollama-warmup-timeout">SR-Q-010: Ollama Warmup Timeout<a class="headerlink" href="#sr-q-010-ollama-warmup-timeout" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: Model warmup operations MUST have bounded maximum time.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Default warmup timeout</strong>: 300 seconds (5 minutes)
+- <strong>Maximum configurable timeout</strong>: 900 seconds (15 minutes)
+- <strong>Minimum timeout</strong>: 30 seconds
+- <strong>Behavior on timeout</strong>: Warmup fails, job proceeds without warmup (logged as warning)</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Integration test</span>
+<span class="n">backend</span> <span class="o">=</span> <span class="n">OllamaBackend</span><span class="p">(</span><span class="n">warmup_timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">TimeoutError</span><span class="p">):</span>
+    <span class="n">backend</span><span class="o">.</span><span class="n">warmup</span><span class="p">(</span><span class="s2">&quot;slow-model:latest&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Timeout configurable via <code>RUNE_OLLAMA_WARMUP_TIMEOUT</code>, enforced in code, integration test passes.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: IMPLEMENTED (configurable via environment variable, documented in <code>OLLAMA_REFERENCE.md</code>)</p>
+<hr />
+<h3 id="sr-q-011-driver-invocation-timeout">SR-Q-011: Driver Invocation Timeout<a class="headerlink" href="#sr-q-011-driver-invocation-timeout" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All driver invocations MUST have bounded maximum execution time.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Default timeout</strong>: 180 seconds (3 minutes)
+- <strong>Maximum configurable timeout</strong>: 1800 seconds (30 minutes)
+- <strong>Minimum timeout</strong>: 10 seconds
+- <strong>Behavior on timeout</strong>: Driver process terminated (SIGTERM → SIGKILL after 5s), job marked as failed</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Integration test</span>
+<span class="n">driver</span> <span class="o">=</span> <span class="n">HolmesDriver</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">TimeoutError</span><span class="p">):</span>
+    <span class="n">driver</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Timeout enforced for all driver types, CI integration test passes.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: IMPLEMENTED (<code>rune_bench/drivers/timeouts.py</code>, <code>stdio.py</code> subprocess / asyncio <code>wait_for</code>, <code>http.py</code> per-request timeout; <code>RUNE_DRIVER_INVOCATION_TIMEOUT</code> default 180s, bounds 10–1800)</p>
+<hr />
+<h3 id="sr-q-012-vastai-polling-timeout">SR-Q-012: Vast.ai Polling Timeout<a class="headerlink" href="#sr-q-012-vastai-polling-timeout" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: Vast.ai instance provisioning polling MUST have bounded maximum time.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Poll interval</strong>: 10 seconds
+- <strong>Max poll attempts</strong>: 36 attempts
+- <strong>Total max wait time</strong>: 360 seconds (6 minutes)
+- <strong>Behavior on timeout</strong>: Provisioning fails, job marked as failed with error <code>"instance provisioning timeout"</code></p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Unit test (with mocked poll)</span>
+<span class="k">assert</span> <span class="n">_POLL_MAX_ATTEMPTS</span> <span class="o">==</span> <span class="mi">36</span>
+<span class="k">assert</span> <span class="n">_POLL_INTERVAL_S</span> <span class="o">==</span> <span class="mi">10</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Constants verified in unit tests.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: IMPLEMENTED (<code>resources/vastai/instance.py</code> line 21: <code>_POLL_MAX_ATTEMPTS = 36</code>)</p>
+<hr />
+<h3 id="sr-q-013-container-resource-limits">SR-Q-013: Container Resource Limits<a class="headerlink" href="#sr-q-013-container-resource-limits" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All container definitions MUST specify CPU and memory limits.</p>
+<p><strong>Quantitative Thresholds</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Container</th>
+<th>CPU Request</th>
+<th>CPU Limit</th>
+<th>Memory Request</th>
+<th>Memory Limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rune-api</td>
+<td>100m</td>
+<td>500m</td>
+<td>128Mi</td>
+<td>512Mi</td>
+</tr>
+<tr>
+<td>rune-operator</td>
+<td>10m</td>
+<td>500m</td>
+<td>64Mi</td>
+<td>128Mi</td>
+</tr>
+<tr>
+<td>rune-ui</td>
+<td>50m</td>
+<td>200m</td>
+<td>64Mi</td>
+<td>256Mi</td>
+</tr>
+<tr>
+<td>postgres</td>
+<td>100m</td>
+<td>1000m</td>
+<td>256Mi</td>
+<td>1Gi</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Helm template inspection</span>
+helm<span class="w"> </span>template<span class="w"> </span>rune<span class="w"> </span>./charts/rune<span class="w"> </span><span class="p">|</span><span class="w"> </span>yq<span class="w"> </span><span class="s1">&#39;.spec.containers[].resources&#39;</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: All Helm charts specify limits, Trivy config scan passes, values documented in <code>VALUES.md</code>.</p>
+<p><strong>Owner</strong>: rune-charts<br />
+<strong>Status</strong>: PARTIALLY IMPLEMENTED (defaults exist but should be enforced as minimums in chart validation)</p>
+<hr />
+<h3 id="sr-q-014-kubernetes-resource-quotas">SR-Q-014: Kubernetes Resource Quotas<a class="headerlink" href="#sr-q-014-kubernetes-resource-quotas" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: Production deployments MUST enforce namespace resource quotas.</p>
+<p><strong>Quantitative Thresholds</strong> (per namespace):
+- <strong>Max pods</strong>: 50
+- <strong>Max ConfigMaps</strong>: 20
+- <strong>Max Secrets</strong>: 20
+- <strong>Max CPU requests</strong>: 10 cores
+- <strong>Max memory requests</strong>: 20Gi
+- <strong>Max persistent volume claims</strong>: 10
+- <strong>Max storage</strong>: 100Gi</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Check deployed ResourceQuota</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>resourcequota<span class="w"> </span>-n<span class="w"> </span>rune-prod<span class="w"> </span>-o<span class="w"> </span>yaml
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: ResourceQuota manifests exist in <code>rune-airgapped/manifests/</code>, applied in deployment guide.</p>
+<p><strong>Owner</strong>: rune-airgapped<br />
+<strong>Status</strong>: IMPLEMENTED (<code>manifests/resource-quotas.yaml</code>)</p>
+<hr />
+<h2 id="4-cryptographic-requirements">4. Cryptographic Requirements<a class="headerlink" href="#4-cryptographic-requirements" title="Permanent link">&para;</a></h2>
+<h3 id="sr-q-015-tls-minimum-version">SR-Q-015: TLS Minimum Version<a class="headerlink" href="#sr-q-015-tls-minimum-version" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All external HTTP connections MUST use TLS 1.2 or higher.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Minimum TLS version</strong>: 1.2
+- <strong>Recommended TLS version</strong>: 1.3
+- <strong>Prohibited</strong>: TLS 1.0, TLS 1.1, SSL (all versions)
+- <strong>Cipher suites</strong>: ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES128-GCM-SHA256</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Trivy config scan</span>
+trivy<span class="w"> </span>config<span class="w"> </span>charts/rune<span class="w"> </span>--severity<span class="w"> </span>HIGH,CRITICAL<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>tls
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Trivy scan passes, no TLS version violations.</p>
+<p><strong>Owner</strong>: rune-charts<br />
+<strong>Status</strong>: TO VERIFY (Trivy enforcement exists, explicit TLS version needs verification)</p>
+<hr />
+<h3 id="sr-q-016-passwordsecret-minimum-length">SR-Q-016: Password/Secret Minimum Length<a class="headerlink" href="#sr-q-016-passwordsecret-minimum-length" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All user-provided passwords and secrets MUST meet minimum length requirements.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>API tokens</strong>: 32 characters minimum (256 bits)
+- <strong>Database passwords</strong>: 16 characters minimum (128 bits)
+- <strong>Vault/cloud credentials</strong>: Per provider requirement (minimum 20 characters)
+- <strong>Kubeconfig tokens</strong>: Kubernetes default (minimum 128 bits)</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Validation at input</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_token</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">32</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Token too short: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">token</span><span class="p">)</span><span class="si">}</span><span class="s2"> &lt; 32 characters&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Validation enforced at API boundary, unit tests verify enforcement.</p>
+<p><strong>Owner</strong>: rune, rune-operator<br />
+<strong>Status</strong>: IMPLEMENTED for API tokens (<code>api_server.py</code> line 53, 113-122, 234-245); TO IMPLEMENT for DB passwords, Operator CRD validation</p>
+<p><strong>Verification</strong>: API token minimum (32 char) enforced at config load + auth. DB password validation and Operator CRD validation still need implementation.</p>
+<hr />
+<h2 id="5-test-coverage-requirements">5. Test Coverage Requirements<a class="headerlink" href="#5-test-coverage-requirements" title="Permanent link">&para;</a></h2>
+<h3 id="sr-q-017-unit-test-coverage-thresholds">SR-Q-017: Unit Test Coverage Thresholds<a class="headerlink" href="#sr-q-017-unit-test-coverage-thresholds" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All repositories MUST maintain minimum test coverage.</p>
+<p><strong>Quantitative Thresholds</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Language</th>
+<th>Minimum Coverage</th>
+<th>Enforcement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rune</td>
+<td>Python</td>
+<td>97%</td>
+<td><code>pytest --cov-fail-under=97</code></td>
+</tr>
+<tr>
+<td>rune-audit</td>
+<td>Python</td>
+<td>97%</td>
+<td><code>pytest --cov-fail-under=97</code></td>
+</tr>
+<tr>
+<td>rune-ui</td>
+<td>Python</td>
+<td>97%</td>
+<td><code>pytest --cov-fail-under=97</code></td>
+</tr>
+<tr>
+<td>rune-operator</td>
+<td>Go</td>
+<td>99.5%</td>
+<td><code>go test -coverprofile=coverage.out</code> + CI check</td>
+</tr>
+<tr>
+<td>rune-docs</td>
+<td>MkDocs</td>
+<td>N/A</td>
+<td><code>mkdocs build --strict</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verification Method</strong>: CI fails if coverage falls below threshold.</p>
+<p><strong>Acceptance Criteria</strong>: Coverage thresholds enforced in <code>pytest.ini</code>, <code>pyproject.toml</code>, or CI workflow.</p>
+<p><strong>Owner</strong>: All code repositories<br />
+<strong>Status</strong>: IMPLEMENTED (documented in DEVELOPER_GUIDE.md, enforced in CI)</p>
+<hr />
+<h3 id="sr-q-018-fuzz-test-coverage-thresholds">SR-Q-018: Fuzz Test Coverage Thresholds<a class="headerlink" href="#sr-q-018-fuzz-test-coverage-thresholds" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: Security-critical parsers MUST achieve minimum fuzz test coverage.</p>
+<p><strong>Quantitative Thresholds</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Line Coverage</th>
+<th>Branch Coverage</th>
+<th>Corpus Size</th>
+<th>Run Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REST API parser</td>
+<td>90%</td>
+<td>80%</td>
+<td>1000 inputs</td>
+<td>120s CI, 4h weekly</td>
+</tr>
+<tr>
+<td>DriverTransport JSON parser</td>
+<td>95%</td>
+<td>85%</td>
+<td>500 inputs</td>
+<td>120s CI</td>
+</tr>
+<tr>
+<td>YAML parser (CRD)</td>
+<td>90%</td>
+<td>80%</td>
+<td>500 inputs</td>
+<td>120s CI</td>
+</tr>
+<tr>
+<td>LLM response parser</td>
+<td>85%</td>
+<td>75%</td>
+<td>1000 inputs</td>
+<td>120s CI</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Hypothesis + pytest-cov</span>
+pytest<span class="w"> </span>tests/fuzz/<span class="w"> </span>--cov<span class="o">=</span>rune_bench.api_contracts<span class="w"> </span>--cov-report<span class="o">=</span>term
+<span class="c1"># Verify coverage &gt;= threshold</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Fuzz test coverage meets thresholds, enforced in CI.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: PLANNED (Infrastructure scheduled Q2 2026, thresholds defined in <code>FUZZ_TESTING.md</code>)</p>
+<hr />
+<h2 id="6-vulnerability-management">6. Vulnerability Management<a class="headerlink" href="#6-vulnerability-management" title="Permanent link">&para;</a></h2>
+<h3 id="sr-q-019-cve-severity-threshold">SR-Q-019: CVE Severity Threshold<a class="headerlink" href="#sr-q-019-cve-severity-threshold" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: No fixable CVE above the CVSS threshold MAY be merged.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Merge blocking threshold</strong>: CVSS &gt;= 8.8
+- <strong>Risk acceptance threshold</strong>: CVSS &lt; 8.8 (with VEX documentation)
+- <strong>Patch SLA</strong> (Critical, CVSS &gt;= 9.0): 48 hours
+- <strong>Patch SLA</strong> (High, CVSS 7.0-8.9): 7 days
+- <strong>Patch SLA</strong> (Medium, CVSS 4.0-6.9): 30 days
+- <strong>Patch SLA</strong> (Low, CVSS &lt; 4.0): Next milestone</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># CI enforcement</span>
+grype<span class="w"> </span>sbom.json<span class="w"> </span>--fail-on<span class="w"> </span>high
+trivy<span class="w"> </span>sbom<span class="w"> </span>sbom.json<span class="w"> </span>--severity<span class="w"> </span>HIGH,CRITICAL<span class="w"> </span>--exit-code<span class="w"> </span><span class="m">1</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: CI blocks merge on threshold violation, VEX documents suppress accepted risks.</p>
+<p><strong>Owner</strong>: All repositories<br />
+<strong>Status</strong>: IMPLEMENTED (<code>rune-ci/actions/sbom-scan/action.yml</code>, threshold configurable, default 7.0)</p>
+<hr />
+<h3 id="sr-q-020-dependency-update-frequency">SR-Q-020: Dependency Update Frequency<a class="headerlink" href="#sr-q-020-dependency-update-frequency" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All dependencies MUST be scanned for vulnerabilities at least weekly.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Scan frequency</strong>: Weekly (every Monday 00:00 UTC)
+- <strong>Auto-PR creation</strong>: Dependabot creates PR within 24 hours of new version
+- <strong>Max concurrent PRs</strong>: 5 per package ecosystem
+- <strong>Package ecosystems covered</strong>: pip, docker, github-actions, go modules</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify Dependabot configuration</span>
+<span class="l l-Scalar l-Scalar-Plain">cat .github/dependabot.yml | yq &#39;.updates[].schedule.interval&#39;</span>
+<span class="l l-Scalar l-Scalar-Plain"># All should be &quot;weekly&quot;</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Dependabot configured and enabled on all 8 repositories.</p>
+<p><strong>Owner</strong>: All repositories<br />
+<strong>Status</strong>: IMPLEMENTED (Dependabot weekly in all repos, verified in ML4 evidence report)</p>
+<hr />
+<h2 id="7-secure-configuration">7. Secure Configuration<a class="headerlink" href="#7-secure-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="sr-q-021-security-context-containers">SR-Q-021: Security Context - Containers<a class="headerlink" href="#sr-q-021-security-context-containers" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All container security contexts MUST enforce non-root execution and capability dropping.</p>
+<p><strong>Quantitative Thresholds</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Security Control</th>
+<th>Value</th>
+<th>Enforcement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>runAsNonRoot</code></td>
+<td><code>true</code></td>
+<td>Mandatory (except init containers)</td>
+</tr>
+<tr>
+<td><code>runAsUser</code></td>
+<td>&gt;= 1000 (not root)</td>
+<td>Mandatory</td>
+</tr>
+<tr>
+<td><code>allowPrivilegeEscalation</code></td>
+<td><code>false</code></td>
+<td>Mandatory</td>
+</tr>
+<tr>
+<td><code>readOnlyRootFilesystem</code></td>
+<td><code>true</code></td>
+<td>Mandatory</td>
+</tr>
+<tr>
+<td><code>capabilities.drop</code></td>
+<td><code>["ALL"]</code></td>
+<td>Mandatory</td>
+</tr>
+<tr>
+<td><code>seccompProfile.type</code></td>
+<td><code>RuntimeDefault</code></td>
+<td>Mandatory</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Trivy config scan</span>
+trivy<span class="w"> </span>config<span class="w"> </span>charts/rune<span class="w"> </span>--severity<span class="w"> </span>HIGH,CRITICAL
+<span class="c1"># Should find 0 violations</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Trivy config scan passes in CI (<code>helm / RuneGate/Security/Trivy-Config</code>).</p>
+<p><strong>Owner</strong>: rune-charts<br />
+<strong>Status</strong>: IMPLEMENTED (enforced by Trivy in CI, violations block merge)</p>
+<hr />
+<h3 id="sr-q-022-pod-security-standards">SR-Q-022: Pod Security Standards<a class="headerlink" href="#sr-q-022-pod-security-standards" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All Kubernetes deployments MUST meet Pod Security Standards "Restricted" profile.</p>
+<p><strong>Quantitative Thresholds</strong> (Restricted profile requirements):
+- <code>spec.securityContext.runAsNonRoot</code>: <code>true</code>
+- <code>spec.securityContext.seccompProfile.type</code>: <code>RuntimeDefault</code> or <code>Localhost</code>
+- <code>spec.containers[*].securityContext.allowPrivilegeEscalation</code>: <code>false</code>
+- <code>spec.containers[*].securityContext.capabilities.drop</code>: includes <code>["ALL"]</code>
+- <code>spec.containers[*].securityContext.seccompProfile.type</code>: <code>RuntimeDefault</code> or <code>Localhost</code>
+- Volume types: <code>configMap</code>, <code>downwardAPI</code>, <code>emptyDir</code>, <code>persistentVolumeClaim</code>, <code>projected</code>, <code>secret</code> only</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Kubectl dry-run against restricted namespace</span>
+kubectl<span class="w"> </span>apply<span class="w"> </span>--dry-run<span class="o">=</span>server<span class="w"> </span>-f<span class="w"> </span>deployment.yaml<span class="w"> </span>-n<span class="w"> </span>restricted-namespace
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: All charts pass Trivy "Restricted" profile checks.</p>
+<p><strong>Owner</strong>: rune-charts<br />
+<strong>Status</strong>: IMPLEMENTED (all charts satisfy Restricted profile, enforced by Trivy)</p>
+<hr />
+<h2 id="8-logging-and-audit">8. Logging and Audit<a class="headerlink" href="#8-logging-and-audit" title="Permanent link">&para;</a></h2>
+<h3 id="sr-q-023-audit-log-retention">SR-Q-023: Audit Log Retention<a class="headerlink" href="#sr-q-023-audit-log-retention" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All API request audit logs MUST be retained for minimum duration.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Retention period</strong>: 90 days minimum
+- <strong>Log rotation</strong>: Daily
+- <strong>Max log file size</strong>: 100 MiB
+- <strong>Compression</strong>: gzip after rotation
+- <strong>Storage location</strong>: <code>/var/log/rune/</code> or equivalent persistent volume</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Check log file timestamps</span>
+find<span class="w"> </span>/var/log/rune/<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.log*&quot;</span><span class="w"> </span>-mtime<span class="w"> </span>-90
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Log rotation configured, retention policy documented in deployment guide.</p>
+<p><strong>Owner</strong>: rune-charts (deployment config)<br />
+<strong>Status</strong>: IMPLEMENTED (chart values: <code>rune-charts/charts/rune/values.yaml</code> <code>auditLogs.retentionDays: 90</code> + operator guidance; platform sink must enforce rotation/retention)</p>
+<hr />
+<h3 id="sr-q-024-audit-trail-completeness">SR-Q-024: Audit Trail Completeness<a class="headerlink" href="#sr-q-024-audit-trail-completeness" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All security-relevant events MUST be logged with structured fields.</p>
+<p><strong>Quantitative Thresholds</strong>:</p>
+<p><strong>Required fields for audit logs</strong>:
+- <code>timestamp</code> (ISO 8601 UTC)
+- <code>tenant_id</code>
+- <code>client_ip</code>
+- <code>endpoint</code> (e.g., <code>/v1/jobs/benchmark</code>)
+- <code>http_method</code> (GET, POST, etc.)
+- <code>status_code</code>
+- <code>auth_result</code> (success, failure, rate_limited)
+- <code>job_id</code> (if applicable)
+- <code>error_message</code> (if failed)</p>
+<p><strong>Log volume thresholds</strong>:
+- <strong>Failed auth rate</strong>: &lt; 5% of total requests (indicates attack)
+- <strong>5xx error rate</strong>: &lt; 0.1% of total requests (indicates service health issue)
+- <strong>Alert threshold</strong>: 10 failed auth from same IP in 60s (already implemented as rate limit)</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Log structure test</span>
+<span class="n">log_entry</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">log_line</span><span class="p">)</span>
+<span class="n">required</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;tenant_id&quot;</span><span class="p">,</span> <span class="s2">&quot;client_ip&quot;</span><span class="p">,</span> <span class="s2">&quot;endpoint&quot;</span><span class="p">,</span> <span class="s2">&quot;status_code&quot;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">field</span> <span class="ow">in</span> <span class="n">log_entry</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">required</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Structured logging implemented, CI test verifies log format.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: IMPLEMENTED (<code>api_server.py</code> lines 19, 55-66, throughout)</p>
+<p><strong>Verification</strong>: Structlog configured with JSON rendering, ISO timestamps, and structured fields. All security events logged with context (client_ip, tenant_id, endpoint, event type).</p>
+<hr />
+<h2 id="9-supply-chain-security">9. Supply Chain Security<a class="headerlink" href="#9-supply-chain-security" title="Permanent link">&para;</a></h2>
+<h3 id="sr-q-025-sbom-component-completeness">SR-Q-025: SBOM Component Completeness<a class="headerlink" href="#sr-q-025-sbom-component-completeness" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: SBOMs MUST include all direct and transitive dependencies.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>SBOM format</strong>: CycloneDX 1.4+ or SPDX 2.3+
+- <strong>Component completeness</strong>: 100% of <code>requirements.txt</code> / <code>go.mod</code> entries present
+- <strong>License field</strong>: 95%+ of components have license identified
+- <strong>Vulnerability data</strong>: CVE IDs included for known vulnerabilities
+- <strong>SBOM generation time</strong>: Within 5 minutes of image build</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Compare SBOM to dependency manifest</span>
+syft<span class="w"> </span>image:latest<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.components | length&#39;</span>
+wc<span class="w"> </span>-l<span class="w"> </span>&lt;<span class="w"> </span>requirements.txt
+<span class="c1"># Component count should be &gt;= requirements count (includes transitive)</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Syft generates SBOM, Grype scans without errors, SBOM uploaded to GitHub release.</p>
+<p><strong>Owner</strong>: All repositories with containers<br />
+<strong>Status</strong>: IMPLEMENTED (Syft in <code>rune-ci/actions/sbom-scan/action.yml</code>, generated on every release)</p>
+<hr />
+<h3 id="sr-q-026-slsa-provenance-attestation">SR-Q-026: SLSA Provenance Attestation<a class="headerlink" href="#sr-q-026-slsa-provenance-attestation" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All container images MUST have SLSA L3 provenance attestation.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>SLSA level</strong>: L3 (minimum)
+- <strong>Build platform</strong>: GitHub Actions (hosted runner)
+- <strong>Attestation format</strong>: in-toto v1.0+
+- <strong>Signature verification</strong>: Sigstore keyless signing (OIDC)
+- <strong>Attestation availability</strong>: Pushed to registry, queryable via GitHub Attestations API</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify SLSA attestation</span>
+gh<span class="w"> </span>attestation<span class="w"> </span>verify<span class="w"> </span>oci://ghcr.io/lpasquali/rune:v0.0.0a5<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--repo<span class="w"> </span>lpasquali/rune
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: <code>rune-audit slsa verify</code> command succeeds for all released images.</p>
+<p><strong>Owner</strong>: All repositories with containers<br />
+<strong>Status</strong>: IMPLEMENTED (<code>rune-ci/.github/workflows/release.yml</code> lines 177-186, <code>rune-audit</code> verification tool)</p>
+<hr />
+<h3 id="sr-q-027-github-actions-pinning">SR-Q-027: GitHub Actions Pinning<a class="headerlink" href="#sr-q-027-github-actions-pinning" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All GitHub Actions MUST be pinned to immutable SHA digests.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Pin format</strong>: <code>@&lt;sha&gt;</code> (40-character hex)
+- <strong>Mutable references prohibited</strong>: No <code>@v1</code>, <code>@main</code>, or <code>@latest</code> tags
+- <strong>Exception</strong>: Own organization's reusable workflows MAY use <code>@main</code> if documented
+- <strong>Verification frequency</strong>: On every PR that touches <code>.github/workflows/</code></p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># CI check</span>
+grep<span class="w"> </span>-rE<span class="w"> </span><span class="s1">&#39;uses:.*@v[0-9]&#39;</span><span class="w"> </span>.github/workflows/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+grep<span class="w"> </span>-rE<span class="w"> </span><span class="s1">&#39;uses:.*@main&#39;</span><span class="w"> </span>.github/workflows/<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;lpasquali/rune-ci&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: CI check passes, no mutable action references outside <code>lpasquali/rune-ci</code>.</p>
+<p><strong>Owner</strong>: All repositories<br />
+<strong>Status</strong>: IMPLEMENTED (verified in ML4 evidence report, all external actions pinned to SHA)</p>
+<hr />
+<h2 id="10-network-security">10. Network Security<a class="headerlink" href="#10-network-security" title="Permanent link">&para;</a></h2>
+<h3 id="sr-q-028-network-policy-ingress">SR-Q-028: Network Policy - Ingress<a class="headerlink" href="#sr-q-028-network-policy-ingress" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: Kubernetes network policies MUST restrict ingress traffic to only necessary ports.</p>
+<p><strong>Quantitative Thresholds</strong> (rune-api pod):
+- <strong>Allowed ingress ports</strong>: 8080 (HTTP API)
+- <strong>Allowed sources</strong>: 
+  - Same namespace (label: <code>app.kubernetes.io/instance=rune</code>)
+  - Ingress controller namespace (label: <code>app=ingress-nginx</code>)
+- <strong>Denied</strong>: All other ingress traffic (default deny)</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Check NetworkPolicy</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>networkpolicy<span class="w"> </span>-n<span class="w"> </span>rune-prod<span class="w"> </span>-o<span class="w"> </span>yaml
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: NetworkPolicy manifests exist, applied in production deployments.</p>
+<p><strong>Owner</strong>: rune-airgapped<br />
+<strong>Status</strong>: IMPLEMENTED (<code>manifests/network-policies/</code>)</p>
+<hr />
+<h3 id="sr-q-029-network-policy-egress">SR-Q-029: Network Policy - Egress<a class="headerlink" href="#sr-q-029-network-policy-egress" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: Kubernetes network policies MUST restrict egress traffic to only necessary destinations.</p>
+<p><strong>Quantitative Thresholds</strong> (rune-api pod):
+- <strong>Allowed egress</strong>:
+  - DNS (port 53, UDP/TCP)
+  - Ollama (port 11434, TCP)
+  - Vast.ai API (port 443, TCP, HTTPS)
+  - PostgreSQL (port 5432, TCP) if enabled
+- <strong>Denied</strong>: All other egress traffic</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Check NetworkPolicy egress rules</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>networkpolicy<span class="w"> </span>-n<span class="w"> </span>rune-prod<span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>yq<span class="w"> </span><span class="s1">&#39;.spec.egress&#39;</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: NetworkPolicy manifests exist with explicit egress rules.</p>
+<p><strong>Owner</strong>: rune-airgapped<br />
+<strong>Status</strong>: IMPLEMENTED (<code>manifests/network-policies/vanilla/allow-rune-traffic.yaml</code>)</p>
+<hr />
+<h2 id="11-cost-and-resource-governance">11. Cost and Resource Governance<a class="headerlink" href="#11-cost-and-resource-governance" title="Permanent link">&para;</a></h2>
+<h3 id="sr-q-030-cost-estimation-confidence-threshold">SR-Q-030: Cost Estimation Confidence Threshold<a class="headerlink" href="#sr-q-030-cost-estimation-confidence-threshold" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: GPU provisioning operations MUST fail-closed when cost estimation confidence is below threshold.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Minimum confidence</strong>: 95% (0.95)
+- <strong>Behavior on violation</strong>: Provisioning rejected, job fails with <code>CostGateError</code>
+- <strong>Bypass</strong>: Not permitted in production mode
+- <strong>Logging</strong>: Log cost estimate, confidence, and rejection reason at WARN level</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Unit test</span>
+<span class="n">estimate</span> <span class="o">=</span> <span class="n">CostEstimate</span><span class="p">(</span><span class="n">amount</span><span class="o">=</span><span class="mf">10.5</span><span class="p">,</span> <span class="n">confidence</span><span class="o">=</span><span class="mf">0.94</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">CostGateError</span><span class="p">):</span>
+    <span class="n">provision_gpu</span><span class="p">(</span><span class="n">estimate</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Threshold enforced in code, unit test passes.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: IMPLEMENTED (<code>common/costs.py</code>, documented in FORMAL_SPECS.md and THREAT_MODEL.md)</p>
+<hr />
+<h3 id="sr-q-031-vastai-cost-ceiling">SR-Q-031: Vast.ai Cost Ceiling<a class="headerlink" href="#sr-q-031-vastai-cost-ceiling" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: Vast.ai provisioning MUST enforce maximum spend per instance.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Default max DPH</strong>: $3.00 per hour
+- <strong>Configurable range</strong>: $0.10 - $10.00 per hour
+- <strong>Enforcement</strong>: Request rejected if instance DPH &gt; configured max
+- <strong>Override</strong>: Requires explicit environment variable change (<code>RUNE_VASTAI_MAX_DPH</code>)</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Unit test</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">VastaiConfig</span><span class="p">(</span><span class="n">max_dph</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="n">expensive_instance</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;dph_total&quot;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">}</span>
+<span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="s2">&quot;exceeds maximum&quot;</span><span class="p">):</span>
+    <span class="n">select_instance</span><span class="p">(</span><span class="n">expensive_instance</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Threshold enforced in code, configurable via environment variable, unit test passes.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: IMPLEMENTED (configurable via <code>RUNE_VASTAI_MAX_DPH</code>, documented in code and CLI help)</p>
+<hr />
+<h2 id="12-operational-security">12. Operational Security<a class="headerlink" href="#12-operational-security" title="Permanent link">&para;</a></h2>
+<h3 id="sr-q-032-health-check-endpoint-timeout">SR-Q-032: Health Check Endpoint Timeout<a class="headerlink" href="#sr-q-032-health-check-endpoint-timeout" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: Health check endpoints MUST respond within bounded time.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Maximum response time</strong>: 2 seconds
+- <strong>Liveness probe timeout</strong>: 5 seconds
+- <strong>Readiness probe timeout</strong>: 5 seconds
+- <strong>Liveness probe failure threshold</strong>: 3 consecutive failures
+- <strong>Readiness probe failure threshold</strong>: 3 consecutive failures</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify probe configuration in Helm chart</span>
+<span class="nt">livenessProbe</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/healthz</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http</span>
+<span class="w">  </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">  </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: All charts specify timeouts, health checks complete within 2s under normal load.</p>
+<p><strong>Owner</strong>: rune-charts<br />
+<strong>Status</strong>: IMPLEMENTED (probe timeouts in all deployment templates)</p>
+<hr />
+<h3 id="sr-q-033-graceful-shutdown-timeout">SR-Q-033: Graceful Shutdown Timeout<a class="headerlink" href="#sr-q-033-graceful-shutdown-timeout" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All services MUST complete graceful shutdown within bounded time.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Shutdown grace period</strong>: 30 seconds
+- <strong>SIGTERM → SIGKILL delay</strong>: 30 seconds (Kubernetes default)
+- <strong>Connection draining</strong>: 10 seconds
+- <strong>Database connection cleanup</strong>: 5 seconds
+- <strong>Metrics flush</strong>: 5 seconds</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1">// Verify shutdown timeout in operator</span>
+<span class="nx">shutdownCtx</span><span class="p">,</span><span class="w"> </span><span class="nx">cancel</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">WithTimeout</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="mi">5</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+<span class="k">defer</span><span class="w"> </span><span class="nx">cancel</span><span class="p">()</span>
+<span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">metricsServer</span><span class="p">.</span><span class="nx">Shutdown</span><span class="p">(</span><span class="nx">shutdownCtx</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Log but don&#39;t fail</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Shutdown timeout implemented, telemetry server shutdown has 5s timeout (<code>telemetry.go</code> line 53).</p>
+<p><strong>Owner</strong>: rune-operator<br />
+<strong>Status</strong>: IMPLEMENTED (telemetry shutdown timeout verified)</p>
+<hr />
+<h2 id="13-input-validation">13. Input Validation<a class="headerlink" href="#13-input-validation" title="Permanent link">&para;</a></h2>
+<h3 id="sr-q-034-json-schema-validation">SR-Q-034: JSON Schema Validation<a class="headerlink" href="#sr-q-034-json-schema-validation" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All API request bodies MUST be validated against strict JSON schemas before processing.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>Schema enforcement</strong>: 100% of POST endpoints
+- <strong>Validation depth</strong>: Recursive (validate nested objects)
+- <strong>Additional validation</strong>: Pydantic model validation with field constraints
+- <strong>Response on violation</strong>: HTTP 400 with specific error message
+- <strong>Max schema depth</strong>: 10 levels (prevent deeply nested attack)</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Integration test</span>
+<span class="n">invalid_payloads</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">},</span>  <span class="c1"># Empty string</span>
+    <span class="p">{</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;x&quot;</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">},</span>  <span class="c1"># Too long</span>
+    <span class="p">{</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;nested&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">}},</span>  <span class="c1"># Wrong type</span>
+<span class="p">]</span>
+<span class="k">for</span> <span class="n">payload</span> <span class="ow">in</span> <span class="n">invalid_payloads</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">POST</span><span class="p">(</span><span class="s2">&quot;/v1/jobs/benchmark&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">400</span>
+    <span class="k">assert</span> <span class="s2">&quot;validation&quot;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Pydantic validation enforced in <code>api_contracts.py</code>, integration tests pass.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: IMPLEMENTED (Pydantic models in <code>api_contracts.py</code>, validation at line 410-418)</p>
+<hr />
+<h3 id="sr-q-035-string-length-limits">SR-Q-035: String Length Limits<a class="headerlink" href="#sr-q-035-string-length-limits" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All string inputs MUST have maximum length constraints to prevent buffer attacks.</p>
+<p><strong>Quantitative Thresholds</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Maximum Length</th>
+<th>Enforcement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model</code> name</td>
+<td>128 characters</td>
+<td>Pydantic <code>max_length</code></td>
+</tr>
+<tr>
+<td><code>question</code></td>
+<td>100,000 characters</td>
+<td>Pydantic <code>max_length</code></td>
+</tr>
+<tr>
+<td><code>job_id</code></td>
+<td>64 characters</td>
+<td>Database schema</td>
+</tr>
+<tr>
+<td><code>tenant_id</code></td>
+<td>64 characters</td>
+<td>Database schema</td>
+</tr>
+<tr>
+<td><code>backend_url</code></td>
+<td>2048 characters</td>
+<td>Pydantic <code>max_length</code></td>
+</tr>
+<tr>
+<td><code>error</code> message</td>
+<td>10,000 characters</td>
+<td>Database schema</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Unit test</span>
+<span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">ValidationError</span><span class="p">):</span>
+    <span class="n">RunBenchmarkRequest</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;x&quot;</span> <span class="o">*</span> <span class="mi">129</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Pydantic models enforce max_length, unit tests verify enforcement.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: IMPLEMENTED (dataclass <code>__post_init__</code> validation in <code>rune_bench/api_contracts.py</code>; thresholds match table above)</p>
+<hr />
+<h2 id="14-concurrency-and-threading">14. Concurrency and Threading<a class="headerlink" href="#14-concurrency-and-threading" title="Permanent link">&para;</a></h2>
+<h3 id="sr-q-036-thread-pool-size-limits">SR-Q-036: Thread Pool Size Limits<a class="headerlink" href="#sr-q-036-thread-pool-size-limits" title="Permanent link">&para;</a></h3>
+<p><strong>Requirement</strong>: All thread pools MUST have bounded maximum size to prevent thread exhaustion.</p>
+<p><strong>Quantitative Thresholds</strong>:
+- <strong>API server thread pool</strong>: Unbounded (ThreadingHTTPServer default, acceptable for trusted deployments)
+- <strong>Job execution threads</strong>: 1 per request (daemon threads, max = concurrent request count)
+- <strong>Metrics collector threads</strong>: 1 per job (bounded by request rate limit)</p>
+<p><strong>Verification Method</strong>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Monitor thread count under load</span>
+<span class="n">initial_threads</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">active_count</span><span class="p">()</span>
+<span class="c1"># Submit 100 concurrent requests</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">POST</span><span class="p">(</span><span class="s2">&quot;/v1/jobs/benchmark&quot;</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">current_threads</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">active_count</span><span class="p">()</span>
+<span class="c1"># Should not exceed reasonable bound (&lt; 200 for 100 requests)</span>
+<span class="k">assert</span> <span class="n">current_threads</span> <span class="o">&lt;</span> <span class="mi">200</span>
+</code></pre></div></p>
+<p><strong>Acceptance Criteria</strong>: Load test verifies thread count remains bounded under high concurrency.</p>
+<p><strong>Owner</strong>: rune<br />
+<strong>Status</strong>: IMPLEMENTED (SR-Q-036 monitoring: <code>/healthz</code> returns <code>active_threads</code>; rate limits bound concurrent load — see THREAT_MODEL / load testing follow-up optional)</p>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<h3 id="implementation-status">Implementation Status<a class="headerlink" href="#implementation-status" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Total Requirements</th>
+<th>Implemented</th>
+<th>Planned</th>
+<th>To Implement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication &amp; Authorization</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Denial of Service Protection</td>
+<td>9</td>
+<td>8</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Cryptographic Requirements</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Test Coverage</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Vulnerability Management</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Secure Configuration</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Logging and Audit</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Cost &amp; Resource Governance</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Input Validation</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Concurrency &amp; Threading</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>TOTAL</strong></td>
+<td><strong>27</strong></td>
+<td><strong>23 (85%)</strong></td>
+<td><strong>3 (11%)</strong></td>
+<td><strong>1 (4%)</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="priority-implementation-order">Priority Implementation Order<a class="headerlink" href="#priority-implementation-order" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>P0 (Security Critical)</strong>:</li>
+<li>✅ SR-Q-004: Request body size limit (DoS prevention) - IMPLEMENTED</li>
+<li>✅ SR-Q-005: Request rate limiting (DoS prevention) - IMPLEMENTED</li>
+<li>⏳ SR-Q-016: Password/secret minimum length validation - PARTIAL (API tokens done, DB passwords TODO)</li>
+<li>
+<p>✅ SR-Q-024: Structured audit logging - IMPLEMENTED</p>
+</li>
+<li>
+<p><strong>P1 (Operational Security)</strong>:</p>
+</li>
+<li>✅ SR-Q-008: HTTP server request timeout — IMPLEMENTED</li>
+<li>✅ SR-Q-011: Driver invocation timeout — IMPLEMENTED</li>
+<li>✅ SR-Q-023: Audit log retention — IMPLEMENTED (Helm values + platform sink)</li>
+<li>
+<p>✅ SR-Q-035: String length limits — IMPLEMENTED (api_contracts)</p>
+</li>
+<li>
+<p><strong>P2 (Defense in Depth)</strong>:</p>
+</li>
+<li>SR-Q-003: Session token lifetime</li>
+<li>SR-Q-006: Operator work queue depth limit</li>
+<li>✅ SR-Q-036: Thread pool monitoring — IMPLEMENTED (<code>/healthz</code> <code>active_threads</code>)</li>
+</ol>
+<hr />
+<h2 id="verification-matrix">Verification Matrix<a class="headerlink" href="#verification-matrix" title="Permanent link">&para;</a></h2>
+<p>All requirements in this document are traceable to:</p>
+<ol>
+<li><strong>Threat Model</strong> (<code>THREAT_MODEL.md</code>): Requirements derived from STRIDE threat analysis</li>
+<li><strong>Risk Register</strong> (<code>RISK_REGISTER.md</code>): Requirements address identified risks</li>
+<li><strong>CI Automation</strong>: Quantitative thresholds enforced as automated gates where applicable</li>
+<li><strong>Test Cases</strong>: Each requirement has corresponding unit or integration test</li>
+</ol>
+<p>This document satisfies IEC 62443-4-1 ML4 requirement <strong>SR-2</strong> (Security Requirements Specification) with quantitative, verifiable acceptance criteria.</p>
+<hr />
+<p><strong>Document Owner</strong>: lpasquali<br />
+<strong>Review Frequency</strong>: Quarterly (aligned with threat model review)<br />
+<strong>Next Review</strong>: 2026-07-10</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

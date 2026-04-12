@@ -1,0 +1,3572 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the RUNE platform, APIs, and compliance posture">
+      
+      
+      
+      
+        <link rel="prev" href="../QUICKSTART/">
+      
+      
+        <link rel="next" href="../GUIDE/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Developer Guide - RUNE Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../overrides/main.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/tokens.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#developer-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RUNE Documentation" class="md-header__button md-logo" aria-label="RUNE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RUNE Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Developer Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RUNE Documentation" class="md-nav__button md-logo" aria-label="RUNE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RUNE Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Context
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/SYSTEM_PROMPT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/CURRENT_STATE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Current State
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/CODING_STANDARDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coding Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Usage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QUICKSTART/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#repository-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repository Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-repositories-rune-rune-ui-rune-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Repositories (rune, rune-ui, rune-docs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-repository-rune-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Go Repository (rune-operator)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-charts-rune-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Helm Charts (rune-charts)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell-scripts-rune-airgapped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shell Scripts (rune-airgapped)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-test-and-lint-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build, Test, and Lint Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build, Test, and Lint Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rune-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rune (Python)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rune-operator-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rune-operator (Go)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rune-ui-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rune-ui (Python)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rune-charts-helm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rune-charts (Helm)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rune-docs-mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rune-docs (MkDocs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rune-airgapped-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rune-airgapped (Shell)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definition-of-done-validation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition of Done — Validation Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Definition of Done — Validation Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-standalone-cli-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Standalone CLI Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-docker-compose-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Docker Compose Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-kind-kubernetes-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Kind (Kubernetes) Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-breaking-change-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Breaking Change Audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-dependency-cve-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Dependency CVE Audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coverage-floors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage Floors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secret-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secret Scanning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ci-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI Workflows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-process-enforcement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Process Enforcement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub Process Enforcement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue Templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pr-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PR Template
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ci-enforcement-pr-body-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI Enforcement (pr-body-check)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codeowners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CODEOWNERS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-documentation-pages-rune-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Documentation Pages (rune-docs)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PRICING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pricing & Access Tiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../INTERFACES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API_SPEC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ADVANCED_PIPELINES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONFIGURATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OLLAMA_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Backend Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External projects (rune-audit)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    External projects (rune-audit)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/inspector-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inspector library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/custom-inspectors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom inspectors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/requirement-packs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requirement packs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/ci-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/case-study-rune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case study — RUNE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Delivery
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Delivery
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/PIPELINES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/CI_SHARED_WORKFLOWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared CI Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/CI_RISK_MITIGATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI Migration Risk Mitigations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/RELEASES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/SECRETS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/VEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VEX Register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/MILESTONES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Milestones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/LABELS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../delivery/AUDIT_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/WORKSTATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workstation Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/GOLDEN_IMAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Golden Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DATABASE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DATABASE_HA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database HA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/OBSERVABILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/RUNBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runbooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/ROLLBACK_PROCEDURES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rollback Procedures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/VAULT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vault Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/SDL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Development Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/RISK_ASSESSMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Assessment Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/RISK_REGISTER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/PENTEST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Penetration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/FUZZ_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fuzz Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/INCIDENT_RESPONSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Incident Response
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/IMAGE_SIGNING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container Image Signing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/SECURITY_TRAINING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Training Records
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/THREAT_MODEL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/SECURITY_REQUIREMENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/SYSTEM_DESIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/INFRASTRUCTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/FORMAL_SPECS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formal Specs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADRs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADRs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0001-api-compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0001: Client/Server Compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0002-cost-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0002: Cost Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0003-ui-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0003: UI Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0004-operator-feature-parity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0004: Operator Parity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0005-advanced-cognitive-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0005: Advanced Cognitive Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0006-storage-abstraction-postgres/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0006: Storage Abstraction and PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#repository-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repository Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-repositories-rune-rune-ui-rune-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Repositories (rune, rune-ui, rune-docs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-repository-rune-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Go Repository (rune-operator)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm-charts-rune-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Helm Charts (rune-charts)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell-scripts-rune-airgapped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shell Scripts (rune-airgapped)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-test-and-lint-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build, Test, and Lint Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build, Test, and Lint Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rune-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rune (Python)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rune-operator-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rune-operator (Go)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rune-ui-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rune-ui (Python)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rune-charts-helm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rune-charts (Helm)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rune-docs-mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rune-docs (MkDocs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rune-airgapped-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rune-airgapped (Shell)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definition-of-done-validation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition of Done — Validation Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Definition of Done — Validation Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-standalone-cli-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Standalone CLI Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-docker-compose-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Docker Compose Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-kind-kubernetes-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Kind (Kubernetes) Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-breaking-change-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Breaking Change Audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-dependency-cve-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Dependency CVE Audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coverage-floors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage Floors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secret-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secret Scanning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ci-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI Workflows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-process-enforcement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Process Enforcement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub Process Enforcement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue Templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pr-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PR Template
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ci-enforcement-pr-body-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI Enforcement (pr-body-check)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codeowners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CODEOWNERS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-documentation-pages-rune-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Documentation Pages (rune-docs)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="developer-guide">Developer Guide<a class="headerlink" href="#developer-guide" title="Permanent link">&para;</a></h1>
+<p>This guide covers everything a human or agent needs to start developing on the RUNE platform: repository layout, environment setup, build/test/lint commands per repo, and how to validate changes against the Definition of Done.</p>
+<h2 id="repository-map">Repository Map<a class="headerlink" href="#repository-map" title="Permanent link">&para;</a></h2>
+<p>All repositories live under <code>~/Devel/</code> on the development machine.</p>
+<table>
+<thead>
+<tr>
+<th>Directory</th>
+<th>Language</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rune/</code></td>
+<td>Python (&gt;= 3.11, CI uses 3.14)</td>
+<td>Core platform: CLI, orchestration, drivers, backends, API server</td>
+</tr>
+<tr>
+<td><code>rune-operator/</code></td>
+<td>Go (1.25)</td>
+<td>Kubernetes operator for CRD-based job scheduling</td>
+</tr>
+<tr>
+<td><code>rune-ui/</code></td>
+<td>Python (&gt;= 3.12, CI uses 3.14)</td>
+<td>HTMX frontend (FastAPI + Jinja2, zero NPM)</td>
+</tr>
+<tr>
+<td><code>rune-charts/</code></td>
+<td>Helm</td>
+<td>Kubernetes deployment charts for all components</td>
+</tr>
+<tr>
+<td><code>rune-docs/</code></td>
+<td>Python (MkDocs)</td>
+<td>Documentation hub (single source of truth)</td>
+</tr>
+<tr>
+<td><code>rune-audit/</code></td>
+<td>YAML/Markdown</td>
+<td>Compliance and audit evidence</td>
+</tr>
+<tr>
+<td><code>rune-airgapped/</code></td>
+<td>Shell (POSIX)</td>
+<td>Air-gapped OCI bundle tooling</td>
+</tr>
+<tr>
+<td><code>rune-ci/</code></td>
+<td>GitHub Actions YAML</td>
+<td><a href="../../delivery/CI_SHARED_WORKFLOWS/">Shared CI workflows and composite actions</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="environment-setup">Environment Setup<a class="headerlink" href="#environment-setup" title="Permanent link">&para;</a></h2>
+<p>If you are starting from a fresh Ubuntu 24.04 LTS machine, see the <a href="../../operations/WORKSTATION/">Workstation Setup</a> guide first to install all required tooling (Python, Go, Docker, Kind, Helm, kubectl, scanners).</p>
+<h3 id="python-repositories-rune-rune-ui-rune-docs">Python Repositories (rune, rune-ui, rune-docs)<a class="headerlink" href="#python-repositories-rune-rune-ui-rune-docs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune<span class="w">  </span><span class="c1"># or rune-ui, rune-docs</span>
+
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+.<span class="w"> </span>.venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="c1"># For rune only — install dev extras:</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+</code></pre></div>
+<h3 id="go-repository-rune-operator">Go Repository (rune-operator)<a class="headerlink" href="#go-repository-rune-operator" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune-operator
+
+go<span class="w"> </span>mod<span class="w"> </span>download
+<span class="c1"># or</span>
+go<span class="w"> </span>mod<span class="w"> </span>tidy
+</code></pre></div>
+<p>Requires Go &gt;= 1.25.</p>
+<h3 id="helm-charts-rune-charts">Helm Charts (rune-charts)<a class="headerlink" href="#helm-charts-rune-charts" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Requires: helm CLI</span>
+helm<span class="w"> </span>lint<span class="w"> </span>./charts/rune
+helm<span class="w"> </span>lint<span class="w"> </span>./charts/rune-operator
+helm<span class="w"> </span>lint<span class="w"> </span>./charts/rune-ui
+</code></pre></div>
+<h3 id="shell-scripts-rune-airgapped">Shell Scripts (rune-airgapped)<a class="headerlink" href="#shell-scripts-rune-airgapped" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Requires: shellcheck, yamllint</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>shellcheck<span class="w"> </span>yamllint
+</code></pre></div>
+<h2 id="build-test-and-lint-commands">Build, Test, and Lint Commands<a class="headerlink" href="#build-test-and-lint-commands" title="Permanent link">&para;</a></h2>
+<h3 id="rune-python">rune (Python)<a class="headerlink" href="#rune-python" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune
+.<span class="w"> </span>.venv/bin/activate
+
+<span class="c1"># Unit tests (97% coverage floor enforced)</span>
+pytest
+
+<span class="c1"># Feature tests only (no coverage enforcement)</span>
+pytest<span class="w"> </span>-p<span class="w"> </span>no:cov<span class="w"> </span>-o<span class="w"> </span><span class="nv">addopts</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="w"> </span>tests/<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;not regression&quot;</span><span class="w"> </span>-v<span class="w"> </span>--tb<span class="o">=</span>short
+
+<span class="c1"># Regression tests only</span>
+pytest<span class="w"> </span>-p<span class="w"> </span>no:cov<span class="w"> </span>-o<span class="w"> </span><span class="nv">addopts</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="w"> </span>-m<span class="w"> </span>regression<span class="w"> </span>tests/<span class="w"> </span>-v<span class="w"> </span>--tb<span class="o">=</span>short
+
+<span class="c1"># Integration tests (requires live Ollama)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OLLAMA_TEST_URL</span><span class="o">=</span>http://localhost:11434
+pytest<span class="w"> </span>-m<span class="w"> </span>integration
+
+<span class="c1"># Lint</span>
+ruff<span class="w"> </span>check<span class="w"> </span>rune<span class="w"> </span>rune_bench
+mypy<span class="w"> </span>rune<span class="w"> </span>rune_bench
+
+<span class="c1"># SAST</span>
+bandit<span class="w"> </span>-r<span class="w"> </span>rune<span class="w"> </span>rune_bench
+</code></pre></div>
+<h3 id="rune-operator-go">rune-operator (Go)<a class="headerlink" href="#rune-operator-go" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune-operator
+
+<span class="c1"># Unit tests (99.5% coverage floor enforced in CI)</span>
+go<span class="w"> </span><span class="nb">test</span><span class="w"> </span>./...
+
+<span class="c1"># With coverage report — use this to verify the 99.5% floor locally</span>
+go<span class="w"> </span><span class="nb">test</span><span class="w"> </span>./...<span class="w"> </span>-coverprofile<span class="o">=</span>coverage.out<span class="w"> </span>-covermode<span class="o">=</span>atomic
+go<span class="w"> </span>tool<span class="w"> </span>cover<span class="w"> </span>-func<span class="o">=</span>coverage.out
+<span class="c1"># Check the &quot;total&quot; line — must be &gt;= 99.5%</span>
+
+<span class="c1"># Format check (must produce no output)</span>
+<span class="nb">test</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>gofmt<span class="w"> </span>-l<span class="w"> </span>.<span class="k">)</span><span class="s2">&quot;</span>
+
+<span class="c1"># Vet</span>
+go<span class="w"> </span>vet<span class="w"> </span>./...
+
+<span class="c1"># SAST</span>
+gosec<span class="w"> </span>-fmt<span class="w"> </span>json<span class="w"> </span>-severity<span class="w"> </span>high<span class="w"> </span>./...
+
+<span class="c1"># CVE scan (required before any PR that changes go.mod)</span>
+go<span class="w"> </span>install<span class="w"> </span>golang.org/x/vuln/cmd/govulncheck@latest
+govulncheck<span class="w"> </span>./...
+</code></pre></div>
+<p><strong>CRD and code generation</strong>: The operator uses kubebuilder markers but has no Makefile or <code>controller-gen</code> wired in. After modifying <code>api/v1alpha1/runebenchmark_types.go</code>:</p>
+<ol>
+<li>Update <code>api/v1alpha1/zz_generated.deepcopy.go</code> manually (value-type fields just need a field copy line in <code>DeepCopyInto</code>).</li>
+<li>Update <code>config/crd/bases/bench.rune.ai_runebenchmarks.yaml</code> manually (add properties under <code>spec.properties</code>).</li>
+<li>Copy the updated CRD YAML to <code>rune-charts/charts/rune-operator/crds/</code> so Helm distributes it.</li>
+</ol>
+<p><strong>Test patterns</strong>: All controller tests use <code>net/http/httptest</code> for fake API servers and <code>sigs.k8s.io/controller-runtime/pkg/client/fake</code> for fake k8s clients. Override-able function vars (<code>jsonMarshal</code>, <code>setupControllerWithManager</code>) enable failure injection. Follow the same patterns for new tests.</p>
+<h3 id="rune-ui-python">rune-ui (Python)<a class="headerlink" href="#rune-ui-python" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune-ui
+.<span class="w"> </span>.venv/bin/activate
+
+<span class="c1"># Unit tests (97% coverage floor enforced)</span>
+pytest
+
+<span class="c1"># Feature tests only</span>
+pytest<span class="w"> </span>-p<span class="w"> </span>no:cov<span class="w"> </span>-o<span class="w"> </span><span class="nv">addopts</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="w"> </span>tests/<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;not regression&quot;</span><span class="w"> </span>-v<span class="w"> </span>--tb<span class="o">=</span>short
+
+<span class="c1"># Lint</span>
+ruff<span class="w"> </span>check<span class="w"> </span>rune_ui
+mypy<span class="w"> </span>rune_ui
+
+<span class="c1"># SAST</span>
+bandit<span class="w"> </span>-r<span class="w"> </span>rune_ui<span class="w"> </span>-ll
+</code></pre></div>
+<h3 id="rune-charts-helm">rune-charts (Helm)<a class="headerlink" href="#rune-charts-helm" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune-charts
+
+<span class="c1"># Lint all charts</span>
+helm<span class="w"> </span>lint<span class="w"> </span>./charts/rune
+helm<span class="w"> </span>lint<span class="w"> </span>./charts/rune-operator
+helm<span class="w"> </span>lint<span class="w"> </span>./charts/rune-ui
+
+<span class="c1"># Template render (dry run)</span>
+helm<span class="w"> </span>template<span class="w"> </span>rune<span class="w"> </span>./charts/rune<span class="w"> </span>&gt;<span class="w"> </span>/tmp/rune-rendered.yaml
+
+<span class="c1"># SAST</span>
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">:/work&quot;</span><span class="w"> </span>aquasec/trivy:0.65.0<span class="w"> </span>config<span class="w"> </span>--severity<span class="w"> </span>HIGH,CRITICAL<span class="w"> </span>--exit-code<span class="w"> </span><span class="m">1</span><span class="w"> </span>/work
+</code></pre></div>
+<h3 id="rune-docs-mkdocs">rune-docs (MkDocs)<a class="headerlink" href="#rune-docs-mkdocs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune-docs
+.<span class="w"> </span>.venv/bin/activate
+
+<span class="c1"># Build (strict mode — warnings are errors)</span>
+mkdocs<span class="w"> </span>build<span class="w"> </span>--strict
+
+<span class="c1"># Local preview server</span>
+mkdocs<span class="w"> </span>serve
+
+<span class="c1"># Markdown lint</span>
+pymarkdown<span class="w"> </span>scan<span class="w"> </span>README.md<span class="w"> </span>docs
+</code></pre></div>
+<h3 id="rune-airgapped-shell">rune-airgapped (Shell)<a class="headerlink" href="#rune-airgapped-shell" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune-airgapped
+
+<span class="c1"># Lint all scripts</span>
+shellcheck<span class="w"> </span>scripts/*.sh
+
+<span class="c1"># YAML validation</span>
+yamllint<span class="w"> </span>.
+</code></pre></div>
+<h2 id="definition-of-done-validation-steps">Definition of Done — Validation Steps<a class="headerlink" href="#definition-of-done-validation-steps" title="Permanent link">&para;</a></h2>
+<p>The validation scope is <strong>proportional to the change</strong>. See <a href="../../context/SYSTEM_PROMPT/">SYSTEM_PROMPT.md — Definition of Done</a> for the full policy. In summary:</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Applies to</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Level 1 — Full</strong></td>
+<td>Runtime code, APIs, drivers, agents, Helm, Dockerfiles</td>
+<td>All three deployment modes + breaking change audit + CVE audit</td>
+</tr>
+<tr>
+<td><strong>Level 2 — Test Infra</strong></td>
+<td>Test config, CI workflows, coverage settings, linter configs</td>
+<td>Full test suite + verify coverage not degraded + check side effects</td>
+</tr>
+<tr>
+<td><strong>Level 3 — Docs</strong></td>
+<td>Markdown, MkDocs config, diagrams in <code>rune-docs</code></td>
+<td><code>mkdocs build --strict</code> + peer review</td>
+</tr>
+</tbody>
+</table>
+<p>When in doubt, use Level 1. Below are the concrete commands for Level 1 validation.</p>
+<h3 id="step-1-standalone-cli-mode">Step 1: Standalone CLI Mode<a class="headerlink" href="#step-1-standalone-cli-mode" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune
+.<span class="w"> </span>.venv/bin/activate
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">RUNE_BACKEND</span><span class="o">=</span><span class="nb">local</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">RUNE_BACKEND_URL</span><span class="o">=</span>http://localhost:11434
+
+<span class="c1"># Verify the CLI starts and responds</span>
+python<span class="w"> </span>-m<span class="w"> </span>rune<span class="w"> </span>--help
+
+<span class="c1"># Run a benchmark (adjust model/question to exercise your change)</span>
+python<span class="w"> </span>-m<span class="w"> </span>rune<span class="w"> </span>run-benchmark<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model<span class="w"> </span>llama3.1:8b<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--question<span class="w"> </span><span class="s2">&quot;Why is the cluster unhealthy?&quot;</span>
+</code></pre></div>
+<h3 id="step-2-docker-compose-mode">Step 2: Docker Compose Mode<a class="headerlink" href="#step-2-docker-compose-mode" title="Permanent link">&para;</a></h3>
+<p>The full local stack is defined in <code>~/Devel/rune/docker-compose.yml</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune
+
+<span class="c1"># Build and start the stack</span>
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build
+
+<span class="c1"># Services:</span>
+<span class="c1">#   rune-api    → http://localhost:8080</span>
+<span class="c1">#   rune-ui     → http://localhost:3000</span>
+<span class="c1">#   rune-docs   → http://localhost:8000</span>
+<span class="c1">#   ollama      → http://localhost:11434</span>
+<span class="c1">#   seaweedfs   → http://localhost:8333 (S3)</span>
+
+<span class="c1"># Verify health</span>
+curl<span class="w"> </span>-s<span class="w"> </span>http://localhost:8080/healthz
+curl<span class="w"> </span>-s<span class="w"> </span>http://localhost:3000/healthz
+
+<span class="c1"># Exercise your change through the API or UI</span>
+
+<span class="c1"># Tear down</span>
+docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>-v
+</code></pre></div>
+<h3 id="step-3-kind-kubernetes-mode">Step 3: Kind (Kubernetes) Mode<a class="headerlink" href="#step-3-kind-kubernetes-mode" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune-charts
+
+<span class="c1"># Create a Kind cluster</span>
+kind<span class="w"> </span>create<span class="w"> </span>cluster<span class="w"> </span>--name<span class="w"> </span>rune-test
+
+<span class="c1"># Install the charts</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>rune-test
+helm<span class="w"> </span>install<span class="w"> </span>rune<span class="w"> </span>./charts/rune<span class="w"> </span>--namespace<span class="w"> </span>rune-test<span class="w"> </span>--wait<span class="w"> </span>--timeout<span class="o">=</span>2m
+helm<span class="w"> </span>install<span class="w"> </span>rune-operator<span class="w"> </span>./charts/rune-operator<span class="w"> </span>--namespace<span class="w"> </span>rune-test<span class="w"> </span>--wait<span class="w"> </span>--timeout<span class="o">=</span>2m
+
+<span class="c1"># Verify pods are running</span>
+kubectl<span class="w"> </span>-n<span class="w"> </span>rune-test<span class="w"> </span>get<span class="w"> </span>pods
+
+<span class="c1"># Port-forward and test</span>
+kubectl<span class="w"> </span>-n<span class="w"> </span>rune-test<span class="w"> </span>port-forward<span class="w"> </span>svc/rune-api<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="p">&amp;</span>
+curl<span class="w"> </span>-s<span class="w"> </span>http://localhost:8080/healthz
+
+<span class="c1"># Exercise your change</span>
+
+<span class="c1"># Clean up</span>
+kind<span class="w"> </span>delete<span class="w"> </span>cluster<span class="w"> </span>--name<span class="w"> </span>rune-test
+</code></pre></div>
+<h3 id="step-4-breaking-change-audit">Step 4: Breaking Change Audit<a class="headerlink" href="#step-4-breaking-change-audit" title="Permanent link">&para;</a></h3>
+<p>Before opening the PR, verify:</p>
+<ul>
+<li><strong>API versions</strong>: Did you change any request/response schema? Is it additive or breaking?</li>
+<li><strong>Persistent data</strong>: Did you change SQLite schemas, storage adapters, or
+  volume mount paths? Is there a migration path? Review
+  <strong><a href="../../architecture/adrs/0006-storage-abstraction-postgres/">ADR 0006</a></strong> if
+  the change touches persistence design.</li>
+<li><strong>Cross-component contracts</strong>: Did you change DriverTransport, AgentRunner, LLMBackend, or LLMResourceProvider protocols?</li>
+<li><strong>Helm values</strong>: Did you add/remove/rename any values.yaml keys?</li>
+</ul>
+<h3 id="step-5-dependency-cve-audit">Step 5: Dependency CVE Audit<a class="headerlink" href="#step-5-dependency-cve-audit" title="Permanent link">&para;</a></h3>
+<p>If your change introduces or updates any dependency:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Python repos</span>
+pip-audit
+
+<span class="c1"># Go repos</span>
+govulncheck<span class="w"> </span>./...
+
+<span class="c1"># Container images</span>
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">:/work&quot;</span><span class="w"> </span>anchore/grype:v0.82.0<span class="w"> </span>dir:/work
+</code></pre></div>
+<p>A PR that introduces a new CVE is never acceptable. Resolve it before opening the PR or report to <code>lpasquali</code> with the CVE ID, CVSS score, and reason resolution failed.</p>
+<h2 id="coverage-floors">Coverage Floors<a class="headerlink" href="#coverage-floors" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Repo</th>
+<th>Floor</th>
+<th>Enforced by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rune</td>
+<td>97%</td>
+<td><code>pytest.ini</code> <code>--cov-fail-under=97</code></td>
+</tr>
+<tr>
+<td>rune-operator</td>
+<td>99.5%</td>
+<td>CI Python script; locally check <code>go tool cover -func=coverage.out</code> total line</td>
+</tr>
+<tr>
+<td>rune-ui</td>
+<td>97%</td>
+<td><code>pyproject.toml</code> <code>--cov-fail-under=97</code></td>
+</tr>
+</tbody>
+</table>
+<p>Target is always 100%. The floor is the hard gate.</p>
+<h2 id="secret-scanning">Secret Scanning<a class="headerlink" href="#secret-scanning" title="Permanent link">&para;</a></h2>
+<p>All repos run <code>gitleaks</code> in CI. Never commit secrets, API keys, or tokens. Use environment variables (see <a href="../CONFIGURATION/">Configuration</a>).</p>
+<h2 id="ci-workflows">CI Workflows<a class="headerlink" href="#ci-workflows" title="Permanent link">&para;</a></h2>
+<p>Every repo follows the same CI pattern in <code>.github/workflows/quality-gates.yml</code>:</p>
+<ol>
+<li><strong>Path-change detection</strong> — only runs relevant jobs based on changed files.</li>
+<li><strong>Coverage</strong> — hard floor per repo.</li>
+<li><strong>Linting</strong> — language-specific (ruff/mypy, gofmt/govet, helm lint, pymarkdown, shellcheck).</li>
+<li><strong>SAST</strong> — bandit (Python), gosec (Go), trivy config (Helm).</li>
+<li><strong>Container build</strong> — if Dockerfile changed.</li>
+<li><strong>SBOM + CVE scan</strong> — Syft, Grype, Trivy on built images.</li>
+<li><strong>Secret scan</strong> — gitleaks.</li>
+<li><strong>Merge Gate</strong> — aggregates all jobs; required status check for merge.</li>
+</ol>
+<p>No repo has a Makefile or Taskfile. All automation lives in GitHub Actions.</p>
+<h2 id="github-process-enforcement">GitHub Process Enforcement<a class="headerlink" href="#github-process-enforcement" title="Permanent link">&para;</a></h2>
+<p>The project enforces its development process through GitHub mechanisms — not through trust. Humans and agents follow the same rules because CI rejects PRs that skip steps.</p>
+<h3 id="issue-templates">Issue Templates<a class="headerlink" href="#issue-templates" title="Permanent link">&para;</a></h3>
+<p>All repos use structured issue templates (<code>.github/ISSUE_TEMPLATE/</code>). Blank issues are disabled. Every issue must declare:
+- <strong>Priority</strong> (p0–p3)
+- <strong>Area</strong> label
+- <strong>DoD level</strong> (for feature requests)
+- <strong>Acceptance criteria</strong> with required audit check placeholders
+- <strong>Test plan evidence</strong> requirements</p>
+<h3 id="pr-template">PR Template<a class="headerlink" href="#pr-template" title="Permanent link">&para;</a></h3>
+<p>Every PR auto-populates from <code>.github/PULL_REQUEST_TEMPLATE.md</code> with mandatory sections:</p>
+<ol>
+<li><strong>Issue reference</strong> — must link to an issue (<code>Closes #NNN</code>)</li>
+<li><strong>DoD level</strong> — must check exactly one (Level 1, 2, or 3)</li>
+<li><strong>Level-specific checklist</strong> — the appropriate checklist for the declared level</li>
+<li><strong>Audit checks table</strong> — must report PASS/FAIL for each triggered check, or state "No triggers fired"</li>
+<li><strong>Acceptance criteria evidence</strong> — each criterion must be ticked with evidence attached</li>
+<li><strong>Test plan evidence</strong> — screenshots, logs, diffs as required by the issue</li>
+<li><strong>Breaking changes</strong> — must be declared or explicitly "None"</li>
+</ol>
+<h3 id="ci-enforcement-pr-body-check">CI Enforcement (<code>pr-body-check</code>)<a class="headerlink" href="#ci-enforcement-pr-body-check" title="Permanent link">&para;</a></h3>
+<p>The <code>RuneGate/Process/PR-Body-Compliance</code> CI job validates the PR body before merge is allowed:</p>
+<ul>
+<li>Rejects PRs with no issue reference</li>
+<li>Rejects PRs with no DoD level checked</li>
+<li>Rejects PRs with missing Acceptance Criteria or Audit Checks sections</li>
+<li>Rejects PRs with any <code>FAIL</code> audit result in the table</li>
+<li>Rejects PRs with missing Breaking Changes section</li>
+</ul>
+<p>This job is part of the Merge Gate — if it fails, the PR cannot be merged.</p>
+<h3 id="codeowners">CODEOWNERS<a class="headerlink" href="#codeowners" title="Permanent link">&para;</a></h3>
+<p><code>.github/CODEOWNERS</code> requires review from <code>@lpasquali</code> for changes to sensitive paths (<code>.vex/</code>, <code>.github/workflows/</code>). Even if the automated ML4 peer review approves the PR, CODEOWNERS can require an additional human review for specific file patterns.</p>
+<h2 id="adding-documentation-pages-rune-docs">Adding Documentation Pages (rune-docs)<a class="headerlink" href="#adding-documentation-pages-rune-docs" title="Permanent link">&para;</a></h2>
+<p>When creating a new page in <code>rune-docs</code>:</p>
+<ol>
+<li><strong>Create the Markdown file</strong> under <code>docs/</code> in the appropriate subdirectory:</li>
+<li><code>docs/usage/</code> — user-facing guides, references, quickstarts</li>
+<li><code>docs/operations/</code> — deployment, observability, runbooks, workstation</li>
+<li><code>docs/delivery/</code> — CI/CD, releases, secrets, compliance</li>
+<li><code>docs/architecture/</code> — design docs, formal specs, ADRs</li>
+<li>
+<p><code>docs/context/</code> — system prompt, current state, coding standards (rarely add new files here)</p>
+</li>
+<li>
+<p><strong>Add a nav entry</strong> in <code>mkdocs.yml</code> under the appropriate section. Without a nav entry, the page is orphaned and <code>mkdocs build --strict</code> may warn.</p>
+</li>
+<li>
+<p><strong>Validate</strong>:
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune-docs
+.<span class="w"> </span>.venv/bin/activate
+mkdocs<span class="w"> </span>build<span class="w"> </span>--strict<span class="w">       </span><span class="c1"># Must pass with no warnings</span>
+pymarkdown<span class="w"> </span>scan<span class="w"> </span>README.md<span class="w"> </span>docs<span class="w">  </span><span class="c1"># Markdown lint</span>
+mkdocs<span class="w"> </span>serve<span class="w">                </span><span class="c1"># Preview at http://localhost:8000</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Cross-reference the SSOT</strong>: If the page presents data that also lives in a canonical source (e.g., <code>chains.csv</code> for agent tiers), link to the source and note that it is authoritative. Do not duplicate data without linking.</p>
+</li>
+<li>
+<p><strong>DoD Level 3</strong> applies: <code>mkdocs build --strict</code> + peer review. No deployment-mode validation needed.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

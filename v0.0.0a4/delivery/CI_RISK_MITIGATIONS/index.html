@@ -1,0 +1,3266 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the RUNE platform, APIs, and compliance posture">
+      
+      
+      
+      
+        <link rel="prev" href="../CI_SHARED_WORKFLOWS/">
+      
+      
+        <link rel="next" href="../RELEASES/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>CI Migration Risk Mitigations - RUNE Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../overrides/main.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/tokens.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ci-migration-risk-mitigations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RUNE Documentation" class="md-header__button md-logo" aria-label="RUNE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RUNE Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CI Migration Risk Mitigations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RUNE Documentation" class="md-nav__button md-logo" aria-label="RUNE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RUNE Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Context
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/SYSTEM_PROMPT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/CURRENT_STATE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Current State
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/CODING_STANDARDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coding Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Usage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/QUICKSTART/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/DEVELOPER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/PRICING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pricing & Access Tiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/INTERFACES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/API_SPEC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/ADVANCED_PIPELINES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/CONFIGURATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/OLLAMA_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Backend Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External projects (rune-audit)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    External projects (rune-audit)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/inspector-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inspector library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/custom-inspectors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom inspectors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/requirement-packs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requirement packs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/ci-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-projects/case-study-rune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case study — RUNE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Delivery
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Delivery
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PIPELINES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CI_SHARED_WORKFLOWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared CI Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI Migration Risk Mitigations
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI Migration Risk Mitigations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-inheritance-issue-154" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets Inheritance (Issue #154)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secrets Inheritance (Issue #154)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secrets-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets inventory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-secrets-are-passed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How secrets are passed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fallback-template-with-explicit-secrets-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fallback template with explicit secrets mapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#org-migration-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Org-migration risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slsa-l3-provenance-verification-issue-155" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLSA L3 Provenance Verification (Issue #155)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SLSA L3 Provenance Verification (Issue #155)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-provenance-attestation-works-with-reusable-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How provenance attestation works with reusable workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attestation-source-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attestation source identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjustments-needed-for-the-provenance-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adjustments needed for the provenance chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risks-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risks and monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ml4-compliance-audit-issue-156" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ML4 Compliance Audit (Issue #156)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ML4 Compliance Audit (Issue #156)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-ml4-automated-approval-works-post-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How ML4 automated approval works post-migration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approval-comment-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval comment text
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-gate-still-requires-ml4-approval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge gate still requires ML4 approval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iec-62443-4-1-ml4-citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IEC 62443-4-1 ML4 citation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RELEASES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SECRETS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VEX Register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MILESTONES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Milestones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LABELS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AUDIT_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/WORKSTATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workstation Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/GOLDEN_IMAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Golden Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DATABASE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/DATABASE_HA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database HA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/OBSERVABILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/RUNBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runbooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/ROLLBACK_PROCEDURES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rollback Procedures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operations/VAULT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vault Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/SDL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Development Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/RISK_ASSESSMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Assessment Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/RISK_REGISTER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/PENTEST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Penetration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/FUZZ_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fuzz Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/INCIDENT_RESPONSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Incident Response
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/IMAGE_SIGNING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container Image Signing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/SECURITY_TRAINING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Training Records
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/THREAT_MODEL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/SECURITY_REQUIREMENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/SYSTEM_DESIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/INFRASTRUCTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/FORMAL_SPECS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formal Specs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADRs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADRs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0001-api-compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0001: Client/Server Compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0002-cost-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0002: Cost Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0003-ui-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0003: UI Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0004-operator-feature-parity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0004: Operator Parity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0005-advanced-cognitive-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0005: Advanced Cognitive Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/adrs/0006-storage-abstraction-postgres/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0006: Storage Abstraction and PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-inheritance-issue-154" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets Inheritance (Issue #154)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secrets Inheritance (Issue #154)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secrets-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secrets inventory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-secrets-are-passed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How secrets are passed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fallback-template-with-explicit-secrets-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fallback template with explicit secrets mapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#org-migration-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Org-migration risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slsa-l3-provenance-verification-issue-155" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLSA L3 Provenance Verification (Issue #155)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SLSA L3 Provenance Verification (Issue #155)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-provenance-attestation-works-with-reusable-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How provenance attestation works with reusable workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attestation-source-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attestation source identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjustments-needed-for-the-provenance-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adjustments needed for the provenance chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risks-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risks and monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ml4-compliance-audit-issue-156" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ML4 Compliance Audit (Issue #156)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ML4 Compliance Audit (Issue #156)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-ml4-automated-approval-works-post-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How ML4 automated approval works post-migration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approval-comment-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval comment text
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-gate-still-requires-ml4-approval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge gate still requires ML4 approval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iec-62443-4-1-ml4-citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IEC 62443-4-1 ML4 citation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ci-migration-risk-mitigations">CI Migration Risk Mitigations<a class="headerlink" href="#ci-migration-risk-mitigations" title="Permanent link">&para;</a></h1>
+<p>This document covers risk analysis and mitigation strategies for migrating
+CI workflows from per-repo definitions to the centralized <code>rune-ci</code>
+repository. It addresses three areas: secrets inheritance, SLSA L3
+provenance verification, and IEC 62443-4-1 ML4 compliance.</p>
+<h2 id="secrets-inheritance-issue-154">Secrets Inheritance (Issue #154)<a class="headerlink" href="#secrets-inheritance-issue-154" title="Permanent link">&para;</a></h2>
+<h3 id="secrets-inventory">Secrets inventory<a class="headerlink" href="#secrets-inventory" title="Permanent link">&para;</a></h3>
+<p>Each reusable workflow in <code>rune-ci</code> accesses specific secrets. The table
+below lists every secret reference found in the workflow files.</p>
+<table>
+<thead>
+<tr>
+<th>Workflow</th>
+<th>Secret</th>
+<th>Purpose</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>release.yml</code></td>
+<td><code>GITHUB_TOKEN</code></td>
+<td>Docker login, GitHub Release creation, SBOM upload</td>
+<td>Yes (automatic)</td>
+</tr>
+<tr>
+<td><code>release.yml</code></td>
+<td><code>RUNE_CHARTS_BOT_TOKEN</code></td>
+<td>Cross-repo dispatch to <code>rune-charts</code></td>
+<td>No (skips if unset)</td>
+</tr>
+<tr>
+<td><code>container-build.yml</code></td>
+<td><code>GITHUB_TOKEN</code></td>
+<td>Docker login, image push to GHCR</td>
+<td>Yes (automatic)</td>
+</tr>
+<tr>
+<td><code>security-scan.yml</code></td>
+<td><code>GITHUB_TOKEN</code></td>
+<td>Docker login for GHCR image pull</td>
+<td>Yes (automatic)</td>
+</tr>
+<tr>
+<td><code>helm-release.yml</code></td>
+<td><code>GITHUB_TOKEN</code></td>
+<td>GitHub Release creation</td>
+<td>Yes (automatic)</td>
+</tr>
+<tr>
+<td><code>project-sync.yml</code></td>
+<td><code>PROJECT_TOKEN</code></td>
+<td>GitHub Projects API (PAT with <code>project</code> scope)</td>
+<td>Yes (explicit)</td>
+</tr>
+<tr>
+<td><code>pr-compliance.yml</code></td>
+<td><code>GITHUB_TOKEN</code></td>
+<td>PR body read, ML4 automated approval</td>
+<td>Yes (automatic)</td>
+</tr>
+<tr>
+<td><code>python-quality.yml</code></td>
+<td>(none)</td>
+<td>No secrets needed</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><code>go-quality.yml</code></td>
+<td>(none)</td>
+<td>No secrets needed</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><code>docs-quality.yml</code></td>
+<td>(none)</td>
+<td>No secrets needed</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><code>helm-quality.yml</code></td>
+<td>(none)</td>
+<td>No secrets needed</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><code>shell-quality.yml</code></td>
+<td>(none)</td>
+<td>No secrets needed</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-secrets-are-passed">How secrets are passed<a class="headerlink" href="#how-secrets-are-passed" title="Permanent link">&para;</a></h3>
+<p>GitHub Actions provides two mechanisms for passing secrets to reusable
+workflows:</p>
+<ol>
+<li>
+<p><strong><code>secrets: inherit</code></strong> -- The caller passes all of its secrets
+   (including the automatic <code>GITHUB_TOKEN</code>) to the reusable workflow.
+   This is the simplest approach and works when the caller and the
+   reusable workflow are in the same organization or when the caller
+   has all required secrets configured.</p>
+</li>
+<li>
+<p><strong>Explicit mapping</strong> -- The caller maps each secret individually
+   using <code>secrets:</code> with named keys. This approach is more verbose
+   but provides a clear contract and fails loudly when a required
+   secret is missing.</p>
+</li>
+</ol>
+<p>Currently, most quality-gate workflows (<code>python-quality.yml</code>,
+<code>go-quality.yml</code>, <code>docs-quality.yml</code>, <code>helm-quality.yml</code>,
+<code>shell-quality.yml</code>) require no secrets at all. The <code>GITHUB_TOKEN</code> is
+automatically available to reusable workflows when they are within the
+same organization as the caller.</p>
+<p>The <code>project-sync.yml</code> workflow requires explicit secret mapping because
+<code>PROJECT_TOKEN</code> is a user-provided PAT, not an automatic token.</p>
+<h3 id="fallback-template-with-explicit-secrets-mapping">Fallback template with explicit secrets mapping<a class="headerlink" href="#fallback-template-with-explicit-secrets-mapping" title="Permanent link">&para;</a></h3>
+<p>If <code>secrets: inherit</code> does not work (for example, after an org migration
+or when the reusable workflow is in a different organization), callers
+must use explicit mapping. The following template covers every secret
+that any rune-ci workflow could need:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Explicit secrets mapping fallback template</span>
+<span class="c1"># Use this if secrets: inherit is unavailable or unreliable.</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">release</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lpasquali/rune-ci/.github/workflows/release.yml@main</span>
+<span class="w">    </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">image-name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rune&quot;</span>
+<span class="w">      </span><span class="nt">build-container</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">slsa-attestation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">generate-sbom</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">notify-charts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">secrets</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">RUNE_CHARTS_BOT_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.RUNE_CHARTS_BOT_TOKEN }}</span>
+<span class="w">    </span><span class="c1"># Note: GITHUB_TOKEN is passed automatically to reusable workflows</span>
+<span class="w">    </span><span class="c1"># within the same org. No explicit mapping needed for it.</span>
+
+<span class="w">  </span><span class="nt">project-sync</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lpasquali/rune-ci/.github/workflows/project-sync.yml@v0.1.0</span>
+<span class="w">    </span><span class="nt">secrets</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">PROJECT_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PROJECT_TOKEN }}</span>
+</code></pre></div>
+<h3 id="org-migration-risk">Org-migration risk<a class="headerlink" href="#org-migration-risk" title="Permanent link">&para;</a></h3>
+<p>When <code>rune-ci</code> and caller repos are in the <strong>same GitHub organization</strong>:</p>
+<ul>
+<li><code>GITHUB_TOKEN</code> is automatically available to reusable workflows.</li>
+<li><code>secrets: inherit</code> passes all repo-level and org-level secrets.</li>
+<li>No explicit mapping is needed for <code>GITHUB_TOKEN</code>.</li>
+</ul>
+<p>When <code>rune-ci</code> moves to a <strong>different organization</strong>:</p>
+<ul>
+<li><code>GITHUB_TOKEN</code> from the caller is still passed automatically (it
+  represents the caller's context, not the workflow repository's
+  context).</li>
+<li><code>secrets: inherit</code> only passes secrets that exist in the caller
+  repo. Org-level secrets from the reusable workflow's org are <strong>not</strong>
+  inherited.</li>
+<li>Custom secrets like <code>RUNE_CHARTS_BOT_TOKEN</code> and <code>PROJECT_TOKEN</code>
+  must be configured in the caller repo (or caller org) and passed
+  explicitly.</li>
+<li>Reusable workflow references must use the full
+  <code>&lt;org&gt;/rune-ci/.github/workflows/&lt;file&gt;@&lt;ref&gt;</code> path.</li>
+</ul>
+<p><strong>When explicit mapping becomes necessary:</strong></p>
+<ul>
+<li>The caller repo moves to a different GitHub organization than <code>rune-ci</code>.</li>
+<li>Organization-level secret policies restrict cross-repo inheritance.</li>
+<li>A fork of <code>rune-ci</code> is used (forks do not inherit secrets from the
+  upstream repository).</li>
+<li>GitHub changes the <code>secrets: inherit</code> behavior (track GitHub
+  changelog for breaking changes to reusable workflow features).</li>
+</ul>
+<p><strong>Mitigation:</strong> The <code>release.yml</code> workflow already declares its
+<code>RUNE_CHARTS_BOT_TOKEN</code> secret with <code>required: false</code> and gracefully
+skips the chart-notification step when the secret is unset. This
+fail-open pattern for optional secrets is correct. For required
+functionality (image push, release creation), <code>GITHUB_TOKEN</code> is always
+available regardless of org boundaries.</p>
+<h2 id="slsa-l3-provenance-verification-issue-155">SLSA L3 Provenance Verification (Issue #155)<a class="headerlink" href="#slsa-l3-provenance-verification-issue-155" title="Permanent link">&para;</a></h2>
+<h3 id="how-provenance-attestation-works-with-reusable-workflows">How provenance attestation works with reusable workflows<a class="headerlink" href="#how-provenance-attestation-works-with-reusable-workflows" title="Permanent link">&para;</a></h3>
+<p>The <code>release.yml</code> workflow supports SLSA L3 build provenance attestation
+via the <code>slsa-attestation</code> input (boolean, default <code>false</code>). When
+enabled, the workflow uses <code>actions/attest-build-provenance@v2</code> to
+generate a signed attestation for the container image.</p>
+<p>The attestation step in <code>release.yml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Attest build provenance -- SLSA L3</span>
+<span class="w">  </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inputs.slsa-attestation &amp;&amp; inputs.build-container</span>
+<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/attest-build-provenance@96b4a1ef7235a096b17240c259729fdd70c83d45</span><span class="w"> </span><span class="c1"># v2</span>
+<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">subject-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/${{ inputs.registry-owner }}/${{ inputs.image-name }}</span>
+<span class="w">    </span><span class="nt">subject-digest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.manifest.outputs.digest }}</span>
+<span class="w">    </span><span class="nt">push-to-registry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<h3 id="attestation-source-identity">Attestation source identity<a class="headerlink" href="#attestation-source-identity" title="Permanent link">&para;</a></h3>
+<p>The <code>actions/attest-build-provenance</code> action generates a SLSA v1.0
+provenance statement. The key fields in the provenance predicate are:</p>
+<ul>
+<li><strong><code>buildType</code></strong>: Set to
+  <code>https://actions.github.io/buildtypes/workflow/v1</code> by the action.</li>
+<li><strong><code>externalParameters.workflow.ref</code></strong>: References the <strong>caller</strong>
+  workflow file and ref (the repo that triggered the workflow), not
+  the reusable workflow in <code>rune-ci</code>.</li>
+<li><strong><code>resolvedDependencies</code></strong>: Includes the source repository (caller
+  repo) as a dependency.</li>
+<li><strong><code>builder.id</code></strong>: Identifies the GitHub Actions runner.</li>
+</ul>
+<p><strong>Confirmation:</strong> When a caller repo (e.g., <code>lpasquali/rune</code>) uses
+<code>rune-ci</code>'s <code>release.yml</code> as a reusable workflow, the attestation
+correctly identifies <code>lpasquali/rune</code> as the source repository in the
+provenance statement, not <code>lpasquali/rune-ci</code>. This is because
+GitHub's attestation infrastructure uses the <code>github.repository</code>
+context, which always refers to the caller repository in a
+<code>workflow_call</code> context.</p>
+<p>The <code>subject-name</code> is explicitly parameterized via inputs
+(<code>registry-owner</code> and <code>image-name</code>), ensuring the attestation binds
+to the correct container image regardless of which repo triggered the
+build.</p>
+<h3 id="adjustments-needed-for-the-provenance-chain">Adjustments needed for the provenance chain<a class="headerlink" href="#adjustments-needed-for-the-provenance-chain" title="Permanent link">&para;</a></h3>
+<p>No adjustments are needed for the current configuration. The provenance
+chain is correct because:</p>
+<ol>
+<li>
+<p><strong>Source identity</strong>: <code>github.repository</code> in a <code>workflow_call</code> context
+   resolves to the caller repo (e.g., <code>lpasquali/rune</code>), not the
+   reusable workflow repo (<code>lpasquali/rune-ci</code>).</p>
+</li>
+<li>
+<p><strong>Subject binding</strong>: The image name and digest are passed as inputs
+   and computed at build time, ensuring the attestation binds to the
+   actual artifact.</p>
+</li>
+<li>
+<p><strong>Signing</strong>: GitHub's Sigstore-based signing uses the caller's OIDC
+   identity, which includes the caller repository as the issuer claim.</p>
+</li>
+<li>
+<p><strong><code>id-token: write</code> permission</strong>: The <code>release.yml</code> workflow
+   declares <code>id-token: write</code> at the workflow level, which is required
+   for Sigstore OIDC token generation. Callers must also grant this
+   permission.</p>
+</li>
+</ol>
+<p><strong>Verification command:</strong></p>
+<div class="highlight"><pre><span></span><code>gh<span class="w"> </span>attestation<span class="w"> </span>verify<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>oci://ghcr.io/lpasquali/&lt;image&gt;:&lt;tag&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--owner<span class="w"> </span>lpasquali
+</code></pre></div>
+<p>This verifies that the attestation was generated by a GitHub Actions
+workflow in the <code>lpasquali</code> namespace and that the provenance chain
+is intact.</p>
+<h3 id="risks-and-monitoring">Risks and monitoring<a class="headerlink" href="#risks-and-monitoring" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attestation references wrong repo</td>
+<td>Low</td>
+<td>High</td>
+<td><code>github.repository</code> always resolves to caller in <code>workflow_call</code></td>
+</tr>
+<tr>
+<td>Digest mismatch after manifest creation</td>
+<td>Low</td>
+<td>High</td>
+<td>Digest is computed from the manifest step output, not hardcoded</td>
+</tr>
+<tr>
+<td>OIDC token scope insufficient</td>
+<td>Low</td>
+<td>Medium</td>
+<td><code>id-token: write</code> is declared at workflow level in <code>release.yml</code></td>
+</tr>
+<tr>
+<td>Sigstore transparency log unavailable</td>
+<td>Low</td>
+<td>Medium</td>
+<td><code>push-to-registry: true</code> stores attestation in OCI registry as fallback</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ml4-compliance-audit-issue-156">ML4 Compliance Audit (Issue #156)<a class="headerlink" href="#ml4-compliance-audit-issue-156" title="Permanent link">&para;</a></h2>
+<h3 id="how-ml4-automated-approval-works-post-migration">How ML4 automated approval works post-migration<a class="headerlink" href="#how-ml4-automated-approval-works-post-migration" title="Permanent link">&para;</a></h3>
+<p>The <code>pr-compliance.yml</code> reusable workflow in <code>rune-ci</code> contains the
+<code>ml4-peer-review</code> job (<code>RuneGate/Compliance/ML4-Automated-Approval</code>).
+This job runs after the <code>merge-gate</code> job succeeds, meaning all quality
+gates have passed.</p>
+<p>The approval flow:</p>
+<ol>
+<li><strong>Caller repo</strong> invokes <code>pr-compliance.yml</code> with
+   <code>inputs.needs-json</code> containing the results of all upstream jobs
+   (coverage, SAST, SCA, SBOM, secret scanning, etc.).</li>
+<li><strong><code>pr-body-check</code></strong> validates the PR body structure (issue
+   reference, DoD level, required sections, audit results).</li>
+<li><strong><code>merge-gate</code></strong> aggregates all upstream job results plus the
+   PR body check. Any failure blocks the gate.</li>
+<li><strong><code>ml4-peer-review</code></strong> runs only if <code>merge-gate</code> succeeds and the
+   event is a pull request. It creates an approving review using
+   <code>actions/github-script</code>.</li>
+</ol>
+<p>The approval requires <code>pull-requests: write</code> permission, which is
+declared on the <code>ml4-peer-review</code> job. Callers must grant this
+permission (either directly or via <code>permissions</code> at the workflow level).</p>
+<h3 id="approval-comment-text">Approval comment text<a class="headerlink" href="#approval-comment-text" title="Permanent link">&para;</a></h3>
+<p>The automated approval comment text is:</p>
+<blockquote>
+<p><strong>RuneGate Automated Approval</strong> --
+Under IEC 62443-4-1 ML4 guidelines, this PR has been automatically
+approved because it deterministically passed all strict Quality Gates
+(Coverage &gt; 97%, SAST, SCA, SBOM, and SLSA L3 provenance). This
+satisfies the objective two-person peer-review requirement.</p>
+</blockquote>
+<p><strong>IEC 62443-4-1 ML4 alignment:</strong></p>
+<ul>
+<li>The comment explicitly cites IEC 62443-4-1 ML4 as the governing
+  standard.</li>
+<li>It enumerates the specific quality gates that were passed (Coverage,
+  SAST, SCA, SBOM, SLSA L3).</li>
+<li>It states the rationale: deterministic, objective verification
+  satisfies the two-person review requirement at ML4.</li>
+<li>The approval is conditional -- it only fires after all gates pass,
+  which means any gate failure prevents the automated approval entirely.</li>
+</ul>
+<h3 id="merge-gate-still-requires-ml4-approval">Merge gate still requires ML4 approval<a class="headerlink" href="#merge-gate-still-requires-ml4-approval" title="Permanent link">&para;</a></h3>
+<p>The merge gate architecture ensures ML4 approval is required:</p>
+<ol>
+<li><strong>Branch protection rules</strong> in each repo require the <code>Merge Gate</code>
+   status check to pass before merge.</li>
+<li><strong>Branch protection rules</strong> also require at least one approving
+   review.</li>
+<li>The <code>ml4-peer-review</code> job provides the required approving review,
+   but only after the merge gate passes.</li>
+<li>Without the automated approval (or a manual human approval), the
+   PR cannot be merged.</li>
+</ol>
+<p>Post-migration, this flow is preserved because <code>pr-compliance.yml</code> is
+called as the final step in each caller's <code>quality-gates.yml</code>. The
+caller passes <code>toJson(needs)</code> to the reusable workflow, which evaluates
+all upstream job outcomes. The merge gate in the reusable workflow
+respects the <code>merge-gate-excludes</code> input for jobs that are expected to
+be skipped (e.g., container build jobs in repos without Dockerfiles).</p>
+<p><strong>Confirmation:</strong> The merge gate in <code>pr-compliance.yml</code> reads the
+<code>needs-json</code> input and fails if any non-excluded job has a result
+other than <code>success</code> or <code>skipped</code>. This means:</p>
+<ul>
+<li>A failed coverage job blocks merge.</li>
+<li>A failed SAST job blocks merge.</li>
+<li>A failed PR body check blocks merge.</li>
+<li>Only after all checks pass does the ML4 automated approval fire.</li>
+</ul>
+<h3 id="iec-62443-4-1-ml4-citation">IEC 62443-4-1 ML4 citation<a class="headerlink" href="#iec-62443-4-1-ml4-citation" title="Permanent link">&para;</a></h3>
+<p>The automated peer review mechanism satisfies the following IEC
+62443-4-1 requirements at Maturity Level 4:</p>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Clause</th>
+<th>How it is satisfied</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Peer review of changes</td>
+<td>SVV-3</td>
+<td>Automated approval after deterministic quality gate passage</td>
+</tr>
+<tr>
+<td>Objective evidence of review</td>
+<td>SM-9</td>
+<td>Approval comment persisted on the PR with gate enumeration</td>
+</tr>
+<tr>
+<td>Repeatability and reproducibility</td>
+<td>SM-4</td>
+<td>Identical gates run on every PR; no human subjectivity in gate pass/fail</td>
+</tr>
+<tr>
+<td>Configuration management</td>
+<td>DM-1</td>
+<td>Reusable workflow is version-pinned; changes to gates are tracked in <code>rune-ci</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>ML4 distinction from ML3:</strong> At ML3, peer review may be performed by
+any qualified person. At ML4, the review process must be <strong>objective,
+repeatable, and measurable</strong>. The automated gate-based approval
+satisfies ML4 because the pass/fail criteria are deterministic
+(coverage thresholds, SAST findings, license compliance) and the
+approval is conditioned on all criteria being met, with no human
+discretion in the decision.</p>
+<p><strong>CODEOWNERS interaction:</strong> The automated ML4 approval satisfies the
+general review requirement, but <code>CODEOWNERS</code> rules may require
+additional human review for specific file patterns (e.g., <code>.vex/</code>,
+<code>.github/workflows/</code>). This is additive -- CODEOWNERS review does
+not replace the ML4 gate, and the ML4 gate does not replace
+CODEOWNERS review.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
