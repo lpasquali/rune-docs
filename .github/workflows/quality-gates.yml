@@ -24,7 +24,7 @@ jobs:
   compliance:
     needs: [security, docs]
     if: always()
-    uses: lpasquali/rune-ci/.github/workflows/pr-compliance.yml@9f939b2c28317b6f55c1913c6a6485bd91e1bda5
+    uses: lpasquali/rune-ci/.github/workflows/pr-compliance.yml@7e931bedd26d4e03bd9e6bd4f810e4d4c916ea5f
     with:
       needs-json: ${{ toJson(needs) }}
       merge-gate-excludes: "docs,security" # Force pass
