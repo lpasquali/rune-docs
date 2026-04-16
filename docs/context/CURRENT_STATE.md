@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-11** (19:12 UTC).
+Last updated: **2026-04-16** (audit: test/coverage epic **#249** / rune-docs **#251**).
 
  
 ## Version Baseline
@@ -31,6 +31,34 @@ Last updated: **2026-04-11** (19:12 UTC).
 
  
 ## Recent Changes
+
+### 2026-04-16 — Test & coverage inventory (epic **#249**) — partial execution
+
+Cross-repo epic: [rune-docs#249](https://github.com/lpasquali/rune-docs/issues/249). This pass delivers concrete removals where dead code was identified; other child issues need the same measure → classify → PR loop on their maintainers.
+
+**rune-docs #251 (this repo)**
+
+| Check | Type | Status | Reason |
+|---|---|---|---|
+| `mkdocs build --strict` | CI (via `rune-ci` `docs-quality.yml`) | **Keep** | Required deploy gate |
+| `docs-quality` PyMarkdown scan | CI | **Keep** (was no-op) | `|| true` removed upstream in **rune-ci** `docs-quality.yml` so failures surface |
+| `scripts/merge_gate.py`, `check_licenses.py`, `enforce_cve_policy.py` | Local | **Remove** | Never referenced by workflows; superseded by `rune-ci` (`actions/merge-gate-verify`, license/CVE in security workflows) |
+
+**Memory (this workspace, canonical command from #251):**
+
+- Command: `/usr/bin/time -v python -m mkdocs build --strict` (Python **3.14.4** via pyenv, Ubuntu **6.8.0** kernel).
+- Peak RSS: **~53 MiB** (`Maximum resident set size`: 54528 kB). Well under the **512 MiB** ceiling.
+
+**rune** (local tree)
+
+- Removed **no-op** test `test_api_application_unsupported_kind` (body was only `pass`); behavior is already covered by `test_api_application_execute_kinds` and backend type-check tests in the same module.
+
+**Other children (#253 rune full audit, #97 operator, #124 UI, #81 charts, #88 audit, #71 airgapped)**
+
+- **rune-charts**: no `charts/**/tests` Helm unittest tree in-repo; quality gates use `helm-quality` + kind installs — nothing obvious to delete without a deeper pass.
+- **rune-operator / rune-ui / rune-audit / rune-airgapped**: no additional dead tests removed in this pass; track follow-up PRs per child issue.
+
+---
 
 ### 2026-04-11 — FinOps telemetry, provisioning refactor, and CodeQL security fixes (rune#251)
 
