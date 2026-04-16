@@ -43,6 +43,7 @@ Cross-repo epic: [rune-docs#249](https://github.com/lpasquali/rune-docs/issues/2
 | `mkdocs build --strict` | CI (via `rune-ci` `docs-quality.yml`) | **Keep** | Required deploy gate |
 | `docs-quality` PyMarkdown scan | CI | **Keep** (was no-op) | `|| true` removed upstream in **rune-ci** `docs-quality.yml` so failures surface |
 | `scripts/merge_gate.py`, `check_licenses.py`, `enforce_cve_policy.py` | Local | **Remove** | Never referenced by workflows; superseded by `rune-ci` (`actions/merge-gate-verify`, license/CVE in security workflows) |
+| `scripts/codeql_python_anchor.py` | Local | **Keep** | Tiny no-op module so CodeQL Python autobuild has extractable source after script cleanup |
 
 **Memory (this workspace, canonical command from #251):**
 
