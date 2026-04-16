@@ -469,6 +469,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-16-test-coverage-inventory-epic-249-partial-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-16 — Test &amp; coverage inventory (epic #249) — partial execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-11-finops-telemetry-provisioning-refactor-and-codeql-security-fixes-rune251" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2790,6 +2801,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-16-test-coverage-inventory-epic-249-partial-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-16 — Test &amp; coverage inventory (epic #249) — partial execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-11-finops-telemetry-provisioning-refactor-and-codeql-security-fixes-rune251" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3073,7 +3095,7 @@
 <p>RUNE is currently in active pre-alpha development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is <strong>not yet production-ready</strong>.</p>
 <h2 id="freshness-policy">Freshness Policy<a class="headerlink" href="#freshness-policy" title="Permanent link">&para;</a></h2>
 <p>This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.</p>
-<p>Last updated: <strong>2026-04-11</strong> (19:12 UTC).</p>
+<p>Last updated: <strong>2026-04-16</strong> (audit: test/coverage epic <strong>#249</strong> / rune-docs <strong>#251</strong>).</p>
 <h2 id="version-baseline">Version Baseline<a class="headerlink" href="#version-baseline" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -3130,6 +3152,60 @@
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-16-test-coverage-inventory-epic-249-partial-execution">2026-04-16 — Test &amp; coverage inventory (epic <strong>#249</strong>) — partial execution<a class="headerlink" href="#2026-04-16-test-coverage-inventory-epic-249-partial-execution" title="Permanent link">&para;</a></h3>
+<p>Cross-repo epic: <a href="https://github.com/lpasquali/rune-docs/issues/249">rune-docs#249</a>. This pass delivers concrete removals where dead code was identified; other child issues need the same measure → classify → PR loop on their maintainers.</p>
+<p><strong>rune-docs #251 (this repo)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Type</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mkdocs build --strict</code></td>
+<td>CI (via <code>rune-ci</code> <code>docs-quality.yml</code>)</td>
+<td><strong>Keep</strong></td>
+<td>Required deploy gate</td>
+</tr>
+<tr>
+<td><code>docs-quality</code> PyMarkdown scan</td>
+<td>CI</td>
+<td><strong>Keep</strong> (was no-op)</td>
+<td><code>|| true</code> removed upstream in <strong>rune-ci</strong> <code>docs-quality.yml</code> so failures surface</td>
+</tr>
+<tr>
+<td><code>scripts/merge_gate.py</code>, <code>check_licenses.py</code>, <code>enforce_cve_policy.py</code></td>
+<td>Local</td>
+<td><strong>Remove</strong></td>
+<td>Never referenced by workflows; superseded by <code>rune-ci</code> (<code>actions/merge-gate-verify</code>, license/CVE in security workflows)</td>
+</tr>
+<tr>
+<td><code>scripts/codeql_python_anchor.py</code></td>
+<td>Local</td>
+<td><strong>Keep</strong></td>
+<td>Tiny no-op module so CodeQL Python autobuild has extractable source after script cleanup</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Memory (this workspace, canonical command from #251):</strong></p>
+<ul>
+<li>Command: <code>/usr/bin/time -v python -m mkdocs build --strict</code> (Python <strong>3.14.4</strong> via pyenv, Ubuntu <strong>6.8.0</strong> kernel).</li>
+<li>Peak RSS: <strong>~53 MiB</strong> (<code>Maximum resident set size</code>: 54528 kB). Well under the <strong>512 MiB</strong> ceiling.</li>
+</ul>
+<p><strong>rune</strong> (local tree)</p>
+<ul>
+<li>Removed <strong>no-op</strong> test <code>test_api_application_unsupported_kind</code> (body was only <code>pass</code>); behavior is already covered by <code>test_api_application_execute_kinds</code> and backend type-check tests in the same module.</li>
+</ul>
+<p><strong>Other children (#253 rune full audit, #97 operator, #124 UI, #81 charts, #88 audit, #71 airgapped)</strong></p>
+<ul>
+<li><strong>rune-charts</strong>: no <code>charts/**/tests</code> Helm unittest tree in-repo; quality gates use <code>helm-quality</code> + kind installs — nothing obvious to delete without a deeper pass.</li>
+<li><strong>rune-operator / rune-ui / rune-audit / rune-airgapped</strong>: no additional dead tests removed in this pass; track follow-up PRs per child issue.</li>
+</ul>
+<hr />
 <h3 id="2026-04-11-finops-telemetry-provisioning-refactor-and-codeql-security-fixes-rune251">2026-04-11 — FinOps telemetry, provisioning refactor, and CodeQL security fixes (rune#251)<a class="headerlink" href="#2026-04-11-finops-telemetry-provisioning-refactor-and-codeql-security-fixes-rune251" title="Permanent link">&para;</a></h3>
 <p><strong>rune</strong> <code>main</code> merged comprehensive PR <strong>#251</strong> (<code>feat/finops-and-provisioning-refactor</code>) with the following scope:</p>
 <ul>
