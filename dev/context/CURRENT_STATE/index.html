@@ -3196,7 +3196,7 @@
 <li>Command: <code>/usr/bin/time -v python -m mkdocs build --strict</code> (Python <strong>3.14.4</strong> via pyenv, Ubuntu <strong>6.8.0</strong> kernel).</li>
 <li>Peak RSS: <strong>~53 MiB</strong> (<code>Maximum resident set size</code>: 54528 kB). Well under the <strong>512 MiB</strong> ceiling.</li>
 </ul>
-<p><strong>rune</strong> (local tree)</p>
+<p><strong>rune</strong> (<a href="https://github.com/lpasquali/rune/pull/258">#258</a> merged)</p>
 <ul>
 <li>Removed <strong>no-op</strong> test <code>test_api_application_unsupported_kind</code> (body was only <code>pass</code>); behavior is already covered by <code>test_api_application_execute_kinds</code> and backend type-check tests in the same module.</li>
 </ul>
@@ -3205,6 +3205,37 @@
 <li><strong>rune-charts</strong>: no <code>charts/**/tests</code> Helm unittest tree in-repo; quality gates use <code>helm-quality</code> + kind installs — nothing obvious to delete without a deeper pass.</li>
 <li><strong>rune-operator / rune-ui / rune-audit / rune-airgapped</strong>: no additional dead tests removed in this pass; track follow-up PRs per child issue.</li>
 </ul>
+<p><strong>Merged PR train (dependency order; all required checks green before merge)</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Step</th>
+<th>PR</th>
+<th>Merge commit</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><a href="https://github.com/lpasquali/rune-ci/pull/37">rune-ci#37</a></td>
+<td><a href="https://github.com/lpasquali/rune-ci/commit/4f45a889234bed748d7a20bb09bf4e7615219e2d"><code>4f45a889</code></a></td>
+<td><code>docs-quality.yml</code>: PyMarkdown failures now fail the job (closes <a href="https://github.com/lpasquali/rune-ci/issues/38">rune-ci#38</a>).</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><a href="https://github.com/lpasquali/rune-docs/pull/264">rune-docs#264</a></td>
+<td><a href="https://github.com/lpasquali/rune-docs/commit/9ebee8e5b3c38b4bc920a8a8b642b3f018ca0903"><code>9ebee8e5</code></a></td>
+<td>Dead <code>scripts/*.py</code> removed; <code>scripts/codeql_python_anchor.py</code> added; <code>CURRENT_STATE</code> audit table; <strong>Closes #251</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><a href="https://github.com/lpasquali/rune/pull/258">rune#258</a></td>
+<td><a href="https://github.com/lpasquali/rune/commit/e823948d99ef3d4d759a6955513e1b1c6fb12e65"><code>e823948d</code></a></td>
+<td>No-op test removed; <code>pytest-asyncio</code> in <code>python-quality</code>; <code>_migrate_table</code> + test fixes; Postgres integration = <code>psycopg</code> connectivity only; optional <strong><code>[pg]</code></strong> extra.</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h3 id="2026-04-11-finops-telemetry-provisioning-refactor-and-codeql-security-fixes-rune251">2026-04-11 — FinOps telemetry, provisioning refactor, and CodeQL security fixes (rune#251)<a class="headerlink" href="#2026-04-11-finops-telemetry-provisioning-refactor-and-codeql-security-fixes-rune251" title="Permanent link">&para;</a></h3>
 <p><strong>rune</strong> <code>main</code> merged comprehensive PR <strong>#251</strong> (<code>feat/finops-and-provisioning-refactor</code>) with the following scope:</p>
