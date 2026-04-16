@@ -3,29 +3,31 @@
 ## Status
 
 **Current release status:** RUNE ships with **SQLite** as the supported runtime
-store today.
+store for local development and single-pod deployments.
 
-External PostgreSQL support is an accepted direction and parts of the storage
-refactor are already merged, but the Postgres adapter, runtime selection, Helm
-subchart, and migration CLI are **not all released yet**. This page therefore
-documents both:
+**Production deployments** (especially airgapped) require **external PostgreSQL**
+as a customer-managed prerequisite. Parts of the storage refactor are already
+merged, but the Postgres adapter, runtime selection, and migration CLI are
+**not all released yet**. This page therefore documents:
 
-- what is **supported now**
-- what is the **planned operational model** once the remaining work lands
+- what is **supported now** (SQLite for dev/lab)
+- what is the **planned production model** (external PostgreSQL)
+- deployment patterns for **production airgapped** environments
 
 Track implementation status in
 [ADR 0006](../architecture/adrs/0006-storage-abstraction-postgres.md).
 
 ## Decision Matrix
 
-| Deployment shape | Recommended store | Status today | Why |
+| Deployment shape | Recommended store | Status | Why |
 |---|---|---|---|
 | Local development | SQLite | Supported | Lowest friction, no extra service |
-| Single-pod Kubernetes | SQLite | Supported | Embedded persistence is sufficient |
-| Simple airgapped install | SQLite | Supported | Fewer moving parts and smaller bundle |
+| Single-pod Kubernetes (dev/lab) | SQLite | Supported | Embedded persistence is sufficient |
+| Lab airgapped (optional Postgres) | SQLite or in-cluster Postgres | Supported | Bundle includes Postgres image (opt-in with `--include-postgres`) |
+| **Production airgapped (RECOMMENDED)** | **External PostgreSQL** | **Planned (design ready)** | **Customer-managed prerequisite; CNPG operator or managed DB** |
 | Multi-pod `rune-api` deployment | PostgreSQL | Planned | Shared network database for multiple replicas |
-| Audit-heavy / compliance-focused production | PostgreSQL | Planned | Centralized persistence and cleaner separation from app pods |
-| HA / multi-AZ / PITR requirements | PostgreSQL + CNPG | Planned | SQLite is not the right HA substrate |
+| Compliance-focused production | PostgreSQL | Planned | Centralized persistence, audit trail, separation from app pods |
+| HA / multi-AZ / PITR requirements | PostgreSQL + CNPG | Planned | SQLite is not the right HA substrate; CNPG recommended |
 
 ## Current Supported Configuration
 
