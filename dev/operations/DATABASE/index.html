@@ -2805,14 +2805,15 @@
 <h1 id="database-operations">Database Operations<a class="headerlink" href="#database-operations" title="Permanent link">&para;</a></h1>
 <h2 id="status">Status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h2>
 <p><strong>Current release status:</strong> RUNE ships with <strong>SQLite</strong> as the supported runtime
-store today.</p>
-<p>External PostgreSQL support is an accepted direction and parts of the storage
-refactor are already merged, but the Postgres adapter, runtime selection, Helm
-subchart, and migration CLI are <strong>not all released yet</strong>. This page therefore
-documents both:</p>
+store for local development and single-pod deployments.</p>
+<p><strong>Production deployments</strong> (especially airgapped) require <strong>external PostgreSQL</strong>
+as a customer-managed prerequisite. Parts of the storage refactor are already
+merged, but the Postgres adapter, runtime selection, and migration CLI are
+<strong>not all released yet</strong>. This page therefore documents:</p>
 <ul>
-<li>what is <strong>supported now</strong></li>
-<li>what is the <strong>planned operational model</strong> once the remaining work lands</li>
+<li>what is <strong>supported now</strong> (SQLite for dev/lab)</li>
+<li>what is the <strong>planned production model</strong> (external PostgreSQL)</li>
+<li>deployment patterns for <strong>production airgapped</strong> environments</li>
 </ul>
 <p>Track implementation status in
 <a href="../../architecture/adrs/0006-storage-abstraction-postgres/">ADR 0006</a>.</p>
@@ -2822,7 +2823,7 @@ documents both:</p>
 <tr>
 <th>Deployment shape</th>
 <th>Recommended store</th>
-<th>Status today</th>
+<th>Status</th>
 <th>Why</th>
 </tr>
 </thead>
@@ -2834,16 +2835,22 @@ documents both:</p>
 <td>Lowest friction, no extra service</td>
 </tr>
 <tr>
-<td>Single-pod Kubernetes</td>
+<td>Single-pod Kubernetes (dev/lab)</td>
 <td>SQLite</td>
 <td>Supported</td>
 <td>Embedded persistence is sufficient</td>
 </tr>
 <tr>
-<td>Simple airgapped install</td>
-<td>SQLite</td>
+<td>Lab airgapped (optional Postgres)</td>
+<td>SQLite or in-cluster Postgres</td>
 <td>Supported</td>
-<td>Fewer moving parts and smaller bundle</td>
+<td>Bundle includes Postgres image (opt-in with <code>--include-postgres</code>)</td>
+</tr>
+<tr>
+<td><strong>Production airgapped (RECOMMENDED)</strong></td>
+<td><strong>External PostgreSQL</strong></td>
+<td><strong>Planned (design ready)</strong></td>
+<td><strong>Customer-managed prerequisite; CNPG operator or managed DB</strong></td>
 </tr>
 <tr>
 <td>Multi-pod <code>rune-api</code> deployment</td>
@@ -2852,16 +2859,16 @@ documents both:</p>
 <td>Shared network database for multiple replicas</td>
 </tr>
 <tr>
-<td>Audit-heavy / compliance-focused production</td>
+<td>Compliance-focused production</td>
 <td>PostgreSQL</td>
 <td>Planned</td>
-<td>Centralized persistence and cleaner separation from app pods</td>
+<td>Centralized persistence, audit trail, separation from app pods</td>
 </tr>
 <tr>
 <td>HA / multi-AZ / PITR requirements</td>
 <td>PostgreSQL + CNPG</td>
 <td>Planned</td>
-<td>SQLite is not the right HA substrate</td>
+<td>SQLite is not the right HA substrate; CNPG recommended</td>
 </tr>
 </tbody>
 </table>

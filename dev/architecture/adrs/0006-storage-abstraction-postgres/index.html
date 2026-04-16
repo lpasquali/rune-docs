@@ -2432,6 +2432,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#development-local-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development / Local Deployments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production-airgapped-deployments-tier-1-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production Airgapped Deployments (Tier 1 — Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-availability-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High-Availability PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2458,6 +2497,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Implementation Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#airgapped-deployment-model-epic-252" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Airgapped Deployment Model (Epic #252)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2587,6 +2643,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#development-local-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development / Local Deployments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production-airgapped-deployments-tier-1-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production Airgapped Deployments (Tier 1 — Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-availability-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High-Availability PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2613,6 +2708,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Implementation Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#airgapped-deployment-model-epic-252" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Airgapped Deployment Model (Epic #252)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2688,14 +2800,30 @@ the deployment story around it.</p>
 <li>Re-applying migrations is designed to be idempotent.</li>
 </ul>
 <h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h3>
+<h4 id="development-local-deployments">Development / Local Deployments<a class="headerlink" href="#development-local-deployments" title="Permanent link">&para;</a></h4>
 <ul>
-<li>The simple packaged Postgres path is a <strong>first-party Helm subchart</strong> in
-  <code>rune-charts</code>, wrapping the official <code>docker.io/library/postgres:17-alpine</code>
-  image.</li>
-<li>High-availability PostgreSQL is documented as <strong>BYO CloudNativePG</strong>, not a
-  bundled dependency.</li>
-<li>The airgapped bundle will include the approved Postgres image once the chart
-  and runtime support are ready.</li>
+<li>SQLite remains the default; no database provisioning needed.</li>
+<li>In-cluster Postgres (via optional <code>rune-charts/postgres</code> subchart) is
+  available for development and lab environments that need a managed database.</li>
+<li>The subchart wraps the official <code>docker.io/library/postgres:17-alpine</code> image.</li>
+</ul>
+<h4 id="production-airgapped-deployments-tier-1-recommended">Production Airgapped Deployments (Tier 1 — Recommended)<a class="headerlink" href="#production-airgapped-deployments-tier-1-recommended" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>PostgreSQL is a customer-managed prerequisite</strong>, not bundled.</li>
+<li>Customers provision PostgreSQL externally: CloudNativePG operator, AWS RDS,
+  Cloud SQL, or other managed services.</li>
+<li>RUNE configures the database via <code>RUNE_DB_URL</code> Secret.</li>
+<li>The OCI bundle ships RUNE suite images only; no embedded Postgres image.</li>
+<li>This model aligns with production airgapped practices: all external services
+  (database, storage, inference) are customer-operated prerequisites.</li>
+</ul>
+<h4 id="high-availability-postgresql">High-Availability PostgreSQL<a class="headerlink" href="#high-availability-postgresql" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>HA PostgreSQL is documented as BYO CloudNativePG</strong> or equivalent operator,
+  not a bundled dependency.</li>
+<li>CNPG (CloudNativePG) is the recommended Kubernetes-native option for HA.</li>
+<li>Managed services (AWS RDS Multi-AZ, Cloud SQL HA) are production-ready
+  alternatives when available in the deployment environment.</li>
 </ul>
 <h2 id="licensing-and-supply-chain-constraints">Licensing and Supply-Chain Constraints<a class="headerlink" href="#licensing-and-supply-chain-constraints" title="Permanent link">&para;</a></h2>
 <p>The database choice is constrained by licensing and by the project-wide
@@ -2752,7 +2880,7 @@ no-proprietary / no-fragile-supply-chain rules.</p>
 </tbody>
 </table>
 <h2 id="implementation-status">Implementation Status<a class="headerlink" href="#implementation-status" title="Permanent link">&para;</a></h2>
-<p>As of <strong>2026-04-09</strong>:</p>
+<p>As of <strong>2026-04-16</strong>:</p>
 <ul>
 <li>Done:</li>
 <li><code>rune#231</code> — <code>StoragePort</code> extraction and <code>SQLiteStorageAdapter</code></li>
@@ -2763,21 +2891,38 @@ no-proprietary / no-fragile-supply-chain rules.</p>
 <li><code>rune#235</code> — <code>rune db migrate-to-postgres</code></li>
 <li><code>rune#236</code> — Postgres integration test matrix</li>
 <li><code>rune-charts#71</code> — first-party Postgres subchart</li>
-<li><code>rune-airgapped#63</code> — bundle Postgres image</li>
+<li><code>rune-charts#82</code> — Helm airgapped production values (external services)</li>
+<li><code>rune-airgapped#72</code> — make Postgres opt-in in OCI bundle</li>
+<li><code>rune-airgapped#73</code> — prerequisites matrix (external DB, S3, inference)</li>
 <li><code>rune-docs#196</code> — end-user database operations guides</li>
+<li><code>rune-docs#253</code> — align DATABASE*.md with production airgap model (THIS ADR)</li>
 </ul>
-<p>This ADR intentionally lands before the final operations guides. The operator
-runbooks, connection-string reference, and HA procedures should only be written
-once the runtime config and Helm story exist in released code.</p>
+<h3 id="airgapped-deployment-model-epic-252">Airgapped Deployment Model (Epic #252)<a class="headerlink" href="#airgapped-deployment-model-epic-252" title="Permanent link">&para;</a></h3>
+<p>The production airgapped deployment model treats PostgreSQL, S3, and inference
+backends as <strong>customer-managed prerequisites</strong> (not bundled). This is reflected in:</p>
+<ul>
+<li><code>rune-airgapped#72</code>: OCI bundle ships RUNE-suite-only; <code>--include-postgres</code> is
+  opt-in for dev/lab.</li>
+<li><code>rune-airgapped#73</code>: Prerequisites matrix documents external DB, S3, inference
+  setup examples.</li>
+<li><code>rune-charts#82</code>: Production Helm values reference external services via Secrets.</li>
+<li>This ADR section <strong>Deployment</strong>: Clarifies production airgap uses external Postgres.</li>
+<li><code>rune-docs#196</code>: Database operations guides to document production path.</li>
+</ul>
 <h2 id="consequences">Consequences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Existing SQLite users keep a stable default path and do not need to migrate
-  immediately.</li>
-<li>The storage interface becomes the boundary for future persistence changes.</li>
-<li>The eventual Postgres rollout can be documented and tested without rewriting
-  application code again.</li>
-<li>Until <code>rune#234</code> lands, public docs must clearly state that external Postgres
-  support is a planned capability rather than a released one.</li>
+<li><strong>SQLite users</strong>: Remain on stable default path; no forced migration.</li>
+<li><strong>Development users</strong>: Optional in-cluster Postgres via Helm subchart.</li>
+<li><strong>Production airgapped users</strong>: PostgreSQL is a customer-managed prerequisite,
+  provisioned out-of-band. The OCI bundle ships RUNE-suite-only; all external
+  services (database, S3, inference) are customer-operated.</li>
+<li><strong>Storage interface</strong>: Becomes the boundary for future persistence changes.</li>
+<li><strong>HA users</strong>: CNPG operator or equivalent is the recommended Kubernetes-native
+  path for high-availability PostgreSQL.</li>
+<li><strong>Documentation</strong>: Must clearly distinguish between development (SQLite default,
+  optional in-cluster Postgres) and production (external Postgres, prerequisite).</li>
+<li><strong>Airgapped deployments</strong>: The bundle never bundles data-plane services;
+  external services are required prerequisites documented in deployment guides.</li>
 </ul>
 
 
