@@ -50,7 +50,7 @@ Cross-repo epic: [rune-docs#249](https://github.com/lpasquali/rune-docs/issues/2
 - Command: `/usr/bin/time -v python -m mkdocs build --strict` (Python **3.14.4** via pyenv, Ubuntu **6.8.0** kernel).
 - Peak RSS: **~53 MiB** (`Maximum resident set size`: 54528 kB). Well under the **512 MiB** ceiling.
 
-**rune** (local tree)
+**rune** ([#258](https://github.com/lpasquali/rune/pull/258) merged)
 
 - Removed **no-op** test `test_api_application_unsupported_kind` (body was only `pass`); behavior is already covered by `test_api_application_execute_kinds` and backend type-check tests in the same module.
 
@@ -58,6 +58,14 @@ Cross-repo epic: [rune-docs#249](https://github.com/lpasquali/rune-docs/issues/2
 
 - **rune-charts**: no `charts/**/tests` Helm unittest tree in-repo; quality gates use `helm-quality` + kind installs — nothing obvious to delete without a deeper pass.
 - **rune-operator / rune-ui / rune-audit / rune-airgapped**: no additional dead tests removed in this pass; track follow-up PRs per child issue.
+
+**Merged PR train (dependency order; all required checks green before merge)**
+
+| Step | PR | Merge commit | Notes |
+| ---: | --- | --- | --- |
+| 1 | [rune-ci#37](https://github.com/lpasquali/rune-ci/pull/37) | [`4f45a889`](https://github.com/lpasquali/rune-ci/commit/4f45a889234bed748d7a20bb09bf4e7615219e2d) | `docs-quality.yml`: PyMarkdown failures now fail the job (closes [rune-ci#38](https://github.com/lpasquali/rune-ci/issues/38)). |
+| 2 | [rune-docs#264](https://github.com/lpasquali/rune-docs/pull/264) | [`9ebee8e5`](https://github.com/lpasquali/rune-docs/commit/9ebee8e5b3c38b4bc920a8a8b642b3f018ca0903) | Dead `scripts/*.py` removed; `scripts/codeql_python_anchor.py` added; `CURRENT_STATE` audit table; **Closes #251**. |
+| 3 | [rune#258](https://github.com/lpasquali/rune/pull/258) | [`e823948d`](https://github.com/lpasquali/rune/commit/e823948d99ef3d4d759a6955513e1b1c6fb12e65) | No-op test removed; `pytest-asyncio` in `python-quality`; `_migrate_table` + test fixes; Postgres integration = `psycopg` connectivity only; optional **`[pg]`** extra. |
 
 ---
 
