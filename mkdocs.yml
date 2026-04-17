@@ -47,6 +47,8 @@ nav:
       - System Prompt: context/SYSTEM_PROMPT.md
       - Current State: context/CURRENT_STATE.md
       - Coding Standards: context/CODING_STANDARDS.md
+  - Project:
+      - Overview: project/index.md
   - Usage:
       - Quickstart: usage/QUICKSTART.md
       - Developer Guide: usage/DEVELOPER_GUIDE.md
