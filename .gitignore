@@ -10,3 +10,6 @@ sbom/
 
 # Claude Code per-project agent state
 .claude/
+
+# VS Code per-project state
+.vscode/
