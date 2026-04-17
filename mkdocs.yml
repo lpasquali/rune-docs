@@ -57,6 +57,14 @@ nav:
       - Advanced Pipelines: usage/ADVANCED_PIPELINES.md
       - Configuration: usage/CONFIGURATION.md
       - LLM Backend Reference: usage/OLLAMA_REFERENCE.md
+  - Agents:
+      - Overview: agents/index.md
+      - DriverTransport: agents/DRIVER_TRANSPORT.md
+      - AgentRunner: agents/AGENT_RUNNER.md
+      - Registry: agents/REGISTRY.md
+      - Transports: agents/TRANSPORTS.md
+      - Testing: agents/TESTING.md
+      - Example: agents/EXAMPLE.md
   - External projects (rune-audit):
       - Overview: external-projects/index.md
       - Quickstart: external-projects/quickstart.md
