@@ -469,6 +469,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-17-shared-controllers-test-scheme-rune-operator-113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-17 — Shared controllers test scheme (rune-operator #113)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-16-test-coverage-inventory-epic-249-partial-execution" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2801,6 +2812,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-17-shared-controllers-test-scheme-rune-operator-113" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-17 — Shared controllers test scheme (rune-operator #113)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-16-test-coverage-inventory-epic-249-partial-execution" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3095,7 +3117,7 @@
 <p>RUNE is currently in active pre-alpha development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is <strong>not yet production-ready</strong>.</p>
 <h2 id="freshness-policy">Freshness Policy<a class="headerlink" href="#freshness-policy" title="Permanent link">&para;</a></h2>
 <p>This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.</p>
-<p>Last updated: <strong>2026-04-16</strong> (audit: test/coverage epic <strong>#249</strong> / rune-docs <strong>#251</strong>).</p>
+<p>Last updated: <strong>2026-04-17</strong> (persist: rune-operator <strong>#113</strong> — shared controllers test scheme).</p>
 <h2 id="version-baseline">Version Baseline<a class="headerlink" href="#version-baseline" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -3152,6 +3174,15 @@
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-17-shared-controllers-test-scheme-rune-operator-113">2026-04-17 — Shared controllers test scheme (rune-operator <strong>#113</strong>)<a class="headerlink" href="#2026-04-17-shared-controllers-test-scheme-rune-operator-113" title="Permanent link">&para;</a></h3>
+<p>Follow-up to the closed audit <a href="https://github.com/lpasquali/rune-operator/issues/97">rune-operator#97</a> (epic <a href="https://github.com/lpasquali/rune-docs/issues/249">rune-docs#249</a>). Pure test refactor in <strong>rune-operator</strong>: introduce <code>controllersTestScheme(t)</code> in <code>controllers/test_scheme_test.go</code> — a <code>sync.Once</code>-backed helper that builds a <code>runtime.Scheme</code> with <code>benchv1alpha1</code> + <code>corev1</code> exactly once per test binary. Replaces <strong>11</strong> inline <code>runtime.NewScheme()+AddToScheme(...)</code> blocks across <code>estop_controller_test.go</code> (10) and <code>reconciler_and_http_test.go</code> (1).</p>
+<ul>
+<li><strong>Production code</strong>: none touched; no API / behavior change.</li>
+<li><strong>Coverage</strong>: unchanged vs. <code>main</code> (<code>controllers</code> <strong>98.9%</strong>, <code>api/v1alpha1</code> <strong>100%</strong>, <code>internal/metrics</code> <strong>100%</strong>, <code>internal/telemetry</code> <strong>100%</strong>, <code>rune-operator</code> root <strong>93.3%</strong>) — verified by running <code>go test ./... -coverprofile</code> on both <code>main</code> and the PR branch.</li>
+<li><strong>Evidence</strong>: <code>/usr/bin/time -v go test ./... -count=1 -race -coverprofile=cov.out</code> on branch — exit 0, wall clock <strong>2:23</strong>, peak RSS ~<strong>803 MiB</strong> (with <code>-race</code>); same profile as <code>main</code>. The 512 MiB target from the closed audit track is a separate concern.</li>
+<li><strong>Merge</strong>: <a href="https://github.com/lpasquali/rune-operator/pull/113">rune-operator#113</a> squashed as <code>dff04d4</code> — <code>Closes</code> rune-operator#112.</li>
+</ul>
+<hr />
 <h3 id="2026-04-16-test-coverage-inventory-epic-249-partial-execution">2026-04-16 — Test &amp; coverage inventory (epic <strong>#249</strong>) — partial execution<a class="headerlink" href="#2026-04-16-test-coverage-inventory-epic-249-partial-execution" title="Permanent link">&para;</a></h3>
 <p>Cross-repo epic: <a href="https://github.com/lpasquali/rune-docs/issues/249">rune-docs#249</a>. This pass delivers concrete removals where dead code was identified; other child issues need the same measure → classify → PR loop on their maintainers.</p>
 <p><strong>rune-docs #251 (this repo)</strong></p>
