@@ -57,15 +57,28 @@ nav:
       - Advanced Pipelines: usage/ADVANCED_PIPELINES.md
       - Configuration: usage/CONFIGURATION.md
       - LLM Backend Reference: usage/OLLAMA_REFERENCE.md
-  - External projects (rune-audit):
+  - External projects:
       - Overview: external-projects/index.md
-      - Quickstart: external-projects/quickstart.md
-      - Configuration: external-projects/configuration.md
-      - Inspector library: external-projects/inspector-library.md
-      - Custom inspectors: external-projects/custom-inspectors.md
-      - Requirement packs: external-projects/requirement-packs.md
-      - CI integration: external-projects/ci-integration.md
-      - Case study — RUNE: external-projects/case-study-rune.md
+      - rune-audit:
+          - Quickstart: external-projects/quickstart.md
+          - Configuration: external-projects/configuration.md
+          - Inspector library: external-projects/inspector-library.md
+          - Custom inspectors: external-projects/custom-inspectors.md
+          - Requirement packs: external-projects/requirement-packs.md
+          - CI integration: external-projects/ci-integration.md
+          - Case study — RUNE: external-projects/case-study-rune.md
+      - rune-operator:
+          - Overview: external-projects/rune-operator/overview.md
+          - Quickstart: external-projects/rune-operator/quickstart.md
+      - rune-ui:
+          - Overview: external-projects/rune-ui/overview.md
+          - Quickstart: external-projects/rune-ui/quickstart.md
+      - rune-airgapped:
+          - Overview: external-projects/rune-airgapped/overview.md
+          - Quickstart: external-projects/rune-airgapped/quickstart.md
+      - Driver SDK:
+          - Overview: external-projects/driver-sdk/overview.md
+          - Quickstart: external-projects/driver-sdk/quickstart.md
   - Delivery:
       - Pipelines: delivery/PIPELINES.md
       - Shared CI Workflows: delivery/CI_SHARED_WORKFLOWS.md
