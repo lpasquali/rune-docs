@@ -89,5 +89,5 @@ There is no online update path. To take a new release:
 ## Next
 
 - **[rune-airgapped repo](https://github.com/lpasquali/rune-airgapped)** for bundle layout detail.
-- **[Compliance matrix](../../compliance/MATRIX.md)** — air-gapped installs are the path for most regulated-industry scenarios.
-- **[SCENARIOS §Air-gapped](../../usage/SCENARIOS.md)** — decision row.
+- **[Compliance matrix](https://github.com/lpasquali/rune-docs/issues/282)** — air-gapped installs are the path for most regulated-industry scenarios.
+- **[SCENARIOS §Air-gapped](https://github.com/lpasquali/rune-docs/issues/278)** — decision row.

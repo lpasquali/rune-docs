@@ -66,4 +66,4 @@ Each scheduled run produces an `Idempotency-Key: <namespace>/<name>/<generation>
 
 - Full CRD reference: [rune-operator/api/v1alpha1/runebenchmark_types.go](https://github.com/lpasquali/rune-operator/blob/main/api/v1alpha1/runebenchmark_types.go).
 - Helm values surface: [rune-charts/charts/rune-operator/values.yaml](https://github.com/lpasquali/rune-charts/blob/main/charts/rune-operator/values.yaml).
-- Migration from older CRDs (`OllamaURL` → `BackendURL`): see [MIGRATION](../../usage/MIGRATION.md).
+- Migration from older CRDs (`OllamaURL` → `BackendURL`): see [MIGRATION](https://github.com/lpasquali/rune-docs/issues/283).

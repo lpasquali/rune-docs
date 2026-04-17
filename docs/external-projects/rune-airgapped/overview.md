@@ -5,7 +5,7 @@
 ## When to use standalone
 
 - **Defence, regulated manufacturing, TS/SCI** deployments where outbound internet is blocked by policy.
-- **Regulated on-prem** (aligning with the [compliance matrix](../../compliance/MATRIX.md)) where every artifact needs a signed SBOM and a Rekor-logged attestation.
+- **Regulated on-prem** (aligning with the [compliance matrix](https://github.com/lpasquali/rune-docs/issues/282)) where every artifact needs a signed SBOM and a Rekor-logged attestation.
 - **Edge / disconnected** fleets that periodically sync from an internal mirror rather than upstream.
 
 ## What you get
