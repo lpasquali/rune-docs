@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-16** (audit: test/coverage epic **#249** / rune-docs **#251**).
+Last updated: **2026-04-17** (persist: rune-operator **#113** — shared controllers test scheme).
 
  
 ## Version Baseline
@@ -31,6 +31,17 @@ Last updated: **2026-04-16** (audit: test/coverage epic **#249** / rune-docs **#
 
  
 ## Recent Changes
+
+### 2026-04-17 — Shared controllers test scheme (rune-operator **#113**)
+
+Follow-up to the closed audit [rune-operator#97](https://github.com/lpasquali/rune-operator/issues/97) (epic [rune-docs#249](https://github.com/lpasquali/rune-docs/issues/249)). Pure test refactor in **rune-operator**: introduce `controllersTestScheme(t)` in `controllers/test_scheme_test.go` — a `sync.Once`-backed helper that builds a `runtime.Scheme` with `benchv1alpha1` + `corev1` exactly once per test binary. Replaces **11** inline `runtime.NewScheme()+AddToScheme(...)` blocks across `estop_controller_test.go` (10) and `reconciler_and_http_test.go` (1).
+
+- **Production code**: none touched; no API / behavior change.
+- **Coverage**: unchanged vs. `main` (`controllers` **98.9%**, `api/v1alpha1` **100%**, `internal/metrics` **100%**, `internal/telemetry` **100%**, `rune-operator` root **93.3%**) — verified by running `go test ./... -coverprofile` on both `main` and the PR branch.
+- **Evidence**: `/usr/bin/time -v go test ./... -count=1 -race -coverprofile=cov.out` on branch — exit 0, wall clock **2:23**, peak RSS ~**803 MiB** (with `-race`); same profile as `main`. The 512 MiB target from the closed audit track is a separate concern.
+- **Merge**: [rune-operator#113](https://github.com/lpasquali/rune-operator/pull/113) squashed as `dff04d4` — `Closes` rune-operator#112.
+
+---
 
 ### 2026-04-16 — Test & coverage inventory (epic **#249**) — partial execution
 
