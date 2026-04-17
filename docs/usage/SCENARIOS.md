@@ -85,7 +85,7 @@ Which RUNE deployment do you need? Match your scenario to a row, then follow the
 
 **Who**: CI pipelines validating a commit's behavioural impact on benchmark scores.
 
-**Install**: runs inside the existing CI runner (GitHub Actions, GitLab, Jenkins). Uses the docker-compose path ephemerally via `scripts/e2e.sh --mode compose` — the one-command wrapper shipping under [rune-docs#271 Phase 1](https://github.com/lpasquali/rune-docs/issues/271) with the binding spec already in [E2E Testing](E2E_TESTING.md) (landing under PR [#272](https://github.com/lpasquali/rune-docs/pull/272)).
+**Install**: runs inside the existing CI runner (GitHub Actions, GitLab, Jenkins). Uses the docker-compose path ephemerally via `scripts/e2e.sh --mode compose` — the one-command wrapper shipping under [rune-docs#271 Phase 1](https://github.com/lpasquali/rune-docs/issues/271) with the binding spec landing under PR [#272](https://github.com/lpasquali/rune-docs/pull/272).
 
 **Config**:
 
