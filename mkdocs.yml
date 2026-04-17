@@ -86,6 +86,9 @@ nav:
       - Runbooks: operations/RUNBOOKS.md
       - Rollback Procedures: operations/ROLLBACK_PROCEDURES.md
       - Vault Integration: operations/VAULT.md
+  - Compliance:
+      - Overview: compliance/index.md
+      - Matrix: compliance/MATRIX.md
   - Security:
       - Security Development Lifecycle: security/SDL.md
       - Risk Assessment Methodology: security/RISK_ASSESSMENT.md
