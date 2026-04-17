@@ -32,6 +32,62 @@ Last updated: **2026-04-17** (persist: rune-operator **#113** — shared control
  
 ## Recent Changes
 
+### 2026-04-17 — Pre-PR E2E verification gap: Phase 0 spec (rune-docs **#271**)
+
+Level-3 documentation PR that closes the spec half of the cross-repo epic
+[rune-docs#271](https://github.com/lpasquali/rune-docs/issues/271). Diagnosis:
+PRs ship without Level-1 evidence because (a) no one-command entrypoint
+exists — every Level-1 PR re-types compose/kind/CLI by hand, and cold
+`docker compose up --build` exceeds the 2-minute agent bash timeout with no
+background-run recipe; (b) no evidence layout is defined (`docs/evidence/`
+holds a single orphan screenshot); (c) `rune-ci/.github/workflows/pr-compliance.yml`
+validates section presence, not content; (d) `rune-ui` has no browser tests,
+so the `HUMAN INTERVENTION REQUIRED` escape is reached by default.
+
+**Phase 0 deliverables** (this branch):
+
+- **New**: [`docs/usage/E2E_TESTING.md`](../usage/E2E_TESTING.md) — binding
+  contract for the one-command wrapper, evidence bundle layout (with the
+  `<!-- e2e-artifacts/summary.md -->` marker), agent-compatible background
+  execution recipe, and triage section.
+- **Edited**: [SYSTEM_PROMPT.md §DoD / §Evidence / §SOP Step 7](SYSTEM_PROMPT.md)
+  — point at the binding spec and narrow the Draft-PR + HUMAN INTERVENTION
+  clause to UX review of already-captured screenshots only (no more escape
+  clause for skipping capture).
+- **Edited**: [DEVELOPER_GUIDE.md Validation Steps](../usage/DEVELOPER_GUIDE.md#definition-of-done-validation-steps)
+  — DoD table preserved; Step 1/2/3 command blocks collapsed to 2-line
+  summaries that point at `E2E_TESTING.md`. Steps 4 (Breaking-change audit)
+  and 5 (Dependency CVE audit) unchanged.
+- **Edited**: [WORKSTATION.md](../operations/WORKSTATION.md) — added
+  **Run this before Step 7 of the SOP** preflight grouping, plus an
+  **Optional: combined-venv dependency check** section pointing at the
+  Phase-1 helper `rune/scripts/check-cross-repo-deps.sh`. Per-repo venvs
+  remain the default (Python floors disagree: `rune >=3.11` vs
+  `rune-ui >=3.12`).
+
+**Phase 1 / Phase 2** (out of scope for this branch, tracked as follow-up
+issues under #271):
+
+- Phase 1: per-repo `scripts/e2e.sh` wrappers (`rune`, `rune-ui`,
+  `rune-charts`; thin delegating wrappers in `rune-operator` /
+  `rune-audit` / `rune-airgapped`). `rune-ui` gains its first browser
+  tests via `pytest-playwright`; `rune-charts` gains a `kind.yaml`
+  matching CI's `kind v0.27.0`.
+- Phase 2: `rune-ci/.github/workflows/pr-compliance.yml` content
+  validator. Each ticked `## Acceptance Criteria Evidence` bullet must
+  carry `[evidence: ...]`, `[screenshot: ...]`, `[log: ...]`,
+  `[link: ...]`, or `[skip: <≥40-char reason>]`. Level-1 PRs must
+  contain the `<!-- e2e-artifacts/summary.md -->` marker with non-empty
+  content. One-week `warn-only` rollout.
+
+**Risk**: Phase 0 lands alone and creates a spec without implementations.
+Mitigation: the spec opens with a **Spec v0 — scripts ship in #271 Phase 1**
+banner; SOP Step 7 text references the spec, not a (not-yet-shipped) wrapper;
+`DEVELOPER_GUIDE.md` step summaries still tell an agent what each mode does
+between Phase 0 and Phase 1.
+
+---
+
 ### 2026-04-17 — Shared controllers test scheme (rune-operator **#113**)
 
 Follow-up to the closed audit [rune-operator#97](https://github.com/lpasquali/rune-operator/issues/97) (epic [rune-docs#249](https://github.com/lpasquali/rune-docs/issues/249)). Pure test refactor in **rune-operator**: introduce `controllersTestScheme(t)` in `controllers/test_scheme_test.go` — a `sync.Once`-backed helper that builds a `runtime.Scheme` with `benchv1alpha1` + `corev1` exactly once per test binary. Replaces **11** inline `runtime.NewScheme()+AddToScheme(...)` blocks across `estop_controller_test.go` (10) and `reconciler_and_http_test.go` (1).

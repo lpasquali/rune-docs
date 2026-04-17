@@ -207,78 +207,32 @@ The validation scope is **proportional to the change**. See [SYSTEM_PROMPT.md �
 | **Level 2 — Test Infra** | Test config, CI workflows, coverage settings, linter configs | Full test suite + verify coverage not degraded + check side effects |
 | **Level 3 — Docs** | Markdown, MkDocs config, diagrams in `rune-docs` | `mkdocs build --strict` + peer review |
 
-When in doubt, use Level 1. Below are the concrete commands for Level 1 validation.
+When in doubt, use Level 1. The three deployment modes (Step 1, Step 2, Step 3)
+are covered by the **[E2E Testing binding contract](E2E_TESTING.md)** —
+run `scripts/e2e.sh --mode <compose|kind|cli|all>` per that spec and paste the
+generated `e2e-artifacts/summary.md` into the PR body. The paragraphs below
+summarize each mode; [E2E_TESTING.md](E2E_TESTING.md) is the authoritative
+source for commands, evidence layout, and agent-compatible background
+execution.
 
 ### Step 1: Standalone CLI Mode
 
-```bash
-cd ~/Devel/rune
-. .venv/bin/activate
-
-export RUNE_BACKEND=local
-export RUNE_BACKEND_URL=http://localhost:11434
-
-# Verify the CLI starts and responds
-python -m rune --help
-
-# Run a benchmark (adjust model/question to exercise your change)
-python -m rune run-benchmark \
-  --model llama3.1:8b \
-  --question "Why is the cluster unhealthy?"
-```
+`python -m rune --help` + one `run-benchmark` against a local backend. Run via
+`scripts/e2e.sh --mode cli`. Captures stdout + exit code under
+`e2e-artifacts/cli/`. See [E2E_TESTING.md §Evidence bundle layout](E2E_TESTING.md#evidence-bundle-layout).
 
 ### Step 2: Docker Compose Mode
 
-The full local stack is defined in `~/Devel/rune/docker-compose.yml`.
-
-```bash
-cd ~/Devel/rune
-
-# Build and start the stack
-docker compose up -d --build
-
-# Services:
-#   rune-api    → http://localhost:8080
-#   rune-ui     → http://localhost:3000
-#   rune-docs   → http://localhost:8000
-#   ollama      → http://localhost:11434
-#   seaweedfs   → http://localhost:8333 (S3)
-
-# Verify health
-curl -s http://localhost:8080/healthz
-curl -s http://localhost:3000/healthz
-
-# Exercise your change through the API or UI
-
-# Tear down
-docker compose down -v
-```
+Full five-service stack from `~/Devel/rune/docker-compose.yml` (rune-api,
+rune-ui, rune-docs, ollama, seaweedfs). Run via `scripts/e2e.sh --mode
+compose`. Captures per-service logs and `/healthz` probe results under
+`e2e-artifacts/compose/`.
 
 ### Step 3: Kind (Kubernetes) Mode
 
-```bash
-cd ~/Devel/rune-charts
-
-# Create a Kind cluster
-kind create cluster --name rune-test
-
-# Install the charts
-kubectl create namespace rune-test
-helm install rune ./charts/rune --namespace rune-test --wait --timeout=2m
-helm install rune-operator ./charts/rune-operator --namespace rune-test --wait --timeout=2m
-
-# Verify pods are running
-kubectl -n rune-test get pods
-
-# Port-forward and test
-kubectl -n rune-test port-forward svc/rune-api 8080:8080 &
-curl -s http://localhost:8080/healthz
-
-# Exercise your change
-
-# Clean up
-kind delete cluster --name rune-test
-```
+`kind` single-node cluster + `helm install rune` + `helm install
+rune-operator` in namespace `rune-test`. Run via `scripts/e2e.sh --mode kind`.
+Captures `kubectl events`, `describe`, and pod logs under `e2e-artifacts/kind/`.
 
 ### Step 4: Breaking Change Audit
 

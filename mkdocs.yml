@@ -50,6 +50,7 @@ nav:
   - Usage:
       - Quickstart: usage/QUICKSTART.md
       - Developer Guide: usage/DEVELOPER_GUIDE.md
+      - E2E Testing: usage/E2E_TESTING.md
       - Guide: usage/GUIDE.md
       - Pricing & Access Tiers: usage/PRICING.md
       - Interfaces: usage/INTERFACES.md
