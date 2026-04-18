@@ -194,9 +194,13 @@ will be reassessed from 15 (High) to an expected 4 (Low).
 
 ## 9. References
 
-- SLSA v1.0 -- Supply-chain Levels for Software Artifacts
-- Sigstore documentation: <https://docs.sigstore.dev/>
-- cosign documentation: <https://docs.sigstore.dev/cosign/overview/>
+- [SLSA v1.0](https://slsa.dev/spec/v1.0/) -- Supply-chain Levels for Software Artifacts
+- [SLSA Provenance v1](https://slsa.dev/spec/v1.0/provenance) -- Attestation format
+- [Sigstore documentation](https://docs.sigstore.dev/)
+- [cosign](https://docs.sigstore.dev/cosign/overview/)
+- [Rekor](https://docs.sigstore.dev/logging/overview/) -- Transparency log
+- [SPDX](https://spdx.dev/) -- SBOM format
+- [External Links Catalog](../reference/EXTERNAL_LINKS.md) -- Complete list of standards and tools
 - [SDL.md](SDL.md) -- Security Development Lifecycle
 - [RISK_REGISTER.md](RISK_REGISTER.md) -- Risk R-005
 - [RISK_ASSESSMENT.md](RISK_ASSESSMENT.md) -- Threat modeling methodology
