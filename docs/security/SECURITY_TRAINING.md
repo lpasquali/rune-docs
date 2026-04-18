@@ -1,6 +1,6 @@
 # Security Training and Competency Records
 
-IEC 62443-4-1 SM-3 requires that all personnel involved in the secure development lifecycle have documented security training and competency verification.
+[IEC 62443-4-1](https://webstore.iec.ch/publication/33615) SM-3 requires that all personnel involved in the secure development lifecycle have documented security training and competency verification. For the full list of standards cited in this document see the [External Links Catalog](../reference/EXTERNAL_LINKS.md).
 
 ## Training Requirements
 
@@ -8,10 +8,10 @@ IEC 62443-4-1 SM-3 requires that all personnel involved in the secure developmen
 
 | Topic | Frequency | Verification |
 |---|---|---|
-| OWASP Top 10 (Web) | Annual | Quiz or certification |
+| [OWASP Top 10](https://owasp.org/www-project-top-ten/) (Web) | Annual | Quiz or certification |
 | Secure coding practices (Python, Go) | Annual | Code review participation |
-| Supply chain security (SLSA, SBOM, VEX) | Annual | Tooling proficiency demo |
-| IEC 62443 awareness | At onboarding + annual | Self-assessment |
+| Supply chain security ([SLSA](https://slsa.dev/spec/v1.0/), [SPDX](https://spdx.dev/) SBOM, VEX) | Annual | Tooling proficiency demo |
+| [IEC 62443](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards) awareness | At onboarding + annual | Self-assessment |
 | Incident response procedures | Annual | Tabletop exercise participation |
 
 ### Role-Specific Training

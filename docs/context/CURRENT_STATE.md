@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-17** (persist: rune-operator **#113** — shared controllers test scheme).
+Last updated: **2026-04-18** (persist: external-links catalog + cross-repo README hyperlinks, 9 PRs — see entry below).
 
  
 ## Version Baseline
@@ -31,6 +31,69 @@ Last updated: **2026-04-17** (persist: rune-operator **#113** — shared control
 
  
 ## Recent Changes
+
+### 2026-04-18 — External documentation links catalog + cross-repo README hyperlinks (9 PRs)
+
+Addresses the ecosystem-wide gap that every compliance claim (IEC 62443-4-1 ML4, SLSA Level 3) and every referenced tool (bandit, ruff, mypy, pytest, pip-audit, govulncheck, gitleaks, trivy, grype, syft, cosign, Rekor, Ollama, HolmesGPT, LangGraph, Helm, kind, CNPG, Crossplane, Vault, MkDocs, etc.) in rune-docs and the 7 repo READMEs was stated as bare text without a hyperlink to its official spec or docs. Humans and agents both lost the one-click jump to authoritative upstream URLs.
+
+**Canonical catalog** ([rune-docs#306](https://github.com/lpasquali/rune-docs/issues/306) / [PR #307](https://github.com/lpasquali/rune-docs/pull/307), merge [`a0665db`](https://github.com/lpasquali/rune-docs/commit/a0665db)):
+
+- New `docs/reference/EXTERNAL_LINKS.md` with 5 grouped tables (Compliance Standards & Specs, Security & Compliance Tools, Dev Tools, Platform & Infrastructure, RUNE Repositories). Each row carries the URL as bare text *and* as a hyperlink so grep-based extraction is trivial for agents.
+- New `docs/reference/index.md` landing page; `mkdocs.yml` gains a top-level **Reference** nav section.
+- `SYSTEM_PROMPT.md` "Read first" list grows to item 7 — agents are directed to the catalog as the canonical URL source when writing or reviewing compliance docs.
+- Inline hyperlinks added in the References sections of `security/SDL.md`, `security/INCIDENT_RESPONSE.md`, `security/PENTEST.md`, `security/RISK_ASSESSMENT.md`, `security/RISK_REGISTER.md`, `security/FUZZ_TESTING.md`, `security/IMAGE_SIGNING.md`, `security/SECURITY_TRAINING.md`, `delivery/AUDIT_AGENTS.md`, and `usage/OLLAMA_REFERENCE.md`.
+- Orphan-page fixes discovered in the same pass: nav entry added for `architecture/QUANTITATIVE_SECURITY_REQUIREMENTS.md` and for `architecture/adrs/0007-crossplane-infrastructure-provisioning.md`.
+
+**Cross-repo README sweep** — same URL set applied in-place in each repo's README:
+
+| Repo | PR | Merge | Scope |
+|---|---|---|---|
+| rune | [#269](https://github.com/lpasquali/rune/pull/269) | merged 2026-04-18 | IEC 62443-4-1 + SLSA v1.0 hyperlinked in Compliance section |
+| rune-operator | [#117](https://github.com/lpasquali/rune-operator/pull/117) | merged 2026-04-18 | Same two |
+| rune-ui | [#141](https://github.com/lpasquali/rune-ui/pull/141) | merged 2026-04-18 | Same two |
+| rune-charts | [#105](https://github.com/lpasquali/rune-charts/pull/105) | merged 2026-04-18 | IEC 62443-4-1, SLSA v1.0, Helm |
+| rune-airgapped | [#91](https://github.com/lpasquali/rune-airgapped/pull/91) | merged 2026-04-18 | IEC, SLSA, PostgreSQL, CloudNativePG |
+| rune-audit | [#104](https://github.com/lpasquali/rune-audit/pull/104) | merged 2026-04-18 | IEC, SLSA v1.0, SLSA Provenance, OpenVEX, CycloneDX, SPDX, pip-audit, grype |
+| rune-ci | [#45](https://github.com/lpasquali/rune-ci/pull/45) | merged 2026-04-18 | New "Tools & standards referenced" section covering 20+ tools/standards: gitleaks, Syft, Grype, Trivy, Bandit, gosec, CodeQL, pip-licenses, go-licenses, ruff, mypy, pytest, gofmt, go vet, MkDocs, PyMarkdown, actionlint, yamllint, shellcheck, Helm, IEC 62443-4-1, SLSA v1.0, Semantic Versioning |
+
+**Housekeeping PR** — [rune-docs#310 / PR #312](https://github.com/lpasquali/rune-docs/pull/312) merge [`4fe4d99`](https://github.com/lpasquali/rune-docs/commit/4fe4d99): `.gitignore` now covers `.vscode/` (matches the existing `.claude/` pattern).
+
+**Evidence.** All 9 PRs passed `mkdocs build --strict` + `pymarkdown scan README.md docs` (where applicable), plus their repos' standard gates (CodeQL, CodeQL/Python, PR-Body-Compliance, Merge-Gate, ML4-Automated-Approval, SecretScanning, GitGuardian). Every external URL used in the catalog and inline hyperlinks resolves to 2xx/3xx. Nothing in any runtime code path, API schema, or deployment manifest was changed — every PR is additive docs-only.
+
+**Follow-ups.** None required; the catalog is now the single source of URLs for all future citations. New external dependencies should grow the catalog first, then be cited inline.
+
+### 2026-04-18 — Eliminate nginx from RUNE containers; ingress-agnostic charts (epic **#295**)
+
+Cross-repo epic [rune-docs#295](https://github.com/lpasquali/rune-docs/issues/295). Removed `nginx` from every RUNE container image, standardised on **Caddy** (`caddy:2-alpine`) as the single container-level HTTP tool, codified ingress-agnosticism as chart policy, and landed a CI regression lint. Zero `nginx` remains in RUNE Dockerfiles (outside the k8sgpt test fixture). The three libxml2-in-nginx VEX entries are gone — the new base image does not include libxml2 at all.
+
+| Child | Repo / PR | Merge | Notes |
+|---|---|---|---|
+| ADR 0008 | [rune-docs#300](https://github.com/lpasquali/rune-docs/pull/300) | [`a53d04a`](https://github.com/lpasquali/rune-docs/commit/a53d04a) | Decision record: single container-level HTTP tool (Caddy) + ingress-agnostic chart policy. Seven-rule policy enforced by #41. |
+| rune-docs Dockerfile | [rune-docs#301](https://github.com/lpasquali/rune-docs/pull/301) | [`744a353`](https://github.com/lpasquali/rune-docs/commit/744a353) | `FROM nginx:1.27.4-alpine` → `FROM caddy:2-alpine`; new `Caddyfile` with static-site security headers (X-Content-Type-Options / Referrer-Policy / X-Frame-Options / Permissions-Policy, `Server:` suppressed); `admin off` + `auto_https off` since cluster Service/Ingress terminate TLS. **Deleted** CVE-2024-56171, CVE-2025-49794, CVE-2025-49796 from `.vex/permanent.openvex.json` (libxml2 absent from caddy:2-alpine; verified via `apk list --installed`). Image 94.6 MB vs 86 MB previously (+10%, acceptance boundary). |
+| rune-charts values | [rune-charts#100](https://github.com/lpasquali/rune-charts/pull/100) | [`65495c5`](https://github.com/lpasquali/rune-charts/commit/65495c5) | Removed nginx-leaning comments in `values.yaml` and `values-airgapped-prod.yaml`; documented `ingress.className: ""` = cluster's default IngressClass; example list includes `traefik`, `envoy`, `cilium`, `istio`, `nginx` — no one controller privileged. No template changes. |
+| rune-charts Gateway API | [rune-charts#101](https://github.com/lpasquali/rune-charts/pull/101) | [`8b1c3e3`](https://github.com/lpasquali/rune-charts/commit/8b1c3e3) | Opt-in `gatewayApi.enabled: false` block + new `templates/httproute.yaml` gated on the flag. Chart installs cleanly on clusters without Gateway API CRDs (no reference to `gateway.networking.k8s.io` when disabled). Helm templated successfully across four scenarios incl. combined `ingress.enabled` + `gatewayApi.enabled`. |
+| rune-airgapped bundle | [rune-airgapped#87](https://github.com/lpasquali/rune-airgapped/pull/87) | [`a94036b`](https://github.com/lpasquali/rune-airgapped/commit/a94036b) | `INFRA_IMAGES`: `docker.io/library/nginx:1.27.4-alpine` → `docker.io/library/caddy:2-alpine`; bundle tree `images/nginx/` → `images/caddy/` in `architecture.md`, `deployment-guide.md`, `crossplane.md`. 21 build-bundle unit tests pass. |
+| rune-ci regression lint | [rune-ci#42](https://github.com/lpasquali/rune-ci/pull/42) | [`144ef85`](https://github.com/lpasquali/rune-ci/commit/144ef85) | New `actions/nginx-ingress-guard` composite + `.github/workflows/nginx-ingress-guard.yml` (`workflow_call`). Four rules: `FROM nginx`, `nginx.ingress.kubernetes.io/*`, `ingress-nginx` Helm dep, hardcoded `kubernetes.io/ingress.class: nginx`. Pragma `# allow-nginx: <reason>` and path-based exemptions supported. 5/5 fixture-driven unit tests pass. Smoke-verified against all 8 RUNE repos. Consumer wiring is a follow-up. |
+
+**Evidence summary.** `apk list --installed` inside `rune-docs:caddy` reports no `libxml2`, `libxslt`, `pcre`, or `openssl` — the entire libxml2-in-nginx VEX class retires. `helm template` with `gatewayApi.enabled=false` (default) emits zero `HTTPRoute` resources, preserving install safety on clusters without Gateway API CRDs. The `nginx-ingress-guard` action, run across all 8 RUNE repos, passes with no exemptions on 7 of them; rune-ci passes when its own fixture directories are added to `extra-exempt-paths`.
+
+**Follow-ups.** Wiring the regression lint into each repo's `quality-gates.yml` is a separate per-repo PR that can ride the normal `rune-ci@<sha>` bump cadence. No time pressure — the tree is clean and the action is ready.
+
+**Guard rollout (same day).** All 7 RUNE consumer repos now enforce the guard via `RuneGate/Infra/NginxIngressGuard` on every PR. Each rollout PR bumps rune-ci pins from `9f939b2c` → `144ef855` (guard PR is the only delta) and wires the `guard` job with `merge-gate-excludes` matching the existing per-kind convention.
+
+| Repo | PR | Merge |
+|---|---|---|
+| rune-docs (pilot) | [rune-docs#313](https://github.com/lpasquali/rune-docs/pull/313) | [`1c7480d`](https://github.com/lpasquali/rune-docs/commit/1c7480d) |
+| rune-charts | [rune-charts#103](https://github.com/lpasquali/rune-charts/pull/103) | [`147abc8`](https://github.com/lpasquali/rune-charts/commit/147abc8) |
+| rune-airgapped | [rune-airgapped#89](https://github.com/lpasquali/rune-airgapped/pull/89) | [`4e2fec1`](https://github.com/lpasquali/rune-airgapped/commit/4e2fec1) |
+| rune-operator | [rune-operator#115](https://github.com/lpasquali/rune-operator/pull/115) | [`fbc8c03`](https://github.com/lpasquali/rune-operator/commit/fbc8c03) |
+| rune-ui | [rune-ui#139](https://github.com/lpasquali/rune-ui/pull/139) | [`fcfbdb6`](https://github.com/lpasquali/rune-ui/commit/fcfbdb6) |
+| rune | [rune#267](https://github.com/lpasquali/rune/pull/267) | [`42350b7`](https://github.com/lpasquali/rune/commit/42350b7) |
+| rune-audit | [rune-audit#102](https://github.com/lpasquali/rune-audit/pull/102) | [`c5ed779`](https://github.com/lpasquali/rune-audit/commit/c5ed779) |
+
+`rune-ci` now dogfoods the guard too ([rune-ci#44](https://github.com/lpasquali/rune-ci/pull/44) merged), with `extra-exempt-paths` set to `actions/nginx-ingress-guard` and `tests/nginx-ingress-guard` (the fixture and test directories that intentionally contain the forbidden literals). `bash tests/nginx-ingress-guard/run.sh` also runs in rune-ci's integration suite. **All 8 RUNE repos** (rune, rune-operator, rune-ui, rune-charts, rune-docs, rune-airgapped, rune-audit, rune-ci) now have `RuneGate/Infra/NginxIngressGuard` enforced on every PR.
+
+---
 
 ### 2026-04-17 — Shared controllers test scheme (rune-operator **#113**)
 

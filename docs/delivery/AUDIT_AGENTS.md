@@ -17,7 +17,7 @@ Runs a comprehensive OSS licensing and legal compliance audit across all 7 repos
 - No-bundling policy enforcement across all docs and Dockerfiles
 - Patent clause implications (Apache-2.0 Section 3)
 - Helm Chart.yaml and pyproject.toml license metadata
-- SPDX identifier compliance
+- [SPDX](https://spdx.dev/) identifier compliance (see [SPDX License List](https://spdx.org/licenses/))
 - Export control considerations for cryptographic components
 
 **What to read:** All LICENSE and NOTICE files, dependency manifests (pyproject.toml, go.mod, requirements.txt), chains.csv Ecosystem column, CI workflows (license gates), VEX files, GOLDEN_IMAGE.md, all Dockerfiles, SECURITY.md, CODING_STANDARDS.md (no-bundling policy).
@@ -42,7 +42,7 @@ Runs a comprehensive OSS licensing and legal compliance audit across all 7 repos
 Triggered when a dependency is added or bumped. Focused on a single package and its transitive tree.
 
 **Scope:**
-- Run `pip-licenses` or `go-licenses` for the specific package and its transitive dependencies
+- Run [`pip-licenses`](https://pypi.org/project/pip-licenses/) or [`go-licenses`](https://github.com/google/go-licenses) for the specific package and its transitive dependencies
 - Check each transitive dep against the blocked license list (GPL-2.0, GPL-3.0, AGPL-3.0 and their -or-later variants)
 - Check for LGPL (warning tier — requires careful handling in Python packaging)
 - Verify the package is declared in the appropriate manifest (not just installed in Dockerfile)
@@ -110,7 +110,7 @@ Runs a comprehensive cybersecurity compliance audit against IEC 62443-4-1 ML4 an
 Triggered alongside `legal check:dep` when a dependency changes.
 
 **Scope:**
-- Run `pip-audit` or `govulncheck` against the updated dependency set
+- Run [`pip-audit`](https://pypi.org/project/pip-audit/) or [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) against the updated dependency set
 - Check if the new/bumped package introduces any known CVE
 - Check if the new version drops support for any security fix present in the old version
 - Verify the dependency is pinned appropriately (not floating on `>=` for security-critical packages)
@@ -125,7 +125,7 @@ Triggered when API endpoints, auth mechanisms, Helm values, or CRD schemas chang
 - Review authentication changes: are tokens still hashed? Is auth bypass (`RUNE_API_AUTH_DISABLED`) confined to dev mode?
 - Review authorization changes: is tenant scoping preserved? Is RBAC for HolmesGPT still read-only?
 - Review schema changes: are new fields additive (backward compatible) or breaking?
-- Check for OWASP API Top 10 risks in the change (injection, broken auth, excessive data exposure)
+- Check for [OWASP API Security Top 10](https://owasp.org/www-project-api-security/) risks in the change (injection, broken auth, excessive data exposure)
 
 **Report:** Findings per OWASP/IEC reference with severity.
 
@@ -154,3 +154,8 @@ Triggered when VEX statements are added or modified.
 - Cross-reference CVSS scores against the project's threshold policy
 
 **Report:** Per-statement assessment — DEFENSIBLE or NEEDS REVISION with specific technical gap.
+
+ 
+## References
+
+- [External Links Catalog](../reference/EXTERNAL_LINKS.md) — full list of tools ([Trivy](https://trivy.dev/), [Grype](https://github.com/anchore/grype), [Syft](https://github.com/anchore/syft), [Bandit](https://bandit.readthedocs.io/), [gosec](https://github.com/securego/gosec), [gitleaks](https://github.com/gitleaks/gitleaks)) and standards ([OWASP Top 10](https://owasp.org/www-project-top-ten/), [SPDX](https://spdx.dev/), [SLSA](https://slsa.dev/spec/v1.0/), [IEC 62443-4-1](https://webstore.iec.ch/publication/33615)) referenced in the checks above.
