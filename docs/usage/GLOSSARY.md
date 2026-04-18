@@ -100,7 +100,7 @@ Supply-chain Levels for Software Artifacts. RUNE targets **L3-style provenance**
 
 ## Tier
 
-Classification axis for agents by access and licensing: **Tier 1** (OSS, fully inspectable, measured), **Tier 2** (freemium / partial API, best-effort), **Tier 3** (closed SaaS, protocol-only, excluded from coverage). See [Agent Access Tiers](PRICING.md) (file rename to `TIERS.md` tracked separately).
+Classification axis for agents by access and licensing: **Tier 1** (OSS, fully inspectable, measured), **Tier 2** (freemium / partial API, best-effort), **Tier 3** (closed SaaS, protocol-only, excluded from coverage). See [Agent Access Tiers](TIERS.md) (file rename to `TIERS.md` tracked separately).
 
 ## Transport
 

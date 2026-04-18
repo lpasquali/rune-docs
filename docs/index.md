@@ -65,7 +65,7 @@ How to interact with and configure RUNE.
 - **[Quickstart](usage/QUICKSTART.md)** — getting started locally.
 - **[Developer Guide](usage/DEVELOPER_GUIDE.md)** — repos, env, build/test/lint, DoD validation.
 - **[Guide](usage/GUIDE.md)** — end-to-end walkthrough.
-- **[Pricing & Access Tiers](usage/PRICING.md)** — tier 1/2/3 cost implications.
+- **[Agent Access Tiers](usage/TIERS.md)** — tier 1/2/3 access and cost implications.
 - **[Interfaces](usage/INTERFACES.md)** — CLI commands and API endpoints.
 - **[API Specification](usage/API_SPEC.md)** — REST API reference.
 - **[Advanced Pipelines](usage/ADVANCED_PIPELINES.md)** — chain DAG + audit artifact views.
