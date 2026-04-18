@@ -3276,6 +3276,54 @@
 </table>
 <p><strong>Evidence summary.</strong> <code>apk list --installed</code> inside <code>rune-docs:caddy</code> reports no <code>libxml2</code>, <code>libxslt</code>, <code>pcre</code>, or <code>openssl</code> — the entire libxml2-in-nginx VEX class retires. <code>helm template</code> with <code>gatewayApi.enabled=false</code> (default) emits zero <code>HTTPRoute</code> resources, preserving install safety on clusters without Gateway API CRDs. The <code>nginx-ingress-guard</code> action, run across all 8 RUNE repos, passes with no exemptions on 7 of them; rune-ci passes when its own fixture directories are added to <code>extra-exempt-paths</code>.</p>
 <p><strong>Follow-ups.</strong> Wiring the regression lint into each repo's <code>quality-gates.yml</code> is a separate per-repo PR that can ride the normal <code>rune-ci@&lt;sha&gt;</code> bump cadence. No time pressure — the tree is clean and the action is ready.</p>
+<p><strong>Guard rollout (same day).</strong> All 7 RUNE consumer repos now enforce the guard via <code>RuneGate/Infra/NginxIngressGuard</code> on every PR. Each rollout PR bumps rune-ci pins from <code>9f939b2c</code> → <code>144ef855</code> (guard PR is the only delta) and wires the <code>guard</code> job with <code>merge-gate-excludes</code> matching the existing per-kind convention.</p>
+<table>
+<thead>
+<tr>
+<th>Repo</th>
+<th>PR</th>
+<th>Merge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rune-docs (pilot)</td>
+<td><a href="https://github.com/lpasquali/rune-docs/pull/313">rune-docs#313</a></td>
+<td><a href="https://github.com/lpasquali/rune-docs/commit/1c7480d"><code>1c7480d</code></a></td>
+</tr>
+<tr>
+<td>rune-charts</td>
+<td><a href="https://github.com/lpasquali/rune-charts/pull/103">rune-charts#103</a></td>
+<td><a href="https://github.com/lpasquali/rune-charts/commit/147abc8"><code>147abc8</code></a></td>
+</tr>
+<tr>
+<td>rune-airgapped</td>
+<td><a href="https://github.com/lpasquali/rune-airgapped/pull/89">rune-airgapped#89</a></td>
+<td><a href="https://github.com/lpasquali/rune-airgapped/commit/4e2fec1"><code>4e2fec1</code></a></td>
+</tr>
+<tr>
+<td>rune-operator</td>
+<td><a href="https://github.com/lpasquali/rune-operator/pull/115">rune-operator#115</a></td>
+<td><a href="https://github.com/lpasquali/rune-operator/commit/fbc8c03"><code>fbc8c03</code></a></td>
+</tr>
+<tr>
+<td>rune-ui</td>
+<td><a href="https://github.com/lpasquali/rune-ui/pull/139">rune-ui#139</a></td>
+<td><a href="https://github.com/lpasquali/rune-ui/commit/fcfbdb6"><code>fcfbdb6</code></a></td>
+</tr>
+<tr>
+<td>rune</td>
+<td><a href="https://github.com/lpasquali/rune/pull/267">rune#267</a></td>
+<td><a href="https://github.com/lpasquali/rune/commit/42350b7"><code>42350b7</code></a></td>
+</tr>
+<tr>
+<td>rune-audit</td>
+<td><a href="https://github.com/lpasquali/rune-audit/pull/102">rune-audit#102</a></td>
+<td><a href="https://github.com/lpasquali/rune-audit/commit/c5ed779"><code>c5ed779</code></a></td>
+</tr>
+</tbody>
+</table>
+<p><code>rune-ci</code> self-wiring (dogfooding the guard on the guard's own repo, with <code>extra-exempt-paths</code> for its fixture directory) is a separate follow-up.</p>
 <hr />
 <h3 id="2026-04-17-shared-controllers-test-scheme-rune-operator-113">2026-04-17 — Shared controllers test scheme (rune-operator <strong>#113</strong>)<a class="headerlink" href="#2026-04-17-shared-controllers-test-scheme-rune-operator-113" title="Permanent link">&para;</a></h3>
 <p>Follow-up to the closed audit <a href="https://github.com/lpasquali/rune-operator/issues/97">rune-operator#97</a> (epic <a href="https://github.com/lpasquali/rune-docs/issues/249">rune-docs#249</a>). Pure test refactor in <strong>rune-operator</strong>: introduce <code>controllersTestScheme(t)</code> in <code>controllers/test_scheme_test.go</code> — a <code>sync.Once</code>-backed helper that builds a <code>runtime.Scheme</code> with <code>benchv1alpha1</code> + <code>corev1</code> exactly once per test binary. Replaces <strong>11</strong> inline <code>runtime.NewScheme()+AddToScheme(...)</code> blocks across <code>estop_controller_test.go</code> (10) and <code>reconciler_and_http_test.go</code> (1).</p>
