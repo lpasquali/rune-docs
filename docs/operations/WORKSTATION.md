@@ -265,6 +265,53 @@ gitleaks version           # 8.24.3
 
 If any of these fail, revisit the corresponding section above. Once everything passes, proceed to the [Developer Guide](../usage/DEVELOPER_GUIDE.md) to set up the individual repositories.
 
+### Run this before Step 7 of the SOP
+
+The E2E contract in [E2E_TESTING.md](../usage/E2E_TESTING.md) depends on the
+same tool surface as above, plus a readable Docker socket. Before starting a
+Level-1 run, re-check the subset that `scripts/e2e.sh` exercises:
+
+```bash
+python3.14 --version       # Python 3.14.x
+docker compose version     # Docker Compose v2.x+
+docker ps > /dev/null      # current user can reach the daemon without sudo
+kind --version             # kind v0.27.x
+kubectl version --client   # v1.35.3
+helm version --short       # v3.x
+```
+
+If any line fails, **do not** auto-install from the agent context — the
+[SYSTEM_PROMPT.md Anti-Rogue rule](../context/SYSTEM_PROMPT.md#other-process-mandates)
+and the risky-actions policy both prohibit opportunistic installers. Open an
+`area/infra` issue, note which tool is missing, and continue the SOP with
+whichever E2E modes your host supports; `e2e-artifacts/summary.md` records
+each mode independently.
+
+ 
+## Optional: combined-venv dependency check
+
+The default model is **per-repo venvs** — see
+[Developer Guide §Python Repositories](../usage/DEVELOPER_GUIDE.md#python-repositories-rune-rune-ui-rune-docs).
+Per-repo venvs are mandatory because `rune` targets Python **>=3.11** and
+`rune-ui` targets Python **>=3.12**; a single shared venv cannot satisfy both
+floors simultaneously across the supported range.
+
+Cross-repo dependency conflicts are still worth surfacing before they bite in
+CI. The helper `rune/scripts/check-cross-repo-deps.sh` (shipped in Phase 1 of
+[rune-docs#271](https://github.com/lpasquali/rune-docs/issues/271)) creates a
+**throwaway** venv at Python 3.14, `pip install -e`s every Python repo into
+it, then runs `pip check` and prints any conflicting pairs. Usage:
+
+```bash
+cd ~/Devel/rune
+./scripts/check-cross-repo-deps.sh   # writes /tmp/rune-crossdep/report.txt
+```
+
+The helper is **advisory** — `pip check` failure prints the offending pair
+and links to the [E2E_TESTING.md troubleshooting section](../usage/E2E_TESTING.md#cross-repo-dependency-conflicts).
+It is **not** a merge gate and it does **not** replace the per-repo venvs
+documented in the Developer Guide.
+
  
 ## Keeping Tools Up to Date
 
