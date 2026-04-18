@@ -80,6 +80,13 @@ nav:
       - Workstation Setup: operations/WORKSTATION.md
       - Golden Image: operations/GOLDEN_IMAGE.md
       - Deployment: operations/DEPLOYMENT.md
+      - Install:
+          - Overview: operations/INSTALL.md
+          - On-prem: operations/INSTALL_ONPREM.md
+          - AWS (EKS): operations/INSTALL_AWS.md
+          - GCP (GKE): operations/INSTALL_GCP.md
+          - Azure (AKS): operations/INSTALL_AZURE.md
+          - Alibaba Cloud (ACK): operations/INSTALL_ALICLOUD.md
       - Database Operations: operations/DATABASE.md
       - Database HA: operations/DATABASE_HA.md
       - Observability: operations/OBSERVABILITY.md
