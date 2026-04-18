@@ -469,6 +469,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-18-eliminate-nginx-from-rune-containers-ingress-agnostic-charts-epic-295" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-18 — Eliminate nginx from RUNE containers; ingress-agnostic charts (epic #295)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-17-shared-controllers-test-scheme-rune-operator-113" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2840,6 +2851,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-18-eliminate-nginx-from-rune-containers-ingress-agnostic-charts-epic-295" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-18 — Eliminate nginx from RUNE containers; ingress-agnostic charts (epic #295)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-17-shared-controllers-test-scheme-rune-operator-113" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3145,7 +3167,7 @@
 <p>RUNE is currently in active pre-alpha development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is <strong>not yet production-ready</strong>.</p>
 <h2 id="freshness-policy">Freshness Policy<a class="headerlink" href="#freshness-policy" title="Permanent link">&para;</a></h2>
 <p>This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.</p>
-<p>Last updated: <strong>2026-04-17</strong> (persist: rune-operator <strong>#113</strong> — shared controllers test scheme).</p>
+<p>Last updated: <strong>2026-04-18</strong> (persist: epic <strong>#295</strong> — nginx removal and ingress-agnostic charts).</p>
 <h2 id="version-baseline">Version Baseline<a class="headerlink" href="#version-baseline" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -3202,6 +3224,59 @@
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-18-eliminate-nginx-from-rune-containers-ingress-agnostic-charts-epic-295">2026-04-18 — Eliminate nginx from RUNE containers; ingress-agnostic charts (epic <strong>#295</strong>)<a class="headerlink" href="#2026-04-18-eliminate-nginx-from-rune-containers-ingress-agnostic-charts-epic-295" title="Permanent link">&para;</a></h3>
+<p>Cross-repo epic <a href="https://github.com/lpasquali/rune-docs/issues/295">rune-docs#295</a>. Removed <code>nginx</code> from every RUNE container image, standardised on <strong>Caddy</strong> (<code>caddy:2-alpine</code>) as the single container-level HTTP tool, codified ingress-agnosticism as chart policy, and landed a CI regression lint. Zero <code>nginx</code> remains in RUNE Dockerfiles (outside the k8sgpt test fixture). The three libxml2-in-nginx VEX entries are gone — the new base image does not include libxml2 at all.</p>
+<table>
+<thead>
+<tr>
+<th>Child</th>
+<th>Repo / PR</th>
+<th>Merge</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADR 0008</td>
+<td><a href="https://github.com/lpasquali/rune-docs/pull/300">rune-docs#300</a></td>
+<td><a href="https://github.com/lpasquali/rune-docs/commit/a53d04a"><code>a53d04a</code></a></td>
+<td>Decision record: single container-level HTTP tool (Caddy) + ingress-agnostic chart policy. Seven-rule policy enforced by #41.</td>
+</tr>
+<tr>
+<td>rune-docs Dockerfile</td>
+<td><a href="https://github.com/lpasquali/rune-docs/pull/301">rune-docs#301</a></td>
+<td><a href="https://github.com/lpasquali/rune-docs/commit/744a353"><code>744a353</code></a></td>
+<td><code>FROM nginx:1.27.4-alpine</code> → <code>FROM caddy:2-alpine</code>; new <code>Caddyfile</code> with static-site security headers (X-Content-Type-Options / Referrer-Policy / X-Frame-Options / Permissions-Policy, <code>Server:</code> suppressed); <code>admin off</code> + <code>auto_https off</code> since cluster Service/Ingress terminate TLS. <strong>Deleted</strong> CVE-2024-56171, CVE-2025-49794, CVE-2025-49796 from <code>.vex/permanent.openvex.json</code> (libxml2 absent from caddy:2-alpine; verified via <code>apk list --installed</code>). Image 94.6 MB vs 86 MB previously (+10%, acceptance boundary).</td>
+</tr>
+<tr>
+<td>rune-charts values</td>
+<td><a href="https://github.com/lpasquali/rune-charts/pull/100">rune-charts#100</a></td>
+<td><a href="https://github.com/lpasquali/rune-charts/commit/65495c5"><code>65495c5</code></a></td>
+<td>Removed nginx-leaning comments in <code>values.yaml</code> and <code>values-airgapped-prod.yaml</code>; documented <code>ingress.className: ""</code> = cluster's default IngressClass; example list includes <code>traefik</code>, <code>envoy</code>, <code>cilium</code>, <code>istio</code>, <code>nginx</code> — no one controller privileged. No template changes.</td>
+</tr>
+<tr>
+<td>rune-charts Gateway API</td>
+<td><a href="https://github.com/lpasquali/rune-charts/pull/101">rune-charts#101</a></td>
+<td><a href="https://github.com/lpasquali/rune-charts/commit/8b1c3e3"><code>8b1c3e3</code></a></td>
+<td>Opt-in <code>gatewayApi.enabled: false</code> block + new <code>templates/httproute.yaml</code> gated on the flag. Chart installs cleanly on clusters without Gateway API CRDs (no reference to <code>gateway.networking.k8s.io</code> when disabled). Helm templated successfully across four scenarios incl. combined <code>ingress.enabled</code> + <code>gatewayApi.enabled</code>.</td>
+</tr>
+<tr>
+<td>rune-airgapped bundle</td>
+<td><a href="https://github.com/lpasquali/rune-airgapped/pull/87">rune-airgapped#87</a></td>
+<td><a href="https://github.com/lpasquali/rune-airgapped/commit/a94036b"><code>a94036b</code></a></td>
+<td><code>INFRA_IMAGES</code>: <code>docker.io/library/nginx:1.27.4-alpine</code> → <code>docker.io/library/caddy:2-alpine</code>; bundle tree <code>images/nginx/</code> → <code>images/caddy/</code> in <code>architecture.md</code>, <code>deployment-guide.md</code>, <code>crossplane.md</code>. 21 build-bundle unit tests pass.</td>
+</tr>
+<tr>
+<td>rune-ci regression lint</td>
+<td><a href="https://github.com/lpasquali/rune-ci/pull/42">rune-ci#42</a></td>
+<td><a href="https://github.com/lpasquali/rune-ci/commit/144ef85"><code>144ef85</code></a></td>
+<td>New <code>actions/nginx-ingress-guard</code> composite + <code>.github/workflows/nginx-ingress-guard.yml</code> (<code>workflow_call</code>). Four rules: <code>FROM nginx</code>, <code>nginx.ingress.kubernetes.io/*</code>, <code>ingress-nginx</code> Helm dep, hardcoded <code>kubernetes.io/ingress.class: nginx</code>. Pragma <code># allow-nginx: &lt;reason&gt;</code> and path-based exemptions supported. 5/5 fixture-driven unit tests pass. Smoke-verified against all 8 RUNE repos. Consumer wiring is a follow-up.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Evidence summary.</strong> <code>apk list --installed</code> inside <code>rune-docs:caddy</code> reports no <code>libxml2</code>, <code>libxslt</code>, <code>pcre</code>, or <code>openssl</code> — the entire libxml2-in-nginx VEX class retires. <code>helm template</code> with <code>gatewayApi.enabled=false</code> (default) emits zero <code>HTTPRoute</code> resources, preserving install safety on clusters without Gateway API CRDs. The <code>nginx-ingress-guard</code> action, run across all 8 RUNE repos, passes with no exemptions on 7 of them; rune-ci passes when its own fixture directories are added to <code>extra-exempt-paths</code>.</p>
+<p><strong>Follow-ups.</strong> Wiring the regression lint into each repo's <code>quality-gates.yml</code> is a separate per-repo PR that can ride the normal <code>rune-ci@&lt;sha&gt;</code> bump cadence. No time pressure — the tree is clean and the action is ready.</p>
+<hr />
 <h3 id="2026-04-17-shared-controllers-test-scheme-rune-operator-113">2026-04-17 — Shared controllers test scheme (rune-operator <strong>#113</strong>)<a class="headerlink" href="#2026-04-17-shared-controllers-test-scheme-rune-operator-113" title="Permanent link">&para;</a></h3>
 <p>Follow-up to the closed audit <a href="https://github.com/lpasquali/rune-operator/issues/97">rune-operator#97</a> (epic <a href="https://github.com/lpasquali/rune-docs/issues/249">rune-docs#249</a>). Pure test refactor in <strong>rune-operator</strong>: introduce <code>controllersTestScheme(t)</code> in <code>controllers/test_scheme_test.go</code> — a <code>sync.Once</code>-backed helper that builds a <code>runtime.Scheme</code> with <code>benchv1alpha1</code> + <code>corev1</code> exactly once per test binary. Replaces <strong>11</strong> inline <code>runtime.NewScheme()+AddToScheme(...)</code> blocks across <code>estop_controller_test.go</code> (10) and <code>reconciler_and_http_test.go</code> (1).</p>
 <ul>
