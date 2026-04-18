@@ -47,6 +47,8 @@ nav:
       - System Prompt: context/SYSTEM_PROMPT.md
       - Current State: context/CURRENT_STATE.md
       - Coding Standards: context/CODING_STANDARDS.md
+  - Project:
+      - Overview: project/index.md
   - Reference:
       - Overview: reference/index.md
       - External Links & Official Docs: reference/EXTERNAL_LINKS.md
@@ -54,14 +56,20 @@ nav:
       - Mission: usage/MISSION.md
       - Quickstart: usage/QUICKSTART.md
       - Developer Guide: usage/DEVELOPER_GUIDE.md
+      - E2E Testing: usage/E2E_TESTING.md
       - Guide: usage/GUIDE.md
       - Scenarios: usage/SCENARIOS.md
       - Pricing & Access Tiers: usage/PRICING.md
+      - Benchmarks: usage/BENCHMARKS.md
       - Interfaces: usage/INTERFACES.md
       - API Specification: usage/API_SPEC.md
       - Advanced Pipelines: usage/ADVANCED_PIPELINES.md
       - Configuration: usage/CONFIGURATION.md
       - LLM Backend Reference: usage/OLLAMA_REFERENCE.md
+      - What's New: usage/WHATS_NEW.md
+      - Glossary: usage/GLOSSARY.md
+      - Troubleshooting: usage/TROUBLESHOOTING.md
+      - Migration: usage/MIGRATION.md
   - External projects:
       - Overview: external-projects/index.md
       - rune-audit:
@@ -104,6 +112,9 @@ nav:
       - Runbooks: operations/RUNBOOKS.md
       - Rollback Procedures: operations/ROLLBACK_PROCEDURES.md
       - Vault Integration: operations/VAULT.md
+  - Compliance:
+      - Overview: compliance/index.md
+      - Matrix: compliance/MATRIX.md
   - Security:
       - Security Development Lifecycle: security/SDL.md
       - Risk Assessment Methodology: security/RISK_ASSESSMENT.md
