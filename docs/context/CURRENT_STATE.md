@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-18** (persist: install-guide flesh-outs — AWS/GCP/Azure/Alibaba content complete; Crossplane provisioning epic #266; IA backlog push + external-links sweep earlier same day).
+Last updated: **2026-04-18** (persist: rune-operator **#119** — `RuneBenchmark.spec.infrastructureRef` Crossplane readiness gate — closes the Phase 3 of epic #266).
 
  
 ## Version Baseline
@@ -31,6 +31,30 @@ Last updated: **2026-04-18** (persist: install-guide flesh-outs — AWS/GCP/Azur
 
  
 ## Recent Changes
+
+### 2026-04-18 — Crossplane readiness gate: `RuneBenchmark.spec.infrastructureRef` (rune-operator **#119**)
+
+Closes the only deferred child of epic [rune-docs#266](https://github.com/lpasquali/rune-docs/issues/266): [rune-operator#107](https://github.com/lpasquali/rune-operator/issues/107) (Phase 3). Merged via [rune-operator#119](https://github.com/lpasquali/rune-operator/pull/119) ([`aed0a83`](https://github.com/lpasquali/rune-operator/commit/aed0a83)).
+
+**What changed.** `RuneBenchmarkSpec` gains an optional `InfrastructureRef *corev1.ObjectReference`. When set, the reconciler refuses to submit the benchmark job until the referenced Claim (typically a `RuneDatabase` or `RuneObjectStore` from `rune-charts/crossplane`) reports both `Synced=True` AND `Ready=True`, requeuing every 30s with an `InfrastructureNotReady` Warning event otherwise. Lookup uses the generic controller-runtime `Client` with `unstructured.Unstructured` — no new Go module dependency on `crossplane-runtime`.
+
+**Gate policy.**
+
+| Condition | Outcome | Metric bucket |
+|---|---|---|
+| `InfrastructureRef` nil | Proceed normally | n/a |
+| Malformed `apiVersion` / `kind` / `name` | 30s requeue + event | `infra_get_error` |
+| Target object missing (NotFound / RBAC denied) | 30s requeue + event | `infra_get_error` |
+| Target present, `Synced` or `Ready` ≠ True | 30s requeue + event | `infra_not_ready` |
+| Target present, both True | Proceed to `executeBenchmark` | normal |
+
+**RBAC.** New `kubebuilder:rbac` markers grant the operator ServiceAccount `get/list/watch` on `database.infra.rune.ai` (runedatabases/xrunedatabases) and `storage.infra.rune.ai` (runeobjectstores/xruneobjectstores) — the two Crossplane groups rune-charts ships compositions for. Cluster admins targeting other XRD groups must grant additional read access.
+
+**Evidence.** 14 new tests covering all branches (including malformed conditions slice and namespace fallback). Post-change coverage: `api/v1alpha1` **100.0%** (recovered from a 88.3% drop caused by the new DeepCopy code), `controllers` **99.0%** (up from 98.9%), all other packages unchanged at 93.3% / 100%. Pre-existing shallow-copy bug in `RuneBenchmarkSpec.DeepCopyInto` fixed for the new pointer field only (scope-contained; full deep-copy regeneration deferred). CRD stub in `config/crd/bases/` hand-updated with the new `infrastructureRef` property in alphabetical position.
+
+With this PR merged, **every non-deferred child of epic #266 is complete**; no follow-ups remain.
+
+---
 
 ### 2026-04-18 — Install guides flesh-out: AWS / GCP / Azure / Alibaba (PRs #302–#305)
 
