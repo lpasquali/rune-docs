@@ -51,6 +51,7 @@ nav:
       - Overview: reference/index.md
       - External Links & Official Docs: reference/EXTERNAL_LINKS.md
   - Usage:
+      - Mission: usage/MISSION.md
       - Quickstart: usage/QUICKSTART.md
       - Developer Guide: usage/DEVELOPER_GUIDE.md
       - Guide: usage/GUIDE.md
