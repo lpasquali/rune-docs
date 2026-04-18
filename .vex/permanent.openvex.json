@@ -4,8 +4,8 @@
   "author": "lpasquali",
   "role": "Project Maintainer",
   "timestamp": "2026-04-05T00:00:00Z",
-  "last_updated": "2026-04-05T00:00:00Z",
-  "version": 2,
+  "last_updated": "2026-04-17T00:00:00Z",
+  "version": 3,
   "statements": [
     {
       "vulnerability": { "name": "CVE-2005-2541" },
@@ -26,28 +26,7 @@
       "products": [{ "@id": "pkg:apk/alpine/openssl" }],
       "status": "not_affected",
       "justification": "component_not_present",
-      "impact_statement": "OpenSSL 3.x vulnerability not applicable to this build configuration."
-    },
-    {
-      "vulnerability": { "name": "CVE-2024-56171" },
-      "products": [{ "@id": "pkg:apk/alpine/libxml2" }],
-      "status": "not_affected",
-      "justification": "vulnerable_code_not_in_execute_path",
-      "impact_statement": "CVE-2024-56171 affects libxml2 xmlSchemaIDCFillNodeTables (XML Schema validation). libxml2 2.13.4 is installed in the nginx:1.27.4-alpine base image but nginx does not link to it (verified via ldd /usr/sbin/nginx — no libxml2 reference). The rune-docs container serves only static HTML/CSS/JS files; no XML parsing or schema validation occurs. The vulnerable code path is unreachable in this deployment."
-    },
-    {
-      "vulnerability": { "name": "CVE-2025-49794" },
-      "products": [{ "@id": "pkg:apk/alpine/libxml2" }],
-      "status": "not_affected",
-      "justification": "vulnerable_code_not_in_execute_path",
-      "impact_statement": "CVE-2025-49794 is a use-after-free and type confusion vulnerability in libxml2 xmlSchematronGetNode (Schematron validation module). libxml2 2.13.4 is installed in the nginx:1.27.4-alpine base image but nginx does not link to it (verified via ldd /usr/sbin/nginx — no libxml2 reference). The rune-docs container serves only static files; no XML or Schematron parsing occurs. The vulnerable code path is unreachable in this deployment."
-    },
-    {
-      "vulnerability": { "name": "CVE-2025-49796" },
-      "products": [{ "@id": "pkg:apk/alpine/libxml2" }],
-      "status": "not_affected",
-      "justification": "vulnerable_code_not_in_execute_path",
-      "impact_statement": "CVE-2025-49796 is a type confusion vulnerability in libxml2 Schematron module. libxml2 2.13.4 is installed in the nginx:1.27.4-alpine base image but nginx does not link to it (verified via ldd /usr/sbin/nginx — no libxml2 reference). The rune-docs container serves only static files; no XML or Schematron parsing occurs. The vulnerable code path is unreachable in this deployment."
+      "impact_statement": "OpenSSL 3.x vulnerability not applicable to this build configuration (Caddy uses Go crypto/tls, not Alpine OpenSSL)."
     }
   ]
 }
