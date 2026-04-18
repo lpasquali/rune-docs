@@ -149,9 +149,10 @@ Remediation SLAs follow the penetration testing program
 
 ## 8. References
 
-- IEC 62443-4-1:2018 SVV-5 -- Fuzz testing
+- [IEC 62443-4-1:2018](https://webstore.iec.ch/publication/33615) SVV-5 -- Fuzz testing
 - [SDL.md](SDL.md) -- Security Development Lifecycle
 - [PENTEST.md](PENTEST.md) -- Penetration testing program
 - [RISK_ASSESSMENT.md](RISK_ASSESSMENT.md) -- Threat model informing fuzz targets
-- Hypothesis documentation: <https://hypothesis.readthedocs.io/>
-- Go fuzzing: <https://go.dev/doc/security/fuzz/>
+- [Hypothesis](https://hypothesis.readthedocs.io/) -- Python property-based testing
+- [Go native fuzzing](https://go.dev/doc/security/fuzz/)
+- [External Links Catalog](../reference/EXTERNAL_LINKS.md) -- Complete list of standards and tools
