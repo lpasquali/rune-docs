@@ -469,6 +469,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-18-crossplane-infrastructure-provisioning-phases-01a1b2-epic-266" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-18 — Crossplane infrastructure provisioning — Phases 0/1a/1b/2 (epic #266)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-18-ia-backlog-push-14-accumulated-docs-prs-merged" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4490,6 +4501,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-18-crossplane-infrastructure-provisioning-phases-01a1b2-epic-266" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-18 — Crossplane infrastructure provisioning — Phases 0/1a/1b/2 (epic #266)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-18-ia-backlog-push-14-accumulated-docs-prs-merged" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4839,7 +4861,7 @@
 <p>RUNE is currently in active pre-alpha development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is <strong>not yet production-ready</strong>.</p>
 <h2 id="freshness-policy">Freshness Policy<a class="headerlink" href="#freshness-policy" title="Permanent link">&para;</a></h2>
 <p>This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.</p>
-<p>Last updated: <strong>2026-04-18</strong> (persist: IA backlog push — 14 accumulated claude_cli PRs merged; external-links catalog + cross-repo README sweep earlier same day).</p>
+<p>Last updated: <strong>2026-04-18</strong> (persist: epic <strong>#266</strong> — Crossplane provisioning Phases 0/1a/1b/2; IA backlog push + external-links sweep earlier same day).</p>
 <h2 id="version-baseline">Version Baseline<a class="headerlink" href="#version-baseline" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -4896,6 +4918,31 @@
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-18-crossplane-infrastructure-provisioning-phases-01a1b2-epic-266">2026-04-18 — Crossplane infrastructure provisioning — Phases 0/1a/1b/2 (epic <strong>#266</strong>)<a class="headerlink" href="#2026-04-18-crossplane-infrastructure-provisioning-phases-01a1b2-epic-266" title="Permanent link">&para;</a></h3>
+<p>Cursor took <a href="https://github.com/lpasquali/rune-docs/issues/266">rune-docs#266</a> and closed every phase that was not explicitly deferred.</p>
+<p><strong>Bookkeeping first.</strong> Two earlier PRs (<a href="https://github.com/lpasquali/rune-docs/pull/268">rune-docs#268</a> → ADR 0007, <a href="https://github.com/lpasquali/rune-charts/pull/95">rune-charts#95</a> → cloud Compositions) landed the work but forgot <code>Closes #NNN</code>. Closed <a href="https://github.com/lpasquali/rune-docs/issues/267">rune-docs#267</a> and <a href="https://github.com/lpasquali/rune-charts/issues/94">rune-charts#94</a> with evidence comments; audited the epic checklist via comment on #266.</p>
+<p><strong>Phase 0 + Phase 1a</strong> — <a href="https://github.com/lpasquali/rune-charts/pull/107">rune-charts#107</a> (merge <a href="https://github.com/lpasquali/rune-charts/commit/0fda057"><code>0fda057</code></a>). Closes rune-charts#92 and rune-charts#93.</p>
+<ul>
+<li>New XRDs <code>crossplane/xrds/runedatabase.yaml</code> (group <code>database.infra.rune.ai</code>) and <code>crossplane/xrds/runeobjectstore.yaml</code> (group <code>storage.infra.rune.ai</code>), both <code>apiextensions.crossplane.io/v1</code> with <code>scope: LegacyCluster</code> per ADR 0007. Parameters accept every field used by the already-merged cloud Claims (<code>provider</code>, <code>targetNamespace</code>, <code>connectionSecretName</code>, <code>aws/gcp/azure</code> sub-objects) plus the on-prem sub-objects (<code>cnpg</code>, <code>minio</code>). Informational fields are documented as such.</li>
+<li>New on-prem Compositions:</li>
+<li><code>crossplane/compositions/cnpg/composition.yaml</code> — creates a CloudNativePG <code>Cluster</code> in the target namespace and writes <code>rune-db-secret</code> (key <code>RUNE_DB_URL</code>) by referencing the cluster's <code>&lt;cluster&gt;-app</code> Secret's <code>uri</code> field.</li>
+<li><code>crossplane/compositions/minio/composition.yaml</code> — creates a MinIO <code>Tenant</code> and writes <code>rune-s3-secret</code> with endpoint + bucket; per-user access keys remain operator-managed (reasoning documented inline).</li>
+<li>New examples <code>crossplane/examples/rune-database-cnpg.yaml</code>, <code>crossplane/examples/rune-objectstore-minio.yaml</code>.</li>
+<li>Narrow <code>crossplane/rbac.yaml</code> ClusterRole for <code>provider-kubernetes</code>.</li>
+<li>Rewritten <code>crossplane/README.md</code>.</li>
+<li>New CI gate <code>helm / RuneGate/Validate/Crossplane</code> in <code>charts quality-gates.yml</code>: installs <code>crank</code> v2.2.0, runs <code>crank beta validate</code> against <code>crossplane/compositions</code> and <code>crossplane/examples</code> using <code>crossplane/xrds</code> as the schema source. Added to compliance <code>needs</code> and <code>merge-gate-excludes</code> matching the existing per-kind convention.</li>
+</ul>
+<p><strong>Phase 2</strong> — <a href="https://github.com/lpasquali/rune-airgapped/pull/93">rune-airgapped#93</a> (merge <a href="https://github.com/lpasquali/rune-airgapped/commit/ca23164"><code>ca23164</code></a>). Closes rune-airgapped#84.</p>
+<ul>
+<li>The <code>--include-crossplane</code> flag and <code>CROSSPLANE_IMAGES</code> array were already in <code>build-bundle.sh</code>; this PR landed the Helmfile release, airgapped values overrides, and the tests that were still missing.</li>
+<li><code>helmfile.yaml</code>: new conditional <code>crossplane</code> release (namespace <code>crossplane-system</code>, gated by <code>crossplane.enabled</code>) ahead of <code>rune-operator</code>.</li>
+<li><code>values/crossplane.yaml</code> (new) overrides <code>image.repository</code> to the internal Zot registry, with commented examples of post-install Provider/Function CRs.</li>
+<li><code>values/defaults.yaml</code> gains <code>crossplaneVersion: "2.2.0"</code> and <code>crossplane.enabled: false</code>.</li>
+<li><code>tests/test_build_bundle.sh</code> gains <code>test_dry_run_with_crossplane</code> (4 assertions) and <code>test_dry_run_without_crossplane_default</code>. Total after: <strong>26 passed, 0 failed</strong> (was 21).</li>
+</ul>
+<p><strong>Out of scope / still deferred:</strong> Phase 3 (<code>RuneBenchmark.spec.infrastructureRef</code> readiness gate, <a href="https://github.com/lpasquali/rune-operator/issues/107">rune-operator#107</a>) remains marked as deferred in the epic and is untouched.</p>
+<p><strong>Evidence highlights.</strong> <code>crank beta validate crossplane/xrds crossplane/compositions</code> → 8/8 compositions OK; <code>crank beta validate crossplane/xrds crossplane/examples</code> → 8/8 Claims OK (including the pre-existing AWS/GCP/Azure examples, after the XRDs were extended to accept their optional fields). <code>helm lint charts/rune</code> → pass. Airgapped bundle dry-run lists all 4 Crossplane images under <code>--include-crossplane</code> and <strong>none</strong> under the default bundle.</p>
+<hr />
 <h3 id="2026-04-18-ia-backlog-push-14-accumulated-docs-prs-merged">2026-04-18 — IA backlog push: 14 accumulated docs PRs merged<a class="headerlink" href="#2026-04-18-ia-backlog-push-14-accumulated-docs-prs-merged" title="Permanent link">&para;</a></h3>
 <p>Cleared the entire Claude-lane backlog of accumulated docs PRs in one session. Each PR is independent (or in-sequence on overlapping <code>mkdocs.yml</code> / <code>docs/index.md</code> lines) and had been sitting Draft/Ready for Review for days. Merge order resolved natural dependencies (persona landing page → mission → quickstart; PRICING→TIERS rename cascaded to BENCHMARKS, GLOSSARY, and agents/index.md link fixes).</p>
 <table>
