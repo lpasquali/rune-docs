@@ -469,6 +469,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-18-crossplane-readiness-gate-runebenchmarkspecinfrastructureref-rune-operator-119" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-18 — Crossplane readiness gate: RuneBenchmark.spec.infrastructureRef (rune-operator #119)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-18-install-guides-flesh-out-aws-gcp-azure-alibaba-prs-302305" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4512,6 +4523,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-18-crossplane-readiness-gate-runebenchmarkspecinfrastructureref-rune-operator-119" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-18 — Crossplane readiness gate: RuneBenchmark.spec.infrastructureRef (rune-operator #119)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-18-install-guides-flesh-out-aws-gcp-azure-alibaba-prs-302305" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4883,7 +4905,7 @@
 <p>RUNE is currently in active pre-alpha development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is <strong>not yet production-ready</strong>.</p>
 <h2 id="freshness-policy">Freshness Policy<a class="headerlink" href="#freshness-policy" title="Permanent link">&para;</a></h2>
 <p>This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.</p>
-<p>Last updated: <strong>2026-04-18</strong> (persist: install-guide flesh-outs — AWS/GCP/Azure/Alibaba content complete; Crossplane provisioning epic #266; IA backlog push + external-links sweep earlier same day).</p>
+<p>Last updated: <strong>2026-04-18</strong> (persist: rune-operator <strong>#119</strong> — <code>RuneBenchmark.spec.infrastructureRef</code> Crossplane readiness gate — closes the Phase 3 of epic #266).</p>
 <h2 id="version-baseline">Version Baseline<a class="headerlink" href="#version-baseline" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -4940,6 +4962,50 @@
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-18-crossplane-readiness-gate-runebenchmarkspecinfrastructureref-rune-operator-119">2026-04-18 — Crossplane readiness gate: <code>RuneBenchmark.spec.infrastructureRef</code> (rune-operator <strong>#119</strong>)<a class="headerlink" href="#2026-04-18-crossplane-readiness-gate-runebenchmarkspecinfrastructureref-rune-operator-119" title="Permanent link">&para;</a></h3>
+<p>Closes the only deferred child of epic <a href="https://github.com/lpasquali/rune-docs/issues/266">rune-docs#266</a>: <a href="https://github.com/lpasquali/rune-operator/issues/107">rune-operator#107</a> (Phase 3). Merged via <a href="https://github.com/lpasquali/rune-operator/pull/119">rune-operator#119</a> (<a href="https://github.com/lpasquali/rune-operator/commit/aed0a83"><code>aed0a83</code></a>).</p>
+<p><strong>What changed.</strong> <code>RuneBenchmarkSpec</code> gains an optional <code>InfrastructureRef *corev1.ObjectReference</code>. When set, the reconciler refuses to submit the benchmark job until the referenced Claim (typically a <code>RuneDatabase</code> or <code>RuneObjectStore</code> from <code>rune-charts/crossplane</code>) reports both <code>Synced=True</code> AND <code>Ready=True</code>, requeuing every 30s with an <code>InfrastructureNotReady</code> Warning event otherwise. Lookup uses the generic controller-runtime <code>Client</code> with <code>unstructured.Unstructured</code> — no new Go module dependency on <code>crossplane-runtime</code>.</p>
+<p><strong>Gate policy.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Outcome</th>
+<th>Metric bucket</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>InfrastructureRef</code> nil</td>
+<td>Proceed normally</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Malformed <code>apiVersion</code> / <code>kind</code> / <code>name</code></td>
+<td>30s requeue + event</td>
+<td><code>infra_get_error</code></td>
+</tr>
+<tr>
+<td>Target object missing (NotFound / RBAC denied)</td>
+<td>30s requeue + event</td>
+<td><code>infra_get_error</code></td>
+</tr>
+<tr>
+<td>Target present, <code>Synced</code> or <code>Ready</code> ≠ True</td>
+<td>30s requeue + event</td>
+<td><code>infra_not_ready</code></td>
+</tr>
+<tr>
+<td>Target present, both True</td>
+<td>Proceed to <code>executeBenchmark</code></td>
+<td>normal</td>
+</tr>
+</tbody>
+</table>
+<p><strong>RBAC.</strong> New <code>kubebuilder:rbac</code> markers grant the operator ServiceAccount <code>get/list/watch</code> on <code>database.infra.rune.ai</code> (runedatabases/xrunedatabases) and <code>storage.infra.rune.ai</code> (runeobjectstores/xruneobjectstores) — the two Crossplane groups rune-charts ships compositions for. Cluster admins targeting other XRD groups must grant additional read access.</p>
+<p><strong>Evidence.</strong> 14 new tests covering all branches (including malformed conditions slice and namespace fallback). Post-change coverage: <code>api/v1alpha1</code> <strong>100.0%</strong> (recovered from a 88.3% drop caused by the new DeepCopy code), <code>controllers</code> <strong>99.0%</strong> (up from 98.9%), all other packages unchanged at 93.3% / 100%. Pre-existing shallow-copy bug in <code>RuneBenchmarkSpec.DeepCopyInto</code> fixed for the new pointer field only (scope-contained; full deep-copy regeneration deferred). CRD stub in <code>config/crd/bases/</code> hand-updated with the new <code>infrastructureRef</code> property in alphabetical position.</p>
+<p>With this PR merged, <strong>every non-deferred child of epic #266 is complete</strong>; no follow-ups remain.</p>
+<hr />
 <h3 id="2026-04-18-install-guides-flesh-out-aws-gcp-azure-alibaba-prs-302305">2026-04-18 — Install guides flesh-out: AWS / GCP / Azure / Alibaba (PRs #302–#305)<a class="headerlink" href="#2026-04-18-install-guides-flesh-out-aws-gcp-azure-alibaba-prs-302305" title="Permanent link">&para;</a></h3>
 <p>Replaced TODO scaffolds in <code>docs/operations/INSTALL_{AWS,GCP,AZURE,ALICLOUD}.md</code> with full content drafted from official provider / Crossplane / ESO docs. Each guide grew from ~85 lines (scaffold) to 350–500 lines (complete) and now ships:</p>
 <ul>
