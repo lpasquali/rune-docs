@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-18** (persist: IA backlog push — 14 accumulated claude_cli PRs merged; external-links catalog + cross-repo README sweep earlier same day).
+Last updated: **2026-04-18** (persist: epic **#266** — Crossplane provisioning Phases 0/1a/1b/2; IA backlog push + external-links sweep earlier same day).
 
  
 ## Version Baseline
@@ -31,6 +31,37 @@ Last updated: **2026-04-18** (persist: IA backlog push — 14 accumulated claude
 
  
 ## Recent Changes
+
+### 2026-04-18 — Crossplane infrastructure provisioning — Phases 0/1a/1b/2 (epic **#266**)
+
+Cursor took [rune-docs#266](https://github.com/lpasquali/rune-docs/issues/266) and closed every phase that was not explicitly deferred.
+
+**Bookkeeping first.** Two earlier PRs ([rune-docs#268](https://github.com/lpasquali/rune-docs/pull/268) → ADR 0007, [rune-charts#95](https://github.com/lpasquali/rune-charts/pull/95) → cloud Compositions) landed the work but forgot `Closes #NNN`. Closed [rune-docs#267](https://github.com/lpasquali/rune-docs/issues/267) and [rune-charts#94](https://github.com/lpasquali/rune-charts/issues/94) with evidence comments; audited the epic checklist via comment on #266.
+
+**Phase 0 + Phase 1a** — [rune-charts#107](https://github.com/lpasquali/rune-charts/pull/107) (merge [`0fda057`](https://github.com/lpasquali/rune-charts/commit/0fda057)). Closes rune-charts#92 and rune-charts#93.
+
+- New XRDs `crossplane/xrds/runedatabase.yaml` (group `database.infra.rune.ai`) and `crossplane/xrds/runeobjectstore.yaml` (group `storage.infra.rune.ai`), both `apiextensions.crossplane.io/v1` with `scope: LegacyCluster` per ADR 0007. Parameters accept every field used by the already-merged cloud Claims (`provider`, `targetNamespace`, `connectionSecretName`, `aws/gcp/azure` sub-objects) plus the on-prem sub-objects (`cnpg`, `minio`). Informational fields are documented as such.
+- New on-prem Compositions:
+  - `crossplane/compositions/cnpg/composition.yaml` — creates a CloudNativePG `Cluster` in the target namespace and writes `rune-db-secret` (key `RUNE_DB_URL`) by referencing the cluster's `<cluster>-app` Secret's `uri` field.
+  - `crossplane/compositions/minio/composition.yaml` — creates a MinIO `Tenant` and writes `rune-s3-secret` with endpoint + bucket; per-user access keys remain operator-managed (reasoning documented inline).
+- New examples `crossplane/examples/rune-database-cnpg.yaml`, `crossplane/examples/rune-objectstore-minio.yaml`.
+- Narrow `crossplane/rbac.yaml` ClusterRole for `provider-kubernetes`.
+- Rewritten `crossplane/README.md`.
+- New CI gate `helm / RuneGate/Validate/Crossplane` in `charts quality-gates.yml`: installs `crank` v2.2.0, runs `crank beta validate` against `crossplane/compositions` and `crossplane/examples` using `crossplane/xrds` as the schema source. Added to compliance `needs` and `merge-gate-excludes` matching the existing per-kind convention.
+
+**Phase 2** — [rune-airgapped#93](https://github.com/lpasquali/rune-airgapped/pull/93) (merge [`ca23164`](https://github.com/lpasquali/rune-airgapped/commit/ca23164)). Closes rune-airgapped#84.
+
+- The `--include-crossplane` flag and `CROSSPLANE_IMAGES` array were already in `build-bundle.sh`; this PR landed the Helmfile release, airgapped values overrides, and the tests that were still missing.
+- `helmfile.yaml`: new conditional `crossplane` release (namespace `crossplane-system`, gated by `crossplane.enabled`) ahead of `rune-operator`.
+- `values/crossplane.yaml` (new) overrides `image.repository` to the internal Zot registry, with commented examples of post-install Provider/Function CRs.
+- `values/defaults.yaml` gains `crossplaneVersion: "2.2.0"` and `crossplane.enabled: false`.
+- `tests/test_build_bundle.sh` gains `test_dry_run_with_crossplane` (4 assertions) and `test_dry_run_without_crossplane_default`. Total after: **26 passed, 0 failed** (was 21).
+
+**Out of scope / still deferred:** Phase 3 (`RuneBenchmark.spec.infrastructureRef` readiness gate, [rune-operator#107](https://github.com/lpasquali/rune-operator/issues/107)) remains marked as deferred in the epic and is untouched.
+
+**Evidence highlights.** `crank beta validate crossplane/xrds crossplane/compositions` → 8/8 compositions OK; `crank beta validate crossplane/xrds crossplane/examples` → 8/8 Claims OK (including the pre-existing AWS/GCP/Azure examples, after the XRDs were extended to accept their optional fields). `helm lint charts/rune` → pass. Airgapped bundle dry-run lists all 4 Crossplane images under `--include-crossplane` and **none** under the default bundle.
+
+---
 
 ### 2026-04-18 — IA backlog push: 14 accumulated docs PRs merged
 
