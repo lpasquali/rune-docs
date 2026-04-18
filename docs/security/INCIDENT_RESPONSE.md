@@ -183,9 +183,10 @@ During any P0 or P1 incident:
 
 ## 10. References
 
-- IEC 62443-4-1:2018 DM-2 -- Defect management
-- NIST Cybersecurity Framework -- Respond (RS)
-- NIST SP 800-61r2 -- Computer Security Incident Handling Guide
+- [IEC 62443-4-1:2018](https://webstore.iec.ch/publication/33615) DM-2 -- Defect management
+- [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework) -- Respond (RS)
+- [NIST SP 800-61r2](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final) -- Computer Security Incident Handling Guide
+- [External Links Catalog](../reference/EXTERNAL_LINKS.md) -- Complete list of standards and tools
 - [SDL.md](SDL.md) -- Security Development Lifecycle
 - [RISK_REGISTER.md](RISK_REGISTER.md) -- Risk register
 - [IMAGE_SIGNING.md](IMAGE_SIGNING.md) -- Container image verification
