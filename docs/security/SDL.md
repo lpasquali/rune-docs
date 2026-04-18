@@ -124,8 +124,11 @@ flowchart LR
 
 ## 9. References
 
-- IEC 62443-4-1:2018 -- Product security development lifecycle requirements
-- SLSA v1.0 -- Supply-chain Levels for Software Artifacts
+- [IEC 62443-4-1:2018](https://webstore.iec.ch/publication/33615) -- Product security development lifecycle requirements ([ISA overview](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards))
+- [SLSA v1.0](https://slsa.dev/spec/v1.0/) -- Supply-chain Levels for Software Artifacts
+- [OWASP Top 10](https://owasp.org/www-project-top-ten/) -- Web application security risks
+- [Semantic Versioning 2.0.0](https://semver.org/) -- Release versioning
+- [External Links Catalog](../reference/EXTERNAL_LINKS.md) -- Complete list of standards and tools cited across rune-docs
 - [SYSTEM_PROMPT.md](../context/SYSTEM_PROMPT.md) -- Core constraints and SOP
 - [RISK_ASSESSMENT.md](RISK_ASSESSMENT.md) -- Threat modeling methodology
 - [RISK_REGISTER.md](RISK_REGISTER.md) -- Active risk register
