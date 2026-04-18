@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../PENTEST/">
+        <link rel="prev" href="../PRICING/">
       
       
-        <link rel="next" href="../INCIDENT_RESPONSE/">
+        <link rel="next" href="../INTERFACES/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Fuzz Testing - RUNE Documentation</title>
+        <title>Benchmarks - RUNE Documentation</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fuzz-testing-program" class="md-skip">
+        <a href="#benchmark-methodology" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Fuzz Testing
+              Benchmarks
             
           </span>
         </div>
@@ -619,8 +619,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -631,13 +633,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -658,7 +658,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -676,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/MISSION/" class="md-nav__link">
+      <a href="../MISSION/" class="md-nav__link">
         
   
   
@@ -704,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/QUICKSTART/" class="md-nav__link">
+      <a href="../QUICKSTART/" class="md-nav__link">
         
   
   
@@ -732,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/DEVELOPER_GUIDE/" class="md-nav__link">
+      <a href="../DEVELOPER_GUIDE/" class="md-nav__link">
         
   
   
@@ -760,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/E2E_TESTING/" class="md-nav__link">
+      <a href="../E2E_TESTING/" class="md-nav__link">
         
   
   
@@ -788,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/GUIDE/" class="md-nav__link">
+      <a href="../GUIDE/" class="md-nav__link">
         
   
   
@@ -816,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/SCENARIOS/" class="md-nav__link">
+      <a href="../SCENARIOS/" class="md-nav__link">
         
   
   
@@ -844,7 +844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/PRICING/" class="md-nav__link">
+      <a href="../PRICING/" class="md-nav__link">
         
   
   
@@ -869,10 +869,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../usage/BENCHMARKS/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -888,6 +915,153 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scoring-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scoring model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scope taxonomy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tier-meanings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier meanings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catalog-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catalog surface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-sre-scope-k8sgpt-vs-holmesgpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample: SRE scope, K8sGPT vs HolmesGPT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample: SRE scope, K8sGPT vs HolmesGPT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#invocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Invocation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expected-output-shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected output shape
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reproducibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -900,7 +1074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/INTERFACES/" class="md-nav__link">
+      <a href="../INTERFACES/" class="md-nav__link">
         
   
   
@@ -928,7 +1102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/API_SPEC/" class="md-nav__link">
+      <a href="../API_SPEC/" class="md-nav__link">
         
   
   
@@ -956,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/ADVANCED_PIPELINES/" class="md-nav__link">
+      <a href="../ADVANCED_PIPELINES/" class="md-nav__link">
         
   
   
@@ -984,7 +1158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/CONFIGURATION/" class="md-nav__link">
+      <a href="../CONFIGURATION/" class="md-nav__link">
         
   
   
@@ -1012,7 +1186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/OLLAMA_REFERENCE/" class="md-nav__link">
+      <a href="../OLLAMA_REFERENCE/" class="md-nav__link">
         
   
   
@@ -1040,7 +1214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/WHATS_NEW/" class="md-nav__link">
+      <a href="../WHATS_NEW/" class="md-nav__link">
         
   
   
@@ -1068,7 +1242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/GLOSSARY/" class="md-nav__link">
+      <a href="../GLOSSARY/" class="md-nav__link">
         
   
   
@@ -1096,7 +1270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/TROUBLESHOOTING/" class="md-nav__link">
+      <a href="../TROUBLESHOOTING/" class="md-nav__link">
         
   
   
@@ -1124,7 +1298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/MIGRATION/" class="md-nav__link">
+      <a href="../MIGRATION/" class="md-nav__link">
         
   
   
@@ -2184,8 +2358,6 @@
       
   
   
-    
-  
   
   
     
@@ -2198,11 +2370,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
         
           
           <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
@@ -2223,7 +2397,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2241,7 +2415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SDL/" class="md-nav__link">
+      <a href="../../security/SDL/" class="md-nav__link">
         
   
   
@@ -2269,7 +2443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RISK_ASSESSMENT/" class="md-nav__link">
+      <a href="../../security/RISK_ASSESSMENT/" class="md-nav__link">
         
   
   
@@ -2297,7 +2471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RISK_REGISTER/" class="md-nav__link">
+      <a href="../../security/RISK_REGISTER/" class="md-nav__link">
         
   
   
@@ -2325,7 +2499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PENTEST/" class="md-nav__link">
+      <a href="../../security/PENTEST/" class="md-nav__link">
         
   
   
@@ -2350,37 +2524,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Fuzz Testing
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../security/FUZZ_TESTING/" class="md-nav__link">
         
   
   
@@ -2396,248 +2543,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-purpose" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Purpose
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Scope
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Scope">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21-fuzz-targets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.1 Fuzz Targets
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-out-of-scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.2 Out-of-Scope
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Tools
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-methodology" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Methodology
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Methodology">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-harness-design-principles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.1 Harness Design Principles
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-seed-corpus" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.2 Seed Corpus
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-ci-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. CI Integration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. CI Integration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-python-hypothesis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.1 Python (Hypothesis)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-go-native-fuzzing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.2 Go (Native Fuzzing)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-scheduled-deep-fuzzing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.3 Scheduled Deep Fuzzing
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-coverage-targets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Coverage Targets
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-reporting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Reporting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7. Reporting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#71-per-run-report" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.1 Per-Run Report
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#72-defect-classification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.2 Defect Classification
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#73-historical-results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.3 Historical Results
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. References
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2650,7 +2555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../INCIDENT_RESPONSE/" class="md-nav__link">
+      <a href="../../security/INCIDENT_RESPONSE/" class="md-nav__link">
         
   
   
@@ -2678,7 +2583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../IMAGE_SIGNING/" class="md-nav__link">
+      <a href="../../security/IMAGE_SIGNING/" class="md-nav__link">
         
   
   
@@ -2706,7 +2611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SECURITY_TRAINING/" class="md-nav__link">
+      <a href="../../security/SECURITY_TRAINING/" class="md-nav__link">
         
   
   
@@ -3273,10 +3178,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-purpose" class="md-nav__link">
+  <a href="#scoring-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Purpose
+        Scoring model
       
     </span>
   </a>
@@ -3284,22 +3189,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-scope" class="md-nav__link">
+  <a href="#scope-taxonomy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Scope
+        Scope taxonomy
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Scope">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tier-meanings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier meanings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catalog-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catalog surface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-sre-scope-k8sgpt-vs-holmesgpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample: SRE scope, K8sGPT vs HolmesGPT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample: SRE scope, K8sGPT vs HolmesGPT">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21-fuzz-targets" class="md-nav__link">
+  <a href="#invocation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.1 Fuzz Targets
+        Invocation
       
     </span>
   </a>
@@ -3307,10 +3245,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#22-out-of-scope" class="md-nav__link">
+  <a href="#what-happens" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2 Out-of-Scope
+        What happens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expected-output-shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected output shape
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretation
       
     </span>
   </a>
@@ -3323,10 +3283,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-tools" class="md-nav__link">
+  <a href="#reproducibility" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Tools
+        Reproducibility
       
     </span>
   </a>
@@ -3334,160 +3294,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-methodology" class="md-nav__link">
+  <a href="#further-reading" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Methodology
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Methodology">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-harness-design-principles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.1 Harness Design Principles
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42-seed-corpus" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.2 Seed Corpus
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-ci-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. CI Integration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. CI Integration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-python-hypothesis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.1 Python (Hypothesis)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-go-native-fuzzing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.2 Go (Native Fuzzing)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-scheduled-deep-fuzzing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.3 Scheduled Deep Fuzzing
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-coverage-targets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Coverage Targets
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-reporting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Reporting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7. Reporting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#71-per-run-report" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.1 Per-Run Report
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#72-defect-classification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.2 Defect Classification
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#73-historical-results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.3 Historical Results
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. References
+        Further reading
       
     </span>
   </a>
@@ -3511,264 +3321,149 @@
 
 
 
-<h1 id="fuzz-testing-program">Fuzz Testing Program<a class="headerlink" href="#fuzz-testing-program" title="Permanent link">&para;</a></h1>
-<p><strong>IEC 62443-4-1 SVV-5 Compliance</strong></p>
-<h2 id="1-purpose">1. Purpose<a class="headerlink" href="#1-purpose" title="Permanent link">&para;</a></h2>
-<p>This document defines the fuzz testing program for the RUNE platform, satisfying
-IEC 62443-4-1 SVV-5 requirements for robustness testing through automated input
-generation. Fuzz testing complements the penetration testing program
-(<a href="../PENTEST/">PENTEST.md</a>) by discovering input-handling defects that manual
-testing may miss.</p>
-<h2 id="2-scope">2. Scope<a class="headerlink" href="#2-scope" title="Permanent link">&para;</a></h2>
-<h3 id="21-fuzz-targets">2.1 Fuzz Targets<a class="headerlink" href="#21-fuzz-targets" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Target</th>
-<th>Repository</th>
-<th>Language</th>
-<th>Priority</th>
-<th>Rationale</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>REST API endpoints</td>
-<td><code>rune</code></td>
-<td>Python</td>
-<td>Critical</td>
-<td>Public-facing attack surface</td>
-</tr>
-<tr>
-<td>DriverTransport protocol parser</td>
-<td><code>rune</code></td>
-<td>Python</td>
-<td>Critical</td>
-<td>Inter-process boundary; arbitrary input from drivers</td>
-</tr>
-<tr>
-<td>YAML configuration parser (<code>rune.yaml</code>)</td>
-<td><code>rune</code></td>
-<td>Python</td>
-<td>High</td>
-<td>User-supplied configuration files</td>
-</tr>
-<tr>
-<td>AgentRunner input handling</td>
-<td><code>rune</code></td>
-<td>Python</td>
-<td>High</td>
-<td>Processes untrusted agent output</td>
-</tr>
-<tr>
-<td>LLM response parser</td>
-<td><code>rune</code></td>
-<td>Python</td>
-<td>Medium</td>
-<td>Handles unpredictable LLM output formats</td>
-</tr>
-<tr>
-<td>Kubernetes CRD validation</td>
-<td><code>rune-operator</code></td>
-<td>Go</td>
-<td>High</td>
-<td>Admission control for custom resources</td>
-</tr>
-<tr>
-<td>Helm values schema</td>
-<td><code>rune-charts</code></td>
-<td>YAML</td>
-<td>Medium</td>
-<td>User-supplied deployment configuration</td>
-</tr>
-</tbody>
-</table>
-<h3 id="22-out-of-scope">2.2 Out-of-Scope<a class="headerlink" href="#22-out-of-scope" title="Permanent link">&para;</a></h3>
+<h1 id="benchmark-methodology">Benchmark Methodology<a class="headerlink" href="#benchmark-methodology" title="Permanent link">&para;</a></h1>
+<p>The "NE" in RUNE stands for <strong>Numeric Evaluator</strong>. This page documents <strong>how</strong> RUNE evaluates agents — the scoring model, scope taxonomy, tier meanings, and a worked example. The authoritative catalog files (<code>chains.csv</code>, <code>scopes.csv</code>) ship as package data inside <code>rune-bench</code>; this page is the human-readable view.</p>
+<h2 id="scoring-model">Scoring model<a class="headerlink" href="#scoring-model" title="Permanent link">&para;</a></h2>
+<p>Every benchmark run produces a <strong>numeric score</strong> plus a <strong><code>confidence_score</code></strong>. The score is aggregated per chain (a DAG of agents executed against a question), per scope (the taxonomy described below), and per tier.</p>
 <ul>
-<li>Third-party library internals (covered by SCA/CVE scanning).</li>
-<li>UI rendering (covered by browser-level testing).</li>
+<li><strong><code>confidence_score</code></strong> is a fail-closed gate for cloud-GPU provisioning. Below <code>0.95</code>, <code>CostEstimationResponse</code> rejects the run; above, the run proceeds. Local-only runs skip the gate entirely (there is nothing to provision).</li>
+<li><strong>Aggregation</strong> is per-scope first (so an SRE benchmark isn't averaged with a Research benchmark), then per-tier (so a Tier-3 closed-SaaS agent isn't averaged with a Tier-1 OSS agent whose code path is fully measured).</li>
+<li><strong>Reproducibility</strong> is a first-class requirement: benchmark commands are documented, seed-sensitive paths are noted, and warmup passes are deterministic.</li>
 </ul>
-<h2 id="3-tools">3. Tools<a class="headerlink" href="#3-tools" title="Permanent link">&para;</a></h2>
+<p>Design reference: <a href="../../context/SYSTEM_PROMPT/#cost-gates-api-contracts">SYSTEM_PROMPT §Cost gates</a>, <a href="../../architecture/adrs/0002-cost-estimation/">ADR 0002: Cost Estimation</a>.</p>
+<h2 id="scope-taxonomy">Scope taxonomy<a class="headerlink" href="#scope-taxonomy" title="Permanent link">&para;</a></h2>
+<p>Agents are classified by <strong>scope</strong> — the problem domain they're designed for. This determines which question set a benchmark exercises and which agents are comparable.</p>
 <table>
 <thead>
 <tr>
-<th>Tool</th>
-<th>Language</th>
-<th>Target</th>
-<th>Integration</th>
+<th>Scope</th>
+<th>Representative question</th>
+<th>Representative agents (see <code>chains.csv</code>)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Hypothesis</strong></td>
-<td>Python</td>
-<td><code>rune</code> API, DriverTransport, YAML parsing</td>
-<td>pytest plugin; runs in CI</td>
+<td><strong>SRE</strong></td>
+<td>"Why is my Pod in CrashLoopBackOff?"</td>
+<td>K8sGPT (T1), HolmesGPT (T1), PagerDuty AI (T3), Metoro (T2), Cleric (T2)</td>
 </tr>
 <tr>
-<td><strong>go-fuzz</strong> / <strong>native Go fuzzing</strong></td>
-<td>Go</td>
-<td><code>rune-operator</code> CRD validation</td>
-<td><code>go test -fuzz</code>; runs in CI</td>
+<td><strong>Research</strong></td>
+<td>"Efficacy of Drug X for Condition Y?"</td>
+<td>Perplexity Pro (T3), Glean (T3), Elicit (T2), LangGraph (T1), Consensus (T2)</td>
 </tr>
 <tr>
-<td><strong>RESTler</strong></td>
-<td>Python</td>
-<td>REST API stateful fuzzing</td>
-<td>Scheduled job (weekly)</td>
+<td><strong>Art/Creative</strong></td>
+<td>"Consistent character in 5 scenes?"</td>
+<td>Midjourney (T3), ComfyUI (T2), Krea AI (T3)</td>
 </tr>
 <tr>
-<td><strong>AFL++</strong></td>
-<td>C/Python</td>
-<td>Low-level protocol parsing (if applicable)</td>
-<td>Manual / scheduled</td>
+<td><strong>Cybersec</strong></td>
+<td>"Perform grey-box pentest on app?"</td>
+<td>PentestGPT (T1), Radiant Security (T3), Mindgard (T3), BurpGPT (T2), XBOW (T3)</td>
+</tr>
+<tr>
+<td><strong>Legal/Ops</strong></td>
+<td>"Review 50-page NDA for clauses?"</td>
+<td>Harvey AI (T3), Spellbook (T3), MultiOn (T2), Dagger (T1), CrewAI (T1), Browser-Use (T3)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="4-methodology">4. Methodology<a class="headerlink" href="#4-methodology" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart TD
-    A[Identify Fuzz Targets] --&gt; B[Write Fuzz Harnesses]
-    B --&gt; C[Seed Corpus Generation]
-    C --&gt; D[Fuzz Execution]
-    D --&gt; E{Crash / Hang?}
-    E --&gt;|Yes| F[Triage &amp; Minimize]
-    F --&gt; G[File Issue]
-    G --&gt; H[Fix &amp; Add Regression Test]
-    H --&gt; D
-    E --&gt;|No| I[Coverage Analysis]
-    I --&gt; J{Coverage Target Met?}
-    J --&gt;|No| K[Improve Harness / Seeds]
-    K --&gt; D
-    J --&gt;|Yes| L[Report Results]</code></pre>
-<h3 id="41-harness-design-principles">4.1 Harness Design Principles<a class="headerlink" href="#41-harness-design-principles" title="Permanent link">&para;</a></h3>
+<p>Scope-to-directory mapping lives in <a href="../../context/CODING_STANDARDS/">CODING_STANDARDS §Agent filesystem layout</a>. Filename conventions (lower-case, first-word-only, special-cases listed) are authoritative.</p>
+<h2 id="tier-meanings">Tier meanings<a class="headerlink" href="#tier-meanings" title="Permanent link">&para;</a></h2>
+<p>Sourced verbatim from <a href="../../context/CODING_STANDARDS/">CODING_STANDARDS §Tier Registry</a>. See also <a href="../PRICING/">Agent Access Tiers</a> for the reader-facing tier page (filename rename to <code>TIERS.md</code> pending).</p>
+<ul>
+<li><strong>Tier 1</strong> — OSS, fully testable, 100% coverage target, included in <code>.coveragerc</code> measurement.</li>
+<li><strong>Tier 2</strong> — Partial API access or freemium, best-effort coverage, may be omitted from measurement with justification.</li>
+<li><strong>Tier 3</strong> — Closed SaaS or no public API, protocol-only integration via <code>DriverTransport</code>, excluded from coverage measurement.</li>
+</ul>
+<p><strong>Consumer implications</strong>: you can run any Tier-1 agent end-to-end with full code-path inspection. Tier-2 agents work via their public API with best-effort integration. Tier-3 agents return via the <code>DriverTransport</code> protocol; RUNE cannot see inside them. Scores across tiers are comparable for a given question set but the confidence bounds differ.</p>
+<h2 id="catalog-surface">Catalog surface<a class="headerlink" href="#catalog-surface" title="Permanent link">&para;</a></h2>
+<p><code>rune_bench/catalog/defaults/chains.csv</code> and <code>scopes.csv</code> ship as package data inside the <code>rune-bench</code> Python package. At runtime:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">importlib.resources</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rune_bench.catalog</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaults</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">chains_path</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="n">defaults</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;chains.csv&quot;</span>
+<span class="k">with</span> <span class="n">chains_path</span><span class="o">.</span><span class="n">open</span><span class="p">()</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;Scope&quot;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Agent Name&quot;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Tier&quot;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Rating&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>The CSV is the source of truth. When this documentation page drifts from the CSV, the CSV wins. Run the <code>rune catalog ls</code> command (or its equivalent) to see the live state.</p>
+<p>Columns in <code>chains.csv</code>: <code>Scope</code>, <code>Rank</code>, <code>Agent Name</code>, <code>Tier</code> (1/2/3), <code>Rating</code> (agent-specific competence estimate), <code>Agentic Capability</code>, three representative question/action pairs (<code>Q1</code>/<code>Q2</code>/<code>Q3</code>), <code>GitHub/Docs Link</code>, <code>Ecosystem</code>, <code>Ollama Model (2026)</code> (recommended model when the agent runs against Ollama).</p>
+<h2 id="sample-sre-scope-k8sgpt-vs-holmesgpt">Sample: SRE scope, K8sGPT vs HolmesGPT<a class="headerlink" href="#sample-sre-scope-k8sgpt-vs-holmesgpt" title="Permanent link">&para;</a></h2>
+<p>Worked example. Uses two Tier-1 OSS agents so the entire code path is measurable.</p>
+<div class="admonition note">
+<p class="admonition-title">Pre-alpha output</p>
+<p>The output structure shown below reflects <code>v0.0.0a5</code> behavior. The
+shape of <code>AgentResult</code> is expected to evolve before beta. Treat the
+example as illustrative, not a stable contract.</p>
+</div>
+<h3 id="invocation">Invocation<a class="headerlink" href="#invocation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">RUNE_BACKEND_URL</span><span class="o">=</span>http://localhost:11434
+
+python<span class="w"> </span>-m<span class="w"> </span>rune<span class="w"> </span>run-benchmark<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--scope<span class="w"> </span>SRE<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--chain<span class="w"> </span><span class="s2">&quot;k8sgpt,holmesgpt&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--model<span class="w"> </span>qwen3:14b-instruct<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--question<span class="w"> </span><span class="s2">&quot;Why is my Pod in CrashLoopBackOff?&quot;</span>
+</code></pre></div>
+<h3 id="what-happens">What happens<a class="headerlink" href="#what-happens" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Isolation</strong>: Each fuzz harness tests a single parser or handler in
-   isolation, with all external dependencies mocked.</li>
-<li><strong>Determinism</strong>: No network calls, no filesystem side effects, no
-   randomness outside the fuzzer's control.</li>
-<li><strong>Speed</strong>: Target &gt; 1000 executions/second per harness to ensure meaningful
-   coverage within CI time budgets.</li>
+<li><strong>Agent resolution</strong>. <code>get_agent("k8sgpt")</code> and <code>get_agent("holmesgpt")</code> resolve from the built-in registry (both Tier 1; fully measurable). Missing required config → <code>RuntimeError</code> with an env hint.</li>
+<li><strong>Cost gate</strong>. Local backend → gate skipped (no provisioning). If the backend were <code>vastai</code>, <code>CostEstimationRequest</code> would fire with <code>confidence_score</code> check.</li>
+<li><strong>Warmup</strong>. Deterministic warmup on the <code>qwen3:14b-instruct</code> model to eliminate cold-start variance.</li>
+<li><strong>Q1 execution</strong>. K8sGPT runs its standard-Q1 action ("Scans logs/events and provides a human-readable fix"). HolmesGPT runs its standard-Q1 action ("Runs kubectl commands to fetch logs and traces autonomously").</li>
+<li><strong>Scoring</strong>. Per-agent <code>AgentResult</code> is scored against the scope's reference rubric; aggregated into a benchmark score + confidence.</li>
 </ol>
-<h3 id="42-seed-corpus">4.2 Seed Corpus<a class="headerlink" href="#42-seed-corpus" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Valid inputs from test fixtures and real-world usage.</li>
-<li>Edge cases from past bug reports.</li>
-<li>Malformed inputs from OWASP attack payloads.</li>
-</ul>
-<h2 id="5-ci-integration">5. CI Integration<a class="headerlink" href="#5-ci-integration" title="Permanent link">&para;</a></h2>
-<h3 id="51-python-hypothesis">5.1 Python (Hypothesis)<a class="headerlink" href="#51-python-hypothesis" title="Permanent link">&para;</a></h3>
-<p>Hypothesis-based property tests run as part of the standard <code>pytest</code> suite:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># In rune CI pipeline</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run fuzz tests</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">pytest tests/fuzz/ \</span>
-<span class="w">      </span><span class="no">--hypothesis-seed=0 \</span>
-<span class="w">      </span><span class="no">-x \</span>
-<span class="w">      </span><span class="no">--timeout=300</span>
+<h3 id="expected-output-shape">Expected output shape<a class="headerlink" href="#expected-output-shape" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;benchmark_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SRE&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;question&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Why is my Pod in CrashLoopBackOff?&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;chain&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;k8sgpt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;holmesgpt&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;confidence_score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.98</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;per_agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;k8sgpt&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;tier&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">4.5</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;duration_s&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">12.3</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;result_excerpt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...scanned events, found ImagePullBackOff on container ...&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;holmesgpt&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;tier&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">4.3</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;duration_s&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">34.7</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;result_excerpt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...ran kubectl get events --all-namespaces | kubectl describe pod ...&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;aggregate_score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">4.4</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Warmup took 2.1s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Both agents used qwen3:14b-instruct&quot;</span><span class="p">]</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>The <code>--hypothesis-seed=0</code> flag ensures reproducibility in CI. Local development
-uses randomized seeds for broader exploration.</p>
-<h3 id="52-go-native-fuzzing">5.2 Go (Native Fuzzing)<a class="headerlink" href="#52-go-native-fuzzing" title="Permanent link">&para;</a></h3>
-<p>Go fuzz tests run in a dedicated CI step with a time budget:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># In rune-operator CI pipeline</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run fuzz tests</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">go test ./... -fuzz=. -fuzztime=120s</span>
-</code></pre></div>
-<h3 id="53-scheduled-deep-fuzzing">5.3 Scheduled Deep Fuzzing<a class="headerlink" href="#53-scheduled-deep-fuzzing" title="Permanent link">&para;</a></h3>
-<p>Weekly scheduled jobs run extended fuzzing sessions (4 hours) against all
-targets. Results are uploaded as CI artifacts.</p>
-<h2 id="6-coverage-targets">6. Coverage Targets<a class="headerlink" href="#6-coverage-targets" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Target</th>
-<th>Minimum Line Coverage</th>
-<th>Minimum Branch Coverage</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>REST API input parsing</td>
-<td>90%</td>
-<td>80%</td>
-</tr>
-<tr>
-<td>DriverTransport protocol</td>
-<td>95%</td>
-<td>85%</td>
-</tr>
-<tr>
-<td>YAML config parser</td>
-<td>90%</td>
-<td>80%</td>
-</tr>
-<tr>
-<td>CRD validation (Go)</td>
-<td>90%</td>
-<td>80%</td>
-</tr>
-</tbody>
-</table>
-<p>Coverage is measured using the fuzzer's built-in instrumentation and reported
-alongside standard test coverage metrics.</p>
-<h2 id="7-reporting">7. Reporting<a class="headerlink" href="#7-reporting" title="Permanent link">&para;</a></h2>
-<h3 id="71-per-run-report">7.1 Per-Run Report<a class="headerlink" href="#71-per-run-report" title="Permanent link">&para;</a></h3>
-<p>Each fuzz run (CI or scheduled) produces:</p>
+<h3 id="interpretation">Interpretation<a class="headerlink" href="#interpretation" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Number of executions.</li>
-<li>Unique crashes / hangs discovered.</li>
-<li>Code coverage achieved.</li>
-<li>New corpus entries generated.</li>
+<li>Both agents scored high (4.3, 4.5) on this Q1-class question. K8sGPT's Rating (5.0 in <code>chains.csv</code>) is borne out; HolmesGPT (Rating 4.5) matches expectation.</li>
+<li>The confidence is <code>0.98</code> because the run was local, deterministic, and the model was warmed.</li>
+<li>Reproducing this benchmark with the same seed + model + question should yield scores within a narrow band; scoring variance is bounded by the backend's temperature/sampling configuration.</li>
 </ul>
-<h3 id="72-defect-classification">7.2 Defect Classification<a class="headerlink" href="#72-defect-classification" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>Description</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Crash</strong></td>
-<td>Unhandled exception or segfault</td>
-<td>P0/P1 issue; fix within SLA</td>
-</tr>
-<tr>
-<td><strong>Hang</strong></td>
-<td>Execution exceeds timeout (10x median)</td>
-<td>P2 issue; investigate</td>
-</tr>
-<tr>
-<td><strong>Memory</strong></td>
-<td>Excessive allocation or leak</td>
-<td>P2 issue; investigate</td>
-</tr>
-<tr>
-<td><strong>Logic</strong></td>
-<td>Assertion violation in property test</td>
-<td>P2/P3 issue; fix and add regression test</td>
-</tr>
-</tbody>
-</table>
-<p>Remediation SLAs follow the penetration testing program
-(<a href="../PENTEST/#7-remediation-sla">PENTEST.md</a>).</p>
-<h3 id="73-historical-results">7.3 Historical Results<a class="headerlink" href="#73-historical-results" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p><strong>Placeholder</strong>: Fuzz testing infrastructure is being established. First
-results expected Q2 2026.</p>
-</blockquote>
-<h2 id="8-references">8. References<a class="headerlink" href="#8-references" title="Permanent link">&para;</a></h2>
+<h2 id="reproducibility">Reproducibility<a class="headerlink" href="#reproducibility" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://webstore.iec.ch/publication/33615">IEC 62443-4-1:2018</a> SVV-5 -- Fuzz testing</li>
-<li><a href="../SDL/">SDL.md</a> -- Security Development Lifecycle</li>
-<li><a href="../PENTEST/">PENTEST.md</a> -- Penetration testing program</li>
-<li><a href="../RISK_ASSESSMENT/">RISK_ASSESSMENT.md</a> -- Threat model informing fuzz targets</li>
-<li><a href="https://hypothesis.readthedocs.io/">Hypothesis</a> -- Python property-based testing</li>
-<li><a href="https://go.dev/doc/security/fuzz/">Go native fuzzing</a></li>
-<li><a href="../../reference/EXTERNAL_LINKS/">External Links Catalog</a> -- Complete list of standards and tools</li>
+<li><strong>Commands</strong>: record the exact CLI + env vars. Example above is reproducible verbatim once Ollama is pulling <code>qwen3:14b-instruct</code>.</li>
+<li><strong>Backend</strong>: state the backend URL and model. Different backends can give different scores for the same prompt.</li>
+<li><strong>Seed</strong>: if the backend supports deterministic sampling, declare the seed. Today, Ollama's determinism depends on model + sampler configuration.</li>
+<li><strong>Cost</strong>: for non-local runs, record the <code>CostEstimationResponse</code> (<code>projected_cost_usd</code>, <code>cost_high_usd</code>, <code>confidence_score</code>) alongside the benchmark output.</li>
+<li><strong>Warmup</strong>: a cold run and a warmed run will differ. The warmup pass is documented in <a href="../../context/CURRENT_STATE/">CURRENT_STATE §Conventions</a> and in the <code>backend_warmup: true</code> config key.</li>
+</ul>
+<h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../PRICING/">Agent Access Tiers</a> — Tier 1/2/3 access and licensing detail.</li>
+<li><a href="../../external-projects/">External projects</a> — adopt RUNE components standalone.</li>
+<li><a href="../../architecture/adrs/0005-advanced-cognitive-architecture/">ADR 0005: Advanced Cognitive Architecture</a> — design for chain execution.</li>
+<li><a href="../API_SPEC/">API Specification</a> — REST interface to benchmarks.</li>
 </ul>
 
 
