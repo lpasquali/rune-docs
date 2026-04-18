@@ -47,6 +47,8 @@ nav:
       - System Prompt: context/SYSTEM_PROMPT.md
       - Current State: context/CURRENT_STATE.md
       - Coding Standards: context/CODING_STANDARDS.md
+  - Project:
+      - Overview: project/index.md
   - Reference:
       - Overview: reference/index.md
       - External Links & Official Docs: reference/EXTERNAL_LINKS.md
