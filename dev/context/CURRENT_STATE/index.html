@@ -469,6 +469,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-18-install-guides-flesh-out-aws-gcp-azure-alibaba-prs-302305" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-18 — Install guides flesh-out: AWS / GCP / Azure / Alibaba (PRs #302–#305)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-18-crossplane-infrastructure-provisioning-phases-01a1b2-epic-266" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4501,6 +4512,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-18-install-guides-flesh-out-aws-gcp-azure-alibaba-prs-302305" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-18 — Install guides flesh-out: AWS / GCP / Azure / Alibaba (PRs #302–#305)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-18-crossplane-infrastructure-provisioning-phases-01a1b2-epic-266" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4861,7 +4883,7 @@
 <p>RUNE is currently in active pre-alpha development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is <strong>not yet production-ready</strong>.</p>
 <h2 id="freshness-policy">Freshness Policy<a class="headerlink" href="#freshness-policy" title="Permanent link">&para;</a></h2>
 <p>This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.</p>
-<p>Last updated: <strong>2026-04-18</strong> (persist: epic <strong>#266</strong> — Crossplane provisioning Phases 0/1a/1b/2; IA backlog push + external-links sweep earlier same day).</p>
+<p>Last updated: <strong>2026-04-18</strong> (persist: install-guide flesh-outs — AWS/GCP/Azure/Alibaba content complete; Crossplane provisioning epic #266; IA backlog push + external-links sweep earlier same day).</p>
 <h2 id="version-baseline">Version Baseline<a class="headerlink" href="#version-baseline" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -4918,6 +4940,23 @@
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-18-install-guides-flesh-out-aws-gcp-azure-alibaba-prs-302305">2026-04-18 — Install guides flesh-out: AWS / GCP / Azure / Alibaba (PRs #302–#305)<a class="headerlink" href="#2026-04-18-install-guides-flesh-out-aws-gcp-azure-alibaba-prs-302305" title="Permanent link">&para;</a></h3>
+<p>Replaced TODO scaffolds in <code>docs/operations/INSTALL_{AWS,GCP,AZURE,ALICLOUD}.md</code> with full content drafted from official provider / Crossplane / ESO docs. Each guide grew from ~85 lines (scaffold) to 350–500 lines (complete) and now ships:</p>
+<ul>
+<li><strong>Crossplane provider manifests</strong> — per-cloud CRs for managed Postgres (RDS / Cloud SQL / PG Flexible Server / ApsaraDB RDS) and object storage (S3 / GCS / Blob / OSS).</li>
+<li><strong>Workload-identity flavor per cloud</strong> — IRSA (AWS), Workload Identity (GCP + Azure), RRSA (AliCloud), with IAM policy JSON + trust policy + federated-credential commands.</li>
+<li><strong>External Secrets Operator</strong> — ClusterSecretStore + ExternalSecret per provider (Secrets Manager / Secret Manager / Key Vault / AliCloud KMS).</li>
+<li><strong>Ingress + cert story</strong> — ALB+ACM+Route 53 (AWS), GCE+ManagedCertificate (GCP), AGIC+Key Vault cert (Azure), ACK-ALB+Alibaba Cert Manager (AliCloud).</li>
+<li><strong>Chart install + validate + teardown</strong> commands for each.</li>
+<li><strong><code>Validation transcript</code> placeholder section</strong> at the bottom of each file with a clearly-marked <code>TODO: Paste validated transcript here.</code> block — this is the only remaining work, and it is human-provided from a real-cluster run post-merge.</li>
+</ul>
+<p>Caveats documented in the text:</p>
+<ul>
+<li><strong>AliCloud</strong> <code>provider-jet-alibabacloud</code> is community-maintained (less mature than Upbound providers) and only supports Secret-based auth (no RRSA in Crossplane itself yet).</li>
+<li><strong>Azure</strong> uses the native Blob client path over the S3-compat gateway layer (gateway noted as a fallback with caveats, not recommended for prod).</li>
+<li><strong><code>CostEstimation.alicloud</code></strong> is not yet defined in RUNE's cost contracts (<code>vastai</code>, <code>aws</code>, <code>gcp</code>, <code>azure</code>, <code>localhardware</code>) — placeholder driver signature documented; follow-up for <code>rune</code> core is open.</li>
+</ul>
+<p>Merged in PR <a href="https://github.com/lpasquali/rune-docs/pull/326">rune-docs#326</a> (closes #302, #303, #304, #305). <code>mkdocs build --strict</code> and <code>pymarkdown scan</code> both pass. No code, API, or deployment-manifest changes — pure Level-3 docs content.</p>
 <h3 id="2026-04-18-crossplane-infrastructure-provisioning-phases-01a1b2-epic-266">2026-04-18 — Crossplane infrastructure provisioning — Phases 0/1a/1b/2 (epic <strong>#266</strong>)<a class="headerlink" href="#2026-04-18-crossplane-infrastructure-provisioning-phases-01a1b2-epic-266" title="Permanent link">&para;</a></h3>
 <p>Cursor took <a href="https://github.com/lpasquali/rune-docs/issues/266">rune-docs#266</a> and closed every phase that was not explicitly deferred.</p>
 <p><strong>Bookkeeping first.</strong> Two earlier PRs (<a href="https://github.com/lpasquali/rune-docs/pull/268">rune-docs#268</a> → ADR 0007, <a href="https://github.com/lpasquali/rune-charts/pull/95">rune-charts#95</a> → cloud Compositions) landed the work but forgot <code>Closes #NNN</code>. Closed <a href="https://github.com/lpasquali/rune-docs/issues/267">rune-docs#267</a> and <a href="https://github.com/lpasquali/rune-charts/issues/94">rune-charts#94</a> with evidence comments; audited the epic checklist via comment on #266.</p>
