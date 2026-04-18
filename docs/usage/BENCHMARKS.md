@@ -28,7 +28,7 @@ Scope-to-directory mapping lives in [CODING_STANDARDS §Agent filesystem layout]
 
 ## Tier meanings
 
-Sourced verbatim from [CODING_STANDARDS §Tier Registry](../context/CODING_STANDARDS.md). See also [Agent Access Tiers](PRICING.md) for the reader-facing tier page (filename rename to `TIERS.md` pending).
+Sourced verbatim from [CODING_STANDARDS §Tier Registry](../context/CODING_STANDARDS.md). See also [Agent Access Tiers](TIERS.md) for the reader-facing tier page (filename rename to `TIERS.md` pending).
 
 - **Tier 1** — OSS, fully testable, 100% coverage target, included in `.coveragerc` measurement.
 - **Tier 2** — Partial API access or freemium, best-effort coverage, may be omitted from measurement with justification.
@@ -131,7 +131,7 @@ python -m rune run-benchmark \
 
 ## Further reading
 
-- [Agent Access Tiers](PRICING.md) — Tier 1/2/3 access and licensing detail.
+- [Agent Access Tiers](TIERS.md) — Tier 1/2/3 access and licensing detail.
 - [External projects](../external-projects/index.md) — adopt RUNE components standalone.
 - [ADR 0005: Advanced Cognitive Architecture](../architecture/adrs/0005-advanced-cognitive-architecture.md) — design for chain execution.
 - [API Specification](API_SPEC.md) — REST interface to benchmarks.

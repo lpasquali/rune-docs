@@ -59,7 +59,7 @@ nav:
       - E2E Testing: usage/E2E_TESTING.md
       - Guide: usage/GUIDE.md
       - Scenarios: usage/SCENARIOS.md
-      - Pricing & Access Tiers: usage/PRICING.md
+      - Agent Access Tiers: usage/TIERS.md
       - Benchmarks: usage/BENCHMARKS.md
       - Interfaces: usage/INTERFACES.md
       - API Specification: usage/API_SPEC.md
@@ -78,15 +78,28 @@ nav:
       - Transports: agents/TRANSPORTS.md
       - Testing: agents/TESTING.md
       - Example: agents/EXAMPLE.md
-  - External projects (rune-audit):
+  - External projects:
       - Overview: external-projects/index.md
-      - Quickstart: external-projects/quickstart.md
-      - Configuration: external-projects/configuration.md
-      - Inspector library: external-projects/inspector-library.md
-      - Custom inspectors: external-projects/custom-inspectors.md
-      - Requirement packs: external-projects/requirement-packs.md
-      - CI integration: external-projects/ci-integration.md
-      - Case study — RUNE: external-projects/case-study-rune.md
+      - rune-audit:
+          - Quickstart: external-projects/quickstart.md
+          - Configuration: external-projects/configuration.md
+          - Inspector library: external-projects/inspector-library.md
+          - Custom inspectors: external-projects/custom-inspectors.md
+          - Requirement packs: external-projects/requirement-packs.md
+          - CI integration: external-projects/ci-integration.md
+          - Case study — RUNE: external-projects/case-study-rune.md
+      - rune-operator:
+          - Overview: external-projects/rune-operator/overview.md
+          - Quickstart: external-projects/rune-operator/quickstart.md
+      - rune-ui:
+          - Overview: external-projects/rune-ui/overview.md
+          - Quickstart: external-projects/rune-ui/quickstart.md
+      - rune-airgapped:
+          - Overview: external-projects/rune-airgapped/overview.md
+          - Quickstart: external-projects/rune-airgapped/quickstart.md
+      - Driver SDK:
+          - Overview: external-projects/driver-sdk/overview.md
+          - Quickstart: external-projects/driver-sdk/quickstart.md
   - Delivery:
       - Pipelines: delivery/PIPELINES.md
       - Shared CI Workflows: delivery/CI_SHARED_WORKFLOWS.md
@@ -101,6 +114,13 @@ nav:
       - Workstation Setup: operations/WORKSTATION.md
       - Golden Image: operations/GOLDEN_IMAGE.md
       - Deployment: operations/DEPLOYMENT.md
+      - Install:
+          - Overview: operations/INSTALL.md
+          - On-prem: operations/INSTALL_ONPREM.md
+          - AWS (EKS): operations/INSTALL_AWS.md
+          - GCP (GKE): operations/INSTALL_GCP.md
+          - Azure (AKS): operations/INSTALL_AZURE.md
+          - Alibaba Cloud (ACK): operations/INSTALL_ALICLOUD.md
       - Database Operations: operations/DATABASE.md
       - Database HA: operations/DATABASE_HA.md
       - Observability: operations/OBSERVABILITY.md
