@@ -671,6 +671,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../usage/E2E_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../usage/GUIDE/" class="md-nav__link">
         
   
@@ -1773,6 +1801,34 @@
     <span class="md-ellipsis">
       
         Verification Checklist
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verification Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-this-before-step-7-of-the-sop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run this before Step 7 of the SOP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-combined-venv-dependency-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional: combined-venv dependency check
       
     </span>
   </a>
@@ -3017,6 +3073,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Verification Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-this-before-step-7-of-the-sop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run this before Step 7 of the SOP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-combined-venv-dependency-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional: combined-venv dependency check
+      
+    </span>
+  </a>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3246,6 +3330,41 @@ shellcheck<span class="w"> </span>--version<span class="w">       </span><span c
 gitleaks<span class="w"> </span>version<span class="w">           </span><span class="c1"># 8.24.3</span>
 </code></pre></div>
 <p>If any of these fail, revisit the corresponding section above. Once everything passes, proceed to the <a href="../../usage/DEVELOPER_GUIDE/">Developer Guide</a> to set up the individual repositories.</p>
+<h3 id="run-this-before-step-7-of-the-sop">Run this before Step 7 of the SOP<a class="headerlink" href="#run-this-before-step-7-of-the-sop" title="Permanent link">&para;</a></h3>
+<p>The E2E contract in <a href="../../usage/E2E_TESTING/">E2E_TESTING.md</a> depends on the
+same tool surface as above, plus a readable Docker socket. Before starting a
+Level-1 run, re-check the subset that <code>scripts/e2e.sh</code> exercises:</p>
+<div class="highlight"><pre><span></span><code>python3.14<span class="w"> </span>--version<span class="w">       </span><span class="c1"># Python 3.14.x</span>
+docker<span class="w"> </span>compose<span class="w"> </span>version<span class="w">     </span><span class="c1"># Docker Compose v2.x+</span>
+docker<span class="w"> </span>ps<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w">      </span><span class="c1"># current user can reach the daemon without sudo</span>
+kind<span class="w"> </span>--version<span class="w">             </span><span class="c1"># kind v0.27.x</span>
+kubectl<span class="w"> </span>version<span class="w"> </span>--client<span class="w">   </span><span class="c1"># v1.35.3</span>
+helm<span class="w"> </span>version<span class="w"> </span>--short<span class="w">       </span><span class="c1"># v3.x</span>
+</code></pre></div>
+<p>If any line fails, <strong>do not</strong> auto-install from the agent context — the
+<a href="../../context/SYSTEM_PROMPT/#other-process-mandates">SYSTEM_PROMPT.md Anti-Rogue rule</a>
+and the risky-actions policy both prohibit opportunistic installers. Open an
+<code>area/infra</code> issue, note which tool is missing, and continue the SOP with
+whichever E2E modes your host supports; <code>e2e-artifacts/summary.md</code> records
+each mode independently.</p>
+<h2 id="optional-combined-venv-dependency-check">Optional: combined-venv dependency check<a class="headerlink" href="#optional-combined-venv-dependency-check" title="Permanent link">&para;</a></h2>
+<p>The default model is <strong>per-repo venvs</strong> — see
+<a href="../../usage/DEVELOPER_GUIDE/#python-repositories-rune-rune-ui-rune-docs">Developer Guide §Python Repositories</a>.
+Per-repo venvs are mandatory because <code>rune</code> targets Python <strong>&gt;=3.11</strong> and
+<code>rune-ui</code> targets Python <strong>&gt;=3.12</strong>; a single shared venv cannot satisfy both
+floors simultaneously across the supported range.</p>
+<p>Cross-repo dependency conflicts are still worth surfacing before they bite in
+CI. The helper <code>rune/scripts/check-cross-repo-deps.sh</code> (shipped in Phase 1 of
+<a href="https://github.com/lpasquali/rune-docs/issues/271">rune-docs#271</a>) creates a
+<strong>throwaway</strong> venv at Python 3.14, <code>pip install -e</code>s every Python repo into
+it, then runs <code>pip check</code> and prints any conflicting pairs. Usage:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune
+./scripts/check-cross-repo-deps.sh<span class="w">   </span><span class="c1"># writes /tmp/rune-crossdep/report.txt</span>
+</code></pre></div>
+<p>The helper is <strong>advisory</strong> — <code>pip check</code> failure prints the offending pair
+and links to the <a href="../../usage/E2E_TESTING/#cross-repo-dependency-conflicts">E2E_TESTING.md troubleshooting section</a>.
+It is <strong>not</strong> a merge gate and it does <strong>not</strong> replace the per-repo venvs
+documented in the Developer Guide.</p>
 <h2 id="keeping-tools-up-to-date">Keeping Tools Up to Date<a class="headerlink" href="#keeping-tools-up-to-date" title="Permanent link">&para;</a></h2>
 <p>Tool versions are pinned in CI workflows (<code>.github/workflows/quality-gates.yml</code>) and Dockerfiles across all repositories. When a version bump happens upstream, it should be synchronized across:</p>
 <ol>

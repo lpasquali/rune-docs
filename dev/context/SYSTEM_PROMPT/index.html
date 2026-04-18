@@ -933,6 +933,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../usage/E2E_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../usage/GUIDE/" class="md-nav__link">
         
   
@@ -3319,11 +3347,11 @@
 <h2 id="definition-of-done-pre-pr">Definition of Done (pre-PR)<a class="headerlink" href="#definition-of-done-pre-pr" title="Permanent link">&para;</a></h2>
 <p>Pick the <strong>highest</strong> applicable level. <strong>CI green alone is not enough.</strong></p>
 <ul>
-<li><strong>Level 1</strong> (runtime, API, drivers, agents, charts, Docker): docker-compose E2E; kind E2E (<code>kind</code>/<code>kubectl</code>/<code>helm</code>, <code>kind load docker-image</code>); standalone CLI E2E; breaking-change review (API, persistence, protocols). <strong>Deps</strong>: run <strong><code>pip-audit</code></strong> (not <code>safety</code>) before PR; never ship a known new CVE — fix, replace, fork-patch, or escalate to <code>lpasquali</code>. Healthchecks: prefer <code>127.0.0.1</code>; volume mounts: <code>chown</code> in image for non-root.</li>
+<li><strong>Level 1</strong> (runtime, API, drivers, agents, charts, Docker): docker-compose E2E; kind E2E (<code>kind</code>/<code>kubectl</code>/<code>helm</code>, <code>kind load docker-image</code>); standalone CLI E2E; breaking-change review (API, persistence, protocols). <strong>Deps</strong>: run <strong><code>pip-audit</code></strong> (not <code>safety</code>) before PR; never ship a known new CVE — fix, replace, fork-patch, or escalate to <code>lpasquali</code>. Healthchecks: prefer <code>127.0.0.1</code>; volume mounts: <code>chown</code> in image for non-root. See <strong><a href="../../usage/E2E_TESTING/">E2E_TESTING.md</a></strong> for the binding E2E contract, one-command entrypoint, and evidence layout.</li>
 <li><strong>Level 2</strong> (tests/CI/coverage/linter config only, no runtime code): full test suite; coverage not degraded; no CI regressions.</li>
 <li><strong>Level 3</strong> (<code>rune-docs</code> content only): <code>mkdocs build --strict</code> + review.</li>
 </ul>
-<p><strong>Evidence</strong>: Every checked acceptance criterion needs proof (CI logs count where applicable). <strong>rune-docs</strong> / <strong>rune-ui</strong>: screenshots mandatory when UI matters — headless capture + <strong>you</strong> verify the image; else Draft PR + <strong>HUMAN INTERVENTION REQUIRED</strong> for screenshots. Also logs, diffs, command output as appropriate.</p>
+<p><strong>Evidence</strong>: Every checked acceptance criterion needs proof (CI logs count where applicable). <strong>rune-docs</strong> / <strong>rune-ui</strong>: screenshots mandatory when UI matters — headless capture via the <a href="../../usage/E2E_TESTING/">E2E_TESTING.md</a> recipe + <strong>you</strong> verify the image. If headless capture is impossible in the current environment, open an <code>area/infra</code> issue before the PR — not a Draft PR. Draft PR + <strong>HUMAN INTERVENTION REQUIRED</strong> is reserved for UX review of an already-captured screenshot, not for skipping capture. Also logs, diffs, command output as appropriate.</p>
 <h2 id="sop-issue-merge">SOP: issue → merge<a class="headerlink" href="#sop-issue-merge" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Assign</strong> — <code>lpasquali</code> + <strong>Take issue</strong> label steps if user-directed (no halt on label mismatch).</li>
@@ -3332,7 +3360,7 @@
 <li><strong>Halt</strong> — confirm 1–2 done; user OK to <strong>Execute</strong>.</li>
 <li><strong>Execute</strong> — minimal scope; strong tests.</li>
 <li><strong>Verify</strong> — mocks at boundaries; coverage/SLSA expectations.</li>
-<li><strong>E2E</strong> — per <strong>DoD Level 1</strong> when Level 1 applies; attach evidence.</li>
+<li><strong>E2E</strong> — run <code>scripts/e2e.sh --mode &lt;compose|kind|cli|all&gt;</code> for every applicable mode per <a href="../../usage/E2E_TESTING/">E2E_TESTING.md</a>; paste the produced <code>e2e-artifacts/summary.md</code> verbatim into the PR body (marker <code>&lt;!-- e2e-artifacts/summary.md --&gt;</code> must survive).</li>
 <li><strong>PR</strong> — template + rebase; green CI.</li>
 <li><strong>Persist</strong> — <strong>CURRENT_STATE.md</strong> after merge.</li>
 </ol>

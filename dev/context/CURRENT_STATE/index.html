@@ -469,6 +469,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-17-pre-pr-e2e-verification-gap-phase-0-spec-rune-docs-271" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-17 — Pre-PR E2E verification gap: Phase 0 spec (rune-docs #271)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-18-external-documentation-links-catalog-cross-repo-readme-hyperlinks-9-prs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1056,6 +1067,34 @@
     
   
     Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/E2E_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Testing
   
 
     
@@ -3091,6 +3130,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-17-pre-pr-e2e-verification-gap-phase-0-spec-rune-docs-271" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-17 — Pre-PR E2E verification gap: Phase 0 spec (rune-docs #271)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-18-external-documentation-links-catalog-cross-repo-readme-hyperlinks-9-prs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3475,6 +3525,57 @@
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-17-pre-pr-e2e-verification-gap-phase-0-spec-rune-docs-271">2026-04-17 — Pre-PR E2E verification gap: Phase 0 spec (rune-docs <strong>#271</strong>)<a class="headerlink" href="#2026-04-17-pre-pr-e2e-verification-gap-phase-0-spec-rune-docs-271" title="Permanent link">&para;</a></h3>
+<p>Level-3 documentation PR that closes the spec half of the cross-repo epic
+<a href="https://github.com/lpasquali/rune-docs/issues/271">rune-docs#271</a>. Diagnosis:
+PRs ship without Level-1 evidence because (a) no one-command entrypoint
+exists — every Level-1 PR re-types compose/kind/CLI by hand, and cold
+<code>docker compose up --build</code> exceeds the 2-minute agent bash timeout with no
+background-run recipe; (b) no evidence layout is defined (<code>docs/evidence/</code>
+holds a single orphan screenshot); (c) <code>rune-ci/.github/workflows/pr-compliance.yml</code>
+validates section presence, not content; (d) <code>rune-ui</code> has no browser tests,
+so the <code>HUMAN INTERVENTION REQUIRED</code> escape is reached by default.</p>
+<p><strong>Phase 0 deliverables</strong> (this branch):</p>
+<ul>
+<li><strong>New</strong>: <a href="../../usage/E2E_TESTING/"><code>docs/usage/E2E_TESTING.md</code></a> — binding
+  contract for the one-command wrapper, evidence bundle layout (with the
+  <code>&lt;!-- e2e-artifacts/summary.md --&gt;</code> marker), agent-compatible background
+  execution recipe, and triage section.</li>
+<li><strong>Edited</strong>: <a href="../SYSTEM_PROMPT/">SYSTEM_PROMPT.md §DoD / §Evidence / §SOP Step 7</a>
+  — point at the binding spec and narrow the Draft-PR + HUMAN INTERVENTION
+  clause to UX review of already-captured screenshots only (no more escape
+  clause for skipping capture).</li>
+<li><strong>Edited</strong>: <a href="../../usage/DEVELOPER_GUIDE/#definition-of-done-validation-steps">DEVELOPER_GUIDE.md Validation Steps</a>
+  — DoD table preserved; Step 1/2/3 command blocks collapsed to 2-line
+  summaries that point at <code>E2E_TESTING.md</code>. Steps 4 (Breaking-change audit)
+  and 5 (Dependency CVE audit) unchanged.</li>
+<li><strong>Edited</strong>: <a href="../../operations/WORKSTATION/">WORKSTATION.md</a> — added
+  <strong>Run this before Step 7 of the SOP</strong> preflight grouping, plus an
+  <strong>Optional: combined-venv dependency check</strong> section pointing at the
+  Phase-1 helper <code>rune/scripts/check-cross-repo-deps.sh</code>. Per-repo venvs
+  remain the default (Python floors disagree: <code>rune &gt;=3.11</code> vs
+  <code>rune-ui &gt;=3.12</code>).</li>
+</ul>
+<p><strong>Phase 1 / Phase 2</strong> (out of scope for this branch, tracked as follow-up
+issues under #271):</p>
+<ul>
+<li>Phase 1: per-repo <code>scripts/e2e.sh</code> wrappers (<code>rune</code>, <code>rune-ui</code>,
+  <code>rune-charts</code>; thin delegating wrappers in <code>rune-operator</code> /
+  <code>rune-audit</code> / <code>rune-airgapped</code>). <code>rune-ui</code> gains its first browser
+  tests via <code>pytest-playwright</code>; <code>rune-charts</code> gains a <code>kind.yaml</code>
+  matching CI's <code>kind v0.27.0</code>.</li>
+<li>Phase 2: <code>rune-ci/.github/workflows/pr-compliance.yml</code> content
+  validator. Each ticked <code>## Acceptance Criteria Evidence</code> bullet must
+  carry <code>[evidence: ...]</code>, <code>[screenshot: ...]</code>, <code>[log: ...]</code>,
+  <code>[link: ...]</code>, or <code>[skip: &lt;≥40-char reason&gt;]</code>. Level-1 PRs must
+  contain the <code>&lt;!-- e2e-artifacts/summary.md --&gt;</code> marker with non-empty
+  content. One-week <code>warn-only</code> rollout.</li>
+</ul>
+<p><strong>Risk</strong>: Phase 0 lands alone and creates a spec without implementations.
+Mitigation: the spec opens with a <strong>Spec v0 — scripts ship in #271 Phase 1</strong>
+banner; SOP Step 7 text references the spec, not a (not-yet-shipped) wrapper;
+<code>DEVELOPER_GUIDE.md</code> step summaries still tell an agent what each mode does
+between Phase 0 and Phase 1.</p>
 <h3 id="2026-04-18-external-documentation-links-catalog-cross-repo-readme-hyperlinks-9-prs">2026-04-18 — External documentation links catalog + cross-repo README hyperlinks (9 PRs)<a class="headerlink" href="#2026-04-18-external-documentation-links-catalog-cross-repo-readme-hyperlinks-9-prs" title="Permanent link">&para;</a></h3>
 <p>Addresses the ecosystem-wide gap that every compliance claim (IEC 62443-4-1 ML4, SLSA Level 3) and every referenced tool (bandit, ruff, mypy, pytest, pip-audit, govulncheck, gitleaks, trivy, grype, syft, cosign, Rekor, Ollama, HolmesGPT, LangGraph, Helm, kind, CNPG, Crossplane, Vault, MkDocs, etc.) in rune-docs and the 7 repo READMEs was stated as bare text without a hyperlink to its official spec or docs. Humans and agents both lost the one-click jump to authoritative upstream URLs.</p>
 <p><strong>Canonical catalog</strong> (<a href="https://github.com/lpasquali/rune-docs/issues/306">rune-docs#306</a> / <a href="https://github.com/lpasquali/rune-docs/pull/307">PR #307</a>, merge <a href="https://github.com/lpasquali/rune-docs/commit/a0665db"><code>a0665db</code></a>):</p>

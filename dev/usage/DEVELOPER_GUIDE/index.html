@@ -14,7 +14,7 @@
         <link rel="prev" href="../QUICKSTART/">
       
       
-        <link rel="next" href="../GUIDE/">
+        <link rel="next" href="../E2E_TESTING/">
       
       
         
@@ -1038,6 +1038,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../E2E_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3580,68 +3608,26 @@ yamllint<span class="w"> </span>.
 </tr>
 </tbody>
 </table>
-<p>When in doubt, use Level 1. Below are the concrete commands for Level 1 validation.</p>
+<p>When in doubt, use Level 1. The three deployment modes (Step 1, Step 2, Step 3)
+are covered by the <strong><a href="../E2E_TESTING/">E2E Testing binding contract</a></strong> —
+run <code>scripts/e2e.sh --mode &lt;compose|kind|cli|all&gt;</code> per that spec and paste the
+generated <code>e2e-artifacts/summary.md</code> into the PR body. The paragraphs below
+summarize each mode; <a href="../E2E_TESTING/">E2E_TESTING.md</a> is the authoritative
+source for commands, evidence layout, and agent-compatible background
+execution.</p>
 <h3 id="step-1-standalone-cli-mode">Step 1: Standalone CLI Mode<a class="headerlink" href="#step-1-standalone-cli-mode" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune
-.<span class="w"> </span>.venv/bin/activate
-
-<span class="nb">export</span><span class="w"> </span><span class="nv">RUNE_BACKEND</span><span class="o">=</span><span class="nb">local</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">RUNE_BACKEND_URL</span><span class="o">=</span>http://localhost:11434
-
-<span class="c1"># Verify the CLI starts and responds</span>
-python<span class="w"> </span>-m<span class="w"> </span>rune<span class="w"> </span>--help
-
-<span class="c1"># Run a benchmark (adjust model/question to exercise your change)</span>
-python<span class="w"> </span>-m<span class="w"> </span>rune<span class="w"> </span>run-benchmark<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--model<span class="w"> </span>llama3.1:8b<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--question<span class="w"> </span><span class="s2">&quot;Why is the cluster unhealthy?&quot;</span>
-</code></pre></div>
+<p><code>python -m rune --help</code> + one <code>run-benchmark</code> against a local backend. Run via
+<code>scripts/e2e.sh --mode cli</code>. Captures stdout + exit code under
+<code>e2e-artifacts/cli/</code>. See <a href="../E2E_TESTING/#evidence-bundle-layout">E2E_TESTING.md §Evidence bundle layout</a>.</p>
 <h3 id="step-2-docker-compose-mode">Step 2: Docker Compose Mode<a class="headerlink" href="#step-2-docker-compose-mode" title="Permanent link">&para;</a></h3>
-<p>The full local stack is defined in <code>~/Devel/rune/docker-compose.yml</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune
-
-<span class="c1"># Build and start the stack</span>
-docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build
-
-<span class="c1"># Services:</span>
-<span class="c1">#   rune-api    → http://localhost:8080</span>
-<span class="c1">#   rune-ui     → http://localhost:3000</span>
-<span class="c1">#   rune-docs   → http://localhost:8000</span>
-<span class="c1">#   ollama      → http://localhost:11434</span>
-<span class="c1">#   seaweedfs   → http://localhost:8333 (S3)</span>
-
-<span class="c1"># Verify health</span>
-curl<span class="w"> </span>-s<span class="w"> </span>http://localhost:8080/healthz
-curl<span class="w"> </span>-s<span class="w"> </span>http://localhost:3000/healthz
-
-<span class="c1"># Exercise your change through the API or UI</span>
-
-<span class="c1"># Tear down</span>
-docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>-v
-</code></pre></div>
+<p>Full five-service stack from <code>~/Devel/rune/docker-compose.yml</code> (rune-api,
+rune-ui, rune-docs, ollama, seaweedfs). Run via <code>scripts/e2e.sh --mode
+compose</code>. Captures per-service logs and <code>/healthz</code> probe results under
+<code>e2e-artifacts/compose/</code>.</p>
 <h3 id="step-3-kind-kubernetes-mode">Step 3: Kind (Kubernetes) Mode<a class="headerlink" href="#step-3-kind-kubernetes-mode" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Devel/rune-charts
-
-<span class="c1"># Create a Kind cluster</span>
-kind<span class="w"> </span>create<span class="w"> </span>cluster<span class="w"> </span>--name<span class="w"> </span>rune-test
-
-<span class="c1"># Install the charts</span>
-kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>rune-test
-helm<span class="w"> </span>install<span class="w"> </span>rune<span class="w"> </span>./charts/rune<span class="w"> </span>--namespace<span class="w"> </span>rune-test<span class="w"> </span>--wait<span class="w"> </span>--timeout<span class="o">=</span>2m
-helm<span class="w"> </span>install<span class="w"> </span>rune-operator<span class="w"> </span>./charts/rune-operator<span class="w"> </span>--namespace<span class="w"> </span>rune-test<span class="w"> </span>--wait<span class="w"> </span>--timeout<span class="o">=</span>2m
-
-<span class="c1"># Verify pods are running</span>
-kubectl<span class="w"> </span>-n<span class="w"> </span>rune-test<span class="w"> </span>get<span class="w"> </span>pods
-
-<span class="c1"># Port-forward and test</span>
-kubectl<span class="w"> </span>-n<span class="w"> </span>rune-test<span class="w"> </span>port-forward<span class="w"> </span>svc/rune-api<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="p">&amp;</span>
-curl<span class="w"> </span>-s<span class="w"> </span>http://localhost:8080/healthz
-
-<span class="c1"># Exercise your change</span>
-
-<span class="c1"># Clean up</span>
-kind<span class="w"> </span>delete<span class="w"> </span>cluster<span class="w"> </span>--name<span class="w"> </span>rune-test
-</code></pre></div>
+<p><code>kind</code> single-node cluster + <code>helm install rune</code> + <code>helm install
+rune-operator</code> in namespace <code>rune-test</code>. Run via <code>scripts/e2e.sh --mode kind</code>.
+Captures <code>kubectl events</code>, <code>describe</code>, and pod logs under <code>e2e-artifacts/kind/</code>.</p>
 <h3 id="step-4-breaking-change-audit">Step 4: Breaking Change Audit<a class="headerlink" href="#step-4-breaking-change-audit" title="Permanent link">&para;</a></h3>
 <p>Before opening the PR, verify:</p>
 <ul>
