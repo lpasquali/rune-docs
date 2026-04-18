@@ -2885,6 +2885,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 1 — Provisioning via Crossplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1a-install-the-gcp-provider-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1a. Install the GCP provider family
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1b-providerconfig-with-workload-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1b. ProviderConfig with Workload Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1c-cloud-sql-for-postgresql-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1c. Cloud SQL for PostgreSQL instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1d-gcs-bucket-hmac-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1d. GCS bucket + HMAC keys
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2899,10 +2949,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-cloud-sql-for-postgres" class="md-nav__link">
+  <a href="#step-3-cloud-sql-auth-proxy-sidecar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3 — Cloud SQL for Postgres
+        Step 3 — Cloud SQL Auth Proxy sidecar
       
     </span>
   </a>
@@ -2910,10 +2960,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-gcs-as-s3-hmac-keys" class="md-nav__link">
+  <a href="#step-4-external-secrets-operator-secret-manager" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4 — GCS as S3 (HMAC keys)
+        Step 4 — External Secrets Operator → Secret Manager
       
     </span>
   </a>
@@ -2921,10 +2971,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-5-gke-ingress" class="md-nav__link">
+  <a href="#step-5-gcs-as-s3-hmac-keys" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 5 — GKE ingress
+        Step 5 — GCS as S3 (HMAC keys)
       
     </span>
   </a>
@@ -2932,10 +2982,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-6-chart-install-validate" class="md-nav__link">
+  <a href="#step-6-managed-cert-gce-ingress" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 6 — Chart install + validate
+        Step 6 — Managed-cert + gce ingress
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-chart-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7 — Chart install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8 — Validate
       
     </span>
   </a>
@@ -2954,10 +3026,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#follow-ups-tracked" class="md-nav__link">
+  <a href="#teardown" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Follow-ups tracked
+        Teardown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-transcript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation transcript
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
       
     </span>
   </a>
@@ -4172,6 +4266,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 1 — Provisioning via Crossplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1a-install-the-gcp-provider-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1a. Install the GCP provider family
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1b-providerconfig-with-workload-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1b. ProviderConfig with Workload Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1c-cloud-sql-for-postgresql-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1c. Cloud SQL for PostgreSQL instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1d-gcs-bucket-hmac-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1d. GCS bucket + HMAC keys
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4186,10 +4330,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-cloud-sql-for-postgres" class="md-nav__link">
+  <a href="#step-3-cloud-sql-auth-proxy-sidecar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3 — Cloud SQL for Postgres
+        Step 3 — Cloud SQL Auth Proxy sidecar
       
     </span>
   </a>
@@ -4197,10 +4341,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-gcs-as-s3-hmac-keys" class="md-nav__link">
+  <a href="#step-4-external-secrets-operator-secret-manager" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4 — GCS as S3 (HMAC keys)
+        Step 4 — External Secrets Operator → Secret Manager
       
     </span>
   </a>
@@ -4208,10 +4352,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-5-gke-ingress" class="md-nav__link">
+  <a href="#step-5-gcs-as-s3-hmac-keys" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 5 — GKE ingress
+        Step 5 — GCS as S3 (HMAC keys)
       
     </span>
   </a>
@@ -4219,10 +4363,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-6-chart-install-validate" class="md-nav__link">
+  <a href="#step-6-managed-cert-gce-ingress" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 6 — Chart install + validate
+        Step 6 — Managed-cert + gce ingress
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-chart-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7 — Chart install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8 — Validate
       
     </span>
   </a>
@@ -4241,10 +4407,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#follow-ups-tracked" class="md-nav__link">
+  <a href="#teardown" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Follow-ups tracked
+        Teardown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-transcript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation transcript
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
       
     </span>
   </a>
@@ -4269,70 +4457,371 @@
 
 
 <h1 id="install-gcp-gke">Install — GCP (GKE)<a class="headerlink" href="#install-gcp-gke" title="Permanent link">&para;</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Scaffold</p>
-<p>Structure complete; cloud-specific detail needs hands-on validation.
-Follow-up: <a href="https://github.com/lpasquali/rune-docs/issues/277">rune-docs#277</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">Content complete — validation transcript pending</p>
+<p>Content drafted from GCP / Crossplane / ESO / Cloud SQL Auth Proxy official docs (2026-04). End-to-end transcript from a real GKE cluster still needed — tracked in the <a href="#validation-transcript">Validation transcript</a> section at the bottom.</p>
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>GKE cluster ≥ 1.27 (Standard or Autopilot). Kubeconfig via <code>gcloud container clusters get-credentials</code>.</li>
-<li><code>helm</code> ≥ 3.17.</li>
-<li>GCP project with APIs enabled: <code>sqladmin.googleapis.com</code>, <code>storage.googleapis.com</code>, <code>iam.googleapis.com</code>.</li>
-<li><strong>Workload Identity</strong> enabled on the cluster (the GKE equivalent of IRSA).</li>
+<li>GKE cluster ≥ 1.27 (Standard or Autopilot). Kubeconfig via <code>gcloud container clusters get-credentials $CLUSTER --region $REGION</code>.</li>
+<li><a href="https://helm.sh/docs/"><code>helm</code></a> ≥ 3.17.</li>
+<li>GCP project with APIs enabled:</li>
 </ul>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>services<span class="w"> </span><span class="nb">enable</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sqladmin.googleapis.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>storage.googleapis.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>iam.googleapis.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>container.googleapis.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>iamcredentials.googleapis.com
+</code></pre></div>
+<ul>
+<li><a href="https://cloud.google.com/kubernetes-engine/docs/concepts/workload-identity"><strong>Workload Identity</strong></a> enabled on the cluster (the GKE equivalent of IRSA). For Autopilot this is on by default; for Standard, enable it with <code>--workload-pool=$PROJECT_ID.svc.id.goog</code>.</li>
+<li><a href="https://external-secrets.io/latest/provider/google-secrets-manager/"><strong>External Secrets Operator</strong></a> installed (for Secret Manager sync).</li>
+<li><a href="https://docs.crossplane.io/latest/"><strong>Crossplane</strong></a> installed with the GCP provider family — see <a href="../../architecture/adrs/0007-crossplane-infrastructure-provisioning/">ADR 0007</a>.</li>
+</ul>
+<p>Set env vars:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PROJECT_ID</span><span class="o">=</span>my-rune-project
+<span class="nb">export</span><span class="w"> </span><span class="nv">REGION</span><span class="o">=</span>us-central1
+<span class="nb">export</span><span class="w"> </span><span class="nv">CLUSTER</span><span class="o">=</span>rune-prod
+</code></pre></div>
 <h2 id="step-1-provisioning-via-crossplane">Step 1 — Provisioning via Crossplane<a class="headerlink" href="#step-1-provisioning-via-crossplane" title="Permanent link">&para;</a></h2>
-<p><code>TODO: provider-family-gcp + Cloud SQL + GCS CRs. See follow-up.</code></p>
-<h2 id="step-2-workload-identity-for-rune-api">Step 2 — Workload Identity for rune-api<a class="headerlink" href="#step-2-workload-identity-for-rune-api" title="Permanent link">&para;</a></h2>
-<p>Bind the <code>rune/rune-api</code> Kubernetes service account to a Google service account with <code>storage.objectAdmin</code> on the results bucket only.</p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>iam<span class="w"> </span>service-accounts<span class="w"> </span>add-iam-policy-binding<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>rune-api@PROJECT_ID.iam.gserviceaccount.com<span class="w"> </span><span class="se">\</span>
+<h3 id="1a-install-the-gcp-provider-family">1a. Install the GCP provider family<a class="headerlink" href="#1a-install-the-gcp-provider-family" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">apiVersion: pkg.crossplane.io/v1</span>
+<span class="s">kind: Provider</span>
+<span class="s">metadata:</span>
+<span class="s">  name: provider-family-gcp</span>
+<span class="s">spec:</span>
+<span class="s">  package: xpkg.upbound.io/upbound/provider-family-gcp:v1.12.0</span>
+<span class="s">---</span>
+<span class="s">apiVersion: pkg.crossplane.io/v1</span>
+<span class="s">kind: Provider</span>
+<span class="s">metadata:</span>
+<span class="s">  name: provider-gcp-sql</span>
+<span class="s">spec:</span>
+<span class="s">  package: xpkg.upbound.io/upbound/provider-gcp-sql:v1.12.0</span>
+<span class="s">---</span>
+<span class="s">apiVersion: pkg.crossplane.io/v1</span>
+<span class="s">kind: Provider</span>
+<span class="s">metadata:</span>
+<span class="s">  name: provider-gcp-storage</span>
+<span class="s">spec:</span>
+<span class="s">  package: xpkg.upbound.io/upbound/provider-gcp-storage:v1.12.0</span>
+<span class="s">EOF</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>providers<span class="w"> </span>-w
+</code></pre></div>
+<h3 id="1b-providerconfig-with-workload-identity">1b. ProviderConfig with Workload Identity<a class="headerlink" href="#1b-providerconfig-with-workload-identity" title="Permanent link">&para;</a></h3>
+<p>Create a Google service account with necessary permissions (<code>roles/cloudsql.admin</code>, <code>roles/storage.admin</code>, <code>roles/iam.serviceAccountAdmin</code>), then bind the Crossplane controller SA to it:</p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>iam<span class="w"> </span>service-accounts<span class="w"> </span>create<span class="w"> </span>crossplane-gcp<span class="w"> </span>--project<span class="o">=</span><span class="nv">$PROJECT_ID</span>
+
+<span class="c1"># Grant roles</span>
+<span class="k">for</span><span class="w"> </span>role<span class="w"> </span><span class="k">in</span><span class="w"> </span>roles/cloudsql.admin<span class="w"> </span>roles/storage.admin<span class="w"> </span>roles/iam.serviceAccountAdmin<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>gcloud<span class="w"> </span>projects<span class="w"> </span>add-iam-policy-binding<span class="w"> </span><span class="nv">$PROJECT_ID</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--member<span class="w"> </span><span class="s2">&quot;serviceAccount:crossplane-gcp@</span><span class="nv">$PROJECT_ID</span><span class="s2">.iam.gserviceaccount.com&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--role<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$role</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+<span class="c1"># Bind the K8s SA to the GSA</span>
+gcloud<span class="w"> </span>iam<span class="w"> </span>service-accounts<span class="w"> </span>add-iam-policy-binding<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>crossplane-gcp@<span class="nv">$PROJECT_ID</span>.iam.gserviceaccount.com<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--role<span class="w"> </span>roles/iam.workloadIdentityUser<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--member<span class="w"> </span><span class="s2">&quot;serviceAccount:PROJECT_ID.svc.id.goog[rune/rune-api]&quot;</span>
+<span class="w">  </span>--member<span class="w"> </span><span class="s2">&quot;serviceAccount:</span><span class="nv">$PROJECT_ID</span><span class="s2">.svc.id.goog[crossplane-system/crossplane]&quot;</span>
+
+<span class="c1"># Annotate the controller SA</span>
+kubectl<span class="w"> </span>annotate<span class="w"> </span>serviceaccount<span class="w"> </span>-n<span class="w"> </span>crossplane-system<span class="w"> </span>crossplane<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>iam.gke.io/gcp-service-account<span class="o">=</span>crossplane-gcp@<span class="nv">$PROJECT_ID</span>.iam.gserviceaccount.com
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># values.yaml snippet</span>
+<div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProviderConfig</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcp.upbound.io/v1beta1</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">projectID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PROJECT_ID</span>
+<span class="w">  </span><span class="nt">credentials</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InjectedIdentity</span>
+</code></pre></div>
+<h3 id="1c-cloud-sql-for-postgresql-instance">1c. Cloud SQL for PostgreSQL instance<a class="headerlink" href="#1c-cloud-sql-for-postgresql-instance" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># crossplane/rune-sql.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql.gcp.upbound.io/v1beta2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DatabaseInstance</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-central1</span>
+<span class="w">    </span><span class="nt">databaseVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_16</span>
+<span class="w">    </span><span class="nt">rootPasswordSecretRef</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-master</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">    </span><span class="nt">settings</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db-g1-small</span>
+<span class="w">        </span><span class="nt">availabilityType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZONAL</span>
+<span class="w">        </span><span class="nt">diskSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="w">        </span><span class="nt">diskType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PD_SSD</span>
+<span class="w">        </span><span class="nt">backupConfiguration</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">            </span><span class="nt">pointInTimeRecoveryEnabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">ipConfiguration</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ipv4Enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">            </span><span class="nt">privateNetwork</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">projects/$PROJECT_ID/global/networks/default</span>
+<span class="w">        </span><span class="nt">databaseFlags</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">max_connections</span>
+<span class="w">            </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;200&quot;</span>
+<span class="w">    </span><span class="nt">deletionProtection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql.gcp.upbound.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Database</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">instance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db</span>
+<span class="w">    </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PROJECT_ID</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql.gcp.upbound.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">User</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">instance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db</span>
+<span class="w">    </span><span class="nt">passwordSecretRef</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-app</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">    </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PROJECT_ID</span>
+</code></pre></div>
+<h3 id="1d-gcs-bucket-hmac-keys">1d. GCS bucket + HMAC keys<a class="headerlink" href="#1d-gcs-bucket-hmac-keys" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># crossplane/rune-gcs.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">storage.gcp.upbound.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bucket</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-results-PROJECT_ID</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US</span>
+<span class="w">    </span><span class="nt">storageClass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">STANDARD</span>
+<span class="w">    </span><span class="nt">uniformBucketLevelAccess</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">versioning</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<p>Create an HMAC key for S3-compat access:</p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>iam<span class="w"> </span>service-accounts<span class="w"> </span>create<span class="w"> </span>rune-gcs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--display-name<span class="o">=</span><span class="s2">&quot;RUNE GCS S3-compat access&quot;</span>
+
+gcloud<span class="w"> </span>storage<span class="w"> </span>buckets<span class="w"> </span>add-iam-policy-binding<span class="w"> </span>gs://rune-results-<span class="nv">$PROJECT_ID</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--member<span class="o">=</span><span class="s2">&quot;serviceAccount:rune-gcs@</span><span class="nv">$PROJECT_ID</span><span class="s2">.iam.gserviceaccount.com&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--role<span class="o">=</span>roles/storage.objectAdmin
+
+gcloud<span class="w"> </span>storage<span class="w"> </span>hmac<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>rune-gcs@<span class="nv">$PROJECT_ID</span>.iam.gserviceaccount.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--project<span class="w"> </span><span class="nv">$PROJECT_ID</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--format<span class="o">=</span>json<span class="w"> </span>&gt;<span class="w"> </span>hmac.json
+
+<span class="c1"># Store in Secret Manager:</span>
+<span class="nv">ACCESS_ID</span><span class="o">=</span><span class="k">$(</span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.metadata.accessId&#39;</span><span class="w"> </span>hmac.json<span class="k">)</span>
+<span class="nv">SECRET</span><span class="o">=</span><span class="k">$(</span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.secret&#39;</span><span class="w"> </span>hmac.json<span class="k">)</span>
+gcloud<span class="w"> </span>secrets<span class="w"> </span>create<span class="w"> </span>rune-gcs-hmac-access<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--data-file<span class="o">=</span>&lt;<span class="o">(</span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ACCESS_ID</span><span class="s2">&quot;</span><span class="o">)</span><span class="w"> </span>--project<span class="w"> </span><span class="nv">$PROJECT_ID</span>
+gcloud<span class="w"> </span>secrets<span class="w"> </span>create<span class="w"> </span>rune-gcs-hmac-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--data-file<span class="o">=</span>&lt;<span class="o">(</span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SECRET</span><span class="s2">&quot;</span><span class="o">)</span><span class="w"> </span>--project<span class="w"> </span><span class="nv">$PROJECT_ID</span>
+</code></pre></div>
+<h2 id="step-2-workload-identity-for-rune-api">Step 2 — Workload Identity for <code>rune-api</code><a class="headerlink" href="#step-2-workload-identity-for-rune-api" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>iam<span class="w"> </span>service-accounts<span class="w"> </span>create<span class="w"> </span>rune-api<span class="w"> </span>--project<span class="o">=</span><span class="nv">$PROJECT_ID</span>
+
+gcloud<span class="w"> </span>storage<span class="w"> </span>buckets<span class="w"> </span>add-iam-policy-binding<span class="w"> </span>gs://rune-results-<span class="nv">$PROJECT_ID</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--member<span class="o">=</span><span class="s2">&quot;serviceAccount:rune-api@</span><span class="nv">$PROJECT_ID</span><span class="s2">.iam.gserviceaccount.com&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--role<span class="o">=</span>roles/storage.objectAdmin
+
+<span class="c1"># Bind K8s SA → GSA</span>
+gcloud<span class="w"> </span>iam<span class="w"> </span>service-accounts<span class="w"> </span>add-iam-policy-binding<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>rune-api@<span class="nv">$PROJECT_ID</span>.iam.gserviceaccount.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--role<span class="w"> </span>roles/iam.workloadIdentityUser<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--member<span class="w"> </span><span class="s2">&quot;serviceAccount:</span><span class="nv">$PROJECT_ID</span><span class="s2">.svc.id.goog[rune/rune-api]&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-gcp.yaml (snippet)</span>
 <span class="nt">serviceAccount</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-api</span>
 <span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">iam.gke.io/gcp-service-account</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-api@PROJECT_ID.iam.gserviceaccount.com</span>
+<span class="w">    </span><span class="nt">iam.gke.io/gcp-service-account</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-api@$PROJECT_ID.iam.gserviceaccount.com</span>
 </code></pre></div>
-<p><code>TODO: full IAM binding walkthrough.</code></p>
-<h2 id="step-3-cloud-sql-for-postgres">Step 3 — Cloud SQL for Postgres<a class="headerlink" href="#step-3-cloud-sql-for-postgres" title="Permanent link">&para;</a></h2>
-<p>Use the <strong>Cloud SQL Auth Proxy</strong> sidecar pattern or the <strong>Cloud SQL Connectors</strong> (direct driver integration). Sidecar is simpler.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># values.yaml snippet</span>
+<h2 id="step-3-cloud-sql-auth-proxy-sidecar">Step 3 — Cloud SQL Auth Proxy sidecar<a class="headerlink" href="#step-3-cloud-sql-auth-proxy-sidecar" title="Permanent link">&para;</a></h2>
+<p>The recommended pattern on GKE. Chart support lands in <code>rune-charts</code> via <code>values.sidecars.cloudSqlProxy</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-gcp.yaml (continued)</span>
 <span class="nt">rune</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">storage</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">postgresql</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;postgres://rune:$PG_PASSWORD@127.0.0.1:5432/rune&quot;</span>
+<span class="w">      </span><span class="c1"># app connects to the sidecar on localhost</span>
+<span class="w">      </span><span class="nt">hostSecretRef</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;127.0.0.1&quot;</span>
+<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span>
+<span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="w">      </span><span class="nt">passwordSecretRef</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-app</span>
+<span class="w">      </span><span class="nt">passwordKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">      </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="w">      </span><span class="nt">sslmode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">disable</span><span class="w">   </span><span class="c1"># proxy handles TLS to Cloud SQL</span>
+
+<span class="nt">sidecars</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">cloudSqlProxy</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">instance</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PROJECT_ID:REGION:INSTANCE_ID&quot;</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.14.0</span>
+<span class="w">    </span><span class="nt">instance</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;$PROJECT_ID:$REGION:rune-db&quot;</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span>
+<span class="w">    </span><span class="nt">extraArgs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--private-ip&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--structured-logs&quot;</span>
 </code></pre></div>
-<p><code>TODO: chart support for cloudSqlProxy sidecar — may need chart PR in rune-charts if not present.</code></p>
-<h2 id="step-4-gcs-as-s3-hmac-keys">Step 4 — GCS as S3 (HMAC keys)<a class="headerlink" href="#step-4-gcs-as-s3-hmac-keys" title="Permanent link">&para;</a></h2>
-<p>GCS speaks S3 through the interoperability API; generate HMAC keys for service account auth.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">rune</span><span class="p">:</span>
+<div class="admonition note">
+<p class="admonition-title">Follow-up</p>
+<p>If the chart doesn't yet expose <code>sidecars.cloudSqlProxy</code>, file a chart PR against <code>rune-charts</code> — it's a pod-spec addition under the <code>rune-api</code> deployment. Until then, use a Helm post-renderer or edit the rendered manifest.</p>
+</div>
+<h2 id="step-4-external-secrets-operator-secret-manager">Step 4 — External Secrets Operator → Secret Manager<a class="headerlink" href="#step-4-external-secrets-operator-secret-manager" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># eso/clustersecretstore.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterSecretStore</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcp-secret-manager</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">gcpsm</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">projectID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PROJECT_ID</span>
+<span class="w">      </span><span class="nt">auth</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">workloadIdentity</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">clusterLocation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$REGION</span>
+<span class="w">          </span><span class="nt">clusterName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CLUSTER</span>
+<span class="w">          </span><span class="nt">serviceAccountRef</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets</span>
+<span class="w">            </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># eso/rune-secrets.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExternalSecret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-app</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">refreshInterval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1h</span>
+<span class="w">  </span><span class="nt">secretStoreRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterSecretStore</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcp-secret-manager</span>
+<span class="w">  </span><span class="nt">target</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-app</span>
+<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">      </span><span class="nt">remoteRef</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-app-password</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExternalSecret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-s3</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">refreshInterval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1h</span>
+<span class="w">  </span><span class="nt">secretStoreRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterSecretStore</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcp-secret-manager</span>
+<span class="w">  </span><span class="nt">target</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-s3</span>
+<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">accessKey</span>
+<span class="w">      </span><span class="nt">remoteRef</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="nv">rune-gcs-hmac-access</span><span class="p p-Indicator">}</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secretKey</span>
+<span class="w">      </span><span class="nt">remoteRef</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="nv">rune-gcs-hmac-secret</span><span class="p p-Indicator">}</span>
+</code></pre></div>
+<h2 id="step-5-gcs-as-s3-hmac-keys">Step 5 — GCS as S3 (HMAC keys)<a class="headerlink" href="#step-5-gcs-as-s3-hmac-keys" title="Permanent link">&para;</a></h2>
+<p>GCS speaks S3 via the <a href="https://cloud.google.com/storage/docs/interoperability">interoperability API</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-gcp.yaml (continued)</span>
+<span class="nt">rune</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">storage</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">s3</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">      </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://storage.googleapis.com</span>
-<span class="w">      </span><span class="nt">accessKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;GCS HMAC access key&gt;</span>
-<span class="w">      </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;GCS HMAC secret&gt;</span>
+<span class="w">      </span><span class="nt">accessKeySecretRef</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-s3</span>
+<span class="w">      </span><span class="nt">accessKeyKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">accessKey</span>
+<span class="w">      </span><span class="nt">secretKeySecretRef</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-s3</span>
+<span class="w">      </span><span class="nt">secretKeyKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secretKey</span>
 <span class="w">      </span><span class="nt">bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-results-$PROJECT_ID</span>
+<span class="w">      </span><span class="nt">pathStyle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">   </span><span class="c1"># GCS doesn&#39;t support virtual-hosted</span>
 </code></pre></div>
-<h2 id="step-5-gke-ingress">Step 5 — GKE ingress<a class="headerlink" href="#step-5-gke-ingress" title="Permanent link">&para;</a></h2>
-<p>Use GKE-managed certs + HTTPS load balancer via <code>gce</code> ingress class.</p>
-<p><code>TODO: managed cert + LB annotations.</code></p>
-<h2 id="step-6-chart-install-validate">Step 6 — Chart install + validate<a class="headerlink" href="#step-6-chart-install-validate" title="Permanent link">&para;</a></h2>
-<p>Same as the <a href="../INSTALL/#3-chart-install">shared baseline</a>. Validate via port-forward or LB.</p>
+<h2 id="step-6-managed-cert-gce-ingress">Step 6 — Managed-cert + <code>gce</code> ingress<a class="headerlink" href="#step-6-managed-cert-gce-ingress" title="Permanent link">&para;</a></h2>
+<p>Reserve a global static IP:</p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>addresses<span class="w"> </span>create<span class="w"> </span>rune-ip<span class="w"> </span>--global
+gcloud<span class="w"> </span>compute<span class="w"> </span>addresses<span class="w"> </span>describe<span class="w"> </span>rune-ip<span class="w"> </span>--global<span class="w"> </span>--format<span class="o">=</span><span class="s1">&#39;value(address)&#39;</span>
+</code></pre></div>
+<p>Create an A record in your DNS provider pointing <code>rune.example.com</code> at that IP.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-gcp.yaml (continued)</span>
+<span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">className</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gce</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">kubernetes.io/ingress.global-static-ip-name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rune-ip&quot;</span>
+<span class="w">    </span><span class="nt">networking.gke.io/managed-certificates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rune-cert&quot;</span>
+<span class="w">    </span><span class="nt">kubernetes.io/ingress.class</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gce&quot;</span>
+<span class="w">  </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune.example.com</span>
+<span class="w">      </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
+<span class="w">          </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+
+<span class="c1"># Separate ManagedCertificate CR</span>
+<span class="nt">extraObjects</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.gke.io/v1</span>
+<span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ManagedCertificate</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-cert</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">domains</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune.example.com</span>
+</code></pre></div>
+<h2 id="step-7-chart-install">Step 7 — Chart install<a class="headerlink" href="#step-7-chart-install" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>install<span class="w"> </span>rune<span class="w"> </span>./charts/rune<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--namespace<span class="w"> </span>rune<span class="w"> </span>--create-namespace<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--values<span class="w"> </span>values-gcp.yaml<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--wait<span class="w"> </span>--timeout<span class="o">=</span>10m
+</code></pre></div>
+<p>Wait for the ingress IP to provision (can take 5-15 min for ManagedCertificate):</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>-n<span class="w"> </span>rune<span class="w"> </span>get<span class="w"> </span>ingress<span class="w"> </span>rune<span class="w"> </span>-w
+kubectl<span class="w"> </span>get<span class="w"> </span>managedcertificate<span class="w"> </span>rune-cert<span class="w"> </span>-n<span class="w"> </span>rune<span class="w"> </span>-w<span class="w">  </span><span class="c1"># wait for Active</span>
+</code></pre></div>
+<h2 id="step-8-validate">Step 8 — Validate<a class="headerlink" href="#step-8-validate" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>-n<span class="w"> </span>rune<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>rune-api-token<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.token}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d<span class="k">)</span>
+
+curl<span class="w"> </span>-sfH<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span>https://rune.example.com/healthz
+<span class="c1"># Expected: {&quot;status&quot;:&quot;ok&quot;,&quot;version&quot;:&quot;0.0.0aN&quot;}</span>
+
+curl<span class="w"> </span>-sfH<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span>https://rune.example.com/v1/llm/models<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
+</code></pre></div>
 <h2 id="cost-estimation-integration">Cost estimation integration<a class="headerlink" href="#cost-estimation-integration" title="Permanent link">&para;</a></h2>
 <p><code>CostEstimation.gcp</code> supports GCP-specific cost projections. See <a href="../../architecture/adrs/0002-cost-estimation/">ADR 0002</a>.</p>
-<h2 id="follow-ups-tracked">Follow-ups tracked<a class="headerlink" href="#follow-ups-tracked" title="Permanent link">&para;</a></h2>
+<h2 id="teardown">Teardown<a class="headerlink" href="#teardown" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>uninstall<span class="w"> </span>rune<span class="w"> </span>-n<span class="w"> </span>rune
+kubectl<span class="w"> </span>delete<span class="w"> </span>-f<span class="w"> </span>crossplane/rune-sql.yaml<span class="w"> </span>-f<span class="w"> </span>crossplane/rune-gcs.yaml
+<span class="c1"># Cloud SQL deletion-protected; disable first:</span>
+<span class="c1">#   kubectl patch databaseinstance rune-db --type=merge \</span>
+<span class="c1">#     -p &#39;{&quot;spec&quot;:{&quot;forProvider&quot;:{&quot;settings&quot;:[{&quot;deletionProtection&quot;:false}]}}}&#39;</span>
+gcloud<span class="w"> </span>compute<span class="w"> </span>addresses<span class="w"> </span>delete<span class="w"> </span>rune-ip<span class="w"> </span>--global<span class="w"> </span>--quiet
+</code></pre></div>
+<h2 id="validation-transcript">Validation transcript<a class="headerlink" href="#validation-transcript" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Pending real-cluster validation</p>
+<p>Populate after running this walkthrough on a real GKE cluster. Tracked in <a href="https://github.com/lpasquali/rune-docs/issues/303">#303</a>.</p>
+</div>
+<div class="highlight"><pre><span></span><code>TODO: Paste validated transcript here.
+</code></pre></div>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Cloud SQL Auth Proxy sidecar in rune-charts (may require chart change).</li>
-<li>HMAC key provisioning via External Secrets Operator.</li>
-<li>Managed certs + ingress-gce walkthrough.</li>
-<li>Validation transcript from a real GKE deployment.</li>
+<li><a href="https://cloud.google.com/kubernetes-engine/docs/concepts/workload-identity">GKE Workload Identity</a></li>
+<li><a href="https://cloud.google.com/sql/docs/postgres/connect-auth-proxy">Cloud SQL Auth Proxy</a></li>
+<li><a href="https://cloud.google.com/storage/docs/interoperability">GCS interoperability (S3-compat)</a></li>
+<li><a href="https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs">Google-managed SSL certs on GKE</a></li>
+<li><a href="https://external-secrets.io/latest/provider/google-secrets-manager/">External Secrets Operator — Google Secret Manager</a></li>
+<li><a href="https://marketplace.upbound.io/providers/upbound/provider-family-gcp">Crossplane GCP provider</a></li>
+<li><a href="../../architecture/adrs/0007-crossplane-infrastructure-provisioning/">ADR 0007</a></li>
+<li><a href="../../reference/EXTERNAL_LINKS/">External Links Catalog</a></li>
 </ul>
 
 

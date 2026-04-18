@@ -2857,6 +2857,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 1 — Provisioning via Crossplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1a-install-the-aws-provider-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1a. Install the AWS provider family
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1b-configure-aws-credentials-for-crossplane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1b. Configure AWS credentials for Crossplane
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1c-rds-postgresql-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1c. RDS PostgreSQL instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1d-s3-bucket-for-benchmark-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1d. S3 bucket for benchmark results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2868,13 +2918,141 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 2 — IRSA for rune-api">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2a-iam-policy-least-privilege-to-the-results-bucket-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2a. IAM policy — least-privilege to the results bucket only
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2b-trust-policy-only-the-runerune-api-sa-can-assume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2b. Trust policy — only the rune/rune-api SA can assume
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2c-annotate-the-sa-in-helm-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2c. Annotate the SA in Helm values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-rds-postgres-option" class="md-nav__link">
+  <a href="#step-3-external-secrets-operator-aws-secrets-manager" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3 — RDS-Postgres option
+        Step 3 — External Secrets Operator → AWS Secrets Manager
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 — External Secrets Operator → AWS Secrets Manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3a-clustersecretstore-pointing-at-secrets-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3a. ClusterSecretStore pointing at Secrets Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3b-externalsecret-sync-the-db-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3b. ExternalSecret — sync the DB password
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3c-rds-connection-url-in-helm-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3c. RDS connection URL in Helm values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-acm-certificate-route-53-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — ACM certificate + Route 53 DNS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4 — ACM certificate + Route 53 DNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4a-request-a-public-certificate-for-the-rune-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4a. Request a public certificate for the RUNE domain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4b-route-53-a-record-pointing-at-the-alb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4b. Route 53 A-record pointing at the ALB
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-alb-ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — ALB ingress
       
     </span>
   </a>
@@ -2882,10 +3060,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-alb-ingress" class="md-nav__link">
+  <a href="#step-6-chart-install" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4 — ALB ingress
+        Step 6 — Chart install
       
     </span>
   </a>
@@ -2893,21 +3071,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-5-chart-install" class="md-nav__link">
+  <a href="#step-7-validate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 5 — Chart install
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-validate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 6 — Validate
+        Step 7 — Validate
       
     </span>
   </a>
@@ -2926,10 +3093,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#follow-ups-tracked" class="md-nav__link">
+  <a href="#teardown" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Follow-ups tracked
+        Teardown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-transcript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation transcript
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
       
     </span>
   </a>
@@ -4172,6 +4361,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 1 — Provisioning via Crossplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1a-install-the-aws-provider-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1a. Install the AWS provider family
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1b-configure-aws-credentials-for-crossplane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1b. Configure AWS credentials for Crossplane
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1c-rds-postgresql-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1c. RDS PostgreSQL instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1d-s3-bucket-for-benchmark-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1d. S3 bucket for benchmark results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4183,13 +4422,141 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 2 — IRSA for rune-api">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2a-iam-policy-least-privilege-to-the-results-bucket-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2a. IAM policy — least-privilege to the results bucket only
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2b-trust-policy-only-the-runerune-api-sa-can-assume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2b. Trust policy — only the rune/rune-api SA can assume
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2c-annotate-the-sa-in-helm-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2c. Annotate the SA in Helm values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-rds-postgres-option" class="md-nav__link">
+  <a href="#step-3-external-secrets-operator-aws-secrets-manager" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3 — RDS-Postgres option
+        Step 3 — External Secrets Operator → AWS Secrets Manager
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 — External Secrets Operator → AWS Secrets Manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3a-clustersecretstore-pointing-at-secrets-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3a. ClusterSecretStore pointing at Secrets Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3b-externalsecret-sync-the-db-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3b. ExternalSecret — sync the DB password
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3c-rds-connection-url-in-helm-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3c. RDS connection URL in Helm values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-acm-certificate-route-53-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — ACM certificate + Route 53 DNS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4 — ACM certificate + Route 53 DNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4a-request-a-public-certificate-for-the-rune-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4a. Request a public certificate for the RUNE domain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4b-route-53-a-record-pointing-at-the-alb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4b. Route 53 A-record pointing at the ALB
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-alb-ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — ALB ingress
       
     </span>
   </a>
@@ -4197,10 +4564,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-alb-ingress" class="md-nav__link">
+  <a href="#step-6-chart-install" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4 — ALB ingress
+        Step 6 — Chart install
       
     </span>
   </a>
@@ -4208,21 +4575,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-5-chart-install" class="md-nav__link">
+  <a href="#step-7-validate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 5 — Chart install
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-validate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 6 — Validate
+        Step 7 — Validate
       
     </span>
   </a>
@@ -4241,10 +4597,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#follow-ups-tracked" class="md-nav__link">
+  <a href="#teardown" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Follow-ups tracked
+        Teardown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-transcript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation transcript
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
       
     </span>
   </a>
@@ -4269,71 +4647,389 @@
 
 
 <h1 id="install-aws-eks">Install — AWS (EKS)<a class="headerlink" href="#install-aws-eks" title="Permanent link">&para;</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Scaffold</p>
-<p>This page has the structure, but the cloud-specific detail requires
-hands-on validation on a real EKS cluster. Flesh-out tracked as
-follow-up issue under <a href="https://github.com/lpasquali/rune-docs/issues/277">rune-docs#277</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">Content complete — validation transcript pending</p>
+<p>Content drafted from AWS / Crossplane / ESO / AWS Load Balancer Controller official docs (2026-04). End-to-end transcript from a real EKS cluster still needed — tracked in the <a href="#validation-transcript">Validation transcript</a> section at the bottom.</p>
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>EKS cluster ≥ 1.27 with <code>kubectl</code> configured via <code>aws eks update-kubeconfig</code>.</li>
-<li><code>helm</code> ≥ 3.17.</li>
-<li>IAM role with authority to create RDS instances + S3 buckets, or opt out and bring your own.</li>
-<li><strong>IRSA</strong> (IAM Roles for Service Accounts) enabled on the cluster — standard on EKS since 1.18.</li>
+<li>EKS cluster ≥ 1.27 with <code>kubectl</code> configured via <code>aws eks update-kubeconfig --region $REGION --name $CLUSTER</code>.</li>
+<li><a href="https://helm.sh/docs/"><code>helm</code></a> ≥ 3.17.</li>
+<li>AWS account with a role authorised to create RDS instances, S3 buckets, IAM roles/policies, ACM certificates, and Route 53 records — or opt out and bring your own.</li>
+<li><a href="https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html"><strong>IRSA</strong></a> (IAM Roles for Service Accounts) enabled on the cluster — standard on EKS since 1.18. Verify with <code>aws iam list-open-id-connect-providers</code>.</li>
+<li><a href="https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/"><strong>AWS Load Balancer Controller</strong></a> installed (for ALB ingress).</li>
+<li><a href="https://external-secrets.io/latest/"><strong>External Secrets Operator</strong></a> installed (for AWS Secrets Manager sync) — one-time cluster add-on.</li>
+<li><a href="https://docs.crossplane.io/latest/"><strong>Crossplane</strong></a> installed with the AWS provider family — see <a href="../../architecture/adrs/0007-crossplane-infrastructure-provisioning/">ADR 0007</a>.</li>
 </ul>
+<p>Set these env vars once (used throughout):</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">AWS_REGION</span><span class="o">=</span>us-east-1
+<span class="nb">export</span><span class="w"> </span><span class="nv">ACCOUNT_ID</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>sts<span class="w"> </span>get-caller-identity<span class="w"> </span>--query<span class="w"> </span>Account<span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CLUSTER</span><span class="o">=</span>rune-prod
+<span class="nb">export</span><span class="w"> </span><span class="nv">OIDC_ID</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>eks<span class="w"> </span>describe-cluster<span class="w"> </span>--name<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;cluster.identity.oidc.issuer&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s|.*/||&#39;</span><span class="k">)</span>
+</code></pre></div>
 <h2 id="step-1-provisioning-via-crossplane">Step 1 — Provisioning via Crossplane<a class="headerlink" href="#step-1-provisioning-via-crossplane" title="Permanent link">&para;</a></h2>
-<p><code>TODO: full Crossplane AWS provider manifest — see follow-up.</code></p>
-<p>Expected: <code>provider-family-aws</code> + <code>provider-aws-rds</code> + <code>provider-aws-s3</code> installed in the cluster. Then a <code>DBInstance</code> CR for Postgres 16 and a <code>Bucket</code> CR for S3 results. CR YAML will land with the follow-up.</p>
-<h2 id="step-2-irsa-for-rune-api">Step 2 — IRSA for rune-api<a class="headerlink" href="#step-2-irsa-for-rune-api" title="Permanent link">&para;</a></h2>
-<p>Create an IAM policy granting <code>s3:*</code> on the results bucket only; attach to a role that trusts the EKS OIDC provider for the <code>rune/rune-api</code> service account.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># values.yaml snippet</span>
+<h3 id="1a-install-the-aws-provider-family">1a. Install the AWS provider family<a class="headerlink" href="#1a-install-the-aws-provider-family" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">apiVersion: pkg.crossplane.io/v1</span>
+<span class="s">kind: Provider</span>
+<span class="s">metadata:</span>
+<span class="s">  name: provider-family-aws</span>
+<span class="s">spec:</span>
+<span class="s">  package: xpkg.upbound.io/upbound/provider-family-aws:v1.21.0</span>
+<span class="s">---</span>
+<span class="s">apiVersion: pkg.crossplane.io/v1</span>
+<span class="s">kind: Provider</span>
+<span class="s">metadata:</span>
+<span class="s">  name: provider-aws-rds</span>
+<span class="s">spec:</span>
+<span class="s">  package: xpkg.upbound.io/upbound/provider-aws-rds:v1.21.0</span>
+<span class="s">---</span>
+<span class="s">apiVersion: pkg.crossplane.io/v1</span>
+<span class="s">kind: Provider</span>
+<span class="s">metadata:</span>
+<span class="s">  name: provider-aws-s3</span>
+<span class="s">spec:</span>
+<span class="s">  package: xpkg.upbound.io/upbound/provider-aws-s3:v1.21.0</span>
+<span class="s">EOF</span>
+</code></pre></div>
+<p>Wait for <code>HEALTHY</code>:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>providers<span class="w"> </span>-w
+</code></pre></div>
+<h3 id="1b-configure-aws-credentials-for-crossplane">1b. Configure AWS credentials for Crossplane<a class="headerlink" href="#1b-configure-aws-credentials-for-crossplane" title="Permanent link">&para;</a></h3>
+<p>Using IRSA on the Crossplane controller pod (recommended), or an AWS credentials Secret. The Upbound provider supports both; IRSA is preferred.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Secret-based (simpler; use this only in non-prod):</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>aws-creds<span class="w"> </span>-n<span class="w"> </span>crossplane-system<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">creds</span><span class="o">=</span><span class="s2">&quot;[default]</span>
+<span class="s2">aws_access_key_id = </span><span class="nv">$AWS_ACCESS_KEY_ID</span>
+<span class="s2">aws_secret_access_key = </span><span class="nv">$AWS_SECRET_ACCESS_KEY</span><span class="s2">&quot;</span>
+
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">apiVersion: aws.upbound.io/v1beta1</span>
+<span class="s">kind: ProviderConfig</span>
+<span class="s">metadata:</span>
+<span class="s">  name: default</span>
+<span class="s">spec:</span>
+<span class="s">  credentials:</span>
+<span class="s">    source: Secret</span>
+<span class="s">    secretRef:</span>
+<span class="s">      namespace: crossplane-system</span>
+<span class="s">      name: aws-creds</span>
+<span class="s">      key: creds</span>
+<span class="s">EOF</span>
+</code></pre></div>
+<h3 id="1c-rds-postgresql-instance">1c. RDS PostgreSQL instance<a class="headerlink" href="#1c-rds-postgresql-instance" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># crossplane/rune-rds.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rds.aws.upbound.io/v1beta2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instance</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-east-1</span>
+<span class="w">    </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<span class="w">    </span><span class="nt">engineVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;16.3&quot;</span>
+<span class="w">    </span><span class="nt">instanceClass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db.t3.medium</span>
+<span class="w">    </span><span class="nt">allocatedStorage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
+<span class="w">    </span><span class="nt">storageType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gp3</span>
+<span class="w">    </span><span class="nt">storageEncrypted</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">dbName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="w">    </span><span class="nt">passwordSecretRef</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-master</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">    </span><span class="nt">publiclyAccessible</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">vpcSecurityGroupIdSelector</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db</span>
+<span class="w">    </span><span class="nt">dbSubnetGroupName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-subnets</span>
+<span class="w">    </span><span class="nt">backupRetentionPeriod</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
+<span class="w">    </span><span class="nt">skipFinalSnapshot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">finalSnapshotIdentifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-final</span>
+<span class="w">  </span><span class="nt">writeConnectionSecretToRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-connection</span>
+</code></pre></div>
+<h3 id="1d-s3-bucket-for-benchmark-results">1d. S3 bucket for benchmark results<a class="headerlink" href="#1d-s3-bucket-for-benchmark-results" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># crossplane/rune-s3.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s3.aws.upbound.io/v1beta2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bucket</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-results-ACCOUNT_ID</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-east-1</span>
+<span class="w">    </span><span class="nt">objectLockEnabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s3.aws.upbound.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BucketPublicAccessBlock</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-results-ACCOUNT_ID</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-east-1</span>
+<span class="w">    </span><span class="nt">bucketRef</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-results-ACCOUNT_ID</span>
+<span class="w">    </span><span class="nt">blockPublicAcls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">blockPublicPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">ignorePublicAcls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">restrictPublicBuckets</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s3.aws.upbound.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BucketServerSideEncryptionConfiguration</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-results-ACCOUNT_ID</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-east-1</span>
+<span class="w">    </span><span class="nt">bucketRef</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-results-ACCOUNT_ID</span>
+<span class="w">    </span><span class="nt">rule</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">applyServerSideEncryptionByDefault</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sseAlgorithm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AES256</span>
+<span class="w">        </span><span class="nt">bucketKeyEnabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<p>Apply and verify:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>crossplane/rune-rds.yaml<span class="w"> </span>-f<span class="w"> </span>crossplane/rune-s3.yaml
+kubectl<span class="w"> </span>get<span class="w"> </span>instance.rds.aws.upbound.io<span class="w"> </span>-w<span class="w">  </span><span class="c1"># wait for READY=True</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>bucket.s3.aws.upbound.io<span class="w"> </span>-w
+</code></pre></div>
+<h2 id="step-2-irsa-for-rune-api">Step 2 — IRSA for <code>rune-api</code><a class="headerlink" href="#step-2-irsa-for-rune-api" title="Permanent link">&para;</a></h2>
+<h3 id="2a-iam-policy-least-privilege-to-the-results-bucket-only">2a. IAM policy — least-privilege to the results bucket only<a class="headerlink" href="#2a-iam-policy-least-privilege-to-the-results-bucket-only" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RuneResultsReadWrite&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;s3:PutObject&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;s3:DeleteObject&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;s3:ListBucket&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;s3:GetBucketLocation&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;arn:aws:s3:::rune-results-ACCOUNT_ID&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;arn:aws:s3:::rune-results-ACCOUNT_ID/*&quot;</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Create the policy:</p>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>iam<span class="w"> </span>create-policy<span class="w"> </span>--policy-name<span class="w"> </span>rune-api-s3<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--policy-document<span class="w"> </span>file://iam/rune-api-s3.json
+</code></pre></div>
+<h3 id="2b-trust-policy-only-the-runerune-api-sa-can-assume">2b. Trust policy — only the <code>rune/rune-api</code> SA can assume<a class="headerlink" href="#2b-trust-policy-only-the-runerune-api-sa-can-assume" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Principal&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Federated&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:iam::ACCOUNT_ID:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/OIDC_ID&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sts:AssumeRoleWithWebIdentity&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Condition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;StringEquals&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;oidc.eks.us-east-1.amazonaws.com/id/OIDC_ID:sub&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system:serviceaccount:rune:rune-api&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;oidc.eks.us-east-1.amazonaws.com/id/OIDC_ID:aud&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sts.amazonaws.com&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Create the role:</p>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>iam<span class="w"> </span>create-role<span class="w"> </span>--role-name<span class="w"> </span>rune-api-s3-role<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--assume-role-policy-document<span class="w"> </span>file://iam/trust.json
+
+aws<span class="w"> </span>iam<span class="w"> </span>attach-role-policy<span class="w"> </span>--role-name<span class="w"> </span>rune-api-s3-role<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--policy-arn<span class="w"> </span>arn:aws:iam::<span class="nv">$ACCOUNT_ID</span>:policy/rune-api-s3
+</code></pre></div>
+<h3 id="2c-annotate-the-sa-in-helm-values">2c. Annotate the SA in Helm values<a class="headerlink" href="#2c-annotate-the-sa-in-helm-values" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-aws.yaml</span>
 <span class="nt">serviceAccount</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-api</span>
 <span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">eks.amazonaws.com/role-arn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">arn:aws:iam::ACCOUNT_ID:role/rune-api-s3-role</span>
 </code></pre></div>
-<p><code>TODO: full IAM policy JSON + trust relationship example.</code></p>
-<h2 id="step-3-rds-postgres-option">Step 3 — RDS-Postgres option<a class="headerlink" href="#step-3-rds-postgres-option" title="Permanent link">&para;</a></h2>
-<p>If using RDS instead of CNPG:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># values.yaml snippet</span>
+<h2 id="step-3-external-secrets-operator-aws-secrets-manager">Step 3 — External Secrets Operator → AWS Secrets Manager<a class="headerlink" href="#step-3-external-secrets-operator-aws-secrets-manager" title="Permanent link">&para;</a></h2>
+<h3 id="3a-clustersecretstore-pointing-at-secrets-manager">3a. ClusterSecretStore pointing at Secrets Manager<a class="headerlink" href="#3a-clustersecretstore-pointing-at-secrets-manager" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># eso/clustersecretstore.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterSecretStore</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws-secrets-manager</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">aws</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SecretsManager</span>
+<span class="w">      </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-east-1</span>
+<span class="w">      </span><span class="nt">auth</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">jwt</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">serviceAccountRef</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets</span>
+<span class="w">            </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets</span>
+</code></pre></div>
+<p>The <code>external-secrets</code> ServiceAccount needs its own IRSA role with <code>secretsmanager:GetSecretValue</code> on the RUNE secrets. ESO documents this in <a href="https://external-secrets.io/latest/provider/aws-secrets-manager/">AWS provider auth</a>.</p>
+<h3 id="3b-externalsecret-sync-the-db-password">3b. ExternalSecret — sync the DB password<a class="headerlink" href="#3b-externalsecret-sync-the-db-password" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># eso/rune-db-secret.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExternalSecret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-master</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">refreshInterval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1h</span>
+<span class="w">  </span><span class="nt">secretStoreRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterSecretStore</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws-secrets-manager</span>
+<span class="w">  </span><span class="nt">target</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-master</span>
+<span class="w">    </span><span class="nt">creationPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Owner</span>
+<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">      </span><span class="nt">remoteRef</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune/prod/db-master</span>
+<span class="w">        </span><span class="nt">property</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+</code></pre></div>
+<p>ESO will populate <code>rune-db-master</code> Secret in the <code>rune</code> namespace from Secrets Manager key <code>rune/prod/db-master</code>.</p>
+<h3 id="3c-rds-connection-url-in-helm-values">3c. RDS connection URL in Helm values<a class="headerlink" href="#3c-rds-connection-url-in-helm-values" title="Permanent link">&para;</a></h3>
+<p>Crossplane writes <code>rune-db-connection</code> Secret with host/port/username. Rune API consumes both the connection Secret (host/port) and the ESO-synced password Secret:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-aws.yaml (continued)</span>
 <span class="nt">rune</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">storage</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">postgresql</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;postgres://rune:$PG_PASSWORD@rune-db.cluster-xxxx.us-east-1.rds.amazonaws.com:5432/rune&quot;</span>
+<span class="w">      </span><span class="c1"># chart expands this to a full URL at runtime</span>
+<span class="w">      </span><span class="nt">hostSecretRef</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-connection</span>
+<span class="w">      </span><span class="nt">hostKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">endpoint</span>
+<span class="w">      </span><span class="nt">portKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">port</span>
+<span class="w">      </span><span class="nt">usernameKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">username</span>
+<span class="w">      </span><span class="nt">passwordSecretRef</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-master</span>
+<span class="w">      </span><span class="nt">passwordKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">      </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="w">      </span><span class="nt">sslmode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">require</span>
 </code></pre></div>
-<p>Store the password in <strong>AWS Secrets Manager</strong> and sync to Kubernetes via the AWS Secrets Manager CSI driver or External Secrets Operator. <code>TODO: ESO example.</code></p>
-<h2 id="step-4-alb-ingress">Step 4 — ALB ingress<a class="headerlink" href="#step-4-alb-ingress" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># values.yaml snippet</span>
+<h2 id="step-4-acm-certificate-route-53-dns">Step 4 — ACM certificate + Route 53 DNS<a class="headerlink" href="#step-4-acm-certificate-route-53-dns" title="Permanent link">&para;</a></h2>
+<h3 id="4a-request-a-public-certificate-for-the-rune-domain">4a. Request a public certificate for the RUNE domain<a class="headerlink" href="#4a-request-a-public-certificate-for-the-rune-domain" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">CERT_ARN</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>acm<span class="w"> </span>request-certificate<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--domain-name<span class="w"> </span>rune.example.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--validation-method<span class="w"> </span>DNS<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--region<span class="w"> </span>us-east-1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span>CertificateArn<span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+</code></pre></div>
+<p>ACM emits a DNS validation record you must add to Route 53:</p>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>acm<span class="w"> </span>describe-certificate<span class="w"> </span>--certificate-arn<span class="w"> </span><span class="nv">$CERT_ARN</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Certificate.DomainValidationOptions[].ResourceRecord&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>table
+</code></pre></div>
+<p>Create the Route 53 validation record (manual one-time):</p>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>route53<span class="w"> </span>change-resource-record-sets<span class="w"> </span>--hosted-zone-id<span class="w"> </span><span class="nv">$ZONE_ID</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--change-batch<span class="w"> </span>file://route53/acm-validation.json
+</code></pre></div>
+<p>Wait for <code>Status: ISSUED</code> via <code>aws acm describe-certificate</code>.</p>
+<h3 id="4b-route-53-a-record-pointing-at-the-alb">4b. Route 53 A-record pointing at the ALB<a class="headerlink" href="#4b-route-53-a-record-pointing-at-the-alb" title="Permanent link">&para;</a></h3>
+<p>After Step 5 creates the ALB, get its DNS name via <code>kubectl -n rune get ingress rune -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'</code>, then create an alias A-record:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">    </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UPSERT&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ResourceRecordSet&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rune.example.com.&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;AliasTarget&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;HostedZoneId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Z35SXDOTRQ7X7K&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;DNSName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$ALB_HOSTNAME&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;EvaluateTargetHealth&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>(The <code>Z35SXDOTRQ7X7K</code> is the fixed ALB hosted-zone ID for <code>us-east-1</code>; get yours from <a href="https://docs.aws.amazon.com/general/latest/gr/elb.html">AWS ELB regional endpoints</a>.)</p>
+<h2 id="step-5-alb-ingress">Step 5 — ALB ingress<a class="headerlink" href="#step-5-alb-ingress" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-aws.yaml (continued)</span>
 <span class="nt">ingress</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">className</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alb</span>
 <span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">alb.ingress.kubernetes.io/scheme</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">internet-facing</span>
 <span class="w">    </span><span class="nt">alb.ingress.kubernetes.io/target-type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ip</span>
-<span class="w">    </span><span class="nt">alb.ingress.kubernetes.io/certificate-arn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">arn:aws:acm:us-east-1:ACCOUNT_ID:certificate/xxx</span>
+<span class="w">    </span><span class="nt">alb.ingress.kubernetes.io/listen-ports</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[{&quot;HTTPS&quot;:443}]&#39;</span>
+<span class="w">    </span><span class="nt">alb.ingress.kubernetes.io/ssl-redirect</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;443&quot;</span>
+<span class="w">    </span><span class="nt">alb.ingress.kubernetes.io/certificate-arn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">arn:aws:acm:us-east-1:ACCOUNT_ID:certificate/CERT_ID</span>
+<span class="w">    </span><span class="nt">alb.ingress.kubernetes.io/healthcheck-path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/healthz</span>
+<span class="w">    </span><span class="nt">alb.ingress.kubernetes.io/load-balancer-attributes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">access_logs.s3.enabled=true,access_logs.s3.bucket=rune-alb-logs</span>
+<span class="w">  </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune.example.com</span>
+<span class="w">      </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
+<span class="w">          </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
 </code></pre></div>
-<p><code>TODO: ACM certificate setup walkthrough + Route 53 DNS step.</code></p>
-<h2 id="step-5-chart-install">Step 5 — Chart install<a class="headerlink" href="#step-5-chart-install" title="Permanent link">&para;</a></h2>
+<h2 id="step-6-chart-install">Step 6 — Chart install<a class="headerlink" href="#step-6-chart-install" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>helm<span class="w"> </span>install<span class="w"> </span>rune<span class="w"> </span>./charts/rune<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--namespace<span class="w"> </span>rune<span class="w"> </span>--create-namespace<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--values<span class="w"> </span>rune-aws-values.yaml<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--values<span class="w"> </span>values-aws.yaml<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--wait<span class="w"> </span>--timeout<span class="o">=</span>5m
 </code></pre></div>
-<h2 id="step-6-validate">Step 6 — Validate<a class="headerlink" href="#step-6-validate" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Via ALB</span>
+<p>Sanity-check:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>-n<span class="w"> </span>rune<span class="w"> </span>get<span class="w"> </span>pods<span class="w">                     </span><span class="c1"># all Running</span>
+kubectl<span class="w"> </span>-n<span class="w"> </span>rune<span class="w"> </span>get<span class="w"> </span>externalsecrets<span class="w">          </span><span class="c1"># SyncedStatus=Ready</span>
+kubectl<span class="w"> </span>-n<span class="w"> </span>rune<span class="w"> </span>get<span class="w"> </span>ingress<span class="w"> </span>rune<span class="w">             </span><span class="c1"># ADDRESS populated</span>
+</code></pre></div>
+<h2 id="step-7-validate">Step 7 — Validate<a class="headerlink" href="#step-7-validate" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>-n<span class="w"> </span>rune<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>rune-api-token<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.token}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d<span class="k">)</span>
+
+<span class="c1"># Via ALB</span>
 curl<span class="w"> </span>-sfH<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span>https://rune.example.com/healthz
+<span class="c1"># Expected: {&quot;status&quot;:&quot;ok&quot;,&quot;version&quot;:&quot;0.0.0aN&quot;}</span>
+
+curl<span class="w"> </span>-sfH<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span>https://rune.example.com/v1/llm/models<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
+<span class="c1"># Expected: list of backends registered</span>
+
+<span class="c1"># End-to-end: run a small benchmark</span>
+curl<span class="w"> </span>-sfH<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;agent&quot;:&quot;holmes&quot;,&quot;backend_type&quot;:&quot;ollama&quot;,&quot;question&quot;:&quot;Test&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://rune.example.com/v1/benchmark/run
 </code></pre></div>
 <h2 id="cost-estimation-integration">Cost estimation integration<a class="headerlink" href="#cost-estimation-integration" title="Permanent link">&para;</a></h2>
 <p><code>CostEstimation.aws</code> supports AWS-specific cost projections for future RUNE provisioning against EC2 / GPU instances. See <a href="../../architecture/adrs/0002-cost-estimation/">ADR 0002</a> and <a href="../../context/SYSTEM_PROMPT/#cost-gates-api-contracts">SYSTEM_PROMPT §Cost gates</a>.</p>
-<h2 id="follow-ups-tracked">Follow-ups tracked<a class="headerlink" href="#follow-ups-tracked" title="Permanent link">&para;</a></h2>
+<h2 id="teardown">Teardown<a class="headerlink" href="#teardown" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>uninstall<span class="w"> </span>rune<span class="w"> </span>-n<span class="w"> </span>rune
+kubectl<span class="w"> </span>delete<span class="w"> </span>-f<span class="w"> </span>crossplane/rune-rds.yaml<span class="w"> </span>-f<span class="w"> </span>crossplane/rune-s3.yaml
+<span class="c1"># RDS final snapshot is kept per skipFinalSnapshot:false</span>
+aws<span class="w"> </span>iam<span class="w"> </span>detach-role-policy<span class="w"> </span>--role-name<span class="w"> </span>rune-api-s3-role<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--policy-arn<span class="w"> </span>arn:aws:iam::<span class="nv">$ACCOUNT_ID</span>:policy/rune-api-s3
+aws<span class="w"> </span>iam<span class="w"> </span>delete-role<span class="w"> </span>--role-name<span class="w"> </span>rune-api-s3-role
+aws<span class="w"> </span>iam<span class="w"> </span>delete-policy<span class="w"> </span>--policy-arn<span class="w"> </span>arn:aws:iam::<span class="nv">$ACCOUNT_ID</span>:policy/rune-api-s3
+aws<span class="w"> </span>acm<span class="w"> </span>delete-certificate<span class="w"> </span>--certificate-arn<span class="w"> </span><span class="nv">$CERT_ARN</span>
+</code></pre></div>
+<h2 id="validation-transcript">Validation transcript<a class="headerlink" href="#validation-transcript" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Pending real-cluster validation</p>
+<p>This section is intentionally empty until the walkthrough above is run on a real EKS cluster. Paste the transcript here, with timings and relevant output for each step. Tracked in <a href="https://github.com/lpasquali/rune-docs/issues/302">#302</a>.</p>
+</div>
+<div class="highlight"><pre><span></span><code>TODO: Paste validated transcript here, e.g.
+$ kubectl get instance.rds.aws.upbound.io
+NAME      READY   SYNCED   EXTERNAL-NAME    AGE
+rune-db   True    True     rune-db          8m
+...
+</code></pre></div>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Crossplane provider manifests (RDS, S3, IRSA role) — flesh out.</li>
-<li>External Secrets Operator example for AWS Secrets Manager — flesh out.</li>
-<li>ACM + Route 53 DNS step — flesh out.</li>
-<li>Validation transcript from a real EKS deployment — flesh out.</li>
+<li><a href="https://docs.aws.amazon.com/eks/latest/userguide/">EKS user guide</a></li>
+<li><a href="https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html">IRSA</a></li>
+<li><a href="https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/">AWS Load Balancer Controller</a></li>
+<li><a href="https://external-secrets.io/latest/provider/aws-secrets-manager/">External Secrets Operator — AWS Secrets Manager provider</a></li>
+<li><a href="https://marketplace.upbound.io/providers/upbound/provider-family-aws">Crossplane AWS provider</a></li>
+<li><a href="../../architecture/adrs/0007-crossplane-infrastructure-provisioning/">ADR 0007 — Crossplane infrastructure provisioning</a></li>
+<li><a href="../../reference/EXTERNAL_LINKS/">External Links Catalog</a> — canonical URLs</li>
 </ul>
-<p>All tracked under <a href="https://github.com/lpasquali/rune-docs/issues/277">rune-docs#277</a> follow-up issue for AWS.</p>
 
 
 

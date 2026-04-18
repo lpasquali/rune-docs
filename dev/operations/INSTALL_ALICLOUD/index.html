@@ -2941,6 +2941,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 1 — Provisioning via Crossplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1a-install-the-community-provider-jet-alibabacloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1a. Install the community provider-jet-alibabacloud
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1b-providerconfig-with-aksk-rrsa-based-credentials-not-yet-supported-by-the-community-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1b. ProviderConfig with AK/SK (RRSA-based credentials not yet supported by the community provider)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1c-apsaradb-rds-for-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1c. ApsaraDB RDS for PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1d-oss-bucket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1d. OSS bucket
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2952,13 +3002,41 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 2 — RRSA for rune-api">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2a-create-a-ram-role-with-an-oidc-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2a. Create a RAM role with an OIDC trust
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2b-annotate-the-sa-in-helm-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2b. Annotate the SA in Helm values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-apsaradb-for-postgresql" class="md-nav__link">
+  <a href="#step-3-apsaradb-for-postgresql-connect" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3 — ApsaraDB for PostgreSQL
+        Step 3 — ApsaraDB for PostgreSQL — connect
       
     </span>
   </a>
@@ -2966,10 +3044,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-oss-object-storage-service" class="md-nav__link">
+  <a href="#step-4-kms-external-secrets-operator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4 — OSS (Object Storage Service)
+        Step 4 — KMS + External Secrets Operator
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4 — KMS + External Secrets Operator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4a-create-a-kms-instance-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4a. Create a KMS instance + secret
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4b-clustersecretstore-for-eso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4b. ClusterSecretStore for ESO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-oss-as-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — OSS as S3
       
     </span>
   </a>
@@ -2977,10 +3094,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-5-slb-ingress" class="md-nav__link">
+  <a href="#step-6-alb-ingress" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 5 — SLB ingress
+        Step 6 — ALB ingress
       
     </span>
   </a>
@@ -2988,10 +3105,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-6-chart-install-validate" class="md-nav__link">
+  <a href="#step-7-chart-install" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 6 — Chart install + validate
+        Step 7 — Chart install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-dns-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8 — DNS + validate
       
     </span>
   </a>
@@ -3010,10 +3138,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#follow-ups-tracked" class="md-nav__link">
+  <a href="#teardown" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Follow-ups tracked
+        Teardown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-transcript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation transcript
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
       
     </span>
   </a>
@@ -4172,6 +4322,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 1 — Provisioning via Crossplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1a-install-the-community-provider-jet-alibabacloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1a. Install the community provider-jet-alibabacloud
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1b-providerconfig-with-aksk-rrsa-based-credentials-not-yet-supported-by-the-community-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1b. ProviderConfig with AK/SK (RRSA-based credentials not yet supported by the community provider)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1c-apsaradb-rds-for-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1c. ApsaraDB RDS for PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1d-oss-bucket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1d. OSS bucket
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4183,13 +4383,41 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 2 — RRSA for rune-api">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2a-create-a-ram-role-with-an-oidc-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2a. Create a RAM role with an OIDC trust
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2b-annotate-the-sa-in-helm-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2b. Annotate the SA in Helm values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-apsaradb-for-postgresql" class="md-nav__link">
+  <a href="#step-3-apsaradb-for-postgresql-connect" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3 — ApsaraDB for PostgreSQL
+        Step 3 — ApsaraDB for PostgreSQL — connect
       
     </span>
   </a>
@@ -4197,10 +4425,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-oss-object-storage-service" class="md-nav__link">
+  <a href="#step-4-kms-external-secrets-operator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4 — OSS (Object Storage Service)
+        Step 4 — KMS + External Secrets Operator
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4 — KMS + External Secrets Operator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4a-create-a-kms-instance-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4a. Create a KMS instance + secret
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4b-clustersecretstore-for-eso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4b. ClusterSecretStore for ESO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-oss-as-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — OSS as S3
       
     </span>
   </a>
@@ -4208,10 +4475,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-5-slb-ingress" class="md-nav__link">
+  <a href="#step-6-alb-ingress" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 5 — SLB ingress
+        Step 6 — ALB ingress
       
     </span>
   </a>
@@ -4219,10 +4486,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-6-chart-install-validate" class="md-nav__link">
+  <a href="#step-7-chart-install" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 6 — Chart install + validate
+        Step 7 — Chart install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-dns-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8 — DNS + validate
       
     </span>
   </a>
@@ -4241,10 +4519,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#follow-ups-tracked" class="md-nav__link">
+  <a href="#teardown" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Follow-ups tracked
+        Teardown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-transcript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation transcript
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
       
     </span>
   </a>
@@ -4269,70 +4569,324 @@
 
 
 <h1 id="install-alibaba-cloud-ack">Install — Alibaba Cloud (ACK)<a class="headerlink" href="#install-alibaba-cloud-ack" title="Permanent link">&para;</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Scaffold</p>
-<p>Structure complete; cloud-specific detail needs hands-on validation.
-Follow-up: <a href="https://github.com/lpasquali/rune-docs/issues/277">rune-docs#277</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">Content complete — validation transcript pending</p>
+<p>Content drafted from Alibaba Cloud / Crossplane community provider / ESO official docs (2026-04). End-to-end transcript from a real ACK cluster still needed — tracked in the <a href="#validation-transcript">Validation transcript</a> section at the bottom.</p>
+<p>The Crossplane <strong>AliCloud provider is maintained by the community</strong> (<code>crossplane-contrib/provider-jet-alibabacloud</code>), not Upbound. It's less mature than AWS/GCP/Azure providers; expect to validate each CR before committing.</p>
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>ACK cluster ≥ 1.27. Kubeconfig via <code>aliyun cs GET /k8s/$CLUSTER_ID/user_config</code>.</li>
-<li><code>helm</code> ≥ 3.17.</li>
-<li>Alibaba Cloud account with RAM authority for ApsaraDB for PostgreSQL + OSS.</li>
-<li><strong>RAM Roles for Service Accounts (RRSA)</strong> enabled on the cluster — the Alibaba equivalent of IRSA.</li>
+<li>ACK cluster ≥ 1.27 (Managed or Pro). Kubeconfig via <code>aliyun cs GET /k8s/$CLUSTER_ID/user_config</code> then merge into <code>~/.kube/config</code>.</li>
+<li><a href="https://helm.sh/docs/"><code>helm</code></a> ≥ 3.17.</li>
+<li>Alibaba Cloud account with RAM authority for <strong>ApsaraDB for RDS (PostgreSQL)</strong>, <strong>OSS</strong>, <strong>KMS</strong>, <strong>RAM</strong>, and <strong>ALB</strong>.</li>
+<li><a href="https://www.alibabacloud.com/help/en/ack/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-different-pods-to-access-different-cloud-services"><strong>RRSA</strong> (RAM Roles for Service Accounts)</a> enabled on the cluster. Enable once per cluster:</li>
 </ul>
-<h2 id="step-1-provisioning-via-crossplane">Step 1 — Provisioning via Crossplane<a class="headerlink" href="#step-1-provisioning-via-crossplane" title="Permanent link">&para;</a></h2>
-<p><code>TODO: provider-jet-alibabacloud (community) + ApsaraDB RDS + OSS CRs. Crossplane AliCloud provider is less mature than AWS/GCP/Azure — validate before committing.</code></p>
-<h2 id="step-2-rrsa-for-rune-api">Step 2 — RRSA for rune-api<a class="headerlink" href="#step-2-rrsa-for-rune-api" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create RAM role trusted by the cluster&#39;s OIDC provider</span>
-aliyun<span class="w"> </span>ram<span class="w"> </span>CreateRole<span class="w"> </span>--RoleName<span class="w"> </span>rune-api-role<span class="w"> </span>--AssumeRolePolicyDocument<span class="w"> </span><span class="s1">&#39;...&#39;</span>
-aliyun<span class="w"> </span>ram<span class="w"> </span>AttachPolicyToRole<span class="w"> </span>--RoleName<span class="w"> </span>rune-api-role<span class="w"> </span>--PolicyType<span class="w"> </span>Custom<span class="w"> </span>--PolicyName<span class="w"> </span>rune-api-oss
+<div class="highlight"><pre><span></span><code>aliyun<span class="w"> </span>cs<span class="w"> </span>POST<span class="w"> </span>/clusters/<span class="nv">$CLUSTER_ID</span>/access-control/rrsa<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--header<span class="w"> </span><span class="s2">&quot;Content-Type=application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--body<span class="w"> </span><span class="s1">&#39;{&quot;enable_rrsa&quot;:true}&#39;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nt">serviceAccount</span><span class="p">:</span>
+<p>RRSA is Alibaba's equivalent of IRSA — it adds an OIDC issuer to the cluster and a service-account-token projector.</p>
+<ul>
+<li><a href="https://external-secrets.io/latest/provider/alibaba/"><strong>External Secrets Operator</strong></a> installed (experimental provider for AliCloud KMS).</li>
+<li><a href="https://docs.crossplane.io/latest/"><strong>Crossplane</strong></a> with the community AliCloud provider — see <a href="../../architecture/adrs/0007-crossplane-infrastructure-provisioning/">ADR 0007</a>.</li>
+</ul>
+<p>Env vars:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">REGION</span><span class="o">=</span>cn-hangzhou
+<span class="nb">export</span><span class="w"> </span><span class="nv">CLUSTER_ID</span><span class="o">=</span>c1234567890abcdef
+<span class="nb">export</span><span class="w"> </span><span class="nv">ACCOUNT_ID</span><span class="o">=</span><span class="k">$(</span>aliyun<span class="w"> </span>sts<span class="w"> </span>GetCallerIdentity<span class="w"> </span>--query<span class="w"> </span>AccountId<span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OIDC_ARN</span><span class="o">=</span><span class="k">$(</span>aliyun<span class="w"> </span>cs<span class="w"> </span>GET<span class="w"> </span>/clusters/<span class="nv">$CLUSTER_ID</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.meta_data | fromjson | .RRSAConfig.RRSAOIDCIssuerURL&#39;</span><span class="k">)</span>
+</code></pre></div>
+<h2 id="step-1-provisioning-via-crossplane">Step 1 — Provisioning via Crossplane<a class="headerlink" href="#step-1-provisioning-via-crossplane" title="Permanent link">&para;</a></h2>
+<h3 id="1a-install-the-community-provider-jet-alibabacloud">1a. Install the community provider-jet-alibabacloud<a class="headerlink" href="#1a-install-the-community-provider-jet-alibabacloud" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">apiVersion: pkg.crossplane.io/v1</span>
+<span class="s">kind: Provider</span>
+<span class="s">metadata: { name: provider-jet-alibabacloud }</span>
+<span class="s">spec:</span>
+<span class="s">  package: xpkg.upbound.io/crossplane-contrib/provider-jet-alibabacloud:v0.9.0</span>
+<span class="s">EOF</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>providers<span class="w"> </span>-w<span class="w">   </span><span class="c1"># wait for INSTALLED and HEALTHY</span>
+</code></pre></div>
+<h3 id="1b-providerconfig-with-aksk-rrsa-based-credentials-not-yet-supported-by-the-community-provider">1b. ProviderConfig with AK/SK (RRSA-based credentials not yet supported by the community provider)<a class="headerlink" href="#1b-providerconfig-with-aksk-rrsa-based-credentials-not-yet-supported-by-the-community-provider" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>alicloud-creds<span class="w"> </span>-n<span class="w"> </span>crossplane-system<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">credentials</span><span class="o">=</span><span class="s2">&quot;{\&quot;accessKeyId\&quot;:\&quot;</span><span class="nv">$ALICLOUD_ACCESS_KEY</span><span class="s2">\&quot;,\&quot;accessKeySecret\&quot;:\&quot;</span><span class="nv">$ALICLOUD_SECRET_KEY</span><span class="s2">\&quot;}&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alibaba.jet.crossplane.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProviderConfig</span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">default</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">credentials</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
+<span class="w">    </span><span class="nt">secretRef</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">crossplane-system</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alicloud-creds</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">credentials</span>
+<span class="w">  </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cn-hangzhou</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once <code>provider-jet-alibabacloud</code> gains RRSA support, replace Secret-based auth with <code>source: InjectedIdentity</code>. Tracked upstream — no ETA.</p>
+</div>
+<h3 id="1c-apsaradb-rds-for-postgresql">1c. ApsaraDB RDS for PostgreSQL<a class="headerlink" href="#1c-apsaradb-rds-for-postgresql" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># crossplane/rune-rds.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rds.alibaba.jet.crossplane.io/v1alpha2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instance</span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">rune-db</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cn-hangzhou</span>
+<span class="w">    </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL</span>
+<span class="w">    </span><span class="nt">engineVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;16.0&quot;</span>
+<span class="w">    </span><span class="nt">dbInstanceClass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pg.n2.2c.1m</span>
+<span class="w">    </span><span class="nt">dbInstanceStorage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
+<span class="w">    </span><span class="nt">dbInstanceStorageType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cloud_essd</span>
+<span class="w">    </span><span class="nt">securityIpList</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;0.0.0.0/0&quot;</span><span class="w">   </span><span class="c1"># tighten to VPC CIDR in prod</span>
+<span class="w">    </span><span class="nt">vswitchId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vsw-xxx</span>
+<span class="w">    </span><span class="nt">instanceNetworkType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VPC</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rds.alibaba.jet.crossplane.io/v1alpha2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Database</span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">rune</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">instanceIdRef</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">rune-db</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">    </span><span class="nt">characterSet</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UTF8</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rds.alibaba.jet.crossplane.io/v1alpha2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Account</span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">rune</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">instanceIdRef</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">rune-db</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">    </span><span class="nt">accountType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Normal</span>
+<span class="w">    </span><span class="nt">accountPasswordSecretRef</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-app</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+</code></pre></div>
+<h3 id="1d-oss-bucket">1d. OSS bucket<a class="headerlink" href="#1d-oss-bucket" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oss.alibaba.jet.crossplane.io/v1alpha2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bucket</span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">rune-results-ACCOUNT_ID</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-results-ACCOUNT_ID</span>
+<span class="w">    </span><span class="nt">acl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">private</span>
+<span class="w">    </span><span class="nt">storageClass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard</span>
+<span class="w">    </span><span class="nt">serverSideEncryptionRule</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sseAlgorithm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AES256</span>
+</code></pre></div>
+<h2 id="step-2-rrsa-for-rune-api">Step 2 — RRSA for <code>rune-api</code><a class="headerlink" href="#step-2-rrsa-for-rune-api" title="Permanent link">&para;</a></h2>
+<h3 id="2a-create-a-ram-role-with-an-oidc-trust">2a. Create a RAM role with an OIDC trust<a class="headerlink" href="#2a-create-a-ram-role-with-an-oidc-trust" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Policy: read/write only this OSS bucket</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>iam/oss-policy.json<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">{</span>
+<span class="s">  &quot;Version&quot;: &quot;1&quot;,</span>
+<span class="s">  &quot;Statement&quot;: [{</span>
+<span class="s">    &quot;Effect&quot;: &quot;Allow&quot;,</span>
+<span class="s">    &quot;Action&quot;: [</span>
+<span class="s">      &quot;oss:GetObject&quot;, &quot;oss:PutObject&quot;, &quot;oss:DeleteObject&quot;,</span>
+<span class="s">      &quot;oss:ListObjects&quot;, &quot;oss:GetBucketLocation&quot;</span>
+<span class="s">    ],</span>
+<span class="s">    &quot;Resource&quot;: [</span>
+<span class="s">      &quot;acs:oss:*:*:rune-results-$ACCOUNT_ID&quot;,</span>
+<span class="s">      &quot;acs:oss:*:*:rune-results-$ACCOUNT_ID/*&quot;</span>
+<span class="s">    ]</span>
+<span class="s">  }]</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+
+aliyun<span class="w"> </span>ram<span class="w"> </span>CreatePolicy<span class="w"> </span>--PolicyName<span class="w"> </span>rune-api-oss<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--PolicyDocument<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span>iam/oss-policy.json<span class="k">)</span><span class="s2">&quot;</span>
+
+<span class="c1"># Trust policy: cluster OIDC + specific SA</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>iam/trust.json<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">{</span>
+<span class="s">  &quot;Version&quot;: &quot;1&quot;,</span>
+<span class="s">  &quot;Statement&quot;: [{</span>
+<span class="s">    &quot;Effect&quot;: &quot;Allow&quot;,</span>
+<span class="s">    &quot;Action&quot;: &quot;sts:AssumeRole&quot;,</span>
+<span class="s">    &quot;Principal&quot;: { &quot;Federated&quot;: [&quot;$OIDC_ARN&quot;] },</span>
+<span class="s">    &quot;Condition&quot;: {</span>
+<span class="s">      &quot;StringEquals&quot;: {</span>
+<span class="s">        &quot;oidc:sub&quot;: &quot;system:serviceaccount:rune:rune-api&quot;,</span>
+<span class="s">        &quot;oidc:aud&quot;: &quot;sts.aliyuncs.com&quot;</span>
+<span class="s">      }</span>
+<span class="s">    }</span>
+<span class="s">  }]</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+
+aliyun<span class="w"> </span>ram<span class="w"> </span>CreateRole<span class="w"> </span>--RoleName<span class="w"> </span>rune-api-role<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--AssumeRolePolicyDocument<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span>iam/trust.json<span class="k">)</span><span class="s2">&quot;</span>
+
+aliyun<span class="w"> </span>ram<span class="w"> </span>AttachPolicyToRole<span class="w"> </span>--RoleName<span class="w"> </span>rune-api-role<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--PolicyType<span class="w"> </span>Custom<span class="w"> </span>--PolicyName<span class="w"> </span>rune-api-oss
+</code></pre></div>
+<h3 id="2b-annotate-the-sa-in-helm-values">2b. Annotate the SA in Helm values<a class="headerlink" href="#2b-annotate-the-sa-in-helm-values" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-alicloud.yaml (snippet)</span>
+<span class="nt">serviceAccount</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-api</span>
 <span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">pod.beta1.alibabacloud.com/ram-role-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-api-role</span>
 </code></pre></div>
-<p><code>TODO: full RRSA walkthrough + OIDC provider setup on the ACK cluster.</code></p>
-<h2 id="step-3-apsaradb-for-postgresql">Step 3 — ApsaraDB for PostgreSQL<a class="headerlink" href="#step-3-apsaradb-for-postgresql" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="nt">rune</span><span class="p">:</span>
+<h2 id="step-3-apsaradb-for-postgresql-connect">Step 3 — ApsaraDB for PostgreSQL — connect<a class="headerlink" href="#step-3-apsaradb-for-postgresql-connect" title="Permanent link">&para;</a></h2>
+<p>The RDS instance issues a connection string like <code>rm-XYZ.pg.rds.aliyuncs.com:5432</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-alicloud.yaml (continued)</span>
+<span class="nt">rune</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">storage</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">postgresql</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;postgres://rune:$PG_PASSWORD@rm-xxx.pg.rds.aliyuncs.com:5432/rune&quot;</span>
+<span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rm-XYZ.pg.rds.aliyuncs.com</span>
+<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span>
+<span class="w">      </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="w">      </span><span class="nt">passwordSecretRef</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-db-app</span>
+<span class="w">      </span><span class="nt">passwordKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">      </span><span class="nt">sslmode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">require</span>
 </code></pre></div>
-<p>Password in <strong>Key Management Service</strong> (KMS) + External Secrets Operator sync. <code>TODO: KMS + ESO example.</code></p>
-<h2 id="step-4-oss-object-storage-service">Step 4 — OSS (Object Storage Service)<a class="headerlink" href="#step-4-oss-object-storage-service" title="Permanent link">&para;</a></h2>
-<p>OSS has S3-compatible API with specific caveats (signing version, virtual-hosted style).</p>
-<div class="highlight"><pre><span></span><code><span class="nt">rune</span><span class="p">:</span>
+<h2 id="step-4-kms-external-secrets-operator">Step 4 — KMS + External Secrets Operator<a class="headerlink" href="#step-4-kms-external-secrets-operator" title="Permanent link">&para;</a></h2>
+<h3 id="4a-create-a-kms-instance-secret">4a. Create a KMS instance + secret<a class="headerlink" href="#4a-create-a-kms-instance-secret" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>aliyun<span class="w"> </span>kms<span class="w"> </span>CreateSecret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--SecretName<span class="w"> </span>rune-db-app<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--SecretData<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PG_PASSWORD</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--VersionId<span class="w"> </span>v1
+
+aliyun<span class="w"> </span>kms<span class="w"> </span>CreateSecret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--SecretName<span class="w"> </span>rune-oss-hmac-access<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--SecretData<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HMAC_ACCESS_ID</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--VersionId<span class="w"> </span>v1
+
+aliyun<span class="w"> </span>kms<span class="w"> </span>CreateSecret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--SecretName<span class="w"> </span>rune-oss-hmac-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--SecretData<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HMAC_SECRET</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--VersionId<span class="w"> </span>v1
+</code></pre></div>
+<h3 id="4b-clustersecretstore-for-eso">4b. ClusterSecretStore for ESO<a class="headerlink" href="#4b-clustersecretstore-for-eso" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterSecretStore</span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">alicloud-kms</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">alibaba</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">regionID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cn-hangzhou</span>
+<span class="w">      </span><span class="nt">auth</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">rrsa</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">oidcProviderArn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$OIDC_ARN</span>
+<span class="w">          </span><span class="nt">oidcTokenFilePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/secrets/tokens/alicloud-token</span>
+<span class="w">          </span><span class="nt">roleArn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">acs:ram::$ACCOUNT_ID:role/external-secrets-kms</span>
+<span class="w">          </span><span class="nt">sessionName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ESO's Alibaba provider is marked <strong>experimental</strong> at time of writing. If it misbehaves, fall back to <code>ack-secret-manager</code> (Alibaba's native operator: <a href="https://www.alibabacloud.com/help/en/ack/ack-managed-and-ack-dedicated/user-guide/use-ack-secret-manager-to-retrieve-and-parse-kms-secrets-in-a-kubernetes-cluster">ack-secret-manager docs</a>).</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExternalSecret</span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">rune-db-app</span><span class="p p-Indicator">,</span><span class="nt"> namespace</span><span class="p">:</span><span class="w"> </span><span class="nv">rune</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">refreshInterval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1h</span>
+<span class="w">  </span><span class="nt">secretStoreRef</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> kind</span><span class="p">:</span><span class="w"> </span><span class="nv">ClusterSecretStore</span><span class="p p-Indicator">,</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">alicloud-kms</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">  </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">rune-db-app</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">      </span><span class="nt">remoteRef</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> key</span><span class="p">:</span><span class="w"> </span><span class="nv">rune-db-app</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</code></pre></div>
+<h2 id="step-5-oss-as-s3">Step 5 — OSS as S3<a class="headerlink" href="#step-5-oss-as-s3" title="Permanent link">&para;</a></h2>
+<p>OSS speaks the S3 API with caveats: requires <code>SigV4</code>, and <code>pathStyle</code> addressing is recommended. Generate an HMAC (AK/SK equivalent) for the rune-api RAM user, store in KMS (above), and wire:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-alicloud.yaml (continued)</span>
+<span class="nt">rune</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">storage</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">s3</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">      </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://oss-cn-hangzhou.aliyuncs.com</span>
-<span class="w">      </span><span class="nt">accessKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$ALI_ACCESS_KEY</span>
-<span class="w">      </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$ALI_SECRET_KEY</span>
-<span class="w">      </span><span class="nt">bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-results</span>
-<span class="w">      </span><span class="c1"># AWS SigV4 required:</span>
 <span class="w">      </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cn-hangzhou</span>
+<span class="w">      </span><span class="nt">bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-results-$ACCOUNT_ID</span>
+<span class="w">      </span><span class="nt">accessKeySecretRef</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-oss-hmac</span>
+<span class="w">      </span><span class="nt">accessKeyKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">access</span>
+<span class="w">      </span><span class="nt">secretKeySecretRef</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-oss-hmac</span>
+<span class="w">      </span><span class="nt">secretKeyKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
+<span class="w">      </span><span class="nt">pathStyle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">sigVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v4</span>
 </code></pre></div>
-<p><code>TODO: exact S3-compat flags; validate on a real bucket.</code></p>
-<h2 id="step-5-slb-ingress">Step 5 — SLB ingress<a class="headerlink" href="#step-5-slb-ingress" title="Permanent link">&para;</a></h2>
-<p>Alibaba SLB (Server Load Balancer) via <code>alb</code> ingress class (ALB v2 managed by the cluster's add-on).</p>
-<p><code>TODO: ALB annotations + cert hosting on ACM (Alibaba's cert manager).</code></p>
-<h2 id="step-6-chart-install-validate">Step 6 — Chart install + validate<a class="headerlink" href="#step-6-chart-install-validate" title="Permanent link">&para;</a></h2>
-<p>Same as the <a href="../INSTALL/#3-chart-install">shared baseline</a>.</p>
+<h2 id="step-6-alb-ingress">Step 6 — ALB ingress<a class="headerlink" href="#step-6-alb-ingress" title="Permanent link">&para;</a></h2>
+<p>ACK managed ALB ingress controller provides the <code>alb</code> ingress class. Pre-create an ALB or let AGIC create one.</p>
+<p>Get/create an SSL cert via <a href="https://www.alibabacloud.com/product/certificate">Alibaba Cloud Certificate Management</a>, then reference it:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-alicloud.yaml (continued)</span>
+<span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">className</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alb</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">alb.ingress.kubernetes.io/address-type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;internet&quot;</span>
+<span class="w">    </span><span class="nt">alb.ingress.kubernetes.io/load-balancer-spec</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;slb.s2.small&quot;</span>
+<span class="w">    </span><span class="nt">alb.ingress.kubernetes.io/cert-id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;CERT-ID-cn-hangzhou&quot;</span>
+<span class="w">    </span><span class="nt">alb.ingress.kubernetes.io/listen-ports</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[{&quot;HTTPS&quot;:443}]&#39;</span>
+<span class="w">    </span><span class="nt">alb.ingress.kubernetes.io/ssl-redirect</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">    </span><span class="nt">alb.ingress.kubernetes.io/healthcheck-path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/healthz</span>
+<span class="w">  </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune.example.com</span>
+<span class="w">      </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
+<span class="w">          </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+</code></pre></div>
+<p>Install the ALB ingress add-on if not already present:</p>
+<div class="highlight"><pre><span></span><code>aliyun<span class="w"> </span>cs<span class="w"> </span>POST<span class="w"> </span>/clusters/<span class="nv">$CLUSTER_ID</span>/components/alb-ingress-controller/install
+</code></pre></div>
+<h2 id="step-7-chart-install">Step 7 — Chart install<a class="headerlink" href="#step-7-chart-install" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>install<span class="w"> </span>rune<span class="w"> </span>./charts/rune<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--namespace<span class="w"> </span>rune<span class="w"> </span>--create-namespace<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--values<span class="w"> </span>values-alicloud.yaml<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--wait<span class="w"> </span>--timeout<span class="o">=</span>10m
+</code></pre></div>
+<h2 id="step-8-dns-validate">Step 8 — DNS + validate<a class="headerlink" href="#step-8-dns-validate" title="Permanent link">&para;</a></h2>
+<p>Get the ALB public IP:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">ALB_IP</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>-n<span class="w"> </span>rune<span class="w"> </span>get<span class="w"> </span>ingress<span class="w"> </span>rune<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.status.loadBalancer.ingress[0].ip}&#39;</span><span class="k">)</span>
+</code></pre></div>
+<p>Create A record <code>rune.example.com → $ALB_IP</code> in <a href="https://www.alibabacloud.com/product/dns">Alibaba Cloud DNS</a> or your DNS provider.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>-n<span class="w"> </span>rune<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>rune-api-token<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.token}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d<span class="k">)</span>
+curl<span class="w"> </span>-sfH<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span>https://rune.example.com/healthz
+</code></pre></div>
 <h2 id="cost-estimation-integration">Cost estimation integration<a class="headerlink" href="#cost-estimation-integration" title="Permanent link">&para;</a></h2>
-<p><code>CostEstimation.alicloud</code> <strong>is not yet defined</strong> in RUNE's cost contracts (today: <code>vastai</code>, <code>aws</code>, <code>gcp</code>, <code>azure</code>, <code>localhardware</code>). File as a <code>rune</code> follow-up to add it before declaring the ACK install production-ready.</p>
-<h2 id="follow-ups-tracked">Follow-ups tracked<a class="headerlink" href="#follow-ups-tracked" title="Permanent link">&para;</a></h2>
+<p><strong><code>CostEstimation.alicloud</code> is not yet defined</strong> in RUNE's cost contracts (today: <code>vastai</code>, <code>aws</code>, <code>gcp</code>, <code>azure</code>, <code>localhardware</code>). File as a <code>rune</code> follow-up to add it before declaring the ACK install production-ready. Placeholder contract shape:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># rune_bench/resources/alicloud.py (planned)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AliCloudCostEstimator</span><span class="p">(</span><span class="n">CostEstimator</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Uses aliyun.pricing GetPrice / DescribePrice for ECS + GPU SKUs.</span>
+<span class="sd">    Returns CostEstimationResponse with confidence_score and per-hour projections.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
+<p>Tracking: <a href="https://github.com/lpasquali/rune-docs/issues/305"><code>rune-docs#305</code></a> (this issue) + follow-up issue in <code>rune</code> for the driver.</p>
+<h2 id="teardown">Teardown<a class="headerlink" href="#teardown" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>uninstall<span class="w"> </span>rune<span class="w"> </span>-n<span class="w"> </span>rune
+kubectl<span class="w"> </span>delete<span class="w"> </span>-f<span class="w"> </span>crossplane/rune-rds.yaml
+aliyun<span class="w"> </span>ram<span class="w"> </span>DetachPolicyFromRole<span class="w"> </span>--RoleName<span class="w"> </span>rune-api-role<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--PolicyType<span class="w"> </span>Custom<span class="w"> </span>--PolicyName<span class="w"> </span>rune-api-oss
+aliyun<span class="w"> </span>ram<span class="w"> </span>DeleteRole<span class="w"> </span>--RoleName<span class="w"> </span>rune-api-role
+aliyun<span class="w"> </span>ram<span class="w"> </span>DeletePolicy<span class="w"> </span>--PolicyName<span class="w"> </span>rune-api-oss
+</code></pre></div>
+<h2 id="validation-transcript">Validation transcript<a class="headerlink" href="#validation-transcript" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Pending real-cluster validation</p>
+<p>Populate after running this walkthrough on a real ACK cluster. Tracked in <a href="https://github.com/lpasquali/rune-docs/issues/305">#305</a>.</p>
+</div>
+<div class="highlight"><pre><span></span><code>TODO: Paste validated transcript here.
+</code></pre></div>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Crossplane AliCloud provider validation (less mature than others).</li>
-<li>RRSA + OIDC provider walkthrough.</li>
-<li>ApsaraDB for PostgreSQL + KMS integration.</li>
-<li>OSS S3 compatibility validation.</li>
-<li>SLB ingress + ACM cert walkthrough.</li>
-<li><code>CostEstimation.alicloud</code> driver in <code>rune</code>.</li>
-<li>Validation transcript from a real ACK deployment.</li>
+<li><a href="https://www.alibabacloud.com/help/en/ack/">ACK — managed Kubernetes overview</a></li>
+<li><a href="https://www.alibabacloud.com/help/en/ack/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-different-pods-to-access-different-cloud-services">RRSA — RAM Roles for Service Accounts</a></li>
+<li><a href="https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-postgresql">ApsaraDB RDS PostgreSQL</a></li>
+<li><a href="https://www.alibabacloud.com/help/en/oss/developer-reference/use-amazon-s3-sdks-to-access-oss">OSS — S3 compatibility</a></li>
+<li><a href="https://www.alibabacloud.com/help/en/ack/ack-managed-and-ack-dedicated/user-guide/alb-ingresses">ALB Ingress Controller</a></li>
+<li><a href="https://www.alibabacloud.com/product/kms">Key Management Service (KMS)</a></li>
+<li><a href="https://www.alibabacloud.com/help/en/ack/ack-managed-and-ack-dedicated/user-guide/use-ack-secret-manager-to-retrieve-and-parse-kms-secrets-in-a-kubernetes-cluster">ack-secret-manager</a></li>
+<li><a href="https://github.com/crossplane-contrib/provider-jet-alibabacloud">Crossplane contrib — provider-jet-alibabacloud</a></li>
+<li><a href="../../architecture/adrs/0007-crossplane-infrastructure-provisioning/">ADR 0007</a></li>
+<li><a href="../../reference/EXTERNAL_LINKS/">External Links Catalog</a></li>
 </ul>
-<p>All tracked under <a href="https://github.com/lpasquali/rune-docs/issues/277">rune-docs#277</a> AliCloud follow-up.</p>
 
 
 

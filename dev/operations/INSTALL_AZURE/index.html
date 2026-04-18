@@ -2913,13 +2913,63 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 1 — Provisioning via Crossplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1a-install-the-azure-provider-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1a. Install the Azure provider family
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1b-providerconfig-via-workload-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1b. ProviderConfig via Workload Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1c-azure-database-for-postgresql-flexible-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1c. Azure Database for PostgreSQL (Flexible Server)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1d-blob-storage-account-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1d. Blob Storage account + container
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2-managed-identity-for-rune-api" class="md-nav__link">
+  <a href="#step-2-managed-identity-workload-identity-for-rune-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 2 — Managed Identity for rune-api
+        Step 2 — Managed Identity + Workload Identity for rune-api
       
     </span>
   </a>
@@ -2927,10 +2977,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-azure-database-for-postgresql" class="md-nav__link">
+  <a href="#step-3-azure-database-for-postgresql-connect" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3 — Azure Database for PostgreSQL
+        Step 3 — Azure Database for PostgreSQL — connect
       
     </span>
   </a>
@@ -2938,10 +2988,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-azure-blob-storage" class="md-nav__link">
+  <a href="#step-4-external-secrets-operator-key-vault" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4 — Azure Blob Storage
+        Step 4 — External Secrets Operator → Key Vault
       
     </span>
   </a>
@@ -2949,10 +2999,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-5-application-gateway-ingress" class="md-nav__link">
+  <a href="#step-5-blob-storage-access-via-workload-identity-no-s3-gateway" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 5 — Application Gateway ingress
+        Step 5 — Blob Storage access via Workload Identity (no S3 gateway)
       
     </span>
   </a>
@@ -2960,10 +3010,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-6-chart-install-validate" class="md-nav__link">
+  <a href="#step-6-application-gateway-ingress-controller" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 6 — Chart install + validate
+        Step 6 — Application Gateway Ingress Controller
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-chart-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7 — Chart install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-dns-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8 — DNS + validate
       
     </span>
   </a>
@@ -2982,10 +3054,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#follow-ups-tracked" class="md-nav__link">
+  <a href="#teardown" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Follow-ups tracked
+        Teardown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-transcript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation transcript
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
       
     </span>
   </a>
@@ -4172,13 +4266,63 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 1 — Provisioning via Crossplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1a-install-the-azure-provider-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1a. Install the Azure provider family
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1b-providerconfig-via-workload-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1b. ProviderConfig via Workload Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1c-azure-database-for-postgresql-flexible-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1c. Azure Database for PostgreSQL (Flexible Server)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1d-blob-storage-account-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1d. Blob Storage account + container
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2-managed-identity-for-rune-api" class="md-nav__link">
+  <a href="#step-2-managed-identity-workload-identity-for-rune-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 2 — Managed Identity for rune-api
+        Step 2 — Managed Identity + Workload Identity for rune-api
       
     </span>
   </a>
@@ -4186,10 +4330,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-azure-database-for-postgresql" class="md-nav__link">
+  <a href="#step-3-azure-database-for-postgresql-connect" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3 — Azure Database for PostgreSQL
+        Step 3 — Azure Database for PostgreSQL — connect
       
     </span>
   </a>
@@ -4197,10 +4341,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-azure-blob-storage" class="md-nav__link">
+  <a href="#step-4-external-secrets-operator-key-vault" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4 — Azure Blob Storage
+        Step 4 — External Secrets Operator → Key Vault
       
     </span>
   </a>
@@ -4208,10 +4352,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-5-application-gateway-ingress" class="md-nav__link">
+  <a href="#step-5-blob-storage-access-via-workload-identity-no-s3-gateway" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 5 — Application Gateway ingress
+        Step 5 — Blob Storage access via Workload Identity (no S3 gateway)
       
     </span>
   </a>
@@ -4219,10 +4363,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-6-chart-install-validate" class="md-nav__link">
+  <a href="#step-6-application-gateway-ingress-controller" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 6 — Chart install + validate
+        Step 6 — Application Gateway Ingress Controller
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-chart-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7 — Chart install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-dns-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8 — DNS + validate
       
     </span>
   </a>
@@ -4241,10 +4407,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#follow-ups-tracked" class="md-nav__link">
+  <a href="#teardown" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Follow-ups tracked
+        Teardown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-transcript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation transcript
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
       
     </span>
   </a>
@@ -4269,64 +4457,348 @@
 
 
 <h1 id="install-azure-aks">Install — Azure (AKS)<a class="headerlink" href="#install-azure-aks" title="Permanent link">&para;</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Scaffold</p>
-<p>Structure complete; cloud-specific detail needs hands-on validation.
-Follow-up: <a href="https://github.com/lpasquali/rune-docs/issues/277">rune-docs#277</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">Content complete — validation transcript pending</p>
+<p>Content drafted from Azure / Crossplane / ESO / AKS official docs (2026-04). End-to-end transcript from a real AKS cluster still needed — tracked in the <a href="#validation-transcript">Validation transcript</a> section at the bottom.</p>
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>AKS cluster ≥ 1.27. Kubeconfig via <code>az aks get-credentials</code>.</li>
-<li><code>helm</code> ≥ 3.17.</li>
-<li>Azure subscription with providers registered: <code>Microsoft.DBforPostgreSQL</code>, <code>Microsoft.Storage</code>, <code>Microsoft.ContainerService</code>.</li>
-<li><strong>Workload Identity</strong> for AKS enabled (the Azure equivalent of IRSA).</li>
+<li>AKS cluster ≥ 1.27. Kubeconfig via <code>az aks get-credentials --resource-group $RG --name $CLUSTER</code>.</li>
+<li><a href="https://helm.sh/docs/"><code>helm</code></a> ≥ 3.17.</li>
+<li>Azure subscription with providers registered:</li>
 </ul>
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>provider<span class="w"> </span>register<span class="w"> </span>--namespace<span class="w"> </span>Microsoft.DBforPostgreSQL
+az<span class="w"> </span>provider<span class="w"> </span>register<span class="w"> </span>--namespace<span class="w"> </span>Microsoft.Storage
+az<span class="w"> </span>provider<span class="w"> </span>register<span class="w"> </span>--namespace<span class="w"> </span>Microsoft.ContainerService
+az<span class="w"> </span>provider<span class="w"> </span>register<span class="w"> </span>--namespace<span class="w"> </span>Microsoft.KeyVault
+az<span class="w"> </span>provider<span class="w"> </span>register<span class="w"> </span>--namespace<span class="w"> </span>Microsoft.Network
+</code></pre></div>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview"><strong>Workload Identity</strong></a> and <a href="https://learn.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer"><strong>OIDC Issuer</strong></a> enabled on the cluster. Verify:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>aks<span class="w"> </span>show<span class="w"> </span>--resource-group<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span>--name<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s2">&quot;oidcIssuerProfile,securityProfile.workloadIdentity&quot;</span><span class="w"> </span>-o<span class="w"> </span>json
+</code></pre></div>
+<p>Enable if missing:</p>
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>aks<span class="w"> </span>update<span class="w"> </span>--resource-group<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span>--name<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--enable-oidc-issuer<span class="w"> </span>--enable-workload-identity
+</code></pre></div>
+<ul>
+<li><a href="https://external-secrets.io/latest/provider/azure-key-vault/"><strong>External Secrets Operator</strong></a> installed (for Key Vault sync). Alternatively the <a href="https://azure.github.io/secrets-store-csi-driver-provider-azure/">Azure Key Vault CSI driver</a> — both covered below.</li>
+<li><a href="https://azure.github.io/application-gateway-kubernetes-ingress/"><strong>Application Gateway Ingress Controller (AGIC)</strong></a> installed as an AKS add-on.</li>
+<li><a href="https://docs.crossplane.io/latest/"><strong>Crossplane</strong></a> installed with the Azure provider family — see <a href="../../architecture/adrs/0007-crossplane-infrastructure-provisioning/">ADR 0007</a>.</li>
+</ul>
+<p>Env vars:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SUBSCRIPTION_ID</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>account<span class="w"> </span>show<span class="w"> </span>--query<span class="w"> </span>id<span class="w"> </span>-o<span class="w"> </span>tsv<span class="k">)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">RG</span><span class="o">=</span>rune-rg
+<span class="nb">export</span><span class="w"> </span><span class="nv">LOCATION</span><span class="o">=</span>eastus
+<span class="nb">export</span><span class="w"> </span><span class="nv">CLUSTER</span><span class="o">=</span>rune-prod
+<span class="nb">export</span><span class="w"> </span><span class="nv">OIDC_URL</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>aks<span class="w"> </span>show<span class="w"> </span>-g<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>--query<span class="w"> </span>oidcIssuerProfile.issuerUrl<span class="w"> </span>-o<span class="w"> </span>tsv<span class="k">)</span>
+</code></pre></div>
 <h2 id="step-1-provisioning-via-crossplane">Step 1 — Provisioning via Crossplane<a class="headerlink" href="#step-1-provisioning-via-crossplane" title="Permanent link">&para;</a></h2>
-<p><code>TODO: provider-family-azure + Azure Database for PostgreSQL + Blob Storage CRs.</code></p>
-<h2 id="step-2-managed-identity-for-rune-api">Step 2 — Managed Identity for rune-api<a class="headerlink" href="#step-2-managed-identity-for-rune-api" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>az<span class="w"> </span>identity<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>rune-api-identity<span class="w"> </span>--resource-group<span class="w"> </span>rune-rg
+<h3 id="1a-install-the-azure-provider-family">1a. Install the Azure provider family<a class="headerlink" href="#1a-install-the-azure-provider-family" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">apiVersion: pkg.crossplane.io/v1</span>
+<span class="s">kind: Provider</span>
+<span class="s">metadata: { name: provider-family-azure }</span>
+<span class="s">spec:</span>
+<span class="s">  package: xpkg.upbound.io/upbound/provider-family-azure:v1.6.0</span>
+<span class="s">---</span>
+<span class="s">apiVersion: pkg.crossplane.io/v1</span>
+<span class="s">kind: Provider</span>
+<span class="s">metadata: { name: provider-azure-dbforpostgresql }</span>
+<span class="s">spec:</span>
+<span class="s">  package: xpkg.upbound.io/upbound/provider-azure-dbforpostgresql:v1.6.0</span>
+<span class="s">---</span>
+<span class="s">apiVersion: pkg.crossplane.io/v1</span>
+<span class="s">kind: Provider</span>
+<span class="s">metadata: { name: provider-azure-storage }</span>
+<span class="s">spec:</span>
+<span class="s">  package: xpkg.upbound.io/upbound/provider-azure-storage:v1.6.0</span>
+<span class="s">EOF</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>providers<span class="w"> </span>-w
+</code></pre></div>
+<h3 id="1b-providerconfig-via-workload-identity">1b. ProviderConfig via Workload Identity<a class="headerlink" href="#1b-providerconfig-via-workload-identity" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create UMI for Crossplane, grant it Contributor on the subscription</span>
+az<span class="w"> </span>identity<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>crossplane-azure<span class="w"> </span>--resource-group<span class="w"> </span><span class="nv">$RG</span>
+<span class="nv">CROSSPLANE_CLIENT_ID</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>identity<span class="w"> </span>show<span class="w"> </span>-g<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span>-n<span class="w"> </span>crossplane-azure<span class="w"> </span>--query<span class="w"> </span>clientId<span class="w"> </span>-o<span class="w"> </span>tsv<span class="k">)</span>
+<span class="nv">CROSSPLANE_PRINCIPAL_ID</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>identity<span class="w"> </span>show<span class="w"> </span>-g<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span>-n<span class="w"> </span>crossplane-azure<span class="w"> </span>--query<span class="w"> </span>principalId<span class="w"> </span>-o<span class="w"> </span>tsv<span class="k">)</span>
+
+az<span class="w"> </span>role<span class="w"> </span>assignment<span class="w"> </span>create<span class="w"> </span>--role<span class="w"> </span>Contributor<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--assignee-object-id<span class="w"> </span><span class="nv">$CROSSPLANE_PRINCIPAL_ID</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--assignee-principal-type<span class="w"> </span>ServicePrincipal<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--scope<span class="w"> </span>/subscriptions/<span class="nv">$SUBSCRIPTION_ID</span>
+
+<span class="c1"># Federated credential: trust the crossplane K8s SA</span>
+az<span class="w"> </span>identity<span class="w"> </span>federated-credential<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span>crossplane-federated<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--identity-name<span class="w"> </span>crossplane-azure<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--resource-group<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--issuer<span class="w"> </span><span class="nv">$OIDC_URL</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--subject<span class="w"> </span>system:serviceaccount:crossplane-system:crossplane<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--audiences<span class="w"> </span>api://AzureADTokenExchange
+
+kubectl<span class="w"> </span>annotate<span class="w"> </span>sa<span class="w"> </span>-n<span class="w"> </span>crossplane-system<span class="w"> </span>crossplane<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>azure.workload.identity/client-id<span class="o">=</span><span class="nv">$CROSSPLANE_CLIENT_ID</span>
+
+kubectl<span class="w"> </span>label<span class="w"> </span>sa<span class="w"> </span>-n<span class="w"> </span>crossplane-system<span class="w"> </span>crossplane<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>azure.workload.identity/use<span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure.upbound.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProviderConfig</span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">default</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">credentials</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InjectedIdentity</span>
+<span class="w">  </span><span class="nt">subscriptionID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$SUBSCRIPTION_ID</span>
+</code></pre></div>
+<h3 id="1c-azure-database-for-postgresql-flexible-server">1c. Azure Database for PostgreSQL (Flexible Server)<a class="headerlink" href="#1c-azure-database-for-postgresql-flexible-server" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># crossplane/rune-pg.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dbforpostgresql.azure.upbound.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FlexibleServer</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-pg</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eastus</span>
+<span class="w">    </span><span class="nt">resourceGroupName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-rg</span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;16&quot;</span>
+<span class="w">    </span><span class="nt">skuName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GP_Standard_D2s_v3</span>
+<span class="w">    </span><span class="nt">storageMb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">32768</span>
+<span class="w">    </span><span class="nt">administratorLogin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">runeadmin</span>
+<span class="w">    </span><span class="nt">administratorPasswordSecretRef</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-pg-admin</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">    </span><span class="nt">backupRetentionDays</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
+<span class="w">    </span><span class="nt">highAvailability</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZoneRedundant</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dbforpostgresql.azure.upbound.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FlexibleServerDatabase</span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">rune</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">serverId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG/providers/Microsoft.DBforPostgreSQL/flexibleServers/rune-pg</span>
+<span class="w">    </span><span class="nt">charset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UTF8</span>
+<span class="w">    </span><span class="nt">collation</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;en_US.utf8&quot;</span>
+</code></pre></div>
+<h3 id="1d-blob-storage-account-container">1d. Blob Storage account + container<a class="headerlink" href="#1d-blob-storage-account-container" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">storage.azure.upbound.io/v1beta2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Account</span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">runestore</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eastus</span>
+<span class="w">    </span><span class="nt">resourceGroupName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-rg</span>
+<span class="w">    </span><span class="nt">accountTier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard</span>
+<span class="w">    </span><span class="nt">accountReplicationType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LRS</span>
+<span class="w">    </span><span class="nt">minTlsVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLS1_2</span>
+<span class="w">    </span><span class="nt">allowNestedItemsToBePublic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">storage.azure.upbound.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Container</span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">rune-results</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">forProvider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">storageAccountName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">runestore</span>
+<span class="w">    </span><span class="nt">containerAccessType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">private</span>
+</code></pre></div>
+<h2 id="step-2-managed-identity-workload-identity-for-rune-api">Step 2 — Managed Identity + Workload Identity for <code>rune-api</code><a class="headerlink" href="#step-2-managed-identity-workload-identity-for-rune-api" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>identity<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>rune-api-identity<span class="w"> </span>--resource-group<span class="w"> </span><span class="nv">$RG</span>
+<span class="nv">RUNE_CLIENT_ID</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>identity<span class="w"> </span>show<span class="w"> </span>-g<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span>-n<span class="w"> </span>rune-api-identity<span class="w"> </span>--query<span class="w"> </span>clientId<span class="w"> </span>-o<span class="w"> </span>tsv<span class="k">)</span>
+<span class="nv">RUNE_PRINCIPAL_ID</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>identity<span class="w"> </span>show<span class="w"> </span>-g<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span>-n<span class="w"> </span>rune-api-identity<span class="w"> </span>--query<span class="w"> </span>principalId<span class="w"> </span>-o<span class="w"> </span>tsv<span class="k">)</span>
+
+<span class="c1"># Grant Storage Blob Data Contributor on the results container</span>
+az<span class="w"> </span>role<span class="w"> </span>assignment<span class="w"> </span>create<span class="w"> </span>--role<span class="w"> </span><span class="s2">&quot;Storage Blob Data Contributor&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--assignee-object-id<span class="w"> </span><span class="nv">$RUNE_PRINCIPAL_ID</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--assignee-principal-type<span class="w"> </span>ServicePrincipal<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--scope<span class="w"> </span>/subscriptions/<span class="nv">$SUBSCRIPTION_ID</span>/resourceGroups/<span class="nv">$RG</span>/providers/Microsoft.Storage/storageAccounts/runestore/blobServices/default/containers/rune-results
+
+<span class="c1"># Federated credential</span>
 az<span class="w"> </span>identity<span class="w"> </span>federated-credential<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--name<span class="w"> </span>rune-api-federated<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--identity-name<span class="w"> </span>rune-api-identity<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--resource-group<span class="w"> </span>rune-rg<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--resource-group<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--issuer<span class="w"> </span><span class="nv">$OIDC_URL</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--subject<span class="w"> </span>system:serviceaccount:rune:rune-api
+<span class="w">  </span>--subject<span class="w"> </span>system:serviceaccount:rune:rune-api<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--audiences<span class="w"> </span>api://AzureADTokenExchange
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nt">serviceAccount</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-azure.yaml (snippet)</span>
+<span class="nt">serviceAccount</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-api</span>
 <span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">azure.workload.identity/client-id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CLIENT_ID</span>
+<span class="w">    </span><span class="nt">azure.workload.identity/client-id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$RUNE_CLIENT_ID</span>
 <span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">azure.workload.identity/use</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+
+<span class="nt">podLabels</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">azure.workload.identity/use</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
 </code></pre></div>
-<p><code>TODO: full Managed Identity walkthrough.</code></p>
-<h2 id="step-3-azure-database-for-postgresql">Step 3 — Azure Database for PostgreSQL<a class="headerlink" href="#step-3-azure-database-for-postgresql" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="nt">rune</span><span class="p">:</span>
+<h2 id="step-3-azure-database-for-postgresql-connect">Step 3 — Azure Database for PostgreSQL — connect<a class="headerlink" href="#step-3-azure-database-for-postgresql-connect" title="Permanent link">&para;</a></h2>
+<p>The Flexible Server issues a DNS name like <code>rune-pg.postgres.database.azure.com</code>. Connection requires <code>sslmode=require</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-azure.yaml (continued)</span>
+<span class="nt">rune</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">storage</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">postgresql</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;postgres://rune@runepg:$PG_PASSWORD@runepg.postgres.database.azure.com:5432/rune?sslmode=require&quot;</span>
+<span class="w">      </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-pg.postgres.database.azure.com</span>
+<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span>
+<span class="w">      </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune</span>
+<span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">runeadmin</span>
+<span class="w">      </span><span class="nt">passwordSecretRef</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-pg-admin</span>
+<span class="w">      </span><span class="nt">passwordKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">      </span><span class="nt">sslmode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">require</span>
 </code></pre></div>
-<p>Password via Azure Key Vault + CSI driver or External Secrets Operator. <code>TODO: AKV + CSI example.</code></p>
-<h2 id="step-4-azure-blob-storage">Step 4 — Azure Blob Storage<a class="headerlink" href="#step-4-azure-blob-storage" title="Permanent link">&para;</a></h2>
-<p>Blob Storage speaks S3 via the Azure Blob-S3 gateway or via the <strong>azcopy</strong> tool. For programmatic S3, use <strong>Azurite</strong> in dev or a compatibility gateway in prod. Alternative: use a third-party S3 interface layer.</p>
-<p><code>TODO: concrete path — azurite dev, something-else prod.</code></p>
-<h2 id="step-5-application-gateway-ingress">Step 5 — Application Gateway ingress<a class="headerlink" href="#step-5-application-gateway-ingress" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="nt">ingress</span><span class="p">:</span>
+<h2 id="step-4-external-secrets-operator-key-vault">Step 4 — External Secrets Operator → Key Vault<a class="headerlink" href="#step-4-external-secrets-operator-key-vault" title="Permanent link">&para;</a></h2>
+<p>Create a Key Vault, store DB + storage secrets:</p>
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>keyvault<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>rune-kv-<span class="nv">$RANDOM</span><span class="w"> </span>--resource-group<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span>--location<span class="w"> </span><span class="nv">$LOCATION</span>
+
+az<span class="w"> </span>keyvault<span class="w"> </span>secret<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--vault-name<span class="w"> </span>rune-kv<span class="w"> </span>--name<span class="w"> </span>rune-pg-admin-password<span class="w"> </span>--value<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PG_PASSWORD</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>Grant ESO SA <code>Key Vault Secrets User</code> role via Workload Identity:</p>
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>identity<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>eso-identity<span class="w"> </span>--resource-group<span class="w"> </span><span class="nv">$RG</span>
+<span class="nv">ESO_CLIENT_ID</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>identity<span class="w"> </span>show<span class="w"> </span>-g<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span>-n<span class="w"> </span>eso-identity<span class="w"> </span>--query<span class="w"> </span>clientId<span class="w"> </span>-o<span class="w"> </span>tsv<span class="k">)</span>
+<span class="nv">ESO_PRINCIPAL_ID</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>identity<span class="w"> </span>show<span class="w"> </span>-g<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span>-n<span class="w"> </span>eso-identity<span class="w"> </span>--query<span class="w"> </span>principalId<span class="w"> </span>-o<span class="w"> </span>tsv<span class="k">)</span>
+
+az<span class="w"> </span>role<span class="w"> </span>assignment<span class="w"> </span>create<span class="w"> </span>--role<span class="w"> </span><span class="s2">&quot;Key Vault Secrets User&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--assignee-object-id<span class="w"> </span><span class="nv">$ESO_PRINCIPAL_ID</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--assignee-principal-type<span class="w"> </span>ServicePrincipal<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--scope<span class="w"> </span>/subscriptions/<span class="nv">$SUBSCRIPTION_ID</span>/resourceGroups/<span class="nv">$RG</span>/providers/Microsoft.KeyVault/vaults/rune-kv
+
+az<span class="w"> </span>identity<span class="w"> </span>federated-credential<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span>eso-federated<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--identity-name<span class="w"> </span>eso-identity<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--resource-group<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--issuer<span class="w"> </span><span class="nv">$OIDC_URL</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--subject<span class="w"> </span>system:serviceaccount:external-secrets:external-secrets<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--audiences<span class="w"> </span>api://AzureADTokenExchange
+
+kubectl<span class="w"> </span>annotate<span class="w"> </span>sa<span class="w"> </span>-n<span class="w"> </span>external-secrets<span class="w"> </span>external-secrets<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>azure.workload.identity/client-id<span class="o">=</span><span class="nv">$ESO_CLIENT_ID</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># eso/clustersecretstore.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterSecretStore</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure-keyvault</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">azurekv</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">vaultUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://rune-kv.vault.azure.net</span>
+<span class="w">      </span><span class="nt">authType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WorkloadIdentity</span>
+<span class="w">      </span><span class="nt">serviceAccountRef</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets</span>
+<span class="w">        </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># eso/rune-pg-admin.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExternalSecret</span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">rune-pg-admin</span><span class="p p-Indicator">,</span><span class="nt"> namespace</span><span class="p">:</span><span class="w"> </span><span class="nv">rune</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">refreshInterval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1h</span>
+<span class="w">  </span><span class="nt">secretStoreRef</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> kind</span><span class="p">:</span><span class="w"> </span><span class="nv">ClusterSecretStore</span><span class="p p-Indicator">,</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">azure-keyvault</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">  </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">rune-pg-admin</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">      </span><span class="nt">remoteRef</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> key</span><span class="p">:</span><span class="w"> </span><span class="nv">rune-pg-admin-password</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</code></pre></div>
+<h2 id="step-5-blob-storage-access-via-workload-identity-no-s3-gateway">Step 5 — Blob Storage access via Workload Identity (no S3 gateway)<a class="headerlink" href="#step-5-blob-storage-access-via-workload-identity-no-s3-gateway" title="Permanent link">&para;</a></h2>
+<p>RUNE's storage layer supports Azure Blob natively when <code>storage.azureBlob</code> is enabled. This <strong>avoids the S3-compat gateway layer</strong> (which is lossy on Blob Storage).</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-azure.yaml (continued)</span>
+<span class="nt">rune</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">storage</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">azureBlob</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">accountName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">runestore</span>
+<span class="w">      </span><span class="nt">container</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-results</span>
+<span class="w">      </span><span class="nt">authMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workloadIdentity</span>
+<span class="w">    </span><span class="nt">s3</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">   </span><span class="c1"># do NOT enable S3 on Azure; use native blob client</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">If you must have S3-compat</p>
+<p>Use the <a href="https://github.com/gaul/s3proxy">Azure Blob S3 proxy</a> as a sidecar. It supports the subset RUNE uses (put / get / list / delete). Mark it as Tier-2 compatibility; not all S3 features survive.</p>
+</div>
+<h2 id="step-6-application-gateway-ingress-controller">Step 6 — Application Gateway Ingress Controller<a class="headerlink" href="#step-6-application-gateway-ingress-controller" title="Permanent link">&para;</a></h2>
+<p>Enable AGIC as an add-on (one-time per cluster):</p>
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>aks<span class="w"> </span>enable-addons<span class="w"> </span>--resource-group<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span>--name<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--addons<span class="w"> </span>ingress-appgw<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--appgw-name<span class="w"> </span>rune-appgw<span class="w"> </span>--appgw-subnet-cidr<span class="w"> </span><span class="s2">&quot;10.225.0.0/16&quot;</span>
+</code></pre></div>
+<p>Request a cert into Key Vault (or import existing):</p>
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>keyvault<span class="w"> </span>certificate<span class="w"> </span>create<span class="w"> </span>--vault-name<span class="w"> </span>rune-kv<span class="w"> </span>--name<span class="w"> </span>rune-cert<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--policy<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>az<span class="w"> </span>keyvault<span class="w"> </span>certificate<span class="w"> </span>get-default-policy<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.x509CertificateProperties.subject=&quot;CN=rune.example.com&quot;&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># values-azure.yaml (continued)</span>
+<span class="nt">ingress</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">className</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure-application-gateway</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">appgw.ingress.kubernetes.io/use-private-ip</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span>
+<span class="w">    </span><span class="nt">appgw.ingress.kubernetes.io/backend-protocol</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;http&quot;</span>
+<span class="w">    </span><span class="nt">appgw.ingress.kubernetes.io/ssl-redirect</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">    </span><span class="nt">appgw.ingress.kubernetes.io/appgw-ssl-certificate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune-cert</span>
+<span class="w">    </span><span class="nt">appgw.ingress.kubernetes.io/health-probe-path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/healthz</span>
+<span class="w">  </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rune.example.com</span>
+<span class="w">      </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
+<span class="w">          </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
 </code></pre></div>
-<p><code>TODO: AGIC add-on installation + Key Vault cert sync.</code></p>
-<h2 id="step-6-chart-install-validate">Step 6 — Chart install + validate<a class="headerlink" href="#step-6-chart-install-validate" title="Permanent link">&para;</a></h2>
-<p>Same as the <a href="../INSTALL/#3-chart-install">shared baseline</a>.</p>
+<p>Bind the Application Gateway's managed identity to Key Vault:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">APPGW_IDENTITY</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>aks<span class="w"> </span>show<span class="w"> </span>-g<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span>addonProfiles.ingressApplicationGateway.identity.objectId<span class="w"> </span>-o<span class="w"> </span>tsv<span class="k">)</span>
+
+az<span class="w"> </span>keyvault<span class="w"> </span>set-policy<span class="w"> </span>--name<span class="w"> </span>rune-kv<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--object-id<span class="w"> </span><span class="nv">$APPGW_IDENTITY</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--secret-permissions<span class="w"> </span>get<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--certificate-permissions<span class="w"> </span>get
+</code></pre></div>
+<h2 id="step-7-chart-install">Step 7 — Chart install<a class="headerlink" href="#step-7-chart-install" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>install<span class="w"> </span>rune<span class="w"> </span>./charts/rune<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--namespace<span class="w"> </span>rune<span class="w"> </span>--create-namespace<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--values<span class="w"> </span>values-azure.yaml<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--wait<span class="w"> </span>--timeout<span class="o">=</span>10m
+</code></pre></div>
+<h2 id="step-8-dns-validate">Step 8 — DNS + validate<a class="headerlink" href="#step-8-dns-validate" title="Permanent link">&para;</a></h2>
+<p>Get the Application Gateway public IP:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">APPGW_IP</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>network<span class="w"> </span>public-ip<span class="w"> </span>show<span class="w"> </span>-g<span class="w"> </span>MC_<span class="si">${</span><span class="nv">RG</span><span class="si">}</span>_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>_<span class="si">${</span><span class="nv">LOCATION</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span>rune-appgw-appgwpip<span class="w"> </span>--query<span class="w"> </span>ipAddress<span class="w"> </span>-o<span class="w"> </span>tsv<span class="k">)</span>
+</code></pre></div>
+<p>Create A record <code>rune.example.com → $APPGW_IP</code> via your DNS provider.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>-n<span class="w"> </span>rune<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>rune-api-token<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.token}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d<span class="k">)</span>
+
+curl<span class="w"> </span>-sfH<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span>https://rune.example.com/healthz
+</code></pre></div>
 <h2 id="cost-estimation-integration">Cost estimation integration<a class="headerlink" href="#cost-estimation-integration" title="Permanent link">&para;</a></h2>
-<p><code>CostEstimation.azure</code> supports Azure-specific cost projections.</p>
-<h2 id="follow-ups-tracked">Follow-ups tracked<a class="headerlink" href="#follow-ups-tracked" title="Permanent link">&para;</a></h2>
+<p><code>CostEstimation.azure</code> supports Azure-specific cost projections for RUNE provisioning against Azure VM / GPU SKUs. See <a href="../../architecture/adrs/0002-cost-estimation/">ADR 0002</a>.</p>
+<h2 id="teardown">Teardown<a class="headerlink" href="#teardown" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>uninstall<span class="w"> </span>rune<span class="w"> </span>-n<span class="w"> </span>rune
+kubectl<span class="w"> </span>delete<span class="w"> </span>-f<span class="w"> </span>crossplane/rune-pg.yaml<span class="w">   </span><span class="c1"># note deletion-protected PG flexible servers need manual prep</span>
+az<span class="w"> </span>aks<span class="w"> </span>disable-addons<span class="w"> </span>-g<span class="w"> </span><span class="nv">$RG</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>--addons<span class="w"> </span>ingress-appgw
+az<span class="w"> </span>identity<span class="w"> </span>delete<span class="w"> </span>--name<span class="w"> </span>rune-api-identity<span class="w"> </span>--resource-group<span class="w"> </span><span class="nv">$RG</span>
+az<span class="w"> </span>keyvault<span class="w"> </span>delete<span class="w"> </span>--name<span class="w"> </span>rune-kv<span class="w"> </span>--resource-group<span class="w"> </span><span class="nv">$RG</span>
+</code></pre></div>
+<h2 id="validation-transcript">Validation transcript<a class="headerlink" href="#validation-transcript" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Pending real-cluster validation</p>
+<p>Populate after running this walkthrough on a real AKS cluster. Tracked in <a href="https://github.com/lpasquali/rune-docs/issues/304">#304</a>.</p>
+</div>
+<div class="highlight"><pre><span></span><code>TODO: Paste validated transcript here.
+</code></pre></div>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Managed Identity + Workload Identity walkthrough.</li>
-<li>Azure Database for PostgreSQL + AKV + CSI.</li>
-<li>S3-compatible path for Blob Storage.</li>
-<li>Application Gateway Ingress Controller (AGIC) walkthrough.</li>
-<li>Validation transcript from a real AKS deployment.</li>
+<li><a href="https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview">AKS Workload Identity overview</a></li>
+<li><a href="https://azure.github.io/application-gateway-kubernetes-ingress/">AGIC — Application Gateway Ingress Controller</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview">Azure Database for PostgreSQL — Flexible Server</a></li>
+<li><a href="https://azure.github.io/secrets-store-csi-driver-provider-azure/">Key Vault CSI provider</a></li>
+<li><a href="https://external-secrets.io/latest/provider/azure-key-vault/">External Secrets Operator — Azure Key Vault</a></li>
+<li><a href="https://marketplace.upbound.io/providers/upbound/provider-family-azure">Crossplane Azure provider</a></li>
+<li><a href="../../architecture/adrs/0007-crossplane-infrastructure-provisioning/">ADR 0007</a></li>
+<li><a href="../../reference/EXTERNAL_LINKS/">External Links Catalog</a></li>
 </ul>
 
 
