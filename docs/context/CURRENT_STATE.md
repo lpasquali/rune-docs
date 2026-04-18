@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-17** (persist: rune-operator **#113** — shared controllers test scheme).
+Last updated: **2026-04-18** (persist: epic **#295** — nginx removal and ingress-agnostic charts).
 
  
 ## Version Baseline
@@ -31,6 +31,25 @@ Last updated: **2026-04-17** (persist: rune-operator **#113** — shared control
 
  
 ## Recent Changes
+
+### 2026-04-18 — Eliminate nginx from RUNE containers; ingress-agnostic charts (epic **#295**)
+
+Cross-repo epic [rune-docs#295](https://github.com/lpasquali/rune-docs/issues/295). Removed `nginx` from every RUNE container image, standardised on **Caddy** (`caddy:2-alpine`) as the single container-level HTTP tool, codified ingress-agnosticism as chart policy, and landed a CI regression lint. Zero `nginx` remains in RUNE Dockerfiles (outside the k8sgpt test fixture). The three libxml2-in-nginx VEX entries are gone — the new base image does not include libxml2 at all.
+
+| Child | Repo / PR | Merge | Notes |
+|---|---|---|---|
+| ADR 0008 | [rune-docs#300](https://github.com/lpasquali/rune-docs/pull/300) | [`a53d04a`](https://github.com/lpasquali/rune-docs/commit/a53d04a) | Decision record: single container-level HTTP tool (Caddy) + ingress-agnostic chart policy. Seven-rule policy enforced by #41. |
+| rune-docs Dockerfile | [rune-docs#301](https://github.com/lpasquali/rune-docs/pull/301) | [`744a353`](https://github.com/lpasquali/rune-docs/commit/744a353) | `FROM nginx:1.27.4-alpine` → `FROM caddy:2-alpine`; new `Caddyfile` with static-site security headers (X-Content-Type-Options / Referrer-Policy / X-Frame-Options / Permissions-Policy, `Server:` suppressed); `admin off` + `auto_https off` since cluster Service/Ingress terminate TLS. **Deleted** CVE-2024-56171, CVE-2025-49794, CVE-2025-49796 from `.vex/permanent.openvex.json` (libxml2 absent from caddy:2-alpine; verified via `apk list --installed`). Image 94.6 MB vs 86 MB previously (+10%, acceptance boundary). |
+| rune-charts values | [rune-charts#100](https://github.com/lpasquali/rune-charts/pull/100) | [`65495c5`](https://github.com/lpasquali/rune-charts/commit/65495c5) | Removed nginx-leaning comments in `values.yaml` and `values-airgapped-prod.yaml`; documented `ingress.className: ""` = cluster's default IngressClass; example list includes `traefik`, `envoy`, `cilium`, `istio`, `nginx` — no one controller privileged. No template changes. |
+| rune-charts Gateway API | [rune-charts#101](https://github.com/lpasquali/rune-charts/pull/101) | [`8b1c3e3`](https://github.com/lpasquali/rune-charts/commit/8b1c3e3) | Opt-in `gatewayApi.enabled: false` block + new `templates/httproute.yaml` gated on the flag. Chart installs cleanly on clusters without Gateway API CRDs (no reference to `gateway.networking.k8s.io` when disabled). Helm templated successfully across four scenarios incl. combined `ingress.enabled` + `gatewayApi.enabled`. |
+| rune-airgapped bundle | [rune-airgapped#87](https://github.com/lpasquali/rune-airgapped/pull/87) | [`a94036b`](https://github.com/lpasquali/rune-airgapped/commit/a94036b) | `INFRA_IMAGES`: `docker.io/library/nginx:1.27.4-alpine` → `docker.io/library/caddy:2-alpine`; bundle tree `images/nginx/` → `images/caddy/` in `architecture.md`, `deployment-guide.md`, `crossplane.md`. 21 build-bundle unit tests pass. |
+| rune-ci regression lint | [rune-ci#42](https://github.com/lpasquali/rune-ci/pull/42) | [`144ef85`](https://github.com/lpasquali/rune-ci/commit/144ef85) | New `actions/nginx-ingress-guard` composite + `.github/workflows/nginx-ingress-guard.yml` (`workflow_call`). Four rules: `FROM nginx`, `nginx.ingress.kubernetes.io/*`, `ingress-nginx` Helm dep, hardcoded `kubernetes.io/ingress.class: nginx`. Pragma `# allow-nginx: <reason>` and path-based exemptions supported. 5/5 fixture-driven unit tests pass. Smoke-verified against all 8 RUNE repos. Consumer wiring is a follow-up. |
+
+**Evidence summary.** `apk list --installed` inside `rune-docs:caddy` reports no `libxml2`, `libxslt`, `pcre`, or `openssl` — the entire libxml2-in-nginx VEX class retires. `helm template` with `gatewayApi.enabled=false` (default) emits zero `HTTPRoute` resources, preserving install safety on clusters without Gateway API CRDs. The `nginx-ingress-guard` action, run across all 8 RUNE repos, passes with no exemptions on 7 of them; rune-ci passes when its own fixture directories are added to `extra-exempt-paths`.
+
+**Follow-ups.** Wiring the regression lint into each repo's `quality-gates.yml` is a separate per-repo PR that can ride the normal `rune-ci@<sha>` bump cadence. No time pressure — the tree is clean and the action is ready.
+
+---
 
 ### 2026-04-17 — Shared controllers test scheme (rune-operator **#113**)
 
