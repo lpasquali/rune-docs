@@ -13,7 +13,7 @@ This section is for the agent author — someone writing a new agent (Tier 1 OSS
 
 ## Tier implications — what you're committing to
 
-The agent's [tier](../usage/PRICING.md) determines coverage expectations and RUNE's support posture.
+The agent's [tier](../usage/TIERS.md) determines coverage expectations and RUNE's support posture.
 
 | Tier | Coverage floor | Support |
 |---|---|---|
