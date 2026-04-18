@@ -1,4 +1,18 @@
-# External projects (rune-audit)
+# External projects
+
+RUNE ships as **five independently-adoptable components**. You can take any one of them standalone — on a non-RUNE codebase, in a non-RUNE cluster, or as a library in an unrelated application — without running the rest of the RUNE stack.
+
+## Components
+
+| Component | When to adopt standalone | Landing page |
+|---|---|---|
+| **rune-audit** | Run IEC 62443-4-1 ML4 SR-2 quantitative checks on **any** codebase (not just RUNE). | [Overview](#rune-audit) below + [Quickstart](quickstart.md) |
+| **rune-operator** | Kubernetes-native job scheduling against an HTTP service (your own, not necessarily rune-api). CronJob semantics + budget gate + idempotency. | [rune-operator/overview](rune-operator/overview.md) |
+| **rune-ui** | Standalone HTMX dashboard pointed at **any** rune-api-compatible backend. Zero NPM. | [rune-ui/overview](rune-ui/overview.md) |
+| **rune-airgapped** | Package a Kubernetes application into an offline-installable OCI bundle with SBOMs + SLSA + cosign. | [rune-airgapped/overview](rune-airgapped/overview.md) |
+| **driver-sdk** | `rune_bench.drivers` as a library — protocol integration for your own agent or transport. | [driver-sdk/overview](driver-sdk/overview.md) |
+
+## rune-audit (detail below)
 
 Use **[rune-audit](https://github.com/lpasquali/rune-audit)** on **non-RUNE** repositories to run the same **IEC 62443-4-1 ML4 SR-2** quantitative requirement catalog (SR-Q-001 … SR-Q-036) that RUNE tracks internally.
 

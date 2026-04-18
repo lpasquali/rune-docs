@@ -13,6 +13,7 @@ RUNE (Reliability Use-case Numeric Evaluator) is an AI agent benchmarking and co
 4. **[Developer Guide](../usage/DEVELOPER_GUIDE.md)** — repos, env, build/test/lint, deployment DoD steps.
 5. **[Coding Standards](CODING_STANDARDS.md)** — style, coverage floors, tier layout.
 6. **[Audit Agents](../delivery/AUDIT_AGENTS.md)** — legal/cyber checks (when and how).
+7. **[External Links](../reference/EXTERNAL_LINKS.md)** — official docs and spec URLs for every standard RUNE complies with and every tool RUNE uses; canonical source for citation URLs.
 
 Repos under `~/Devel/`: `rune/`, `rune-operator/`, `rune-ui/`, `rune-charts/`, `rune-docs/`, `rune-audit/`, `rune-airgapped/`, `rune-ci/`.
 
@@ -128,11 +129,11 @@ Design: [rune-docs#187](https://github.com/lpasquali/rune-docs/issues/187). **Ag
 
 Pick the **highest** applicable level. **CI green alone is not enough.**
 
-- **Level 1** (runtime, API, drivers, agents, charts, Docker): docker-compose E2E; kind E2E (`kind`/`kubectl`/`helm`, `kind load docker-image`); standalone CLI E2E; breaking-change review (API, persistence, protocols). **Deps**: run **`pip-audit`** (not `safety`) before PR; never ship a known new CVE — fix, replace, fork-patch, or escalate to `lpasquali`. Healthchecks: prefer `127.0.0.1`; volume mounts: `chown` in image for non-root.
+- **Level 1** (runtime, API, drivers, agents, charts, Docker): docker-compose E2E; kind E2E (`kind`/`kubectl`/`helm`, `kind load docker-image`); standalone CLI E2E; breaking-change review (API, persistence, protocols). **Deps**: run **`pip-audit`** (not `safety`) before PR; never ship a known new CVE — fix, replace, fork-patch, or escalate to `lpasquali`. Healthchecks: prefer `127.0.0.1`; volume mounts: `chown` in image for non-root. See **[E2E_TESTING.md](../usage/E2E_TESTING.md)** for the binding E2E contract, one-command entrypoint, and evidence layout.
 - **Level 2** (tests/CI/coverage/linter config only, no runtime code): full test suite; coverage not degraded; no CI regressions.
 - **Level 3** (`rune-docs` content only): `mkdocs build --strict` + review.
 
-**Evidence**: Every checked acceptance criterion needs proof (CI logs count where applicable). **rune-docs** / **rune-ui**: screenshots mandatory when UI matters — headless capture + **you** verify the image; else Draft PR + **HUMAN INTERVENTION REQUIRED** for screenshots. Also logs, diffs, command output as appropriate.
+**Evidence**: Every checked acceptance criterion needs proof (CI logs count where applicable). **rune-docs** / **rune-ui**: screenshots mandatory when UI matters — headless capture via the [E2E_TESTING.md](../usage/E2E_TESTING.md) recipe + **you** verify the image. If headless capture is impossible in the current environment, open an `area/infra` issue before the PR — not a Draft PR. Draft PR + **HUMAN INTERVENTION REQUIRED** is reserved for UX review of an already-captured screenshot, not for skipping capture. Also logs, diffs, command output as appropriate.
 
 ## SOP: issue → merge
 
@@ -142,7 +143,7 @@ Pick the **highest** applicable level. **CI green alone is not enough.**
 4. **Halt** — confirm 1–2 done; user OK to **Execute**.
 5. **Execute** — minimal scope; strong tests.
 6. **Verify** — mocks at boundaries; coverage/SLSA expectations.
-7. **E2E** — per **DoD Level 1** when Level 1 applies; attach evidence.
+7. **E2E** — run `scripts/e2e.sh --mode <compose|kind|cli|all>` for every applicable mode per [E2E_TESTING.md](../usage/E2E_TESTING.md); paste the produced `e2e-artifacts/summary.md` verbatim into the PR body (marker `<!-- e2e-artifacts/summary.md -->` must survive).
 8. **PR** — template + rebase; green CI.
 9. **Persist** — **CURRENT_STATE.md** after merge.
 

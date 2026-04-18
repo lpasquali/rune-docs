@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-18** (persist: epic **#295** — nginx removal and ingress-agnostic charts).
+Last updated: **2026-04-18** (persist: rune-operator **#119** — `RuneBenchmark.spec.infrastructureRef` Crossplane readiness gate — closes the Phase 3 of epic #266).
 
  
 ## Version Baseline
@@ -31,6 +31,200 @@ Last updated: **2026-04-18** (persist: epic **#295** — nginx removal and ingre
 
  
 ## Recent Changes
+
+### 2026-04-18 — Crossplane readiness gate: `RuneBenchmark.spec.infrastructureRef` (rune-operator **#119**)
+
+Closes the only deferred child of epic [rune-docs#266](https://github.com/lpasquali/rune-docs/issues/266): [rune-operator#107](https://github.com/lpasquali/rune-operator/issues/107) (Phase 3). Merged via [rune-operator#119](https://github.com/lpasquali/rune-operator/pull/119) ([`aed0a83`](https://github.com/lpasquali/rune-operator/commit/aed0a83)).
+
+**What changed.** `RuneBenchmarkSpec` gains an optional `InfrastructureRef *corev1.ObjectReference`. When set, the reconciler refuses to submit the benchmark job until the referenced Claim (typically a `RuneDatabase` or `RuneObjectStore` from `rune-charts/crossplane`) reports both `Synced=True` AND `Ready=True`, requeuing every 30s with an `InfrastructureNotReady` Warning event otherwise. Lookup uses the generic controller-runtime `Client` with `unstructured.Unstructured` — no new Go module dependency on `crossplane-runtime`.
+
+**Gate policy.**
+
+| Condition | Outcome | Metric bucket |
+|---|---|---|
+| `InfrastructureRef` nil | Proceed normally | n/a |
+| Malformed `apiVersion` / `kind` / `name` | 30s requeue + event | `infra_get_error` |
+| Target object missing (NotFound / RBAC denied) | 30s requeue + event | `infra_get_error` |
+| Target present, `Synced` or `Ready` ≠ True | 30s requeue + event | `infra_not_ready` |
+| Target present, both True | Proceed to `executeBenchmark` | normal |
+
+**RBAC.** New `kubebuilder:rbac` markers grant the operator ServiceAccount `get/list/watch` on `database.infra.rune.ai` (runedatabases/xrunedatabases) and `storage.infra.rune.ai` (runeobjectstores/xruneobjectstores) — the two Crossplane groups rune-charts ships compositions for. Cluster admins targeting other XRD groups must grant additional read access.
+
+**Evidence.** 14 new tests covering all branches (including malformed conditions slice and namespace fallback). Post-change coverage: `api/v1alpha1` **100.0%** (recovered from a 88.3% drop caused by the new DeepCopy code), `controllers` **99.0%** (up from 98.9%), all other packages unchanged at 93.3% / 100%. Pre-existing shallow-copy bug in `RuneBenchmarkSpec.DeepCopyInto` fixed for the new pointer field only (scope-contained; full deep-copy regeneration deferred). CRD stub in `config/crd/bases/` hand-updated with the new `infrastructureRef` property in alphabetical position.
+
+With this PR merged, **every non-deferred child of epic #266 is complete**; no follow-ups remain.
+
+---
+
+### 2026-04-18 — Install guides flesh-out: AWS / GCP / Azure / Alibaba (PRs #302–#305)
+
+Replaced TODO scaffolds in `docs/operations/INSTALL_{AWS,GCP,AZURE,ALICLOUD}.md` with full content drafted from official provider / Crossplane / ESO docs. Each guide grew from ~85 lines (scaffold) to 350–500 lines (complete) and now ships:
+
+- **Crossplane provider manifests** — per-cloud CRs for managed Postgres (RDS / Cloud SQL / PG Flexible Server / ApsaraDB RDS) and object storage (S3 / GCS / Blob / OSS).
+- **Workload-identity flavor per cloud** — IRSA (AWS), Workload Identity (GCP + Azure), RRSA (AliCloud), with IAM policy JSON + trust policy + federated-credential commands.
+- **External Secrets Operator** — ClusterSecretStore + ExternalSecret per provider (Secrets Manager / Secret Manager / Key Vault / AliCloud KMS).
+- **Ingress + cert story** — ALB+ACM+Route 53 (AWS), GCE+ManagedCertificate (GCP), AGIC+Key Vault cert (Azure), ACK-ALB+Alibaba Cert Manager (AliCloud).
+- **Chart install + validate + teardown** commands for each.
+- **`Validation transcript` placeholder section** at the bottom of each file with a clearly-marked `TODO: Paste validated transcript here.` block — this is the only remaining work, and it is human-provided from a real-cluster run post-merge.
+
+Caveats documented in the text:
+
+- **AliCloud** `provider-jet-alibabacloud` is community-maintained (less mature than Upbound providers) and only supports Secret-based auth (no RRSA in Crossplane itself yet).
+- **Azure** uses the native Blob client path over the S3-compat gateway layer (gateway noted as a fallback with caveats, not recommended for prod).
+- **`CostEstimation.alicloud`** is not yet defined in RUNE's cost contracts (`vastai`, `aws`, `gcp`, `azure`, `localhardware`) — placeholder driver signature documented; follow-up for `rune` core is open.
+
+Merged in PR [rune-docs#326](https://github.com/lpasquali/rune-docs/pull/326) (closes #302, #303, #304, #305). `mkdocs build --strict` and `pymarkdown scan` both pass. No code, API, or deployment-manifest changes — pure Level-3 docs content.
+
+### 2026-04-18 — Crossplane infrastructure provisioning — Phases 0/1a/1b/2 (epic **#266**)
+
+Cursor took [rune-docs#266](https://github.com/lpasquali/rune-docs/issues/266) and closed every phase that was not explicitly deferred.
+
+**Bookkeeping first.** Two earlier PRs ([rune-docs#268](https://github.com/lpasquali/rune-docs/pull/268) → ADR 0007, [rune-charts#95](https://github.com/lpasquali/rune-charts/pull/95) → cloud Compositions) landed the work but forgot `Closes #NNN`. Closed [rune-docs#267](https://github.com/lpasquali/rune-docs/issues/267) and [rune-charts#94](https://github.com/lpasquali/rune-charts/issues/94) with evidence comments; audited the epic checklist via comment on #266.
+
+**Phase 0 + Phase 1a** — [rune-charts#107](https://github.com/lpasquali/rune-charts/pull/107) (merge [`0fda057`](https://github.com/lpasquali/rune-charts/commit/0fda057)). Closes rune-charts#92 and rune-charts#93.
+
+- New XRDs `crossplane/xrds/runedatabase.yaml` (group `database.infra.rune.ai`) and `crossplane/xrds/runeobjectstore.yaml` (group `storage.infra.rune.ai`), both `apiextensions.crossplane.io/v1` with `scope: LegacyCluster` per ADR 0007. Parameters accept every field used by the already-merged cloud Claims (`provider`, `targetNamespace`, `connectionSecretName`, `aws/gcp/azure` sub-objects) plus the on-prem sub-objects (`cnpg`, `minio`). Informational fields are documented as such.
+- New on-prem Compositions:
+  - `crossplane/compositions/cnpg/composition.yaml` — creates a CloudNativePG `Cluster` in the target namespace and writes `rune-db-secret` (key `RUNE_DB_URL`) by referencing the cluster's `<cluster>-app` Secret's `uri` field.
+  - `crossplane/compositions/minio/composition.yaml` — creates a MinIO `Tenant` and writes `rune-s3-secret` with endpoint + bucket; per-user access keys remain operator-managed (reasoning documented inline).
+- New examples `crossplane/examples/rune-database-cnpg.yaml`, `crossplane/examples/rune-objectstore-minio.yaml`.
+- Narrow `crossplane/rbac.yaml` ClusterRole for `provider-kubernetes`.
+- Rewritten `crossplane/README.md`.
+- New CI gate `helm / RuneGate/Validate/Crossplane` in `charts quality-gates.yml`: installs `crank` v2.2.0, runs `crank beta validate` against `crossplane/compositions` and `crossplane/examples` using `crossplane/xrds` as the schema source. Added to compliance `needs` and `merge-gate-excludes` matching the existing per-kind convention.
+
+**Phase 2** — [rune-airgapped#93](https://github.com/lpasquali/rune-airgapped/pull/93) (merge [`ca23164`](https://github.com/lpasquali/rune-airgapped/commit/ca23164)). Closes rune-airgapped#84.
+
+- The `--include-crossplane` flag and `CROSSPLANE_IMAGES` array were already in `build-bundle.sh`; this PR landed the Helmfile release, airgapped values overrides, and the tests that were still missing.
+- `helmfile.yaml`: new conditional `crossplane` release (namespace `crossplane-system`, gated by `crossplane.enabled`) ahead of `rune-operator`.
+- `values/crossplane.yaml` (new) overrides `image.repository` to the internal Zot registry, with commented examples of post-install Provider/Function CRs.
+- `values/defaults.yaml` gains `crossplaneVersion: "2.2.0"` and `crossplane.enabled: false`.
+- `tests/test_build_bundle.sh` gains `test_dry_run_with_crossplane` (4 assertions) and `test_dry_run_without_crossplane_default`. Total after: **26 passed, 0 failed** (was 21).
+
+**Out of scope / still deferred:** Phase 3 (`RuneBenchmark.spec.infrastructureRef` readiness gate, [rune-operator#107](https://github.com/lpasquali/rune-operator/issues/107)) remains marked as deferred in the epic and is untouched.
+
+**Evidence highlights.** `crank beta validate crossplane/xrds crossplane/compositions` → 8/8 compositions OK; `crank beta validate crossplane/xrds crossplane/examples` → 8/8 Claims OK (including the pre-existing AWS/GCP/Azure examples, after the XRDs were extended to accept their optional fields). `helm lint charts/rune` → pass. Airgapped bundle dry-run lists all 4 Crossplane images under `--include-crossplane` and **none** under the default bundle.
+
+---
+
+### 2026-04-18 — IA backlog push: 14 accumulated docs PRs merged
+
+Cleared the entire Claude-lane backlog of accumulated docs PRs in one session. Each PR is independent (or in-sequence on overlapping `mkdocs.yml` / `docs/index.md` lines) and had been sitting Draft/Ready for Review for days. Merge order resolved natural dependencies (persona landing page → mission → quickstart; PRICING→TIERS rename cascaded to BENCHMARKS, GLOSSARY, and agents/index.md link fixes).
+
+| # | PR | Title | Merge |
+|---|---|---|---|
+| 1 | [#272](https://github.com/lpasquali/rune-docs/pull/272) | E2E_TESTING spec + tighten SOP Step 7 for Level-1 evidence | [`f86972c`](https://github.com/lpasquali/rune-docs/commit/f86972c) |
+| 2 | [#285](https://github.com/lpasquali/rune-docs/pull/285) | docs(index): persona-routed landing page | [`fdaa6b7`](https://github.com/lpasquali/rune-docs/commit/fdaa6b7) |
+| 3 | [#286](https://github.com/lpasquali/rune-docs/pull/286) | docs(mission): one-page product pitch | [`e16a6ff`](https://github.com/lpasquali/rune-docs/commit/e16a6ff) |
+| 4 | [#287](https://github.com/lpasquali/rune-docs/pull/287) | docs(quickstart): three parallel paths (pip / compose / kind) | [`88a5a60`](https://github.com/lpasquali/rune-docs/commit/88a5a60) |
+| 5 | [#288](https://github.com/lpasquali/rune-docs/pull/288) | docs(scenarios): deployment scenario matrix | [`4493812`](https://github.com/lpasquali/rune-docs/commit/4493812) |
+| 6 | [#289](https://github.com/lpasquali/rune-docs/pull/289) | docs(project): ecosystem-wide CONTRIBUTING + Project nav group | [`46ffa54`](https://github.com/lpasquali/rune-docs/commit/46ffa54) |
+| 7 | [#290](https://github.com/lpasquali/rune-docs/pull/290) | docs(tiers): rename PRICING → TIERS and reframe | [`bffc539`](https://github.com/lpasquali/rune-docs/commit/bffc539) |
+| 8 | [#291](https://github.com/lpasquali/rune-docs/pull/291) | docs(usage): cross-cutting pages — whats-new, glossary, troubleshooting, migration | [`656357f`](https://github.com/lpasquali/rune-docs/commit/656357f) |
+| 9 | [#292](https://github.com/lpasquali/rune-docs/pull/292) | docs(compliance): ML4 / SLSA / VEX matrix hub | [`ca4a2cc`](https://github.com/lpasquali/rune-docs/commit/ca4a2cc) |
+| 10 | [#293](https://github.com/lpasquali/rune-docs/pull/293) | docs(benchmarks): methodology + tiers + sample results | [`bc9148d`](https://github.com/lpasquali/rune-docs/commit/bc9148d) |
+| 11 | [#294](https://github.com/lpasquali/rune-docs/pull/294) | docs(external-projects): rune-operator / rune-ui / rune-airgapped / driver-sdk | [`985dedd`](https://github.com/lpasquali/rune-docs/commit/985dedd) |
+| 12 | [#298](https://github.com/lpasquali/rune-docs/pull/298) | docs(agents): SDK section — DriverTransport / AgentRunner / Registry / Transports | [`4b37ac0`](https://github.com/lpasquali/rune-docs/commit/4b37ac0) |
+| 13 | [#299](https://github.com/lpasquali/rune-docs/pull/299) | docs(ops/install): parameterized install set — on-prem + AWS/GCP/Azure/ACK | [`e433067`](https://github.com/lpasquali/rune-docs/commit/e433067) |
+| 14 | [#320](https://github.com/lpasquali/rune-docs/pull/320) | docs(CURRENT_STATE): record external-links rollout | [`29c4572`](https://github.com/lpasquali/rune-docs/commit/29c4572) |
+
+**Conflicts encountered.** Four PRs needed manual conflict resolution because main had advanced while they were open:
+
+- **#272** — `.gitignore` (`.vscode/` comment phrasing), `CURRENT_STATE.md` (new entries at top).
+- **#289** — `mkdocs.yml` (Project vs. Reference nav section from the external-links PR both landed under Context).
+- **#290** — `mkdocs.yml` (TIERS rename collided with newly-added Scenarios / Benchmarks nav lines); plus follow-up `PRICING.md` → `TIERS.md` link fixes in `docs/index.md`, `docs/usage/BENCHMARKS.md`, `docs/usage/GLOSSARY.md`, `docs/agents/index.md`.
+- **#294** / **#298** — `mkdocs.yml` (Agents and External-projects subsection reshuffles).
+
+All conflict resolutions used the `git merge main` path (no force push) so each PR retained its full commit history.
+
+**Nav shape after merge.** `mkdocs.yml` nav now has 9 top-level sections: Home, Context, Project, Reference, Usage, External projects (grouped subtrees for rune-audit / rune-operator / rune-ui / rune-airgapped / Driver SDK), Delivery, Operations (with Install subsection), Compliance, Security, Architecture (with all ADRs 0001–0008).
+
+**Evidence.** Each PR passed `mkdocs build --strict` + `pymarkdown scan` locally before push and on CI (PR-Body-Compliance, ML4-Automated-Approval, CodeQL, GitGuardian). No runtime or schema changes; the entire sweep is Level-3 documentation content.
+
+**Follow-ups.** None required; all 14 issues auto-closed via `Closes #NNN` on merge. The only orphan is the INFO-level anchor warning `'external-projects/index.md' contains a link '#rune-audit'` introduced by #294's subsection grouping; it does not fail strict build (`mkdocs build --strict` exits 0).
+
+### 2026-04-17 — Pre-PR E2E verification gap: Phase 0 spec (rune-docs **#271**)
+
+Level-3 documentation PR that closes the spec half of the cross-repo epic
+[rune-docs#271](https://github.com/lpasquali/rune-docs/issues/271). Diagnosis:
+PRs ship without Level-1 evidence because (a) no one-command entrypoint
+exists — every Level-1 PR re-types compose/kind/CLI by hand, and cold
+`docker compose up --build` exceeds the 2-minute agent bash timeout with no
+background-run recipe; (b) no evidence layout is defined (`docs/evidence/`
+holds a single orphan screenshot); (c) `rune-ci/.github/workflows/pr-compliance.yml`
+validates section presence, not content; (d) `rune-ui` has no browser tests,
+so the `HUMAN INTERVENTION REQUIRED` escape is reached by default.
+
+**Phase 0 deliverables** (this branch):
+
+- **New**: [`docs/usage/E2E_TESTING.md`](../usage/E2E_TESTING.md) — binding
+  contract for the one-command wrapper, evidence bundle layout (with the
+  `<!-- e2e-artifacts/summary.md -->` marker), agent-compatible background
+  execution recipe, and triage section.
+- **Edited**: [SYSTEM_PROMPT.md §DoD / §Evidence / §SOP Step 7](SYSTEM_PROMPT.md)
+  — point at the binding spec and narrow the Draft-PR + HUMAN INTERVENTION
+  clause to UX review of already-captured screenshots only (no more escape
+  clause for skipping capture).
+- **Edited**: [DEVELOPER_GUIDE.md Validation Steps](../usage/DEVELOPER_GUIDE.md#definition-of-done-validation-steps)
+  — DoD table preserved; Step 1/2/3 command blocks collapsed to 2-line
+  summaries that point at `E2E_TESTING.md`. Steps 4 (Breaking-change audit)
+  and 5 (Dependency CVE audit) unchanged.
+- **Edited**: [WORKSTATION.md](../operations/WORKSTATION.md) — added
+  **Run this before Step 7 of the SOP** preflight grouping, plus an
+  **Optional: combined-venv dependency check** section pointing at the
+  Phase-1 helper `rune/scripts/check-cross-repo-deps.sh`. Per-repo venvs
+  remain the default (Python floors disagree: `rune >=3.11` vs
+  `rune-ui >=3.12`).
+
+**Phase 1 / Phase 2** (out of scope for this branch, tracked as follow-up
+issues under #271):
+
+- Phase 1: per-repo `scripts/e2e.sh` wrappers (`rune`, `rune-ui`,
+  `rune-charts`; thin delegating wrappers in `rune-operator` /
+  `rune-audit` / `rune-airgapped`). `rune-ui` gains its first browser
+  tests via `pytest-playwright`; `rune-charts` gains a `kind.yaml`
+  matching CI's `kind v0.27.0`.
+- Phase 2: `rune-ci/.github/workflows/pr-compliance.yml` content
+  validator. Each ticked `## Acceptance Criteria Evidence` bullet must
+  carry `[evidence: ...]`, `[screenshot: ...]`, `[log: ...]`,
+  `[link: ...]`, or `[skip: <≥40-char reason>]`. Level-1 PRs must
+  contain the `<!-- e2e-artifacts/summary.md -->` marker with non-empty
+  content. One-week `warn-only` rollout.
+
+**Risk**: Phase 0 lands alone and creates a spec without implementations.
+Mitigation: the spec opens with a **Spec v0 — scripts ship in #271 Phase 1**
+banner; SOP Step 7 text references the spec, not a (not-yet-shipped) wrapper;
+`DEVELOPER_GUIDE.md` step summaries still tell an agent what each mode does
+between Phase 0 and Phase 1.
+
+### 2026-04-18 — External documentation links catalog + cross-repo README hyperlinks (9 PRs)
+
+Addresses the ecosystem-wide gap that every compliance claim (IEC 62443-4-1 ML4, SLSA Level 3) and every referenced tool (bandit, ruff, mypy, pytest, pip-audit, govulncheck, gitleaks, trivy, grype, syft, cosign, Rekor, Ollama, HolmesGPT, LangGraph, Helm, kind, CNPG, Crossplane, Vault, MkDocs, etc.) in rune-docs and the 7 repo READMEs was stated as bare text without a hyperlink to its official spec or docs. Humans and agents both lost the one-click jump to authoritative upstream URLs.
+
+**Canonical catalog** ([rune-docs#306](https://github.com/lpasquali/rune-docs/issues/306) / [PR #307](https://github.com/lpasquali/rune-docs/pull/307), merge [`a0665db`](https://github.com/lpasquali/rune-docs/commit/a0665db)):
+
+- New `docs/reference/EXTERNAL_LINKS.md` with 5 grouped tables (Compliance Standards & Specs, Security & Compliance Tools, Dev Tools, Platform & Infrastructure, RUNE Repositories). Each row carries the URL as bare text *and* as a hyperlink so grep-based extraction is trivial for agents.
+- New `docs/reference/index.md` landing page; `mkdocs.yml` gains a top-level **Reference** nav section.
+- `SYSTEM_PROMPT.md` "Read first" list grows to item 7 — agents are directed to the catalog as the canonical URL source when writing or reviewing compliance docs.
+- Inline hyperlinks added in the References sections of `security/SDL.md`, `security/INCIDENT_RESPONSE.md`, `security/PENTEST.md`, `security/RISK_ASSESSMENT.md`, `security/RISK_REGISTER.md`, `security/FUZZ_TESTING.md`, `security/IMAGE_SIGNING.md`, `security/SECURITY_TRAINING.md`, `delivery/AUDIT_AGENTS.md`, and `usage/OLLAMA_REFERENCE.md`.
+- Orphan-page fixes discovered in the same pass: nav entry added for `architecture/QUANTITATIVE_SECURITY_REQUIREMENTS.md` and for `architecture/adrs/0007-crossplane-infrastructure-provisioning.md`.
+
+**Cross-repo README sweep** — same URL set applied in-place in each repo's README:
+
+| Repo | PR | Merge | Scope |
+|---|---|---|---|
+| rune | [#269](https://github.com/lpasquali/rune/pull/269) | merged 2026-04-18 | IEC 62443-4-1 + SLSA v1.0 hyperlinked in Compliance section |
+| rune-operator | [#117](https://github.com/lpasquali/rune-operator/pull/117) | merged 2026-04-18 | Same two |
+| rune-ui | [#141](https://github.com/lpasquali/rune-ui/pull/141) | merged 2026-04-18 | Same two |
+| rune-charts | [#105](https://github.com/lpasquali/rune-charts/pull/105) | merged 2026-04-18 | IEC 62443-4-1, SLSA v1.0, Helm |
+| rune-airgapped | [#91](https://github.com/lpasquali/rune-airgapped/pull/91) | merged 2026-04-18 | IEC, SLSA, PostgreSQL, CloudNativePG |
+| rune-audit | [#104](https://github.com/lpasquali/rune-audit/pull/104) | merged 2026-04-18 | IEC, SLSA v1.0, SLSA Provenance, OpenVEX, CycloneDX, SPDX, pip-audit, grype |
+| rune-ci | [#45](https://github.com/lpasquali/rune-ci/pull/45) | merged 2026-04-18 | New "Tools & standards referenced" section covering 20+ tools/standards: gitleaks, Syft, Grype, Trivy, Bandit, gosec, CodeQL, pip-licenses, go-licenses, ruff, mypy, pytest, gofmt, go vet, MkDocs, PyMarkdown, actionlint, yamllint, shellcheck, Helm, IEC 62443-4-1, SLSA v1.0, Semantic Versioning |
+
+**Housekeeping PR** — [rune-docs#310 / PR #312](https://github.com/lpasquali/rune-docs/pull/312) merge [`4fe4d99`](https://github.com/lpasquali/rune-docs/commit/4fe4d99): `.gitignore` now covers `.vscode/` (matches the existing `.claude/` pattern).
+
+**Evidence.** All 9 PRs passed `mkdocs build --strict` + `pymarkdown scan README.md docs` (where applicable), plus their repos' standard gates (CodeQL, CodeQL/Python, PR-Body-Compliance, Merge-Gate, ML4-Automated-Approval, SecretScanning, GitGuardian). Every external URL used in the catalog and inline hyperlinks resolves to 2xx/3xx. Nothing in any runtime code path, API schema, or deployment manifest was changed — every PR is additive docs-only.
+
+**Follow-ups.** None required; the catalog is now the single source of URLs for all future citations. New external dependencies should grow the catalog first, then be cited inline.
 
 ### 2026-04-18 — Eliminate nginx from RUNE containers; ingress-agnostic charts (epic **#295**)
 
