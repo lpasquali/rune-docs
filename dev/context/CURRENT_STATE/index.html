@@ -469,6 +469,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-18-external-documentation-links-catalog-cross-repo-readme-hyperlinks-9-prs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-18 — External documentation links catalog + cross-repo README hyperlinks (9 PRs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-18-eliminate-nginx-from-rune-containers-ingress-agnostic-charts-epic-295" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3024,6 +3035,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-18-external-documentation-links-catalog-cross-repo-readme-hyperlinks-9-prs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-18 — External documentation links catalog + cross-repo README hyperlinks (9 PRs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-18-eliminate-nginx-from-rune-containers-ingress-agnostic-charts-epic-295" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3340,7 +3362,7 @@
 <p>RUNE is currently in active pre-alpha development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is <strong>not yet production-ready</strong>.</p>
 <h2 id="freshness-policy">Freshness Policy<a class="headerlink" href="#freshness-policy" title="Permanent link">&para;</a></h2>
 <p>This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.</p>
-<p>Last updated: <strong>2026-04-18</strong> (persist: epic <strong>#295</strong> — nginx removal and ingress-agnostic charts).</p>
+<p>Last updated: <strong>2026-04-18</strong> (persist: external-links catalog + cross-repo README hyperlinks, 9 PRs — see entry below).</p>
 <h2 id="version-baseline">Version Baseline<a class="headerlink" href="#version-baseline" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -3397,6 +3419,74 @@
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-18-external-documentation-links-catalog-cross-repo-readme-hyperlinks-9-prs">2026-04-18 — External documentation links catalog + cross-repo README hyperlinks (9 PRs)<a class="headerlink" href="#2026-04-18-external-documentation-links-catalog-cross-repo-readme-hyperlinks-9-prs" title="Permanent link">&para;</a></h3>
+<p>Addresses the ecosystem-wide gap that every compliance claim (IEC 62443-4-1 ML4, SLSA Level 3) and every referenced tool (bandit, ruff, mypy, pytest, pip-audit, govulncheck, gitleaks, trivy, grype, syft, cosign, Rekor, Ollama, HolmesGPT, LangGraph, Helm, kind, CNPG, Crossplane, Vault, MkDocs, etc.) in rune-docs and the 7 repo READMEs was stated as bare text without a hyperlink to its official spec or docs. Humans and agents both lost the one-click jump to authoritative upstream URLs.</p>
+<p><strong>Canonical catalog</strong> (<a href="https://github.com/lpasquali/rune-docs/issues/306">rune-docs#306</a> / <a href="https://github.com/lpasquali/rune-docs/pull/307">PR #307</a>, merge <a href="https://github.com/lpasquali/rune-docs/commit/a0665db"><code>a0665db</code></a>):</p>
+<ul>
+<li>New <code>docs/reference/EXTERNAL_LINKS.md</code> with 5 grouped tables (Compliance Standards &amp; Specs, Security &amp; Compliance Tools, Dev Tools, Platform &amp; Infrastructure, RUNE Repositories). Each row carries the URL as bare text <em>and</em> as a hyperlink so grep-based extraction is trivial for agents.</li>
+<li>New <code>docs/reference/index.md</code> landing page; <code>mkdocs.yml</code> gains a top-level <strong>Reference</strong> nav section.</li>
+<li><code>SYSTEM_PROMPT.md</code> "Read first" list grows to item 7 — agents are directed to the catalog as the canonical URL source when writing or reviewing compliance docs.</li>
+<li>Inline hyperlinks added in the References sections of <code>security/SDL.md</code>, <code>security/INCIDENT_RESPONSE.md</code>, <code>security/PENTEST.md</code>, <code>security/RISK_ASSESSMENT.md</code>, <code>security/RISK_REGISTER.md</code>, <code>security/FUZZ_TESTING.md</code>, <code>security/IMAGE_SIGNING.md</code>, <code>security/SECURITY_TRAINING.md</code>, <code>delivery/AUDIT_AGENTS.md</code>, and <code>usage/OLLAMA_REFERENCE.md</code>.</li>
+<li>Orphan-page fixes discovered in the same pass: nav entry added for <code>architecture/QUANTITATIVE_SECURITY_REQUIREMENTS.md</code> and for <code>architecture/adrs/0007-crossplane-infrastructure-provisioning.md</code>.</li>
+</ul>
+<p><strong>Cross-repo README sweep</strong> — same URL set applied in-place in each repo's README:</p>
+<table>
+<thead>
+<tr>
+<th>Repo</th>
+<th>PR</th>
+<th>Merge</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rune</td>
+<td><a href="https://github.com/lpasquali/rune/pull/269">#269</a></td>
+<td>merged 2026-04-18</td>
+<td>IEC 62443-4-1 + SLSA v1.0 hyperlinked in Compliance section</td>
+</tr>
+<tr>
+<td>rune-operator</td>
+<td><a href="https://github.com/lpasquali/rune-operator/pull/117">#117</a></td>
+<td>merged 2026-04-18</td>
+<td>Same two</td>
+</tr>
+<tr>
+<td>rune-ui</td>
+<td><a href="https://github.com/lpasquali/rune-ui/pull/141">#141</a></td>
+<td>merged 2026-04-18</td>
+<td>Same two</td>
+</tr>
+<tr>
+<td>rune-charts</td>
+<td><a href="https://github.com/lpasquali/rune-charts/pull/105">#105</a></td>
+<td>merged 2026-04-18</td>
+<td>IEC 62443-4-1, SLSA v1.0, Helm</td>
+</tr>
+<tr>
+<td>rune-airgapped</td>
+<td><a href="https://github.com/lpasquali/rune-airgapped/pull/91">#91</a></td>
+<td>merged 2026-04-18</td>
+<td>IEC, SLSA, PostgreSQL, CloudNativePG</td>
+</tr>
+<tr>
+<td>rune-audit</td>
+<td><a href="https://github.com/lpasquali/rune-audit/pull/104">#104</a></td>
+<td>merged 2026-04-18</td>
+<td>IEC, SLSA v1.0, SLSA Provenance, OpenVEX, CycloneDX, SPDX, pip-audit, grype</td>
+</tr>
+<tr>
+<td>rune-ci</td>
+<td><a href="https://github.com/lpasquali/rune-ci/pull/45">#45</a></td>
+<td>merged 2026-04-18</td>
+<td>New "Tools &amp; standards referenced" section covering 20+ tools/standards: gitleaks, Syft, Grype, Trivy, Bandit, gosec, CodeQL, pip-licenses, go-licenses, ruff, mypy, pytest, gofmt, go vet, MkDocs, PyMarkdown, actionlint, yamllint, shellcheck, Helm, IEC 62443-4-1, SLSA v1.0, Semantic Versioning</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Housekeeping PR</strong> — <a href="https://github.com/lpasquali/rune-docs/pull/312">rune-docs#310 / PR #312</a> merge <a href="https://github.com/lpasquali/rune-docs/commit/4fe4d99"><code>4fe4d99</code></a>: <code>.gitignore</code> now covers <code>.vscode/</code> (matches the existing <code>.claude/</code> pattern).</p>
+<p><strong>Evidence.</strong> All 9 PRs passed <code>mkdocs build --strict</code> + <code>pymarkdown scan README.md docs</code> (where applicable), plus their repos' standard gates (CodeQL, CodeQL/Python, PR-Body-Compliance, Merge-Gate, ML4-Automated-Approval, SecretScanning, GitGuardian). Every external URL used in the catalog and inline hyperlinks resolves to 2xx/3xx. Nothing in any runtime code path, API schema, or deployment manifest was changed — every PR is additive docs-only.</p>
+<p><strong>Follow-ups.</strong> None required; the catalog is now the single source of URLs for all future citations. New external dependencies should grow the catalog first, then be cited inline.</p>
 <h3 id="2026-04-18-eliminate-nginx-from-rune-containers-ingress-agnostic-charts-epic-295">2026-04-18 — Eliminate nginx from RUNE containers; ingress-agnostic charts (epic <strong>#295</strong>)<a class="headerlink" href="#2026-04-18-eliminate-nginx-from-rune-containers-ingress-agnostic-charts-epic-295" title="Permanent link">&para;</a></h3>
 <p>Cross-repo epic <a href="https://github.com/lpasquali/rune-docs/issues/295">rune-docs#295</a>. Removed <code>nginx</code> from every RUNE container image, standardised on <strong>Caddy</strong> (<code>caddy:2-alpine</code>) as the single container-level HTTP tool, codified ingress-agnosticism as chart policy, and landed a CI regression lint. Zero <code>nginx</code> remains in RUNE Dockerfiles (outside the k8sgpt test fixture). The three libxml2-in-nginx VEX entries are gone — the new base image does not include libxml2 at all.</p>
 <table>
