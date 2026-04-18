@@ -6,6 +6,7 @@ COPY mkdocs.yml ./
 COPY docs ./docs
 RUN mkdocs build --strict
 
-FROM nginx:1.27.4-alpine
-COPY --from=build /app/site /usr/share/nginx/html
+FROM caddy:2-alpine
+COPY --from=build /app/site /usr/share/caddy
+COPY Caddyfile /etc/caddy/Caddyfile
 EXPOSE 80
