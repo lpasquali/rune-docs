@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-18** (persist: epic **#295** — nginx removal and ingress-agnostic charts).
+Last updated: **2026-04-18** (persist: external-links catalog + cross-repo README hyperlinks, 9 PRs — see entry below).
 
  
 ## Version Baseline
@@ -31,6 +31,36 @@ Last updated: **2026-04-18** (persist: epic **#295** — nginx removal and ingre
 
  
 ## Recent Changes
+
+### 2026-04-18 — External documentation links catalog + cross-repo README hyperlinks (9 PRs)
+
+Addresses the ecosystem-wide gap that every compliance claim (IEC 62443-4-1 ML4, SLSA Level 3) and every referenced tool (bandit, ruff, mypy, pytest, pip-audit, govulncheck, gitleaks, trivy, grype, syft, cosign, Rekor, Ollama, HolmesGPT, LangGraph, Helm, kind, CNPG, Crossplane, Vault, MkDocs, etc.) in rune-docs and the 7 repo READMEs was stated as bare text without a hyperlink to its official spec or docs. Humans and agents both lost the one-click jump to authoritative upstream URLs.
+
+**Canonical catalog** ([rune-docs#306](https://github.com/lpasquali/rune-docs/issues/306) / [PR #307](https://github.com/lpasquali/rune-docs/pull/307), merge [`a0665db`](https://github.com/lpasquali/rune-docs/commit/a0665db)):
+
+- New `docs/reference/EXTERNAL_LINKS.md` with 5 grouped tables (Compliance Standards & Specs, Security & Compliance Tools, Dev Tools, Platform & Infrastructure, RUNE Repositories). Each row carries the URL as bare text *and* as a hyperlink so grep-based extraction is trivial for agents.
+- New `docs/reference/index.md` landing page; `mkdocs.yml` gains a top-level **Reference** nav section.
+- `SYSTEM_PROMPT.md` "Read first" list grows to item 7 — agents are directed to the catalog as the canonical URL source when writing or reviewing compliance docs.
+- Inline hyperlinks added in the References sections of `security/SDL.md`, `security/INCIDENT_RESPONSE.md`, `security/PENTEST.md`, `security/RISK_ASSESSMENT.md`, `security/RISK_REGISTER.md`, `security/FUZZ_TESTING.md`, `security/IMAGE_SIGNING.md`, `security/SECURITY_TRAINING.md`, `delivery/AUDIT_AGENTS.md`, and `usage/OLLAMA_REFERENCE.md`.
+- Orphan-page fixes discovered in the same pass: nav entry added for `architecture/QUANTITATIVE_SECURITY_REQUIREMENTS.md` and for `architecture/adrs/0007-crossplane-infrastructure-provisioning.md`.
+
+**Cross-repo README sweep** — same URL set applied in-place in each repo's README:
+
+| Repo | PR | Merge | Scope |
+|---|---|---|---|
+| rune | [#269](https://github.com/lpasquali/rune/pull/269) | merged 2026-04-18 | IEC 62443-4-1 + SLSA v1.0 hyperlinked in Compliance section |
+| rune-operator | [#117](https://github.com/lpasquali/rune-operator/pull/117) | merged 2026-04-18 | Same two |
+| rune-ui | [#141](https://github.com/lpasquali/rune-ui/pull/141) | merged 2026-04-18 | Same two |
+| rune-charts | [#105](https://github.com/lpasquali/rune-charts/pull/105) | merged 2026-04-18 | IEC 62443-4-1, SLSA v1.0, Helm |
+| rune-airgapped | [#91](https://github.com/lpasquali/rune-airgapped/pull/91) | merged 2026-04-18 | IEC, SLSA, PostgreSQL, CloudNativePG |
+| rune-audit | [#104](https://github.com/lpasquali/rune-audit/pull/104) | merged 2026-04-18 | IEC, SLSA v1.0, SLSA Provenance, OpenVEX, CycloneDX, SPDX, pip-audit, grype |
+| rune-ci | [#45](https://github.com/lpasquali/rune-ci/pull/45) | merged 2026-04-18 | New "Tools & standards referenced" section covering 20+ tools/standards: gitleaks, Syft, Grype, Trivy, Bandit, gosec, CodeQL, pip-licenses, go-licenses, ruff, mypy, pytest, gofmt, go vet, MkDocs, PyMarkdown, actionlint, yamllint, shellcheck, Helm, IEC 62443-4-1, SLSA v1.0, Semantic Versioning |
+
+**Housekeeping PR** — [rune-docs#310 / PR #312](https://github.com/lpasquali/rune-docs/pull/312) merge [`4fe4d99`](https://github.com/lpasquali/rune-docs/commit/4fe4d99): `.gitignore` now covers `.vscode/` (matches the existing `.claude/` pattern).
+
+**Evidence.** All 9 PRs passed `mkdocs build --strict` + `pymarkdown scan README.md docs` (where applicable), plus their repos' standard gates (CodeQL, CodeQL/Python, PR-Body-Compliance, Merge-Gate, ML4-Automated-Approval, SecretScanning, GitGuardian). Every external URL used in the catalog and inline hyperlinks resolves to 2xx/3xx. Nothing in any runtime code path, API schema, or deployment manifest was changed — every PR is additive docs-only.
+
+**Follow-ups.** None required; the catalog is now the single source of URLs for all future citations. New external dependencies should grow the catalog first, then be cited inline.
 
 ### 2026-04-18 — Eliminate nginx from RUNE containers; ingress-agnostic charts (epic **#295**)
 
