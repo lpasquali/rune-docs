@@ -1,7 +1,7 @@
  
 # LLM Backend Reference
 
-Quick reference for the LLM backend integration layer. RUNE supports pluggable backends via the `LLMBackend` protocol. The default backend is Ollama.
+Quick reference for the LLM backend integration layer. RUNE supports pluggable backends via the `LLMBackend` protocol. The default backend is [Ollama](https://ollama.com/) ([API reference](https://github.com/ollama/ollama/blob/main/docs/api.md)). See the [External Links Catalog](../reference/EXTERNAL_LINKS.md) for all backend, agent, and provider docs.
 
  
 ## Quick Start (Generic API)
