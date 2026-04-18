@@ -49,6 +49,20 @@ Cross-repo epic [rune-docs#295](https://github.com/lpasquali/rune-docs/issues/29
 
 **Follow-ups.** Wiring the regression lint into each repo's `quality-gates.yml` is a separate per-repo PR that can ride the normal `rune-ci@<sha>` bump cadence. No time pressure — the tree is clean and the action is ready.
 
+**Guard rollout (same day).** All 7 RUNE consumer repos now enforce the guard via `RuneGate/Infra/NginxIngressGuard` on every PR. Each rollout PR bumps rune-ci pins from `9f939b2c` → `144ef855` (guard PR is the only delta) and wires the `guard` job with `merge-gate-excludes` matching the existing per-kind convention.
+
+| Repo | PR | Merge |
+|---|---|---|
+| rune-docs (pilot) | [rune-docs#313](https://github.com/lpasquali/rune-docs/pull/313) | [`1c7480d`](https://github.com/lpasquali/rune-docs/commit/1c7480d) |
+| rune-charts | [rune-charts#103](https://github.com/lpasquali/rune-charts/pull/103) | [`147abc8`](https://github.com/lpasquali/rune-charts/commit/147abc8) |
+| rune-airgapped | [rune-airgapped#89](https://github.com/lpasquali/rune-airgapped/pull/89) | [`4e2fec1`](https://github.com/lpasquali/rune-airgapped/commit/4e2fec1) |
+| rune-operator | [rune-operator#115](https://github.com/lpasquali/rune-operator/pull/115) | [`fbc8c03`](https://github.com/lpasquali/rune-operator/commit/fbc8c03) |
+| rune-ui | [rune-ui#139](https://github.com/lpasquali/rune-ui/pull/139) | [`fcfbdb6`](https://github.com/lpasquali/rune-ui/commit/fcfbdb6) |
+| rune | [rune#267](https://github.com/lpasquali/rune/pull/267) | [`42350b7`](https://github.com/lpasquali/rune/commit/42350b7) |
+| rune-audit | [rune-audit#102](https://github.com/lpasquali/rune-audit/pull/102) | [`c5ed779`](https://github.com/lpasquali/rune-audit/commit/c5ed779) |
+
+`rune-ci` self-wiring (dogfooding the guard on the guard's own repo, with `extra-exempt-paths` for its fixture directory) is a separate follow-up.
+
 ---
 
 ### 2026-04-17 — Shared controllers test scheme (rune-operator **#113**)
