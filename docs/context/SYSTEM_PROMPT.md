@@ -13,6 +13,7 @@ RUNE (Reliability Use-case Numeric Evaluator) is an AI agent benchmarking and co
 4. **[Developer Guide](../usage/DEVELOPER_GUIDE.md)** — repos, env, build/test/lint, deployment DoD steps.
 5. **[Coding Standards](CODING_STANDARDS.md)** — style, coverage floors, tier layout.
 6. **[Audit Agents](../delivery/AUDIT_AGENTS.md)** — legal/cyber checks (when and how).
+7. **[External Links](../reference/EXTERNAL_LINKS.md)** — official docs and spec URLs for every standard RUNE complies with and every tool RUNE uses; canonical source for citation URLs.
 
 Repos under `~/Devel/`: `rune/`, `rune-operator/`, `rune-ui/`, `rune-charts/`, `rune-docs/`, `rune-audit/`, `rune-airgapped/`, `rune-ci/`.
 

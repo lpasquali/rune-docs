@@ -139,9 +139,10 @@ their scores, treatment decisions, and review status.
 
 ## 7. References
 
-- IEC 62443-4-1:2018 SM-5 -- Security risk assessment
-- Microsoft STRIDE threat model
-- NIST SP 800-30 -- Guide for Conducting Risk Assessments
+- [IEC 62443-4-1:2018](https://webstore.iec.ch/publication/33615) SM-5 -- Security risk assessment
+- [Microsoft STRIDE](https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats) threat model
+- [NIST SP 800-30r1](https://csrc.nist.gov/publications/detail/sp/800-30/rev-1/final) -- Guide for Conducting Risk Assessments
+- [External Links Catalog](../reference/EXTERNAL_LINKS.md) -- Complete list of standards and tools
 - [SDL.md](SDL.md) -- Security Development Lifecycle
 - [RISK_REGISTER.md](RISK_REGISTER.md) -- Active risk register
 - [PENTEST.md](PENTEST.md) -- Penetration testing (validates risk assessments)
