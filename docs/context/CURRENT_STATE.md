@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-18** (persist: epic **#266** — Crossplane provisioning Phases 0/1a/1b/2; IA backlog push + external-links sweep earlier same day).
+Last updated: **2026-04-18** (persist: install-guide flesh-outs — AWS/GCP/Azure/Alibaba content complete; Crossplane provisioning epic #266; IA backlog push + external-links sweep earlier same day).
 
  
 ## Version Baseline
@@ -31,6 +31,25 @@ Last updated: **2026-04-18** (persist: epic **#266** — Crossplane provisioning
 
  
 ## Recent Changes
+
+### 2026-04-18 — Install guides flesh-out: AWS / GCP / Azure / Alibaba (PRs #302–#305)
+
+Replaced TODO scaffolds in `docs/operations/INSTALL_{AWS,GCP,AZURE,ALICLOUD}.md` with full content drafted from official provider / Crossplane / ESO docs. Each guide grew from ~85 lines (scaffold) to 350–500 lines (complete) and now ships:
+
+- **Crossplane provider manifests** — per-cloud CRs for managed Postgres (RDS / Cloud SQL / PG Flexible Server / ApsaraDB RDS) and object storage (S3 / GCS / Blob / OSS).
+- **Workload-identity flavor per cloud** — IRSA (AWS), Workload Identity (GCP + Azure), RRSA (AliCloud), with IAM policy JSON + trust policy + federated-credential commands.
+- **External Secrets Operator** — ClusterSecretStore + ExternalSecret per provider (Secrets Manager / Secret Manager / Key Vault / AliCloud KMS).
+- **Ingress + cert story** — ALB+ACM+Route 53 (AWS), GCE+ManagedCertificate (GCP), AGIC+Key Vault cert (Azure), ACK-ALB+Alibaba Cert Manager (AliCloud).
+- **Chart install + validate + teardown** commands for each.
+- **`Validation transcript` placeholder section** at the bottom of each file with a clearly-marked `TODO: Paste validated transcript here.` block — this is the only remaining work, and it is human-provided from a real-cluster run post-merge.
+
+Caveats documented in the text:
+
+- **AliCloud** `provider-jet-alibabacloud` is community-maintained (less mature than Upbound providers) and only supports Secret-based auth (no RRSA in Crossplane itself yet).
+- **Azure** uses the native Blob client path over the S3-compat gateway layer (gateway noted as a fallback with caveats, not recommended for prod).
+- **`CostEstimation.alicloud`** is not yet defined in RUNE's cost contracts (`vastai`, `aws`, `gcp`, `azure`, `localhardware`) — placeholder driver signature documented; follow-up for `rune` core is open.
+
+Merged in PR [rune-docs#326](https://github.com/lpasquali/rune-docs/pull/326) (closes #302, #303, #304, #305). `mkdocs build --strict` and `pymarkdown scan` both pass. No code, API, or deployment-manifest changes — pure Level-3 docs content.
 
 ### 2026-04-18 — Crossplane infrastructure provisioning — Phases 0/1a/1b/2 (epic **#266**)
 
