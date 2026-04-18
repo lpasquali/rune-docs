@@ -11,5 +11,5 @@ sbom/
 # Claude Code per-project agent state
 .claude/
 
-# VS Code per-project state
+# VS Code per-developer workspace state (launch configs, tasks, settings)
 .vscode/
