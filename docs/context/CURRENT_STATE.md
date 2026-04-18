@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-18** (persist: external-links catalog + cross-repo README hyperlinks, 9 PRs — see entry below).
+Last updated: **2026-04-18** (persist: IA backlog push — 14 accumulated claude_cli PRs merged; external-links catalog + cross-repo README sweep earlier same day).
 
  
 ## Version Baseline
@@ -31,6 +31,42 @@ Last updated: **2026-04-18** (persist: external-links catalog + cross-repo READM
 
  
 ## Recent Changes
+
+### 2026-04-18 — IA backlog push: 14 accumulated docs PRs merged
+
+Cleared the entire Claude-lane backlog of accumulated docs PRs in one session. Each PR is independent (or in-sequence on overlapping `mkdocs.yml` / `docs/index.md` lines) and had been sitting Draft/Ready for Review for days. Merge order resolved natural dependencies (persona landing page → mission → quickstart; PRICING→TIERS rename cascaded to BENCHMARKS, GLOSSARY, and agents/index.md link fixes).
+
+| # | PR | Title | Merge |
+|---|---|---|---|
+| 1 | [#272](https://github.com/lpasquali/rune-docs/pull/272) | E2E_TESTING spec + tighten SOP Step 7 for Level-1 evidence | [`f86972c`](https://github.com/lpasquali/rune-docs/commit/f86972c) |
+| 2 | [#285](https://github.com/lpasquali/rune-docs/pull/285) | docs(index): persona-routed landing page | [`fdaa6b7`](https://github.com/lpasquali/rune-docs/commit/fdaa6b7) |
+| 3 | [#286](https://github.com/lpasquali/rune-docs/pull/286) | docs(mission): one-page product pitch | [`e16a6ff`](https://github.com/lpasquali/rune-docs/commit/e16a6ff) |
+| 4 | [#287](https://github.com/lpasquali/rune-docs/pull/287) | docs(quickstart): three parallel paths (pip / compose / kind) | [`88a5a60`](https://github.com/lpasquali/rune-docs/commit/88a5a60) |
+| 5 | [#288](https://github.com/lpasquali/rune-docs/pull/288) | docs(scenarios): deployment scenario matrix | [`4493812`](https://github.com/lpasquali/rune-docs/commit/4493812) |
+| 6 | [#289](https://github.com/lpasquali/rune-docs/pull/289) | docs(project): ecosystem-wide CONTRIBUTING + Project nav group | [`46ffa54`](https://github.com/lpasquali/rune-docs/commit/46ffa54) |
+| 7 | [#290](https://github.com/lpasquali/rune-docs/pull/290) | docs(tiers): rename PRICING → TIERS and reframe | [`bffc539`](https://github.com/lpasquali/rune-docs/commit/bffc539) |
+| 8 | [#291](https://github.com/lpasquali/rune-docs/pull/291) | docs(usage): cross-cutting pages — whats-new, glossary, troubleshooting, migration | [`656357f`](https://github.com/lpasquali/rune-docs/commit/656357f) |
+| 9 | [#292](https://github.com/lpasquali/rune-docs/pull/292) | docs(compliance): ML4 / SLSA / VEX matrix hub | [`ca4a2cc`](https://github.com/lpasquali/rune-docs/commit/ca4a2cc) |
+| 10 | [#293](https://github.com/lpasquali/rune-docs/pull/293) | docs(benchmarks): methodology + tiers + sample results | [`bc9148d`](https://github.com/lpasquali/rune-docs/commit/bc9148d) |
+| 11 | [#294](https://github.com/lpasquali/rune-docs/pull/294) | docs(external-projects): rune-operator / rune-ui / rune-airgapped / driver-sdk | [`985dedd`](https://github.com/lpasquali/rune-docs/commit/985dedd) |
+| 12 | [#298](https://github.com/lpasquali/rune-docs/pull/298) | docs(agents): SDK section — DriverTransport / AgentRunner / Registry / Transports | [`4b37ac0`](https://github.com/lpasquali/rune-docs/commit/4b37ac0) |
+| 13 | [#299](https://github.com/lpasquali/rune-docs/pull/299) | docs(ops/install): parameterized install set — on-prem + AWS/GCP/Azure/ACK | [`e433067`](https://github.com/lpasquali/rune-docs/commit/e433067) |
+| 14 | [#320](https://github.com/lpasquali/rune-docs/pull/320) | docs(CURRENT_STATE): record external-links rollout | [`29c4572`](https://github.com/lpasquali/rune-docs/commit/29c4572) |
+
+**Conflicts encountered.** Four PRs needed manual conflict resolution because main had advanced while they were open:
+
+- **#272** — `.gitignore` (`.vscode/` comment phrasing), `CURRENT_STATE.md` (new entries at top).
+- **#289** — `mkdocs.yml` (Project vs. Reference nav section from the external-links PR both landed under Context).
+- **#290** — `mkdocs.yml` (TIERS rename collided with newly-added Scenarios / Benchmarks nav lines); plus follow-up `PRICING.md` → `TIERS.md` link fixes in `docs/index.md`, `docs/usage/BENCHMARKS.md`, `docs/usage/GLOSSARY.md`, `docs/agents/index.md`.
+- **#294** / **#298** — `mkdocs.yml` (Agents and External-projects subsection reshuffles).
+
+All conflict resolutions used the `git merge main` path (no force push) so each PR retained its full commit history.
+
+**Nav shape after merge.** `mkdocs.yml` nav now has 9 top-level sections: Home, Context, Project, Reference, Usage, External projects (grouped subtrees for rune-audit / rune-operator / rune-ui / rune-airgapped / Driver SDK), Delivery, Operations (with Install subsection), Compliance, Security, Architecture (with all ADRs 0001–0008).
+
+**Evidence.** Each PR passed `mkdocs build --strict` + `pymarkdown scan` locally before push and on CI (PR-Body-Compliance, ML4-Automated-Approval, CodeQL, GitGuardian). No runtime or schema changes; the entire sweep is Level-3 documentation content.
+
+**Follow-ups.** None required; all 14 issues auto-closed via `Closes #NNN` on merge. The only orphan is the INFO-level anchor warning `'external-projects/index.md' contains a link '#rune-audit'` introduced by #294's subsection grouping; it does not fail strict build (`mkdocs build --strict` exits 0).
 
 ### 2026-04-17 — Pre-PR E2E verification gap: Phase 0 spec (rune-docs **#271**)
 
