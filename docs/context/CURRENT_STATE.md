@@ -61,7 +61,7 @@ Cross-repo epic [rune-docs#295](https://github.com/lpasquali/rune-docs/issues/29
 | rune | [rune#267](https://github.com/lpasquali/rune/pull/267) | [`42350b7`](https://github.com/lpasquali/rune/commit/42350b7) |
 | rune-audit | [rune-audit#102](https://github.com/lpasquali/rune-audit/pull/102) | [`c5ed779`](https://github.com/lpasquali/rune-audit/commit/c5ed779) |
 
-`rune-ci` self-wiring (dogfooding the guard on the guard's own repo, with `extra-exempt-paths` for its fixture directory) is a separate follow-up.
+`rune-ci` now dogfoods the guard too ([rune-ci#44](https://github.com/lpasquali/rune-ci/pull/44) merged), with `extra-exempt-paths` set to `actions/nginx-ingress-guard` and `tests/nginx-ingress-guard` (the fixture and test directories that intentionally contain the forbidden literals). `bash tests/nginx-ingress-guard/run.sh` also runs in rune-ci's integration suite. **All 8 RUNE repos** (rune, rune-operator, rune-ui, rune-charts, rune-docs, rune-airgapped, rune-audit, rune-ci) now have `RuneGate/Infra/NginxIngressGuard` enforced on every PR.
 
 ---
 
