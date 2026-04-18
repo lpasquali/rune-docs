@@ -49,6 +49,9 @@ nav:
       - Coding Standards: context/CODING_STANDARDS.md
   - Project:
       - Overview: project/index.md
+  - Reference:
+      - Overview: reference/index.md
+      - External Links & Official Docs: reference/EXTERNAL_LINKS.md
   - Usage:
       - Quickstart: usage/QUICKSTART.md
       - Developer Guide: usage/DEVELOPER_GUIDE.md
@@ -100,6 +103,7 @@ nav:
   - Architecture:
       - Threat Model: architecture/THREAT_MODEL.md
       - Security Requirements: architecture/SECURITY_REQUIREMENTS.md
+      - Quantitative Security Requirements: architecture/QUANTITATIVE_SECURITY_REQUIREMENTS.md
       - System Design: architecture/SYSTEM_DESIGN.md
       - Infrastructure: architecture/INFRASTRUCTURE.md
       - Formal Specs: architecture/FORMAL_SPECS.md
@@ -110,3 +114,5 @@ nav:
           - "0004: Operator Parity": architecture/adrs/0004-operator-feature-parity.md
           - "0005: Advanced Cognitive Architecture": architecture/adrs/0005-advanced-cognitive-architecture.md
           - "0006: Storage Abstraction and PostgreSQL": architecture/adrs/0006-storage-abstraction-postgres.md
+          - "0007: Crossplane Infrastructure Provisioning": architecture/adrs/0007-crossplane-infrastructure-provisioning.md
+          - "0008: Single container-level HTTP tool and ingress-agnostic charts": architecture/adrs/0008-single-container-http-tool-and-ingress-agnosticism.md

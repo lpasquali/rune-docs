@@ -71,7 +71,8 @@ quadrantChart
 
 ## 6. References
 
-- IEC 62443-4-1:2018 SM-5 -- Security risk assessment
+- [IEC 62443-4-1:2018](https://webstore.iec.ch/publication/33615) SM-5 -- Security risk assessment
+- [External Links Catalog](../reference/EXTERNAL_LINKS.md) -- Complete list of standards and tools
 - [RISK_ASSESSMENT.md](RISK_ASSESSMENT.md) -- Methodology
 - [SDL.md](SDL.md) -- Security Development Lifecycle
 - [INCIDENT_RESPONSE.md](INCIDENT_RESPONSE.md) -- Response procedures for realized risks
