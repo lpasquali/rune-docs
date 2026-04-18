@@ -70,6 +70,14 @@ nav:
       - Glossary: usage/GLOSSARY.md
       - Troubleshooting: usage/TROUBLESHOOTING.md
       - Migration: usage/MIGRATION.md
+  - Agents:
+      - Overview: agents/index.md
+      - DriverTransport: agents/DRIVER_TRANSPORT.md
+      - AgentRunner: agents/AGENT_RUNNER.md
+      - Registry: agents/REGISTRY.md
+      - Transports: agents/TRANSPORTS.md
+      - Testing: agents/TESTING.md
+      - Example: agents/EXAMPLE.md
   - External projects:
       - Overview: external-projects/index.md
       - rune-audit:
