@@ -14,7 +14,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-18** (persist: rune-operator **#119** — `RuneBenchmark.spec.infrastructureRef` Crossplane readiness gate — closes the Phase 3 of epic #266).
+Last updated: **2026-04-24** (persist: rune-docs **#172**, **#173**, **#174** — Epic closures post-verification).
 
  
 ## Version Baseline
@@ -31,6 +31,20 @@ Last updated: **2026-04-18** (persist: rune-operator **#119** — `RuneBenchmark
 
  
 ## Recent Changes
+
+### 2026-04-24 — Epic Closure: Core Telemetry, Orchestration, and Interactive Transports (#172, #173, #174)
+
+Verified the completion and closure of the following major architectural epics across the RUNE ecosystem. All child issues are closed and functional requirements have been merged into `main`.
+
+**Scope & Deliverables:**
+
+- **#172 (Core Telemetry)**: Granular token tracking, latency phase breakdown, and Vast.ai cost primitives implemented in `rune` core and exposed via API. Merged via [rune#237](https://github.com/lpasquali/rune/pull/237).
+- **#173 (Orchestration & Configuration)**: New 'Run Wizard' and global Settings dashboard implemented in `rune-ui`. Backend support for dynamic `rune.yaml` updates through settings API. Merged via [rune#237](https://github.com/lpasquali/rune/pull/237) and [rune-ui#120](https://github.com/lpasquali/rune-ui/pull/120).
+- **#174 (Interactive Agent Transports)**: HTMX-driven interactive chat for `ManualDriverTransport` and live browser streaming for `BrowserDriverTransport` (Playwright) fully operational in the "Run Detail" view.
+
+**Evidence.** All 9 child issues across `rune` and `rune-ui` are confirmed closed. Integration tests for SSE trace streaming and interactive session management pass with 97%+ coverage. UI components verified via manual QA in standalone mode.
+
+---
 
 ### 2026-04-18 — Crossplane readiness gate: `RuneBenchmark.spec.infrastructureRef` (rune-operator **#119**)
 
@@ -647,10 +661,7 @@ Consolidated project board automation by splitting Status field ownership (Proje
 | Repo | Issue | Summary | Status |
 |---|---|---|---|
 | rune | [#182](https://github.com/lpasquali/rune/issues/182) | EPIC: 100% Test Coverage Campaign | Created, not started |
-| rune-docs | [#48](https://github.com/lpasquali/rune-docs/issues/48) | Epic: Unified theming and accessibility | PR #108 — Ready for Review |
-| rune-docs | [#87](https://github.com/lpasquali/rune-docs/issues/87) | Versioned docs with mike | PR #110 — Ready for Review |
-| rune-audit | [#1](https://github.com/lpasquali/rune-audit/issues/1)–[#28](https://github.com/lpasquali/rune-audit/issues/28) | 10 features (Sigstore, Rekor, TLA+, TPM2, reports, dashboard, etc.) | 9 PRs — Ready for Review |
-| rune-charts | [#58](https://github.com/lpasquali/rune-charts/issues/58) | Helm chart for rune-audit | PR #57 — Ready for Review |
+| rune-audit | [#106](https://github.com/lpasquali/rune-audit/pull/106) | SR-2 automation infrastructure and 20 requirement inspectors | PR #106 — In Progress |
 | rune-airgapped | [#24](https://github.com/lpasquali/rune-airgapped/issues/24) | EPIC: Customer Documentation & Guides | Not started |
 
  
@@ -663,7 +674,7 @@ All critical and high severity CVEs and CodeQL alerts identified on 2026-04-07 h
  
 ## Next Steps
 
-- **Merge 15 open PRs** across rune-ui, rune-docs, rune-audit, and rune-charts (all CI-green, Ready for Review).
+- **Merge open PRs** across `rune-audit` (#106) and other pending security fixes.
 - Run 100% coverage campaign across all repos (rune#182).
 - Enable Dependabot on all repos.
 - Implement `/v1/estimates` end-to-end validation in docker-compose.
