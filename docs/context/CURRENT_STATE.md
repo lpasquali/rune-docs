@@ -13,7 +13,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-24** (persist: rune-docs **#172**, **#173**, **#174** — Epic closures post-verification).
+Last updated: **2026-04-24** (persist: rune-audit **#106**, rune-ci **#47** — SR-2 Core and Dependabot consolidation).
 
 ## Version Baseline
 
@@ -23,11 +23,25 @@ Last updated: **2026-04-24** (persist: rune-docs **#172**, **#173**, **#174** �
 | rune-operator | `v0.0.0a0` (yanked `v0.1.0`) | 42 | Active development |
 | rune-ui | `v0.0.0a0` (yanked `v0.1.1`) | 34 | Active development |
 | rune-charts | `0.0.0-a0` (yanked `v0.1.1`) | 26 | Active development |
-| rune-docs | `v0.0.0a3` (yanked `v0.1.0`, legacy `v0.0.0a3`–`v0.0.0a5`, `v0.0.0a6`) | 131 | Active development |
+| rune-docs | `v0.0.0a3` (yanked `v0.1.0`, legacy `v0.0.0a3`–`v0.0.0a5`, `v0.0.0a6`) | 134 | Active development |
 | rune-airgapped | unversioned | 14 | Pre-scaffolding |
-| rune-audit | `v0.0.0a0` (yanked `v0.1.1`) | 15 | Scaffolding complete |
+| rune-audit | `v0.0.0a1` (yanked `v0.1.1`) | 20 | SR-2 Core complete |
 
 ## Recent Changes
+
+### 2026-04-24 — SR-2 Infrastructure and Dependabot Consolidation (rune-audit #106, rune-ci #47)
+
+Completed core quantitative requirement automation and dependency hygiene.
+
+**Scope & Deliverables:**
+
+- **SR-2 Core (rune-audit #106)**: Implemented 20/36 requirement inspectors, resolved 200+ MyPy strict mode errors, and established 97.6% test coverage floor for compliance automation.
+- **Ecosystem Hygiene (rune-ci #47)**: Consolidated 8 pending Dependabot updates and updated GitHub Action pins across all workflows to the latest verified baseline.
+- **Epic Closures**: Formally closed #172, #173, and #174 post-verification (documented in prior update today).
+
+**Evidence.** PRs #106, #47, and #336 (docs) merged into `main`. All CI gates green.
+
+---
 
 ### 2026-04-24 — Epic Closure: Core Telemetry, Orchestration, and Interactive Transports (#172, #173, #174)
 
@@ -657,7 +671,6 @@ Consolidated project board automation by splitting Status field ownership (Proje
 | Repo | Issue | Summary | Status |
 |---|---|---|---|
 | rune | [#182](https://github.com/lpasquali/rune/issues/182) | EPIC: 100% Test Coverage Campaign | Created, not started |
-| rune-audit | [#106](https://github.com/lpasquali/rune-audit/pull/106) | SR-2 automation infrastructure and 20 requirement inspectors | PR #106 — In Progress |
 | rune-airgapped | [#24](https://github.com/lpasquali/rune-airgapped/issues/24) | EPIC: Customer Documentation & Guides | Not started |
 
 ## Open CVEs
