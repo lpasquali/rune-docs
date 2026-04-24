@@ -469,6 +469,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-24-sr-2-infrastructure-and-dependabot-consolidation-rune-audit-106-rune-ci-47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-24 — SR-2 Infrastructure and Dependabot Consolidation (rune-audit #106, rune-ci #47)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-24-epic-closure-core-telemetry-orchestration-and-interactive-transports-172-173-174" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4612,6 +4623,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-24-sr-2-infrastructure-and-dependabot-consolidation-rune-audit-106-rune-ci-47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-24 — SR-2 Infrastructure and Dependabot Consolidation (rune-audit #106, rune-ci #47)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-24-epic-closure-core-telemetry-orchestration-and-interactive-transports-172-173-174" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5083,7 +5105,7 @@
 <p>RUNE is currently in active pre-alpha development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is <strong>not yet production-ready</strong>.</p>
 <h2 id="freshness-policy">Freshness Policy<a class="headerlink" href="#freshness-policy" title="Permanent link">&para;</a></h2>
 <p>This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.</p>
-<p>Last updated: <strong>2026-04-24</strong> (persist: rune-docs <strong>#172</strong>, <strong>#173</strong>, <strong>#174</strong> — Epic closures post-verification).</p>
+<p>Last updated: <strong>2026-04-24</strong> (persist: rune-audit <strong>#106</strong>, rune-ci <strong>#47</strong> — SR-2 Core and Dependabot consolidation).</p>
 <h2 id="version-baseline">Version Baseline<a class="headerlink" href="#version-baseline" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -5122,7 +5144,7 @@
 <tr>
 <td>rune-docs</td>
 <td><code>v0.0.0a3</code> (yanked <code>v0.1.0</code>, legacy <code>v0.0.0a3</code>–<code>v0.0.0a5</code>, <code>v0.0.0a6</code>)</td>
-<td>131</td>
+<td>134</td>
 <td>Active development</td>
 </tr>
 <tr>
@@ -5133,13 +5155,23 @@
 </tr>
 <tr>
 <td>rune-audit</td>
-<td><code>v0.0.0a0</code> (yanked <code>v0.1.1</code>)</td>
-<td>15</td>
-<td>Scaffolding complete</td>
+<td><code>v0.0.0a1</code> (yanked <code>v0.1.1</code>)</td>
+<td>20</td>
+<td>SR-2 Core complete</td>
 </tr>
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-24-sr-2-infrastructure-and-dependabot-consolidation-rune-audit-106-rune-ci-47">2026-04-24 — SR-2 Infrastructure and Dependabot Consolidation (rune-audit #106, rune-ci #47)<a class="headerlink" href="#2026-04-24-sr-2-infrastructure-and-dependabot-consolidation-rune-audit-106-rune-ci-47" title="Permanent link">&para;</a></h3>
+<p>Completed core quantitative requirement automation and dependency hygiene.</p>
+<p><strong>Scope &amp; Deliverables:</strong></p>
+<ul>
+<li><strong>SR-2 Core (rune-audit #106)</strong>: Implemented 20/36 requirement inspectors, resolved 200+ MyPy strict mode errors, and established 97.6% test coverage floor for compliance automation.</li>
+<li><strong>Ecosystem Hygiene (rune-ci #47)</strong>: Consolidated 8 pending Dependabot updates and updated GitHub Action pins across all workflows to the latest verified baseline.</li>
+<li><strong>Epic Closures</strong>: Formally closed #172, #173, and #174 post-verification (documented in prior update today).</li>
+</ul>
+<p><strong>Evidence.</strong> PRs #106, #47, and #336 (docs) merged into <code>main</code>. All CI gates green.</p>
+<hr />
 <h3 id="2026-04-24-epic-closure-core-telemetry-orchestration-and-interactive-transports-172-173-174">2026-04-24 — Epic Closure: Core Telemetry, Orchestration, and Interactive Transports (#172, #173, #174)<a class="headerlink" href="#2026-04-24-epic-closure-core-telemetry-orchestration-and-interactive-transports-172-173-174" title="Permanent link">&para;</a></h3>
 <p>Verified the completion and closure of the following major architectural epics across the RUNE ecosystem. All child issues are closed and functional requirements have been merged into <code>main</code>.</p>
 <p><strong>Scope &amp; Deliverables:</strong></p>
@@ -5935,12 +5967,6 @@ audit-artifact endpoints so the published docs reflect the merged <code>rune</co
 <td><a href="https://github.com/lpasquali/rune/issues/182">#182</a></td>
 <td>EPIC: 100% Test Coverage Campaign</td>
 <td>Created, not started</td>
-</tr>
-<tr>
-<td>rune-audit</td>
-<td><a href="https://github.com/lpasquali/rune-audit/pull/106">#106</a></td>
-<td>SR-2 automation infrastructure and 20 requirement inspectors</td>
-<td>PR #106 — In Progress</td>
 </tr>
 <tr>
 <td>rune-airgapped</td>
