@@ -670,8 +670,12 @@ Consolidated project board automation by splitting Status field ownership (Proje
 
 | Repo | Issue | Summary | Status |
 |---|---|---|---|
-| rune | [#182](https://github.com/lpasquali/rune/issues/182) | EPIC: 100% Test Coverage Campaign | Created, not started |
-| rune-airgapped | [#24](https://github.com/lpasquali/rune-airgapped/issues/24) | EPIC: Customer Documentation & Guides | Not started |
+| rune | [#278](https://github.com/lpasquali/rune/issues/278) | EPIC: Enterprise Agent & Driver Integrations | Planned, not started |
+| rune | [#284](https://github.com/lpasquali/rune/issues/284) | EPIC: Core Backend & Telemetry Completeness | Planned, not started |
+| rune-audit | [#112](https://github.com/lpasquali/rune-audit/issues/112) | EPIC: SR-2 Compliance Automation Finalization | In Progress |
+| rune-airgapped | [#99](https://github.com/lpasquali/rune-airgapped/issues/99) | EPIC: Airgapped Production Bundle Implementation | Planned, not started |
+| rune-docs | [#273](https://github.com/lpasquali/rune-docs/issues/273) | EPIC: IA overhaul — landing page + missing sections | Assigned to Gemini |
+| rune-docs | [#302](https://github.com/lpasquali/rune-docs/issues/302)–[#305](https://github.com/lpasquali/rune-docs/issues/305) | Flesh out cloud installation guides (AWS/GCP/AZ/ALI) | Assigned to Gemini |
 
 ## Open CVEs
 
