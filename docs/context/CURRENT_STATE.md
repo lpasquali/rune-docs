@@ -1,22 +1,20 @@
 
 # CURRENT_STATE
 
- 
 ## Incident Log (ML4 Compliance)
+
 - **Version Baseline Reset**: An erroneous release was previously triggered with incorrect versioning (e.g., `v0.1.0`). To maintain strict ML4 traceability and signed provenance, the ecosystem baseline has been forcefully reset. The erroneous tags are marked as "Yanked" in GitHub Releases. Current correct versions are listed below.
 
 ## Living Memory
 
 RUNE is currently in active pre-alpha development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is **not yet production-ready**.
 
- 
 ## Freshness Policy
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
 Last updated: **2026-04-24** (persist: rune-docs **#172**, **#173**, **#174** — Epic closures post-verification).
 
- 
 ## Version Baseline
 
 | Repo | Version | Commits | Status |
@@ -29,7 +27,6 @@ Last updated: **2026-04-24** (persist: rune-docs **#172**, **#173**, **#174** �
 | rune-airgapped | unversioned | 14 | Pre-scaffolding |
 | rune-audit | `v0.0.0a0` (yanked `v0.1.1`) | 15 | Scaffolding complete |
 
- 
 ## Recent Changes
 
 ### 2026-04-24 — Epic Closure: Core Telemetry, Orchestration, and Interactive Transports (#172, #173, #174)
@@ -288,7 +285,7 @@ Follow-up to the closed audit [rune-operator#97](https://github.com/lpasquali/ru
 
 Cross-repo epic: [rune-docs#249](https://github.com/lpasquali/rune-docs/issues/249). This pass delivers concrete removals where dead code was identified; other child issues need the same measure → classify → PR loop on their maintainers.
 
-**rune-docs #251 (this repo)**
+#### rune-docs #251 (this repo)
 
 | Check | Type | Status | Reason |
 |---|---|---|---|
@@ -297,21 +294,21 @@ Cross-repo epic: [rune-docs#249](https://github.com/lpasquali/rune-docs/issues/2
 | `scripts/merge_gate.py`, `check_licenses.py`, `enforce_cve_policy.py` | Local | **Remove** | Never referenced by workflows; superseded by `rune-ci` (`actions/merge-gate-verify`, license/CVE in security workflows) |
 | `scripts/codeql_python_anchor.py` | Local | **Keep** | Tiny no-op module so CodeQL Python autobuild has extractable source after script cleanup |
 
-**Memory (this workspace, canonical command from #251):**
+#### Memory (this workspace, canonical command from #251)
 
 - Command: `/usr/bin/time -v python -m mkdocs build --strict` (Python **3.14.4** via pyenv, Ubuntu **6.8.0** kernel).
 - Peak RSS: **~53 MiB** (`Maximum resident set size`: 54528 kB). Well under the **512 MiB** ceiling.
 
-**rune** ([#258](https://github.com/lpasquali/rune/pull/258) merged)
+#### rune ([#258](https://github.com/lpasquali/rune/pull/258) merged)
 
 - Removed **no-op** test `test_api_application_unsupported_kind` (body was only `pass`); behavior is already covered by `test_api_application_execute_kinds` and backend type-check tests in the same module.
 
-**Other children (#253 rune full audit, #97 operator, #124 UI, #81 charts, #88 audit, #71 airgapped)**
+#### Other children (#253 rune full audit, #97 operator, #124 UI, #81 charts, #88 audit, #71 airgapped)
 
 - **rune-charts**: no `charts/**/tests` Helm unittest tree in-repo; quality gates use `helm-quality` + kind installs — nothing obvious to delete without a deeper pass.
 - **rune-operator / rune-ui / rune-audit / rune-airgapped**: no additional dead tests removed in this pass; track follow-up PRs per child issue.
 
-**Merged PR train (dependency order; all required checks green before merge)**
+#### Merged PR train (dependency order; all required checks green before merge)
 
 | Step | PR | Merge commit | Notes |
 | ---: | --- | --- | --- |
@@ -323,7 +320,7 @@ Cross-repo epic: [rune-docs#249](https://github.com/lpasquali/rune-docs/issues/2
 
 ### 2026-04-11 — FinOps telemetry, provisioning refactor, and CodeQL security fixes (rune#251)
 
-**rune** `main` merged comprehensive PR **#251** (`feat/finops-and-provisioning-refactor`) with the following scope:
+#### rune `main` merged comprehensive PR **#251** (`feat/finops-and-provisioning-refactor`) with the following scope
 
 - **FinOps telemetry** (`GET /v1/finops/simulate`): Cost estimation with `max_cost_usd` simulation and fine-grained event metrics per operation
 - **Nested provisioning refactor**: Provider-agnostic nested structure (`{ "providers": { "<type>": {...} } }`) for multi-cloud deployment flexibility
@@ -355,8 +352,8 @@ because **`actions/github-script` v8** already injects **`core`** into the scrip
 **rune-ci** `main` commit **`8cae0c5`** removes the redundant line.
 
 **Evidence:** `workflow_dispatch` **Project Board Backfill** on **rune-docs** completed successfully after the fix:
-https://github.com/lpasquali/rune-docs/actions/runs/24277613301 (prior failure:
-https://github.com/lpasquali/rune-docs/actions/runs/24276942219/job/70892417613). Consumer repos call the workflow at **`@main`** — no pin bump required.
+<https://github.com/lpasquali/rune-docs/actions/runs/24277613301> (prior failure:
+<https://github.com/lpasquali/rune-docs/actions/runs/24276942219/job/70892417613>). Consumer repos call the workflow at **`@main`** — no pin bump required.
 
 ### 2026-04-10 — `.claude/` in `.gitignore` (rune-docs#199, rune#250)
 
@@ -517,7 +514,6 @@ Consolidated project board automation by splitting Status field ownership (Proje
 **Airgapped Bundle (Phase 6):**
 - **TLS Certificates** (rune-airgapped#16): Added `generate-certs.sh` script to generate self-signed TLS certs with SANs for internal services.
 
-
 ### 2026-04-08 — Cross-Repo Feature Buildout (20 issues, 15 PRs)
 
 **Issues Closed Directly:**
@@ -648,6 +644,7 @@ Consolidated project board automation by splitting Status field ownership (Proje
 - 100% Coverage Campaign Epic created (rune#182).
 
 ### Earlier Changes
+
 - Consolidated documentation into `rune-docs` from all repositories.
 - Implemented modular Ollama integration with `OllamaClient` and `OllamaModelManager`.
 - Added S3 results sink for job output persistence.
@@ -655,7 +652,6 @@ Consolidated project board automation by splitting Status field ownership (Proje
 - Expanded agent support matrix to 23+ agents across SRE, Research, Art/Creative, Cybersec, Legal/Ops domains.
 - Adopted MCP and A2A as decoupled integration standards.
 
- 
 ## Active Work
 
 | Repo | Issue | Summary | Status |
@@ -664,14 +660,12 @@ Consolidated project board automation by splitting Status field ownership (Proje
 | rune-audit | [#106](https://github.com/lpasquali/rune-audit/pull/106) | SR-2 automation infrastructure and 20 requirement inspectors | PR #106 — In Progress |
 | rune-airgapped | [#24](https://github.com/lpasquali/rune-airgapped/issues/24) | EPIC: Customer Documentation & Guides | Not started |
 
- 
 ## Open CVEs
 
 All critical and high severity CVEs and CodeQL alerts identified on 2026-04-07 have pending PRs for remediation.
 
 **Dependabot is DISABLED** on 5 repos (rune-operator, rune-ui, rune-charts, rune-docs, rune-airgapped). Should be enabled for ML4 compliance.
 
- 
 ## Next Steps
 
 - **Merge open PRs** across `rune-audit` (#106) and other pending security fixes.
@@ -681,7 +675,6 @@ All critical and high severity CVEs and CodeQL alerts identified on 2026-04-07 h
 - Explore Gateway API Inference Extension (`k8s-inference` backend type).
 - Customer documentation for rune-airgapped (rune-airgapped#24).
 
- 
 ## Known Issues
 
 - Manual Vast.ai instance creation/destruction can incur costs and requires careful validation.
