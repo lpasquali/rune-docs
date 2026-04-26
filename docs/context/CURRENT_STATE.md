@@ -42,6 +42,9 @@ Finalized all 5 high-priority epics across the RUNE ecosystem, achieving feature
 - **Order 5: Operator & UI Synchronization**:
     - **rune-operator**: Added `AWS`, `GCP`, and `Azure` cost estimation flags and `Region` support for Bedrock.
     - **rune-ui**: Benchmark Wizard updated for multi-cloud cost safety; added Image Result rendering for creative agents.
+- **Order 6: Infrastructure Sizing & Cost Reporting**:
+    - Finalized resource requirements matrix for 1–50 concurrent jobs with SaaS DB/S3 backends.
+    - Implemented **[Cost Efficiency & TCO Reporting](../operations/COST_REPORTING.md)** documentation.
 
 **Evidence.** PRs rune #287, #288, and rune-audit #116 verified with 97%+ unit test coverage. SR-2 verify passes locally on all core repositories.
 
