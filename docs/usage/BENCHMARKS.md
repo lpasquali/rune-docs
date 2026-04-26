@@ -6,7 +6,8 @@ The "NE" in RUNE stands for **Numeric Evaluator**. This page documents **how** R
 
 Every benchmark run produces a **numeric score** plus a **`confidence_score`**. The score is aggregated per chain (a DAG of agents executed against a question), per scope (the taxonomy described below), and per tier.
 
-- **`confidence_score`** is a fail-closed gate for cloud-GPU provisioning. Below `0.95`, `CostEstimationResponse` rejects the run; above, the run proceeds. Local-only runs skip the gate entirely (there is nothing to provision).
+- **`confidence_score`** is a fail-closed gate for cloud provisioning. Below `0.95`, `CostEstimationResponse` rejects the run; above, the run proceeds.
+- **Cost Estimation Providers**: RUNE supports automated cost projection for **Vast.ai** (instance-based), **AWS** (on-demand), **GCP** (on-demand), and **Azure** (on-demand). Local hardware runs use an energy-based calculation (TDP × Rate).
 - **Aggregation** is per-scope first (so an SRE benchmark isn't averaged with a Research benchmark), then per-tier (so a Tier-3 closed-SaaS agent isn't averaged with a Tier-1 OSS agent whose code path is fully measured).
 - **Reproducibility** is a first-class requirement: benchmark commands are documented, seed-sensitive paths are noted, and warmup passes are deterministic.
 
@@ -65,7 +66,7 @@ Worked example. Uses two Tier-1 OSS agents so the entire code path is measurable
     shape of `AgentResult` is expected to evolve before beta. Treat the
     example as illustrative, not a stable contract.
 
-### Invocation
+### Invocation (Ollama)
 
 ```bash
 export RUNE_BACKEND_URL=http://localhost:11434
@@ -75,6 +76,19 @@ python -m rune run-benchmark \
   --chain "k8sgpt,holmesgpt" \
   --model qwen3:14b-instruct \
   --question "Why is my Pod in CrashLoopBackOff?"
+```
+
+### Invocation (AWS Bedrock)
+
+```bash
+export RUNE_BACKEND_TYPE=bedrock
+export RUNE_BACKEND_REGION=us-east-1
+
+python -m rune run-benchmark \
+  --scope SRE \
+  --chain "holmesgpt" \
+  --model anthropic.claude-3-5-sonnet \
+  --question "Audit this namespace for security issues"
 ```
 
 ### What happens

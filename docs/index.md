@@ -92,6 +92,7 @@ How RUNE is hosted and maintained.
 - **[Golden Image](operations/GOLDEN_IMAGE.md)** — automated provisioning across 30+ platforms.
 - **[Deployment](operations/DEPLOYMENT.md)** — hosting modes (CLI / compose / kind / k8s-prod).
 - **[Database Operations](operations/DATABASE.md)** + **[Database HA](operations/DATABASE_HA.md)** — SQLite today, PostgreSQL planned.
+- **[Cost Management & Reporting](operations/COST_REPORTING.md)** — Infrastructure bootstrap vs. execution spend.
 - **[Observability](operations/OBSERVABILITY.md)** — metrics and logging.
 - **[Runbooks](operations/RUNBOOKS.md)** — incident response checklists.
 - **[Rollback Procedures](operations/ROLLBACK_PROCEDURES.md)** — version, chart, and DB rollback.
