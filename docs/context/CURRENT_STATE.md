@@ -61,6 +61,9 @@ Finalized all 5 high-priority epics across the RUNE ecosystem, achieving feature
 - **Order 6: Infrastructure Sizing & Cost Reporting**:
     - Finalized resource requirements matrix for 1–50 concurrent jobs with SaaS DB/S3 backends.
     - Implemented **[Cost Efficiency & TCO Reporting](../operations/COST_REPORTING.md)** documentation.
+- **Order 7: Batch Processing & Parallelism**:
+    - Implemented **`RuneBenchmarkSuite`** CRD and Controller in `rune-operator` for native fan-out.
+    - Added **Batch Suites Wizard** to `rune-ui` for instantiating 50+ parallel benchmarks via a single UI/YAML action.
 
 **Evidence.** PRs rune #287, #288, and rune-audit #116 verified with 97%+ unit test coverage. SR-2 verify passes locally on all core repositories.
 
