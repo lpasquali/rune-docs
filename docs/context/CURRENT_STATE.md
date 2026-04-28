@@ -721,8 +721,6 @@ All critical and high severity CVEs and CodeQL alerts identified on 2026-04-07 h
 
 - **Merge open PRs** across `rune-audit` (#106) and other pending security fixes.
 - Run 100% coverage campaign across all repos (rune#182).
-- Enable Dependabot on all repos.
-- Implement `/v1/estimates` end-to-end validation in docker-compose.
 - Explore Gateway API Inference Extension (`k8s-inference` backend type).
 - Customer documentation for rune-airgapped (rune-airgapped#24).
 
@@ -730,4 +728,5 @@ All critical and high severity CVEs and CodeQL alerts identified on 2026-04-07 h
 
 - Manual Vast.ai instance creation/destruction can incur costs and requires careful validation.
 - SQLite-backed jobs are persistent but require proper volume management in Kubernetes.
+ut require proper volume management in Kubernetes.
 - `/v1/estimates` returns 404 when rune API auth is not configured (docker-compose needs `RUNE_API_AUTH_DISABLED=1` or proper token setup).
