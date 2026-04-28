@@ -1,0 +1,5965 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the RUNE platform, APIs, and compliance posture">
+      
+      
+      
+      
+        <link rel="prev" href="../quickstart/">
+      
+      
+        <link rel="next" href="../deployment-guide/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Prerequisites - RUNE Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../overrides/main.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/tokens.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prerequisites" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="RUNE Documentation" class="md-header__button md-logo" aria-label="RUNE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RUNE Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Prerequisites
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="RUNE Documentation" class="md-nav__button md-logo" aria-label="RUNE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RUNE Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Context
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../context/SYSTEM_PROMPT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../context/CURRENT_STATE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Current State
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../context/CODING_STANDARDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coding Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/EXTERNAL_LINKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External Links & Official Docs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Usage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/MISSION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mission
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/QUICKSTART/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/DEVELOPER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/E2E_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E2E Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/SCENARIOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scenarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/TIERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Access Tiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/BENCHMARKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/INTERFACES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/API_SPEC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/ADVANCED_PIPELINES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/CONFIGURATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/OLLAMA_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Backend Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/WHATS_NEW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What's New
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/GLOSSARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/TROUBLESHOOTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../usage/MIGRATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agents/DRIVER_TRANSPORT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DriverTransport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agents/AGENT_RUNNER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AgentRunner
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agents/REGISTRY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agents/TRANSPORTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agents/TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agents/EXAMPLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    External projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    rune-audit
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    rune-audit
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../inspector-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inspector library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom-inspectors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom inspectors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requirement-packs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requirement packs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ci-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case-study-rune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case study — RUNE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    rune-operator
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    rune-operator
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rune-operator/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rune-operator/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    rune-ui
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    rune-ui
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rune-ui/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rune-ui/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7_5" id="__nav_7_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    rune-airgapped
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    rune-airgapped
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prerequisites
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prerequisites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hardware Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimum-single-node-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum (Single-Node Evaluation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended (Production)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-ollama-llm-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Ollama (LLM Inference)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-host-connected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Host (Connected)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-host-air-gapped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target Host (Air-Gapped)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operating-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operating System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container Runtime
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#external-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Connectivity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal Connectivity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-cluster-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Cluster Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Cluster Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pod-security-admission-psa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pod Security Admission (PSA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-quotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource Quotas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rbac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RBAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Policies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-services-production-airgap-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Services (Production Airgap Model)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="External Services (Production Airgap Model)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL (Database)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PostgreSQL (Database)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-cnpg-operator-recommended-for-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: CNPG Operator (Recommended for Kubernetes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-external-managed-database-aws-rds-cloud-sql-etc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: External Managed Database (AWS RDS, Cloud SQL, etc.)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-compatible-object-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3-Compatible Object Storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="S3-Compatible Object Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-minio-in-cluster-or-external" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Minio (In-Cluster or External)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-external-s3-aws-s3-gcs-etc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: External S3 (AWS S3, GCS, etc.)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-1-inference-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 1 Inference Backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tier 1 Inference Backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-ollama-self-hosted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Ollama (Self-Hosted)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-external-llm-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: External LLM Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-connectivity-matrix-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Connectivity Matrix (Production)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#containerd-mirror-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Containerd Mirror Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Containerd Mirror Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-containerd-17-hostsd-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For containerd &gt;= 1.7 (hosts.d style)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-deployment-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-Deployment Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-example-production-airgap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick-Start Example (Production Airgap)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick-Start Example (Production Airgap)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-external-services-pre-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Prepare external services (pre-deployment)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-transfer-bundle-to-air-gapped-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Transfer bundle to air-gapped environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-kubernetes-secrets-for-external-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Create Kubernetes Secrets for external services
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-deploy-rune-with-bootstrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Deploy RUNE with bootstrap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-verify-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Verify deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crossplane/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crossplane
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-hardening/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_6" id="__nav_7_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Driver SDK
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Driver SDK
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../driver-sdk/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../driver-sdk/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Delivery
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Delivery
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../delivery/PIPELINES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../delivery/CI_SHARED_WORKFLOWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared CI Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../delivery/CI_RISK_MITIGATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI Migration Risk Mitigations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../delivery/RELEASES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../delivery/SECRETS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../delivery/VEX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VEX Register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../delivery/MILESTONES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Milestones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../delivery/LABELS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../delivery/AUDIT_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/WORKSTATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workstation Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/GOLDEN_IMAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Golden Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_4" id="__nav_9_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Install
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/INSTALL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/INSTALL_ONPREM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On-prem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/INSTALL_AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS (EKS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/INSTALL_GCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GCP (GKE)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/INSTALL_AZURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Azure (AKS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/INSTALL_ALICLOUD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alibaba Cloud (ACK)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/DATABASE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/DATABASE_HA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database HA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/OBSERVABILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/RUNBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runbooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/ROLLBACK_PROCEDURES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rollback Procedures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operations/VAULT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vault Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compliance
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compliance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../compliance/MATRIX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../security/SDL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Development Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../security/RISK_ASSESSMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Assessment Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../security/RISK_REGISTER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../security/PENTEST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Penetration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../security/FUZZ_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fuzz Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../security/INCIDENT_RESPONSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Incident Response
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../security/IMAGE_SIGNING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container Image Signing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../security/SECURITY_TRAINING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Training Records
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/THREAT_MODEL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/SECURITY_REQUIREMENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/QUANTITATIVE_SECURITY_REQUIREMENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quantitative Security Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/SYSTEM_DESIGN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/INFRASTRUCTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/FORMAL_SPECS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formal Specs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_7" id="__nav_12_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADRs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADRs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/adrs/0001-api-compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0001: Client/Server Compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/adrs/0002-cost-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0002: Cost Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/adrs/0003-ui-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0003: UI Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/adrs/0004-operator-feature-parity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0004: Operator Parity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/adrs/0005-advanced-cognitive-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0005: Advanced Cognitive Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/adrs/0006-storage-abstraction-postgres/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0006: Storage Abstraction and PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/adrs/0007-crossplane-infrastructure-provisioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0007: Crossplane Infrastructure Provisioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/adrs/0008-single-container-http-tool-and-ingress-agnosticism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0008: Single container-level HTTP tool and ingress-agnostic charts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hardware Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimum-single-node-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum (Single-Node Evaluation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended (Production)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-ollama-llm-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Ollama (LLM Inference)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-host-connected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Host (Connected)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-host-air-gapped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target Host (Air-Gapped)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operating-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operating System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container Runtime
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#external-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Connectivity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal Connectivity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-cluster-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Cluster Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Cluster Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pod-security-admission-psa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pod Security Admission (PSA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-quotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource Quotas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rbac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RBAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Policies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-services-production-airgap-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Services (Production Airgap Model)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="External Services (Production Airgap Model)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL (Database)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PostgreSQL (Database)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-cnpg-operator-recommended-for-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: CNPG Operator (Recommended for Kubernetes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-external-managed-database-aws-rds-cloud-sql-etc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: External Managed Database (AWS RDS, Cloud SQL, etc.)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-compatible-object-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3-Compatible Object Storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="S3-Compatible Object Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-minio-in-cluster-or-external" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Minio (In-Cluster or External)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-external-s3-aws-s3-gcs-etc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: External S3 (AWS S3, GCS, etc.)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-1-inference-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tier 1 Inference Backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tier 1 Inference Backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-ollama-self-hosted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Ollama (Self-Hosted)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-external-llm-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: External LLM Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-connectivity-matrix-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Connectivity Matrix (Production)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#containerd-mirror-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Containerd Mirror Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Containerd Mirror Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-containerd-17-hostsd-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For containerd &gt;= 1.7 (hosts.d style)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-deployment-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-Deployment Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-example-production-airgap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick-Start Example (Production Airgap)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick-Start Example (Production Airgap)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-external-services-pre-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Prepare external services (pre-deployment)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-transfer-bundle-to-air-gapped-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Transfer bundle to air-gapped environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-kubernetes-secrets-for-external-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Create Kubernetes Secrets for external services
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-deploy-rune-with-bootstrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Deploy RUNE with bootstrap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-verify-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Verify deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h1>
+<p>This document lists the hardware, software, network, and Kubernetes
+requirements for deploying RUNE in an air-gapped environment.</p>
+<h2 id="hardware-requirements">Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permanent link">&para;</a></h2>
+<h3 id="minimum-single-node-evaluation">Minimum (Single-Node Evaluation)<a class="headerlink" href="#minimum-single-node-evaluation" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Minimum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>4 cores</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>16 GB</td>
+</tr>
+<tr>
+<td>Disk</td>
+<td>50 GB free (bundle extraction + registry storage)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="recommended-production">Recommended (Production)<a class="headerlink" href="#recommended-production" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Recommended</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>8+ cores</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>32 GB</td>
+</tr>
+<tr>
+<td>Disk</td>
+<td>100 GB SSD (registry PVC + application data)</td>
+</tr>
+<tr>
+<td>Nodes</td>
+<td>3+ (for high availability)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="with-ollama-llm-inference">With Ollama (LLM Inference)<a class="headerlink" href="#with-ollama-llm-inference" title="Permanent link">&para;</a></h3>
+<p>If the bundle includes the Ollama image for local LLM inference, additional
+resources are required:</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Minimum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>8 cores (16 recommended)</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>32 GB (64 GB recommended)</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>Optional but strongly recommended for performance</td>
+</tr>
+<tr>
+<td>Disk</td>
+<td>Additional 20-50 GB for model weights</td>
+</tr>
+</tbody>
+</table>
+<h2 id="software-requirements">Software Requirements<a class="headerlink" href="#software-requirements" title="Permanent link">&para;</a></h2>
+<h3 id="build-host-connected">Build Host (Connected)<a class="headerlink" href="#build-host-connected" title="Permanent link">&para;</a></h3>
+<p>These tools are required on the machine that builds the bundle:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Minimum Version</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>crane</code></td>
+<td>any recent</td>
+<td>Pull OCI images as OCI layout</td>
+</tr>
+<tr>
+<td><code>helm</code></td>
+<td>3.12.0</td>
+<td>Pull Helm charts from OCI registry</td>
+</tr>
+<tr>
+<td><code>cosign</code></td>
+<td>2.x (optional)</td>
+<td>Sign images for supply chain integrity</td>
+</tr>
+<tr>
+<td><code>tar</code></td>
+<td>any</td>
+<td>Package the bundle tarball</td>
+</tr>
+<tr>
+<td><code>sha256sum</code></td>
+<td>any</td>
+<td>Generate integrity checksums</td>
+</tr>
+</tbody>
+</table>
+<h3 id="target-host-air-gapped">Target Host (Air-Gapped)<a class="headerlink" href="#target-host-air-gapped" title="Permanent link">&para;</a></h3>
+<p>These tools are required on the machine(s) in the air-gapped environment:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Minimum Version</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>kubectl</code></td>
+<td>1.27.0</td>
+<td>Kubernetes cluster management</td>
+</tr>
+<tr>
+<td><code>helm</code></td>
+<td>3.12.0</td>
+<td>Deploy Helm charts</td>
+</tr>
+<tr>
+<td><code>tar</code></td>
+<td>any</td>
+<td>Unpack the bundle tarball</td>
+</tr>
+<tr>
+<td><code>bash</code></td>
+<td>4.x</td>
+<td>Run the bootstrap script</td>
+</tr>
+<tr>
+<td><code>crane</code></td>
+<td>any recent (optional)</td>
+<td>Load OCI images into registry</td>
+</tr>
+<tr>
+<td><code>cosign</code></td>
+<td>2.x (optional)</td>
+<td>Verify image signatures</td>
+</tr>
+</tbody>
+</table>
+<h3 id="operating-system">Operating System<a class="headerlink" href="#operating-system" title="Permanent link">&para;</a></h3>
+<p>The bootstrap script is tested on:</p>
+<ul>
+<li>Ubuntu 22.04 LTS / 24.04 LTS</li>
+<li>RHEL 8.x / 9.x</li>
+<li>Any Linux distribution with bash 4+ and the tools listed above</li>
+</ul>
+<h3 id="container-runtime">Container Runtime<a class="headerlink" href="#container-runtime" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>containerd</strong> &gt;= 1.7.0 (required for Kubernetes)</li>
+<li>containerd must be configured to pull from the in-cluster registry. See
+  <a href="#containerd-mirror-configuration">Containerd Mirror Configuration</a> below.</li>
+</ul>
+<h2 id="network-requirements">Network Requirements<a class="headerlink" href="#network-requirements" title="Permanent link">&para;</a></h2>
+<h3 id="external-connectivity">External Connectivity<a class="headerlink" href="#external-connectivity" title="Permanent link">&para;</a></h3>
+<p><strong>None required.</strong> The entire deployment is designed to operate without
+internet access. All container images, Helm charts, and compliance artifacts
+are included in the bundle.</p>
+<h3 id="internal-connectivity">Internal Connectivity<a class="headerlink" href="#internal-connectivity" title="Permanent link">&para;</a></h3>
+<p>The following internal network paths must be open:</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Destination</th>
+<th>Port</th>
+<th>Protocol</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nodes</td>
+<td>Kubernetes API server</td>
+<td>443/TCP</td>
+<td>HTTPS</td>
+<td>Cluster management</td>
+</tr>
+<tr>
+<td>All RUNE pods</td>
+<td>Zot registry</td>
+<td>5000/TCP</td>
+<td>HTTP(S)</td>
+<td>Image pulls</td>
+</tr>
+<tr>
+<td>rune-ui</td>
+<td>rune-api</td>
+<td>8080/TCP</td>
+<td>HTTP</td>
+<td>UI-to-API communication</td>
+</tr>
+<tr>
+<td>rune-operator</td>
+<td>rune-api</td>
+<td>8080/TCP</td>
+<td>HTTP</td>
+<td>Operator-to-API communication</td>
+</tr>
+<tr>
+<td>rune-operator</td>
+<td>Kubernetes API</td>
+<td>443/TCP</td>
+<td>HTTPS</td>
+<td>CRD management</td>
+</tr>
+<tr>
+<td>rune-api</td>
+<td>Ollama (if deployed)</td>
+<td>11434/TCP</td>
+<td>HTTP</td>
+<td>LLM inference</td>
+</tr>
+<tr>
+<td>rune-api</td>
+<td>SeaweedFS (if deployed)</td>
+<td>8333/TCP</td>
+<td>HTTP</td>
+<td>S3-compatible storage</td>
+</tr>
+<tr>
+<td>All pods</td>
+<td>kube-dns</td>
+<td>53/UDP,TCP</td>
+<td>DNS</td>
+<td>Service discovery</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dns">DNS<a class="headerlink" href="#dns" title="Permanent link">&para;</a></h3>
+<p>Kubernetes CoreDNS must be operational. RUNE services are accessed by their
+cluster-internal DNS names (e.g., <code>zot.rune-registry.svc.cluster.local</code>).</p>
+<h2 id="kubernetes-cluster-requirements">Kubernetes Cluster Requirements<a class="headerlink" href="#kubernetes-cluster-requirements" title="Permanent link">&para;</a></h2>
+<h3 id="version">Version<a class="headerlink" href="#version" title="Permanent link">&para;</a></h3>
+<p>Kubernetes &gt;= 1.27.0</p>
+<h3 id="pod-security-admission-psa">Pod Security Admission (PSA)<a class="headerlink" href="#pod-security-admission-psa" title="Permanent link">&para;</a></h3>
+<p>The bootstrap script applies PSA labels to all RUNE namespaces:</p>
+<div class="highlight"><pre><span></span><code>pod-security.kubernetes.io/enforce: restricted
+pod-security.kubernetes.io/warn: restricted
+</code></pre></div>
+<p>The <code>restricted</code> profile requires:
+- Containers run as non-root
+- No privilege escalation
+- Read-only root filesystem
+- All capabilities dropped
+- Seccomp profile set to <code>RuntimeDefault</code></p>
+<p>Ensure your cluster supports and enforces PSA at the namespace level.</p>
+<h3 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Default</strong>: The Zot registry uses <code>emptyDir</code> (ephemeral, lost on pod restart).
+  Suitable for evaluation.</li>
+<li><strong>Production</strong>: Provide a StorageClass that supports <code>ReadWriteOnce</code> PVCs.
+  The registry requires at least 10 Gi for image storage.</li>
+</ul>
+<h3 id="resource-quotas">Resource Quotas<a class="headerlink" href="#resource-quotas" title="Permanent link">&para;</a></h3>
+<p>The bootstrap script applies the following ResourceQuotas:</p>
+<table>
+<thead>
+<tr>
+<th>Namespace</th>
+<th>CPU Requests</th>
+<th>CPU Limits</th>
+<th>Memory Requests</th>
+<th>Memory Limits</th>
+<th>Max Pods</th>
+<th>Max PVCs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rune</code></td>
+<td>4</td>
+<td>8</td>
+<td>8 Gi</td>
+<td>16 Gi</td>
+<td>20</td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>rune-system</code></td>
+<td>2</td>
+<td>4</td>
+<td>4 Gi</td>
+<td>8 Gi</td>
+<td>10</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>rune-registry</code></td>
+<td>2</td>
+<td>4</td>
+<td>4 Gi</td>
+<td>8 Gi</td>
+<td>5</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Ensure your cluster nodes can satisfy these quotas. Use <code>--no-resource-quotas</code>
+to skip quota enforcement if you manage quotas externally.</p>
+<h3 id="rbac">RBAC<a class="headerlink" href="#rbac" title="Permanent link">&para;</a></h3>
+<p>The bootstrap script creates dedicated ServiceAccounts with minimal
+permissions for each component. Cluster-level permissions are not required for
+the application workloads. The operator requires access to the Kubernetes API
+for CRD management.</p>
+<h3 id="network-policies">Network Policies<a class="headerlink" href="#network-policies" title="Permanent link">&para;</a></h3>
+<p>A CNI plugin that supports NetworkPolicy is required for the default-deny
+security posture. Supported CNI plugins:</p>
+<ul>
+<li>Calico (enhanced policies included in <code>manifests/network-policies/calico/</code>)</li>
+<li>Cilium (enhanced policies included in <code>manifests/network-policies/cilium/</code>)</li>
+<li>Any CNI that implements the <code>networking.k8s.io/v1</code> NetworkPolicy API</li>
+</ul>
+<p>Use <code>--no-network-policies</code> if your CNI does not support NetworkPolicy or if
+you manage network segmentation externally.</p>
+<h2 id="external-services-production-airgap-model">External Services (Production Airgap Model)<a class="headerlink" href="#external-services-production-airgap-model" title="Permanent link">&para;</a></h2>
+<p>For production airgapped deployments, the following external services are <strong>required prerequisites</strong> (not included in the OCI bundle):</p>
+<h3 id="postgresql-database">PostgreSQL (Database)<a class="headerlink" href="#postgresql-database" title="Permanent link">&para;</a></h3>
+<p>RUNE requires a PostgreSQL instance for persistent data storage. Choose one approach:</p>
+<h4 id="option-1-cnpg-operator-recommended-for-kubernetes">Option 1: CNPG Operator (Recommended for Kubernetes)<a class="headerlink" href="#option-1-cnpg-operator-recommended-for-kubernetes" title="Permanent link">&para;</a></h4>
+<p>Deploy CloudNative PG operator on the target cluster:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install CNPG operator (must be done separately, not in RUNE bundle)</span>
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://releases.cnpg.io/downloads/cnpg-1.22.0.yaml
+
+<span class="c1"># After operator is running, create a Postgres cluster</span>
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">apiVersion: postgresql.cnpg.io/v1</span>
+<span class="s">kind: Cluster</span>
+<span class="s">metadata:</span>
+<span class="s">  name: rune-postgres</span>
+<span class="s">  namespace: rune</span>
+<span class="s">spec:</span>
+<span class="s">  instances: 3</span>
+<span class="s">  primaryUpdateStrategy: unsupervised</span>
+<span class="s">  postgresql:</span>
+<span class="s">    parameters:</span>
+<span class="s">      shared_preload_libraries: &#39;&#39;</span>
+<span class="s">  bootstrap:</span>
+<span class="s">    initdb:</span>
+<span class="s">      database: rune</span>
+<span class="s">      owner: rune</span>
+<span class="s">      secret:</span>
+<span class="s">        name: rune-db-secret</span>
+<span class="s">  storage:</span>
+<span class="s">    size: 50Gi</span>
+<span class="s">EOF</span>
+
+<span class="c1"># Create Kubernetes Secret with connection string</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>rune-db-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-n<span class="w"> </span>rune<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">username</span><span class="o">=</span>rune<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">password</span><span class="o">=</span><span class="k">$(</span>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">32</span><span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">RUNE_DB_URL</span><span class="o">=</span><span class="s2">&quot;postgresql://rune:</span><span class="k">$(</span>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">32</span><span class="k">)</span><span class="s2">@rune-postgres-rw.rune.svc.cluster.local:5432/rune&quot;</span>
+</code></pre></div>
+<h4 id="option-2-external-managed-database-aws-rds-cloud-sql-etc">Option 2: External Managed Database (AWS RDS, Cloud SQL, etc.)<a class="headerlink" href="#option-2-external-managed-database-aws-rds-cloud-sql-etc" title="Permanent link">&para;</a></h4>
+<p>Provision the database outside the cluster and create a Kubernetes Secret:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create Secret with external database connection string</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>rune-db-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-n<span class="w"> </span>rune<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">RUNE_DB_URL</span><span class="o">=</span><span class="s2">&quot;postgresql://username:password@db.example.com:5432/rune&quot;</span>
+</code></pre></div>
+<p><strong>Secret format</strong>: The <code>RUNE_DB_URL</code> must be a valid PostgreSQL connection string:
+<div class="highlight"><pre><span></span><code>postgresql://username:password@hostname:port/database
+</code></pre></div></p>
+<h4 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h4>
+<ul>
+<li>PostgreSQL 13+ (or compatible fork)</li>
+<li>Database named <code>rune</code> (or configured in RUNE_DB_URL)</li>
+<li>User with full permissions on the <code>rune</code> database</li>
+<li>Network connectivity from RUNE pods to the database</li>
+<li>(Optional) SSL/TLS for encrypted connections</li>
+</ul>
+<h3 id="s3-compatible-object-storage">S3-Compatible Object Storage<a class="headerlink" href="#s3-compatible-object-storage" title="Permanent link">&para;</a></h3>
+<p>RUNE uses S3-compatible storage for artifact and benchmark data. Choose one approach:</p>
+<h4 id="option-1-minio-in-cluster-or-external">Option 1: Minio (In-Cluster or External)<a class="headerlink" href="#option-1-minio-in-cluster-or-external" title="Permanent link">&para;</a></h4>
+<p>Deploy Minio as a separate service:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Deploy Minio in the cluster (example using Helm)</span>
+helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>minio<span class="w"> </span>https://charts.min.io
+helm<span class="w"> </span>install<span class="w"> </span>minio<span class="w"> </span>minio/minio<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--namespace<span class="w"> </span>minio<span class="w"> </span>--create-namespace<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set<span class="w"> </span><span class="nv">rootUser</span><span class="o">=</span>minioadmin<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set<span class="w"> </span><span class="nv">rootPassword</span><span class="o">=</span><span class="k">$(</span>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">32</span><span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set<span class="w"> </span>persistence.size<span class="o">=</span>100Gi
+
+<span class="c1"># Create S3 credentials Secret</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>rune-s3-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-n<span class="w"> </span>rune<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>minioadmin<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="k">$(</span>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">32</span><span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">S3_ENDPOINT</span><span class="o">=</span>http://minio.minio.svc.cluster.local:9000<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">S3_BUCKET</span><span class="o">=</span>rune
+</code></pre></div>
+<h4 id="option-2-external-s3-aws-s3-gcs-etc">Option 2: External S3 (AWS S3, GCS, etc.)<a class="headerlink" href="#option-2-external-s3-aws-s3-gcs-etc" title="Permanent link">&para;</a></h4>
+<p>Use an external S3-compatible service:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create S3 credentials Secret</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>rune-s3-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-n<span class="w"> </span>rune<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>your-access-key<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>your-secret-key<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">S3_ENDPOINT</span><span class="o">=</span>https://s3.us-west-2.amazonaws.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">S3_BUCKET</span><span class="o">=</span>rune-data
+</code></pre></div>
+<p><strong>Requirements</strong>:
+- S3-compatible endpoint (S3 API, AWS S3, GCS, Minio, etc.)
+- Access credentials (access key ID + secret access key)
+- Bucket created and ready
+- Network connectivity from RUNE pods to the S3 endpoint
+- (Optional) SSL/TLS for encrypted connections</p>
+<h3 id="tier-1-inference-backend">Tier 1 Inference Backend<a class="headerlink" href="#tier-1-inference-backend" title="Permanent link">&para;</a></h3>
+<p>RUNE Tier 1 agents require an LLM inference backend. Supported backends:</p>
+<h4 id="option-1-ollama-self-hosted">Option 1: Ollama (Self-Hosted)<a class="headerlink" href="#option-1-ollama-self-hosted" title="Permanent link">&para;</a></h4>
+<p>Deploy Ollama on the cluster or externally:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Deploy Ollama in the cluster (example)</span>
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">apiVersion: v1</span>
+<span class="s">kind: Pod</span>
+<span class="s">metadata:</span>
+<span class="s">  name: ollama</span>
+<span class="s">  namespace: default</span>
+<span class="s">spec:</span>
+<span class="s">  containers:</span>
+<span class="s">  - name: ollama</span>
+<span class="s">    image: ollama/ollama:latest</span>
+<span class="s">    ports:</span>
+<span class="s">    - containerPort: 11434</span>
+<span class="s">    resources:</span>
+<span class="s">      requests:</span>
+<span class="s">        memory: &quot;16Gi&quot;</span>
+<span class="s">        cpu: &quot;4&quot;</span>
+<span class="s">      limits:</span>
+<span class="s">        memory: &quot;32Gi&quot;</span>
+<span class="s">        cpu: &quot;8&quot;</span>
+<span class="s">EOF</span>
+
+<span class="c1"># Create inference endpoint Secret</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>rune-inference-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-n<span class="w"> </span>rune<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">RUNE_INFERENCE_URL</span><span class="o">=</span>http://ollama.default.svc.cluster.local:11434
+</code></pre></div>
+<h4 id="option-2-external-llm-service">Option 2: External LLM Service<a class="headerlink" href="#option-2-external-llm-service" title="Permanent link">&para;</a></h4>
+<p>Point to an external inference service (k8s-inference, text-generation-webui, etc.):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create inference endpoint Secret</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>rune-inference-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-n<span class="w"> </span>rune<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">RUNE_INFERENCE_URL</span><span class="o">=</span>http://inference.example.com:5000
+</code></pre></div>
+<p><strong>Requirements</strong>:
+- LLM inference server running with OpenAI-compatible API
+- Supported models: Ollama models (llama2, mistral, etc.) for Tier 1 agents
+- Network connectivity from RUNE pods to the inference endpoint
+- (Optional) Authentication credentials if endpoint requires them</p>
+<h3 id="network-connectivity-matrix-production">Network Connectivity Matrix (Production)<a class="headerlink" href="#network-connectivity-matrix-production" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Destination</th>
+<th>Service</th>
+<th>Port</th>
+<th>Protocol</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RUNE pods</td>
+<td>PostgreSQL endpoint</td>
+<td>Database</td>
+<td>5432 (or custom)</td>
+<td>TCP</td>
+<td>Application data</td>
+</tr>
+<tr>
+<td>RUNE pods</td>
+<td>S3 endpoint</td>
+<td>Object storage</td>
+<td>443 or 9000</td>
+<td>TCP (HTTPS)</td>
+<td>Benchmark artifacts</td>
+</tr>
+<tr>
+<td>RUNE pods</td>
+<td>Inference endpoint</td>
+<td>LLM backend</td>
+<td>11434 or custom</td>
+<td>HTTP</td>
+<td>Tier-1 agent inference</td>
+</tr>
+<tr>
+<td>RUNE pods</td>
+<td>DNS server</td>
+<td>CoreDNS</td>
+<td>53</td>
+<td>UDP/TCP</td>
+<td>Service discovery</td>
+</tr>
+</tbody>
+</table>
+<h2 id="containerd-mirror-configuration">Containerd Mirror Configuration<a class="headerlink" href="#containerd-mirror-configuration" title="Permanent link">&para;</a></h2>
+<p>To allow Kubernetes nodes to pull images from the in-cluster Zot registry,
+configure containerd on each node. This is typically done before running the
+bootstrap script.</p>
+<h3 id="for-containerd-17-hostsd-style">For containerd &gt;= 1.7 (hosts.d style)<a class="headerlink" href="#for-containerd-17-hostsd-style" title="Permanent link">&para;</a></h3>
+<p>Create <code>/etc/containerd/certs.d/rune-registry.rune-registry.svc:5000/hosts.toml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://rune-registry.rune-registry.svc:5000&quot;</span>
+
+<span class="k">[host.</span><span class="s2">&quot;http://rune-registry.rune-registry.svc:5000&quot;</span><span class="k">]</span>
+<span class="w">  </span><span class="n">capabilities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pull&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;resolve&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="n">skip_verify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</code></pre></div>
+<p>If the registry uses TLS with a private CA, replace <code>skip_verify = true</code> with:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[host.</span><span class="s2">&quot;https://rune-registry.rune-registry.svc:5000&quot;</span><span class="k">]</span>
+<span class="w">  </span><span class="n">capabilities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pull&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;resolve&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="n">ca</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/etc/containerd/certs.d/rune-registry.rune-registry.svc:5000/ca.crt&quot;</span>
+</code></pre></div>
+<p>Restart containerd after configuration changes:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>containerd
+</code></pre></div>
+<h2 id="pre-deployment-checklist">Pre-Deployment Checklist<a class="headerlink" href="#pre-deployment-checklist" title="Permanent link">&para;</a></h2>
+<p><strong>Cluster &amp; infrastructure</strong>:
+- [ ] Kubernetes cluster is running and accessible via <code>kubectl</code>
+- [ ] kubectl &gt;= 1.27.0 and helm &gt;= 3.12.0 are installed
+- [ ] Bundle tarball has been transferred and checksum verified
+- [ ] Sufficient disk space for bundle extraction (~2x bundle size)
+- [ ] Node resources meet the minimum requirements
+- [ ] CNI plugin supports NetworkPolicy (or plan to use <code>--no-network-policies</code>)
+- [ ] containerd is configured to use the in-cluster registry (or will be post-deploy)
+- [ ] (Production) StorageClass available for registry PVC
+- [ ] (Production) TLS certificates prepared for internal services</p>
+<p><strong>External services (production)</strong>:
+- [ ] PostgreSQL instance provisioned (CNPG or managed service)
+- [ ] Database created and connection string available
+- [ ] S3-compatible storage configured (Minio or external)
+- [ ] S3 credentials and bucket ready
+- [ ] LLM inference backend running (Ollama or external)
+- [ ] Network paths verified (cluster → database, S3, inference)</p>
+<h2 id="quick-start-example-production-airgap">Quick-Start Example (Production Airgap)<a class="headerlink" href="#quick-start-example-production-airgap" title="Permanent link">&para;</a></h2>
+<p>This example walks through a complete setup with external services:</p>
+<h3 id="step-1-prepare-external-services-pre-deployment">Step 1: Prepare external services (pre-deployment)<a class="headerlink" href="#step-1-prepare-external-services-pre-deployment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. PostgreSQL (assume managed service or CNPG already running)</span>
+<span class="c1"># Get connection string from database provider</span>
+<span class="nv">RUNE_DB_URL</span><span class="o">=</span><span class="s2">&quot;postgresql://user:pass@postgres.example.com:5432/rune&quot;</span>
+
+<span class="c1"># 2. S3-compatible storage (assume Minio or AWS S3 ready)</span>
+<span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;your-access-key&quot;</span>
+<span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;your-secret-key&quot;</span>
+<span class="nv">S3_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;https://s3.example.com&quot;</span>
+<span class="nv">S3_BUCKET</span><span class="o">=</span><span class="s2">&quot;rune-data&quot;</span>
+
+<span class="c1"># 3. Inference backend (assume Ollama or other service ready)</span>
+<span class="nv">RUNE_INFERENCE_URL</span><span class="o">=</span><span class="s2">&quot;http://ollama.example.com:11434&quot;</span>
+</code></pre></div>
+<h3 id="step-2-transfer-bundle-to-air-gapped-environment">Step 2: Transfer bundle to air-gapped environment<a class="headerlink" href="#step-2-transfer-bundle-to-air-gapped-environment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># On connected host, build minimal bundle (no embedded services)</span>
+./scripts/build-bundle.sh<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tag<span class="w"> </span>v0.1.0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>rune-bundle-v0.1.0.tar.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--arch<span class="w"> </span>amd64<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--sign
+
+<span class="c1"># Transfer to air-gapped environment via approved mechanism (USB, data diode, etc.)</span>
+</code></pre></div>
+<h3 id="step-3-create-kubernetes-secrets-for-external-services">Step 3: Create Kubernetes Secrets for external services<a class="headerlink" href="#step-3-create-kubernetes-secrets-for-external-services" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># In air-gapped cluster</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>rune
+
+<span class="c1"># PostgreSQL Secret</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>rune-db-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-n<span class="w"> </span>rune<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">RUNE_DB_URL</span><span class="o">=</span><span class="s2">&quot;postgresql://user:pass@postgres.example.com:5432/rune&quot;</span>
+
+<span class="c1"># S3 Secret</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>rune-s3-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-n<span class="w"> </span>rune<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;your-access-key&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;your-secret-key&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">S3_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;https://s3.example.com&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">S3_BUCKET</span><span class="o">=</span><span class="s2">&quot;rune-data&quot;</span>
+
+<span class="c1"># Inference Secret</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>rune-inference-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-n<span class="w"> </span>rune<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">RUNE_INFERENCE_URL</span><span class="o">=</span><span class="s2">&quot;http://ollama.example.com:11434&quot;</span>
+</code></pre></div>
+<h3 id="step-4-deploy-rune-with-bootstrap">Step 4: Deploy RUNE with bootstrap<a class="headerlink" href="#step-4-deploy-rune-with-bootstrap" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create values overlay for external services</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>/tmp/values-prod.yaml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">postgres:</span>
+<span class="s">  enabled: false  # Do NOT use in-cluster Postgres</span>
+
+<span class="s">s3:</span>
+<span class="s">  endpoint: https://s3.example.com</span>
+<span class="s">  bucket: rune-data</span>
+<span class="s">  secretRef: rune-s3-secret</span>
+
+<span class="s">inference:</span>
+<span class="s">  backend: http://ollama.example.com:11434</span>
+<span class="s">EOF</span>
+
+<span class="c1"># Run bootstrap</span>
+./scripts/bootstrap.sh<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--bundle<span class="w"> </span>/path/to/rune-bundle-v0.1.0.tar.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--values<span class="w"> </span>/tmp/values-prod.yaml
+</code></pre></div>
+<h3 id="step-5-verify-deployment">Step 5: Verify deployment<a class="headerlink" href="#step-5-verify-deployment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check all pods running</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>rune
+
+<span class="c1"># Verify database connectivity</span>
+kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>-n<span class="w"> </span>rune<span class="w"> </span>deployment/rune-api<span class="w"> </span>--<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>psql<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$RUNE_DB_URL</span><span class="s2">&quot;</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT version();&quot;</span>
+
+<span class="c1"># Verify S3 connectivity</span>
+kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>-n<span class="w"> </span>rune<span class="w"> </span>deployment/rune-api<span class="w"> </span>--<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>aws<span class="w"> </span>s3<span class="w"> </span>ls<span class="w"> </span>s3://rune-data/
+
+<span class="c1"># Verify inference backend</span>
+kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>-n<span class="w"> </span>rune<span class="w"> </span>deployment/rune-api<span class="w"> </span>--<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>curl<span class="w"> </span>http://ollama.example.com:11434/api/status
+</code></pre></div>
+<p>That's it! RUNE is now deployed in air-gapped production with external services.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
