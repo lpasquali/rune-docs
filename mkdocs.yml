@@ -97,6 +97,12 @@ nav:
       - rune-airgapped:
           - Overview: external-projects/rune-airgapped/overview.md
           - Quickstart: external-projects/rune-airgapped/quickstart.md
+          - Prerequisites: external-projects/rune-airgapped/prerequisites.md
+          - Deployment Guide: external-projects/rune-airgapped/deployment-guide.md
+          - Troubleshooting: external-projects/rune-airgapped/troubleshooting.md
+          - Architecture: external-projects/rune-airgapped/architecture.md
+          - Crossplane: external-projects/rune-airgapped/crossplane.md
+          - Security Hardening: external-projects/rune-airgapped/security-hardening.md
       - Driver SDK:
           - Overview: external-projects/driver-sdk/overview.md
           - Quickstart: external-projects/driver-sdk/quickstart.md
