@@ -16,18 +16,18 @@ permissions:
 
 jobs:
   security:
-    uses: lpasquali/rune-ci/.github/workflows/security-scan.yml@144ef855dbf0420e5d9a8de2c8d8f89c2e789265
+    uses: lpasquali/rune-ci/.github/workflows/security-scan.yml@36eba801cb73e7b613ef1ee33bb3f618928a5952
 
   docs:
-    uses: lpasquali/rune-ci/.github/workflows/docs-quality.yml@144ef855dbf0420e5d9a8de2c8d8f89c2e789265
+    uses: lpasquali/rune-ci/.github/workflows/docs-quality.yml@36eba801cb73e7b613ef1ee33bb3f618928a5952
 
   guard:
-    uses: lpasquali/rune-ci/.github/workflows/nginx-ingress-guard.yml@144ef855dbf0420e5d9a8de2c8d8f89c2e789265
+    uses: lpasquali/rune-ci/.github/workflows/nginx-ingress-guard.yml@36eba801cb73e7b613ef1ee33bb3f618928a5952
 
   compliance:
     needs: [security, docs, guard]
     if: always()
-    uses: lpasquali/rune-ci/.github/workflows/pr-compliance.yml@144ef855dbf0420e5d9a8de2c8d8f89c2e789265
+    uses: lpasquali/rune-ci/.github/workflows/pr-compliance.yml@36eba801cb73e7b613ef1ee33bb3f618928a5952
     with:
       needs-json: ${{ toJson(needs) }}
       merge-gate-excludes: "docs,security,guard" # Force pass
