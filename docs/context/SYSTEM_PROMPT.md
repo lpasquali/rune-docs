@@ -137,7 +137,7 @@ Pick the **highest** applicable level. **CI green alone is not enough.**
 
 ## SOP: issue → merge
 
-1. **Assign** — `lpasquali` + **Take issue** label steps if user-directed (no halt on label mismatch).
+1. **Assign** — Issues start unassigned. Assign to the agent who takes the task + **Take issue** label steps if user-directed (no halt on label mismatch).
 2. **Isolate** — branch (+ repro for bugs).
 3. **Research** — `rune-docs` + code.
 4. **Halt** — confirm 1–2 done; user OK to **Execute**.
