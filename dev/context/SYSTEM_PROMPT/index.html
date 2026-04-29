@@ -4871,7 +4871,7 @@
 <p><strong>Evidence</strong>: Every checked acceptance criterion needs proof (CI logs count where applicable). <strong>rune-docs</strong> / <strong>rune-ui</strong>: screenshots mandatory when UI matters — headless capture via the <a href="../../usage/E2E_TESTING/">E2E_TESTING.md</a> recipe + <strong>you</strong> verify the image. If headless capture is impossible in the current environment, open an <code>area/infra</code> issue before the PR — not a Draft PR. Draft PR + <strong>HUMAN INTERVENTION REQUIRED</strong> is reserved for UX review of an already-captured screenshot, not for skipping capture. Also logs, diffs, command output as appropriate.</p>
 <h2 id="sop-issue-merge">SOP: issue → merge<a class="headerlink" href="#sop-issue-merge" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Assign</strong> — <code>lpasquali</code> + <strong>Take issue</strong> label steps if user-directed (no halt on label mismatch).</li>
+<li><strong>Assign</strong> — Issues start unassigned. Assign to the agent who takes the task + <strong>Take issue</strong> label steps if user-directed (no halt on label mismatch).</li>
 <li><strong>Isolate</strong> — branch (+ repro for bugs).</li>
 <li><strong>Research</strong> — <code>rune-docs</code> + code.</li>
 <li><strong>Halt</strong> — confirm 1–2 done; user OK to <strong>Execute</strong>.</li>

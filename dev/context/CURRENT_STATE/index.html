@@ -469,6 +469,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-29-epic-database-configuration-artifact-proxying-rune-290" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-29 — EPIC: Database Configuration &amp; Artifact Proxying (rune #290)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-28-epic-enterprise-agent-driver-standardization-rune-278" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -870,6 +881,17 @@
     <span class="md-ellipsis">
       
         2026-04-07 — Backend Abstraction &amp; Compliance Session (26+ issues closed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-29-container-fixes-ecosystem-hygiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-29 — Container Fixes &amp; Ecosystem Hygiene
       
     </span>
   </a>
@@ -4813,6 +4835,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-04-29-epic-database-configuration-artifact-proxying-rune-290" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-29 — EPIC: Database Configuration &amp; Artifact Proxying (rune #290)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-28-epic-enterprise-agent-driver-standardization-rune-278" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5221,6 +5254,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#2026-04-29-container-fixes-ecosystem-hygiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-29 — Container Fixes &amp; Ecosystem Hygiene
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-04-06-major-session-45-prs-merged-60-issues-closed" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5317,7 +5361,7 @@
 <p>RUNE is currently in active pre-alpha development for its core LLM backends, agentic workflows, and compute provisioning integrations. It is <strong>not yet production-ready</strong>.</p>
 <h2 id="freshness-policy">Freshness Policy<a class="headerlink" href="#freshness-policy" title="Permanent link">&para;</a></h2>
 <p>This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.</p>
-<p>Last updated: <strong>2026-04-28</strong> (persist: rune <strong>#278</strong> — Enterprise Agent Driver Standardization).</p>
+<p>Last updated: <strong>2026-04-29</strong> (persist: rune <strong>#290</strong> — Database Configuration &amp; Artifact Proxying).</p>
 <h2 id="version-baseline">Version Baseline<a class="headerlink" href="#version-baseline" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -5374,6 +5418,30 @@
 </tbody>
 </table>
 <h2 id="recent-changes">Recent Changes<a class="headerlink" href="#recent-changes" title="Permanent link">&para;</a></h2>
+<h3 id="2026-04-29-epic-database-configuration-artifact-proxying-rune-290">2026-04-29 — EPIC: Database Configuration &amp; Artifact Proxying (rune #290)<a class="headerlink" href="#2026-04-29-epic-database-configuration-artifact-proxying-rune-290" title="Permanent link">&para;</a></h3>
+<p>Implemented centralized database-backed configuration and portable artifact management to resolve environment-specific permission issues and host-absolute path leaks.</p>
+<p><strong>Scope &amp; Deliverables:</strong></p>
+<ul>
+<li><strong>Database-Backed Configuration</strong>: Migrated RUNE configuration profiles from <code>rune.yaml</code> to the database (<code>settings</code> table). This resolves <code>PermissionError</code> in containerized environments (Docker/K8s) where the filesystem is read-only or restricted.</li>
+<li><strong>Config Injection Architecture</strong>: Added a storage-adapter injection pattern to <code>rune_bench.common.config</code> allowing the API server to redirect configuration persistence to the database while maintaining the CLI's filesystem-first behavior.</li>
+<li><strong>YAML Export Functionality</strong>: Added <code>/v1/settings/export</code> endpoint to the API and "Export YAML" buttons to the UI. Users can now export database-stored profiles as valid <code>rune.yaml</code> files for offline CLI usage.</li>
+<li><strong>Artifact Proxying &amp; Sanitization</strong>: Implemented <code>process_agent_artifacts</code> utility to automatically detect absolute host paths (e.g., <code>/home/luca/Devel/image.png</code>) returned by agents. These files are now transparently uploaded to the <code>JobStore</code> as <code>audit_artifact</code> and replaced with portable proxy URLs (<code>/v1/runs/{id}/artifacts/{aid}</code>).</li>
+<li><strong>UI Configuration Dashboard v2</strong>:<ul>
+<li><strong>Dynamic LLM Providers</strong>: Promotion of Vast.ai to a first-class backend type with conditional configuration visibility.</li>
+<li><strong>Model Registry &amp; Suggestions</strong>: Integrated a centralized model registry (<code>rune_bench/common/models.py</code>) providing one-click model suggestions for Ollama and OpenAI backends.</li>
+</ul>
+</li>
+<li><strong>Competence Re-Alignment</strong>:<ul>
+<li><strong>RUNE CLI</strong>: Lightweight execution, no estimation/cost logic.</li>
+<li><strong>RUNE API</strong>: Logic core + estimation, cost planning, and observability.</li>
+<li><strong>RUNE UI</strong>: Full operational control, monitoring, and prediction.</li>
+<li><strong>Rune-Audit</strong>: Pure compliance logic, host-agnostic.</li>
+<li><strong>Rune-Operator</strong>: Pure CNCF Operator logic; all non-K8s logic moved to API.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Evidence.</strong> Verified via manual QA: profiles saved to PostgreSQL 17 in Docker environment; ComfyUI absolute paths successfully proxied to UI; YAML exports validated against <code>rune config validate</code>.</p>
+<hr />
 <h3 id="2026-04-28-epic-enterprise-agent-driver-standardization-rune-278">2026-04-28 — EPIC: Enterprise Agent &amp; Driver Standardization (rune #278)<a class="headerlink" href="#2026-04-28-epic-enterprise-agent-driver-standardization-rune-278" title="Permanent link">&para;</a></h3>
 <p>Standardized the entire enterprise agent matrix, achieving architectural consistency and feature parity across all 23+ agents.</p>
 <p><strong>Scope &amp; Deliverables:</strong></p>
@@ -6161,6 +6229,10 @@ audit-artifact endpoints so the published docs reflect the merged <code>rune</co
 - Added PR body template to SYSTEM_PROMPT.md (rune-docs#94).
 - Added E2E test step to SOP (rune-docs#96).
 - Updated observability docs for backend abstraction (rune-docs#99).</p>
+<h3 id="2026-04-29-container-fixes-ecosystem-hygiene">2026-04-29 — Container Fixes &amp; Ecosystem Hygiene<a class="headerlink" href="#2026-04-29-container-fixes-ecosystem-hygiene" title="Permanent link">&para;</a></h3>
+<p><strong>rune (2 commits):</strong>
+- <strong>Hardcoded Path Remediation</strong>: Fixed "Permission denied: 'home'" error in Docker by replacing hardcoded <code>sqlite:///home/ubuntu/.rune/jobs.db</code> with <code>sqlite:///~/.rune-api/jobs.db</code> in <code>rune_bench/api_server.py</code> and <code>rune/__init__.py</code>. This ensures proper relative path resolution to the application's home directory (<code>/app</code>) and matches the volume mount point in <code>docker-compose.yml</code>.
+- <strong>Validation</strong>: Verified with 1367 passing unit tests in the core repository.</p>
 <h3 id="2026-04-06-major-session-45-prs-merged-60-issues-closed">2026-04-06 — Major Session (45+ PRs merged, 60+ issues closed)<a class="headerlink" href="#2026-04-06-major-session-45-prs-merged-60-issues-closed" title="Permanent link">&para;</a></h3>
 <p><strong>Architecture Refactoring:</strong>
 - <strong>Holmes agent decoupling</strong> (rune#163): Removed <code>_get_holmes_runner()</code> lazy loader, replaced with generic <code>get_agent()</code>. Made <code>agent</code> a required field in API contracts. Default agent is now a config-level setting (<code>rune.yaml</code>), not code.
