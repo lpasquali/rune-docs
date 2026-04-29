@@ -29,7 +29,7 @@ Last updated: **2026-04-29** (persist: rune **#290** — Database Configuration 
 
 ## Recent Changes
 
-### 2026-04-29 — EPIC: Database Configuration & Artifact Proxying (rune #290)
+### 2026-04-29 — EPIC: Database Configuration & Artifact Proxying (rune #292)
 
 Implemented centralized database-backed configuration and portable artifact management to resolve environment-specific permission issues and host-absolute path leaks.
 
