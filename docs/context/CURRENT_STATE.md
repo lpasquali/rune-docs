@@ -13,7 +13,7 @@ RUNE is currently in active pre-alpha development for its core LLM backends, age
 
 This file must be updated whenever system state evolves (per CODING_STANDARDS.md "Atomic Persistence"). If information here conflicts with what you observe in the code or git history, trust what you observe now — then update this file to match reality.
 
-Last updated: **2026-04-28** (persist: rune **#278** — Enterprise Agent Driver Standardization).
+Last updated: **2026-04-29** (persist: rune **#290** — Database Configuration & Artifact Proxying).
 
 ## Version Baseline
 
@@ -28,6 +28,30 @@ Last updated: **2026-04-28** (persist: rune **#278** — Enterprise Agent Driver
 | rune-audit | `v0.0.0a2` | 36 | 100% SR-2 quantitative coverage |
 
 ## Recent Changes
+
+### 2026-04-29 — EPIC: Database Configuration & Artifact Proxying (rune #290)
+
+Implemented centralized database-backed configuration and portable artifact management to resolve environment-specific permission issues and host-absolute path leaks.
+
+**Scope & Deliverables:**
+
+- **Database-Backed Configuration**: Migrated RUNE configuration profiles from `rune.yaml` to the database (`settings` table). This resolves `PermissionError` in containerized environments (Docker/K8s) where the filesystem is read-only or restricted.
+- **Config Injection Architecture**: Added a storage-adapter injection pattern to `rune_bench.common.config` allowing the API server to redirect configuration persistence to the database while maintaining the CLI's filesystem-first behavior.
+- **YAML Export Functionality**: Added `/v1/settings/export` endpoint to the API and "Export YAML" buttons to the UI. Users can now export database-stored profiles as valid `rune.yaml` files for offline CLI usage.
+- **Artifact Proxying & Sanitization**: Implemented `process_agent_artifacts` utility to automatically detect absolute host paths (e.g., `/home/luca/Devel/image.png`) returned by agents. These files are now transparently uploaded to the `JobStore` as `audit_artifact` and replaced with portable proxy URLs (`/v1/runs/{id}/artifacts/{aid}`).
+- **UI Configuration Dashboard v2**:
+    - **Dynamic LLM Providers**: Promotion of Vast.ai to a first-class backend type with conditional configuration visibility.
+    - **Model Registry & Suggestions**: Integrated a centralized model registry (`rune_bench/common/models.py`) providing one-click model suggestions for Ollama and OpenAI backends.
+- **Competence Re-Alignment**:
+    - **RUNE CLI**: Lightweight execution, no estimation/cost logic.
+    - **RUNE API**: Logic core + estimation, cost planning, and observability.
+    - **RUNE UI**: Full operational control, monitoring, and prediction.
+    - **Rune-Audit**: Pure compliance logic, host-agnostic.
+    - **Rune-Operator**: Pure CNCF Operator logic; all non-K8s logic moved to API.
+
+**Evidence.** Verified via manual QA: profiles saved to PostgreSQL 17 in Docker environment; ComfyUI absolute paths successfully proxied to UI; YAML exports validated against `rune config validate`.
+
+---
 
 ### 2026-04-28 — EPIC: Enterprise Agent & Driver Standardization (rune #278)
 
@@ -659,6 +683,12 @@ Consolidated project board automation by splitting Status field ownership (Proje
 - Added PR body template to SYSTEM_PROMPT.md (rune-docs#94).
 - Added E2E test step to SOP (rune-docs#96).
 - Updated observability docs for backend abstraction (rune-docs#99).
+
+### 2026-04-29 — Container Fixes & Ecosystem Hygiene
+
+**rune (2 commits):**
+- **Hardcoded Path Remediation**: Fixed "Permission denied: 'home'" error in Docker by replacing hardcoded `sqlite:///home/ubuntu/.rune/jobs.db` with `sqlite:///~/.rune-api/jobs.db` in `rune_bench/api_server.py` and `rune/__init__.py`. This ensures proper relative path resolution to the application's home directory (`/app`) and matches the volume mount point in `docker-compose.yml`.
+- **Validation**: Verified with 1367 passing unit tests in the core repository.
 
 ### 2026-04-06 — Major Session (45+ PRs merged, 60+ issues closed)
 
