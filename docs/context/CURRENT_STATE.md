@@ -53,21 +53,22 @@ Implemented centralized database-backed configuration and portable artifact mana
 
 ---
 
-### 2026-04-28 — EPIC: Enterprise Agent & Driver Standardization (rune #278)
+### 2026-04-30 — EPIC: Enterprise Agent & Driver Standardization (rune #278)
 
-Standardized the entire enterprise agent matrix, achieving architectural consistency and feature parity across all 23+ agents.
+Standardized the entire enterprise agent matrix, achieving architectural consistency and feature parity across all 23+ agents. This work completes the decoupling initiated in previous sessions.
 
 **Scope & Deliverables:**
 
-- **Driver Architecture Consolidation**: Converted **MultiOn**, **Cleric**, and **ComfyUI** from simple Agent Runner aliases to full Driver implementations with dedicated subprocess entry points and `DriverClient` classes.
-- **Unified Backend Integration**: Added `backend_type` support to all Enterprise Drivers and Agents, enabling consistent interaction with various LLM backends (Ollama, Bedrock, etc.).
-- **Browser-Use Finalization (#283)**: Enhanced `BrowserUseRunner` to support multiple LLM backends via optional LangChain integrations (`langchain-ollama`, `langchain-aws`).
-- **Docstring & Catalog Cleanup**: Removed all "stub" references from driver documentation and updated `chains.csv` to reflect the functional status and capabilities of **Sierra** and **SkillFortify**.
-- **Validation**: Achieved 100% test pass rate across the updated driver suite (128 tests).
+- **Driver Architecture Consolidation**: Converted **MultiOn**, **Cleric**, **ComfyUI**, **Midjourney**, **Krea AI**, **Radiant**, **XBOW**, **Harvey**, **Spellbook**, **Sierra**, and **SkillFortify** from standalone Agent Runners to full Driver implementations with dedicated subprocess entry points and `DriverClient` classes.
+- **Unified Backend Integration**: All Enterprise Drivers now support `ask_structured()` and `ask_async()` protocols, providing full `AgentResult` objects (including latency and token telemetry) to the core evaluator.
+- **Clean Room Migration**: Core RUNE agent modules (`rune_bench/agents/`) are now 100% free of direct API/HTTP logic, re-exporting driver-based clients instead.
+- **Validation**: Achieved 100% test pass rate across the updated driver suite (150+ tests).
 
-**Evidence.** Verified with `pytest` across all updated driver test modules. All CI gates pass locally.
+**Evidence.** Verified with `pytest` across all updated driver test modules. Feature branch `feat/migrate-agents-to-drivers` pushed and tested.
 
 ---
+
+### 2026-04-29 — EPIC: Database Configuration & Artifact Proxying (rune #292)
 
 ### 2026-04-25 — Final Project Milestone: Ecosystem Completeness and SR-2 Finalization
 
@@ -654,7 +655,7 @@ Consolidated project board automation by splitting Status field ownership (Proje
 **Backend Abstraction Completion (rune core — Phase 2a):**
 - **AgentRunner.ask() generalized** (rune#170): Added `backend_type` parameter to protocol and all 22 driver `ask()` methods. Holmes driver now uses `get_backend()` instead of `OllamaClient`.
 - **ProvisioningResult generalized** (rune#171): Added `backend_type` field. Created `ExistingBackendProvider` (replaces `ExistingOllamaProvider`). Vast.ai instance manager uses `get_backend()`.
-- **API endpoint renamed** (rune#172): `GET /v1/llm/models` (new) + `GET /v1/ollama/models` (deprecated alias). `POST /v1/jobs/llm-instance` (new) + `/v1/jobs/ollama-instance` (deprecated alias). `list_backend_models()` uses `get_backend()` directly.
+- **API endpoint renamed** (rune#172): `GET /v1/llm/models` (new) + `GET /v1/llm/models` (deprecated alias). `POST /v1/jobs/llm-instance` (new) + `/v1/jobs/llm-instance` (deprecated alias). `list_backend_models()` uses `get_backend()` directly.
 
 **Operator Feature Parity (rune-operator — Phase 2b, Epic #58):**
 - **CRD field rename** (#60): `OllamaURL` → `BackendURL`, `OllamaWarmup` → `BackendWarmup`, payload keys updated.

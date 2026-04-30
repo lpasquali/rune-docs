@@ -32,8 +32,8 @@ AWS, GCP, Azure, and local hardware fields should be set to their zero-value def
 
 ### Field semantics
 
-- **`Agent string`**: Added to `RuneBenchmarkSpec`. Used only by the `agentic-agent` workflow — inserted into `buildPayload()` for that case. Defaults to `"holmes"` if empty (matching the core API default). The `benchmark` and `ollama-instance` workflows ignore this field.
-- **`AttestationRequired bool`**: Added to `RuneBenchmarkSpec`. Used by the `benchmark` workflow — forwarded as `attestation_required` in `buildPayload()`. The `agentic-agent` and `ollama-instance` workflows ignore this field.
+- **`Agent string`**: Added to `RuneBenchmarkSpec`. Used only by the `agentic-agent` workflow — inserted into `buildPayload()` for that case. Defaults to `"holmes"` if empty (matching the core API default). The `benchmark` and `llm-instance` workflows ignore this field.
+- **`AttestationRequired bool`**: Added to `RuneBenchmarkSpec`. Used by the `benchmark` workflow — forwarded as `attestation_required` in `buildPayload()`. The `agentic-agent` and `llm-instance` workflows ignore this field.
 
 ### CRD regeneration
 

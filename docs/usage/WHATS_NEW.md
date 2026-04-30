@@ -49,8 +49,8 @@ SQLite remains the shipped default. PostgreSQL is the accepted direction for mul
 The Ollama-specific vocabulary across `rune` was generalized to **backend**:
 
 - `ollama_url` → `backend_url`; `RUNE_OLLAMA_URL` → `RUNE_BACKEND_URL`.
-- `run-ollama-instance` → `run-llm-instance`; `/v1/jobs/ollama-instance` → `/v1/jobs/llm-instance` (deprecated alias retained).
-- `GET /v1/ollama/models` → `GET /v1/llm/models` (deprecated alias retained).
+- `run-llm-instance` → `run-llm-instance`; `/v1/jobs/llm-instance` → `/v1/jobs/llm-instance` (deprecated alias retained).
+- `GET /v1/llm/models` → `GET /v1/llm/models` (deprecated alias retained).
 - `OllamaURL`/`OllamaWarmup` → `BackendURL`/`BackendWarmup` in the `RuneBenchmark` CRD.
 - `AgentRunner.ask(...)` gained `backend_type` parameter; `ExistingBackendProvider` replaces `ExistingOllamaProvider`.
 

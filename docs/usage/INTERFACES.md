@@ -8,7 +8,7 @@ Commands, endpoints, and payloads for interacting with RUNE.
 
 `python -m rune` provides the following primary commands:
 
-- `run-ollama-instance`: Provision or select an Ollama server.
+- `run-llm-instance`: Provision or select an Ollama server.
 - `run-agentic-agent`: Run HolmesGPT analysis.
 - `run-benchmark`: Multi-phase workflow for provisioning + analysis.
 - `vastai-list-models`: List configured Vast.ai model catalog.
@@ -40,11 +40,11 @@ Run the server with `python -m rune.api`.
 - `POST /v1/jobs/agentic-agent`: Submit an agent analysis job.
 - `POST /v1/jobs/benchmark`: Submit a full benchmark job.
 - `POST /v1/jobs/llm-instance`: Submit an LLM backend provisioning job.
-- `POST /v1/jobs/ollama-instance`: Deprecated alias for `llm-instance`.
+- `POST /v1/jobs/llm-instance`: Deprecated alias for `llm-instance`.
 - `GET /v1/jobs/{job_id}`: Poll for job status and results.
 - `GET /v1/catalog/vastai-models`: List available Vast.ai models.
 - `GET /v1/llm/models?backend_url=<url>&backend_type=ollama`: List models from a target backend.
-- `GET /v1/ollama/models?backend_url=<url>`: Deprecated alias for the backend-generic models endpoint.
+- `GET /v1/llm/models?backend_url=<url>`: Deprecated alias for the backend-generic models endpoint.
 
 ### Auth Headers
 

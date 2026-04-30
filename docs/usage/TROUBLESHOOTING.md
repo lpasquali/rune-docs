@@ -84,9 +84,9 @@ Then retry. The `scripts/e2e.sh` wrapper (landing via [rune-docs#271](https://gi
 
 **Symptom**: old scripts or CI jobs setting `RUNE_OLLAMA_URL` fail with the CLI not picking it up.
 
-**Diagnosis**: `RUNE_OLLAMA_URL` was renamed to `RUNE_BACKEND_URL` in [rune#173](https://github.com/lpasquali/rune/pull/173) / [#175](https://github.com/lpasquali/rune/pull/175). Subcommands like `run-ollama-instance` were renamed to `run-llm-instance` in [#172](https://github.com/lpasquali/rune/pull/172).
+**Diagnosis**: `RUNE_OLLAMA_URL` was renamed to `RUNE_BACKEND_URL` in [rune#173](https://github.com/lpasquali/rune/pull/173) / [#175](https://github.com/lpasquali/rune/pull/175). Subcommands like `run-llm-instance` were renamed to `run-llm-instance` in [#172](https://github.com/lpasquali/rune/pull/172).
 
-**Fix**: update your scripts per [MIGRATION](MIGRATION.md). Deprecated API aliases (`/v1/ollama/models`, `/v1/jobs/ollama-instance`) still work at the HTTP layer but CLI env-vars do not have aliases.
+**Fix**: update your scripts per [MIGRATION](MIGRATION.md). Deprecated API aliases (`/v1/llm/models`, `/v1/jobs/llm-instance`) still work at the HTTP layer but CLI env-vars do not have aliases.
 
 ## Tokens not comparing correctly
 

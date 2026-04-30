@@ -55,7 +55,7 @@ Jobs are processed asynchronously. `POST` returns `202 Accepted` with a `job_id`
 `POST /v1/jobs/llm-instance`
 - **Request Body**: `RunLLMInstanceRequest`
 - **Response**: `{"job_id": "...", "status": "accepted"}`
-- **Deprecated alias**: `POST /v1/jobs/ollama-instance` (still functional)
+- **Deprecated alias**: `POST /v1/jobs/llm-instance` (still functional)
 
 #### Get Job Status
 
@@ -78,7 +78,7 @@ Jobs are processed asynchronously. `POST` returns `202 Accepted` with a `job_id`
 
 `GET /v1/llm/models?backend_url=<url>&backend_type=ollama`
 - **Response**: `{"backend_url": "...", "backend_type": "ollama", "models": [...], "running_models": [...]}`
-- **Deprecated alias**: `GET /v1/ollama/models?backend_url=<url>` (still functional)
+- **Deprecated alias**: `GET /v1/llm/models?backend_url=<url>` (still functional)
 
 ### Metrics
 

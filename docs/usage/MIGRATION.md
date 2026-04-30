@@ -31,7 +31,7 @@ There is **no env-var alias**; old scripts must be updated.
 
 ## CLI subcommands
 
-### `run-ollama-instance` → `run-llm-instance`
+### `run-llm-instance` → `run-llm-instance`
 
 **Landed**: [rune#172](https://github.com/lpasquali/rune/pull/172) — April 2026.
 
@@ -40,7 +40,7 @@ There is **no env-var alias**; old scripts must be updated.
 **Before**:
 
 ```bash
-python -m rune run-ollama-instance --ollama-url http://...
+python -m rune run-llm-instance --ollama-url http://...
 ```
 
 **After**:
@@ -51,17 +51,15 @@ python -m rune run-llm-instance --backend-url http://... --backend-type ollama
 
 ## HTTP API endpoints
 
-### `GET /v1/ollama/models` → `GET /v1/llm/models`
+### `GET /v1/llm/models` → `GET /v1/llm/models`
 
 **Landed**: [rune#172](https://github.com/lpasquali/rune/pull/172).
 
-**Backward compatibility**: the old path still works as a **deprecated alias**. Scripts can migrate at leisure; new code should use `/v1/llm/models`.
 
-### `POST /v1/jobs/ollama-instance` → `POST /v1/jobs/llm-instance`
+### `POST /v1/jobs/llm-instance` → `POST /v1/jobs/llm-instance`
 
 **Landed**: [rune#172](https://github.com/lpasquali/rune/pull/172).
 
-**Backward compatibility**: deprecated alias remains functional. Payload keys changed in parallel (see next section).
 
 ### Payload keys: `ollama_url` → `backend_url`, add `backend_type`
 
@@ -157,7 +155,6 @@ providers:
     enabled: false
 ```
 
-**Backward compatibility**: the flat `vastai: true` shim still works as a fallback during the pre-alpha window. Scheduled for removal in the first beta.
 
 ## Token handling
 
