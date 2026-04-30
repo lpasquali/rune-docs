@@ -4852,7 +4852,7 @@
 <p><code>POST /v1/jobs/llm-instance</code>
 - <strong>Request Body</strong>: <code>RunLLMInstanceRequest</code>
 - <strong>Response</strong>: <code>{"job_id": "...", "status": "accepted"}</code>
-- <strong>Deprecated alias</strong>: <code>POST /v1/jobs/ollama-instance</code> (still functional)</p>
+- <strong>Deprecated alias</strong>: <code>POST /v1/jobs/llm-instance</code> (still functional)</p>
 <h4 id="get-job-status">Get Job Status<a class="headerlink" href="#get-job-status" title="Permanent link">&para;</a></h4>
 <p><code>GET /v1/jobs/{job_id}</code>
 - <strong>Response</strong>: <code>JobRecord</code> (includes status, result, or error)</p>
@@ -4866,7 +4866,7 @@
 <h4 id="list-llm-backend-models">List LLM Backend Models<a class="headerlink" href="#list-llm-backend-models" title="Permanent link">&para;</a></h4>
 <p><code>GET /v1/llm/models?backend_url=&lt;url&gt;&amp;backend_type=ollama</code>
 - <strong>Response</strong>: <code>{"backend_url": "...", "backend_type": "ollama", "models": [...], "running_models": [...]}</code>
-- <strong>Deprecated alias</strong>: <code>GET /v1/ollama/models?backend_url=&lt;url&gt;</code> (still functional)</p>
+- <strong>Deprecated alias</strong>: <code>GET /v1/llm/models?backend_url=&lt;url&gt;</code> (still functional)</p>
 <h3 id="metrics">Metrics<a class="headerlink" href="#metrics" title="Permanent link">&para;</a></h3>
 <p><code>GET /v1/metrics/summary?job_id=&lt;id&gt;</code>
 - <strong>Response</strong>: <code>{"events": [...]}</code> (aggregated metrics)</p>

@@ -1224,10 +1224,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#run-ollama-instance-run-llm-instance" class="md-nav__link">
+  <a href="#run-llm-instance-run-llm-instance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        run-ollama-instance → run-llm-instance
+        run-llm-instance → run-llm-instance
       
     </span>
   </a>
@@ -1252,10 +1252,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#get-v1ollamamodels-get-v1llmmodels" class="md-nav__link">
+  <a href="#get-v1llmmodels-get-v1llmmodels" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GET /v1/ollama/models → GET /v1/llm/models
+        GET /v1/llm/models → GET /v1/llm/models
       
     </span>
   </a>
@@ -1263,10 +1263,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#post-v1jobsollama-instance-post-v1jobsllm-instance" class="md-nav__link">
+  <a href="#post-v1jobsllm-instance-post-v1jobsllm-instance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        POST /v1/jobs/ollama-instance → POST /v1/jobs/llm-instance
+        POST /v1/jobs/llm-instance → POST /v1/jobs/llm-instance
       
     </span>
   </a>
@@ -4530,10 +4530,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#run-ollama-instance-run-llm-instance" class="md-nav__link">
+  <a href="#run-llm-instance-run-llm-instance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        run-ollama-instance → run-llm-instance
+        run-llm-instance → run-llm-instance
       
     </span>
   </a>
@@ -4558,10 +4558,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#get-v1ollamamodels-get-v1llmmodels" class="md-nav__link">
+  <a href="#get-v1llmmodels-get-v1llmmodels" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GET /v1/ollama/models → GET /v1/llm/models
+        GET /v1/llm/models → GET /v1/llm/models
       
     </span>
   </a>
@@ -4569,10 +4569,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#post-v1jobsollama-instance-post-v1jobsllm-instance" class="md-nav__link">
+  <a href="#post-v1jobsllm-instance-post-v1jobsllm-instance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        POST /v1/jobs/ollama-instance → POST /v1/jobs/llm-instance
+        POST /v1/jobs/llm-instance → POST /v1/jobs/llm-instance
       
     </span>
   </a>
@@ -4794,22 +4794,20 @@ python<span class="w"> </span>-m<span class="w"> </span>rune<span class="w"> </s
 </code></pre></div>
 <p>There is <strong>no env-var alias</strong>; old scripts must be updated.</p>
 <h2 id="cli-subcommands">CLI subcommands<a class="headerlink" href="#cli-subcommands" title="Permanent link">&para;</a></h2>
-<h3 id="run-ollama-instance-run-llm-instance"><code>run-ollama-instance</code> → <code>run-llm-instance</code><a class="headerlink" href="#run-ollama-instance-run-llm-instance" title="Permanent link">&para;</a></h3>
+<h3 id="run-llm-instance-run-llm-instance"><code>run-llm-instance</code> → <code>run-llm-instance</code><a class="headerlink" href="#run-llm-instance-run-llm-instance" title="Permanent link">&para;</a></h3>
 <p><strong>Landed</strong>: <a href="https://github.com/lpasquali/rune/pull/172">rune#172</a> — April 2026.</p>
 <p><strong>Reason</strong>: backend abstraction at the CLI level.</p>
 <p><strong>Before</strong>:</p>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>rune<span class="w"> </span>run-ollama-instance<span class="w"> </span>--ollama-url<span class="w"> </span>http://...
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>rune<span class="w"> </span>run-llm-instance<span class="w"> </span>--ollama-url<span class="w"> </span>http://...
 </code></pre></div>
 <p><strong>After</strong>:</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>rune<span class="w"> </span>run-llm-instance<span class="w"> </span>--backend-url<span class="w"> </span>http://...<span class="w"> </span>--backend-type<span class="w"> </span>ollama
 </code></pre></div>
 <h2 id="http-api-endpoints">HTTP API endpoints<a class="headerlink" href="#http-api-endpoints" title="Permanent link">&para;</a></h2>
-<h3 id="get-v1ollamamodels-get-v1llmmodels"><code>GET /v1/ollama/models</code> → <code>GET /v1/llm/models</code><a class="headerlink" href="#get-v1ollamamodels-get-v1llmmodels" title="Permanent link">&para;</a></h3>
+<h3 id="get-v1llmmodels-get-v1llmmodels"><code>GET /v1/llm/models</code> → <code>GET /v1/llm/models</code><a class="headerlink" href="#get-v1llmmodels-get-v1llmmodels" title="Permanent link">&para;</a></h3>
 <p><strong>Landed</strong>: <a href="https://github.com/lpasquali/rune/pull/172">rune#172</a>.</p>
-<p><strong>Backward compatibility</strong>: the old path still works as a <strong>deprecated alias</strong>. Scripts can migrate at leisure; new code should use <code>/v1/llm/models</code>.</p>
-<h3 id="post-v1jobsollama-instance-post-v1jobsllm-instance"><code>POST /v1/jobs/ollama-instance</code> → <code>POST /v1/jobs/llm-instance</code><a class="headerlink" href="#post-v1jobsollama-instance-post-v1jobsllm-instance" title="Permanent link">&para;</a></h3>
+<h3 id="post-v1jobsllm-instance-post-v1jobsllm-instance"><code>POST /v1/jobs/llm-instance</code> → <code>POST /v1/jobs/llm-instance</code><a class="headerlink" href="#post-v1jobsllm-instance-post-v1jobsllm-instance" title="Permanent link">&para;</a></h3>
 <p><strong>Landed</strong>: <a href="https://github.com/lpasquali/rune/pull/172">rune#172</a>.</p>
-<p><strong>Backward compatibility</strong>: deprecated alias remains functional. Payload keys changed in parallel (see next section).</p>
 <h3 id="payload-keys-ollama_url-backend_url-add-backend_type">Payload keys: <code>ollama_url</code> → <code>backend_url</code>, add <code>backend_type</code><a class="headerlink" href="#payload-keys-ollama_url-backend_url-add-backend_type" title="Permanent link">&para;</a></h3>
 <p><strong>Landed</strong>: <a href="https://github.com/lpasquali/rune/pull/173">rune#173</a>.</p>
 <p><strong>Before</strong>:</p>
@@ -4871,7 +4869,6 @@ python<span class="w"> </span>-m<span class="w"> </span>rune<span class="w"> </s
 <span class="w">  </span><span class="nt">gcp</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
-<p><strong>Backward compatibility</strong>: the flat <code>vastai: true</code> shim still works as a fallback during the pre-alpha window. Scheduled for removal in the first beta.</p>
 <h2 id="token-handling">Token handling<a class="headerlink" href="#token-handling" title="Permanent link">&para;</a></h2>
 <h3 id="sha-256-hashing-removed-raw-tokens-with-hmaccompare_digest">SHA-256 hashing removed; raw tokens with <code>hmac.compare_digest</code><a class="headerlink" href="#sha-256-hashing-removed-raw-tokens-with-hmaccompare_digest" title="Permanent link">&para;</a></h3>
 <p><strong>Landed</strong>: <a href="https://github.com/lpasquali/rune/pull/217">rune#217</a> — April 2026. CodeQL-driven security hardening.</p>

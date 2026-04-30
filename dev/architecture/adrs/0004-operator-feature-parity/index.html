@@ -4502,8 +4502,8 @@
 <p>AWS, GCP, Azure, and local hardware fields should be set to their zero-value defaults (the operator does not currently support these providers).</p>
 <h3 id="field-semantics">Field semantics<a class="headerlink" href="#field-semantics" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong><code>Agent string</code></strong>: Added to <code>RuneBenchmarkSpec</code>. Used only by the <code>agentic-agent</code> workflow — inserted into <code>buildPayload()</code> for that case. Defaults to <code>"holmes"</code> if empty (matching the core API default). The <code>benchmark</code> and <code>ollama-instance</code> workflows ignore this field.</li>
-<li><strong><code>AttestationRequired bool</code></strong>: Added to <code>RuneBenchmarkSpec</code>. Used by the <code>benchmark</code> workflow — forwarded as <code>attestation_required</code> in <code>buildPayload()</code>. The <code>agentic-agent</code> and <code>ollama-instance</code> workflows ignore this field.</li>
+<li><strong><code>Agent string</code></strong>: Added to <code>RuneBenchmarkSpec</code>. Used only by the <code>agentic-agent</code> workflow — inserted into <code>buildPayload()</code> for that case. Defaults to <code>"holmes"</code> if empty (matching the core API default). The <code>benchmark</code> and <code>llm-instance</code> workflows ignore this field.</li>
+<li><strong><code>AttestationRequired bool</code></strong>: Added to <code>RuneBenchmarkSpec</code>. Used by the <code>benchmark</code> workflow — forwarded as <code>attestation_required</code> in <code>buildPayload()</code>. The <code>agentic-agent</code> and <code>llm-instance</code> workflows ignore this field.</li>
 </ul>
 <h3 id="crd-regeneration">CRD regeneration<a class="headerlink" href="#crd-regeneration" title="Permanent link">&para;</a></h3>
 <p>The operator uses kubebuilder markers but has <strong>no Makefile or <code>controller-gen</code> toolchain wired in</strong>. After modifying <code>runebenchmark_types.go</code>:</p>

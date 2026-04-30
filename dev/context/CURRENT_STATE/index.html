@@ -480,10 +480,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2026-04-28-epic-enterprise-agent-driver-standardization-rune-278" class="md-nav__link">
+  <a href="#2026-04-30-epic-enterprise-agent-driver-standardization-rune-278" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2026-04-28 — EPIC: Enterprise Agent &amp; Driver Standardization (rune #278)
+        2026-04-30 — EPIC: Enterprise Agent &amp; Driver Standardization (rune #278)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-29-epic-database-configuration-artifact-proxying-rune-292_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-29 — EPIC: Database Configuration &amp; Artifact Proxying (rune #292)
       
     </span>
   </a>
@@ -4846,10 +4857,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2026-04-28-epic-enterprise-agent-driver-standardization-rune-278" class="md-nav__link">
+  <a href="#2026-04-30-epic-enterprise-agent-driver-standardization-rune-278" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2026-04-28 — EPIC: Enterprise Agent &amp; Driver Standardization (rune #278)
+        2026-04-30 — EPIC: Enterprise Agent &amp; Driver Standardization (rune #278)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2026-04-29-epic-database-configuration-artifact-proxying-rune-292_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-04-29 — EPIC: Database Configuration &amp; Artifact Proxying (rune #292)
       
     </span>
   </a>
@@ -5442,18 +5464,18 @@
 </ul>
 <p><strong>Evidence.</strong> Verified via manual QA: profiles saved to PostgreSQL 17 in Docker environment; ComfyUI absolute paths successfully proxied to UI; YAML exports validated against <code>rune config validate</code>.</p>
 <hr />
-<h3 id="2026-04-28-epic-enterprise-agent-driver-standardization-rune-278">2026-04-28 — EPIC: Enterprise Agent &amp; Driver Standardization (rune #278)<a class="headerlink" href="#2026-04-28-epic-enterprise-agent-driver-standardization-rune-278" title="Permanent link">&para;</a></h3>
-<p>Standardized the entire enterprise agent matrix, achieving architectural consistency and feature parity across all 23+ agents.</p>
+<h3 id="2026-04-30-epic-enterprise-agent-driver-standardization-rune-278">2026-04-30 — EPIC: Enterprise Agent &amp; Driver Standardization (rune #278)<a class="headerlink" href="#2026-04-30-epic-enterprise-agent-driver-standardization-rune-278" title="Permanent link">&para;</a></h3>
+<p>Standardized the entire enterprise agent matrix, achieving architectural consistency and feature parity across all 23+ agents. This work completes the decoupling initiated in previous sessions.</p>
 <p><strong>Scope &amp; Deliverables:</strong></p>
 <ul>
-<li><strong>Driver Architecture Consolidation</strong>: Converted <strong>MultiOn</strong>, <strong>Cleric</strong>, and <strong>ComfyUI</strong> from simple Agent Runner aliases to full Driver implementations with dedicated subprocess entry points and <code>DriverClient</code> classes.</li>
-<li><strong>Unified Backend Integration</strong>: Added <code>backend_type</code> support to all Enterprise Drivers and Agents, enabling consistent interaction with various LLM backends (Ollama, Bedrock, etc.).</li>
-<li><strong>Browser-Use Finalization (#283)</strong>: Enhanced <code>BrowserUseRunner</code> to support multiple LLM backends via optional LangChain integrations (<code>langchain-ollama</code>, <code>langchain-aws</code>).</li>
-<li><strong>Docstring &amp; Catalog Cleanup</strong>: Removed all "stub" references from driver documentation and updated <code>chains.csv</code> to reflect the functional status and capabilities of <strong>Sierra</strong> and <strong>SkillFortify</strong>.</li>
-<li><strong>Validation</strong>: Achieved 100% test pass rate across the updated driver suite (128 tests).</li>
+<li><strong>Driver Architecture Consolidation</strong>: Converted <strong>MultiOn</strong>, <strong>Cleric</strong>, <strong>ComfyUI</strong>, <strong>Midjourney</strong>, <strong>Krea AI</strong>, <strong>Radiant</strong>, <strong>XBOW</strong>, <strong>Harvey</strong>, <strong>Spellbook</strong>, <strong>Sierra</strong>, and <strong>SkillFortify</strong> from standalone Agent Runners to full Driver implementations with dedicated subprocess entry points and <code>DriverClient</code> classes.</li>
+<li><strong>Unified Backend Integration</strong>: All Enterprise Drivers now support <code>ask_structured()</code> and <code>ask_async()</code> protocols, providing full <code>AgentResult</code> objects (including latency and token telemetry) to the core evaluator.</li>
+<li><strong>Clean Room Migration</strong>: Core RUNE agent modules (<code>rune_bench/agents/</code>) are now 100% free of direct API/HTTP logic, re-exporting driver-based clients instead.</li>
+<li><strong>Validation</strong>: Achieved 100% test pass rate across the updated driver suite (150+ tests).</li>
 </ul>
-<p><strong>Evidence.</strong> Verified with <code>pytest</code> across all updated driver test modules. All CI gates pass locally.</p>
+<p><strong>Evidence.</strong> Verified with <code>pytest</code> across all updated driver test modules. Feature branch <code>feat/migrate-agents-to-drivers</code> pushed and tested.</p>
 <hr />
+<h3 id="2026-04-29-epic-database-configuration-artifact-proxying-rune-292_1">2026-04-29 — EPIC: Database Configuration &amp; Artifact Proxying (rune #292)<a class="headerlink" href="#2026-04-29-epic-database-configuration-artifact-proxying-rune-292_1" title="Permanent link">&para;</a></h3>
 <h3 id="2026-04-25-final-project-milestone-ecosystem-completeness-and-sr-2-finalization">2026-04-25 — Final Project Milestone: Ecosystem Completeness and SR-2 Finalization<a class="headerlink" href="#2026-04-25-final-project-milestone-ecosystem-completeness-and-sr-2-finalization" title="Permanent link">&para;</a></h3>
 <p>Finalized all 5 high-priority epics across the RUNE ecosystem, achieving feature parity and 97%+ test coverage across core components.</p>
 <p><strong>Scope &amp; Deliverables:</strong></p>
@@ -6204,7 +6226,7 @@ audit-artifact endpoints so the published docs reflect the merged <code>rune</co
 <p><strong>Backend Abstraction Completion (rune core — Phase 2a):</strong>
 - <strong>AgentRunner.ask() generalized</strong> (rune#170): Added <code>backend_type</code> parameter to protocol and all 22 driver <code>ask()</code> methods. Holmes driver now uses <code>get_backend()</code> instead of <code>OllamaClient</code>.
 - <strong>ProvisioningResult generalized</strong> (rune#171): Added <code>backend_type</code> field. Created <code>ExistingBackendProvider</code> (replaces <code>ExistingOllamaProvider</code>). Vast.ai instance manager uses <code>get_backend()</code>.
-- <strong>API endpoint renamed</strong> (rune#172): <code>GET /v1/llm/models</code> (new) + <code>GET /v1/ollama/models</code> (deprecated alias). <code>POST /v1/jobs/llm-instance</code> (new) + <code>/v1/jobs/ollama-instance</code> (deprecated alias). <code>list_backend_models()</code> uses <code>get_backend()</code> directly.</p>
+- <strong>API endpoint renamed</strong> (rune#172): <code>GET /v1/llm/models</code> (new) + <code>GET /v1/llm/models</code> (deprecated alias). <code>POST /v1/jobs/llm-instance</code> (new) + <code>/v1/jobs/llm-instance</code> (deprecated alias). <code>list_backend_models()</code> uses <code>get_backend()</code> directly.</p>
 <p><strong>Operator Feature Parity (rune-operator — Phase 2b, Epic #58):</strong>
 - <strong>CRD field rename</strong> (#60): <code>OllamaURL</code> → <code>BackendURL</code>, <code>OllamaWarmup</code> → <code>BackendWarmup</code>, payload keys updated.
 - <strong>backend_type field</strong> (#61): Added <code>BackendType</code> with kubebuilder default <code>"ollama"</code> to all payload branches.

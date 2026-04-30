@@ -4492,8 +4492,8 @@
 <p>The Ollama-specific vocabulary across <code>rune</code> was generalized to <strong>backend</strong>:</p>
 <ul>
 <li><code>ollama_url</code> → <code>backend_url</code>; <code>RUNE_OLLAMA_URL</code> → <code>RUNE_BACKEND_URL</code>.</li>
-<li><code>run-ollama-instance</code> → <code>run-llm-instance</code>; <code>/v1/jobs/ollama-instance</code> → <code>/v1/jobs/llm-instance</code> (deprecated alias retained).</li>
-<li><code>GET /v1/ollama/models</code> → <code>GET /v1/llm/models</code> (deprecated alias retained).</li>
+<li><code>run-llm-instance</code> → <code>run-llm-instance</code>; <code>/v1/jobs/llm-instance</code> → <code>/v1/jobs/llm-instance</code> (deprecated alias retained).</li>
+<li><code>GET /v1/llm/models</code> → <code>GET /v1/llm/models</code> (deprecated alias retained).</li>
 <li><code>OllamaURL</code>/<code>OllamaWarmup</code> → <code>BackendURL</code>/<code>BackendWarmup</code> in the <code>RuneBenchmark</code> CRD.</li>
 <li><code>AgentRunner.ask(...)</code> gained <code>backend_type</code> parameter; <code>ExistingBackendProvider</code> replaces <code>ExistingOllamaProvider</code>.</li>
 </ul>

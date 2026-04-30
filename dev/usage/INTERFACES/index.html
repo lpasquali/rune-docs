@@ -4521,7 +4521,7 @@
 <h2 id="cli-commands">CLI Commands<a class="headerlink" href="#cli-commands" title="Permanent link">&para;</a></h2>
 <p><code>python -m rune</code> provides the following primary commands:</p>
 <ul>
-<li><code>run-ollama-instance</code>: Provision or select an Ollama server.</li>
+<li><code>run-llm-instance</code>: Provision or select an Ollama server.</li>
 <li><code>run-agentic-agent</code>: Run HolmesGPT analysis.</li>
 <li><code>run-benchmark</code>: Multi-phase workflow for provisioning + analysis.</li>
 <li><code>vastai-list-models</code>: List configured Vast.ai model catalog.</li>
@@ -4548,11 +4548,11 @@
 <li><code>POST /v1/jobs/agentic-agent</code>: Submit an agent analysis job.</li>
 <li><code>POST /v1/jobs/benchmark</code>: Submit a full benchmark job.</li>
 <li><code>POST /v1/jobs/llm-instance</code>: Submit an LLM backend provisioning job.</li>
-<li><code>POST /v1/jobs/ollama-instance</code>: Deprecated alias for <code>llm-instance</code>.</li>
+<li><code>POST /v1/jobs/llm-instance</code>: Deprecated alias for <code>llm-instance</code>.</li>
 <li><code>GET /v1/jobs/{job_id}</code>: Poll for job status and results.</li>
 <li><code>GET /v1/catalog/vastai-models</code>: List available Vast.ai models.</li>
 <li><code>GET /v1/llm/models?backend_url=&lt;url&gt;&amp;backend_type=ollama</code>: List models from a target backend.</li>
-<li><code>GET /v1/ollama/models?backend_url=&lt;url&gt;</code>: Deprecated alias for the backend-generic models endpoint.</li>
+<li><code>GET /v1/llm/models?backend_url=&lt;url&gt;</code>: Deprecated alias for the backend-generic models endpoint.</li>
 </ul>
 <h3 id="auth-headers">Auth Headers<a class="headerlink" href="#auth-headers" title="Permanent link">&para;</a></h3>
 <ul>
