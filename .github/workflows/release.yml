@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   release:
-    uses: lpasquali/rune-ci/.github/workflows/release.yml@36eba801cb73e7b613ef1ee33bb3f618928a5952
+    uses: lpasquali/rune-ci/.github/workflows/release.yml@d1d2d2863dac135812bf98b89ae6f9bef8c33e63
     with:
       build-container: false
       generate-sbom: false
