@@ -741,11 +741,11 @@ Consolidated project board automation by splitting Status field ownership (Proje
 
 | Repo | Issue | Summary | Status |
 |---|---|---|---|
-| rune | [#284](https://github.com/lpasquali/rune/issues/284) | EPIC: Core Backend & Telemetry Completeness | In Progress (`gemini_cli`) |
-| rune | [#290](https://github.com/lpasquali/rune/issues/290) | Implement finops simulation endpoint | In Progress (`gemini_cli`) |
-| rune-operator | [#138](https://github.com/lpasquali/rune-operator/issues/138) | EPIC: Refactor operator to CNCF-compliant thin reconciler | In Progress (`gemini_cli`) |
-| rune-audit | [#112](https://github.com/lpasquali/rune-audit/issues/112) | EPIC: SR-2 Compliance Automation Finalization | In Progress (`gemini_cli`) |
-| rune-airgapped | [#99](https://github.com/lpasquali/rune-airgapped/issues/99) | EPIC: Airgapped Production Bundle Implementation | Planned, not started (`gemini_cli`) |
+| rune | [#284](https://github.com/lpasquali/rune/issues/284) | EPIC: Core Backend & Telemetry Completeness | PR #302 (`gemini_cli`) |
+| rune | [#290](https://github.com/lpasquali/rune/issues/290) | Implement finops simulation endpoint | PR #303 (`gemini_cli`) |
+| rune-operator | [#138](https://github.com/lpasquali/rune-operator/issues/138) | EPIC: Refactor operator to CNCF-compliant thin reconciler | In Progress (`claude_cli`) |
+| rune-audit | [#112](https://github.com/lpasquali/rune-audit/issues/112) | EPIC: SR-2 Compliance Automation Finalization | In Progress (`claude_cli`) |
+| rune-airgapped | [#99](https://github.com/lpasquali/rune-airgapped/issues/99) | EPIC: Airgapped Production Bundle Implementation | Planned, not started (`claude_cli`) |
 
 ## Open CVEs
 
